@@ -4,7 +4,7 @@
 const DATA = {
   questions: [],
   answersById: new Map(),
-  domainsById: new Map(), // id(string) -> domain number (1..5)
+  domainsById: new Map(), // id(string) -> domain number (1..5) OR null/undefined for unassigned
 };
 
 const STORAGE_SESSION = "secplus_session_v5";
@@ -61,8 +61,8 @@ const ui = {
 
   // Results controls
   resultsSummary: el("resultsSummary"),
-  sessionMix: el("sessionMix"),           // NEW
-  domainWarnings: el("domainWarnings"),   // NEW
+  sessionMix: el("sessionMix"),
+  domainWarnings: el("domainWarnings"),
   domainBreakdown: el("domainBreakdown"),
   chkIncorrectOnly: el("chkIncorrectOnly"),
   resultsReview: el("resultsReview"),
@@ -120,6 +120,35 @@ function escapeHtml(str){
 }
 function pct(n){ return (n * 100).toFixed(1) + "%"; }
 
+/**
+ * Binds dynamic hint text for <details> blocks:
+ * - When closed: uses the original hint text that was in the HTML
+ * - When open: changes to "tap to collapse"
+ *
+ * Works for Feedback/Explanation sections AND Domain Audit summary hints.
+ */
+function bindDetailsToggleHints(root = document){
+  const detailsList = root.querySelectorAll ? root.querySelectorAll("details") : [];
+  detailsList.forEach((d) => {
+    if (d.dataset.hintBound === "1") return; // prevent double-binding
+    d.dataset.hintBound = "1";
+
+    const hint = d.querySelector("summary .summaryHint");
+    if (!hint) return;
+
+    // Store the original (closed) hint text once.
+    // This preserves special home text like "see tag coverage + counts".
+    if (!d.dataset.hintClosed) d.dataset.hintClosed = hint.textContent || "tap to expand";
+
+    const update = () => {
+      hint.textContent = d.open ? "tap to collapse" : (d.dataset.hintClosed || "tap to expand");
+    };
+
+    update();
+    d.addEventListener("toggle", update);
+  });
+}
+
 // ---------- storage ----------
 function saveSession(){ if (state) localStorage.setItem(STORAGE_SESSION, JSON.stringify(state)); }
 function loadSession(){
@@ -151,7 +180,9 @@ function clearLearning(){
 // ---------- domains ----------
 function getDomainForId(id){
   const d = DATA.domainsById.get(String(id));
-  return (d === undefined || d === null) ? null : Number(d);
+  if (d === undefined || d === null) return null;
+  const n = Number(d);
+  return Number.isFinite(n) ? n : null;
 }
 function domainMatchesFilter(id, filterValue){
   const d = getDomainForId(id);
@@ -182,12 +213,14 @@ async function loadData(){
   setStatus("Loading…", "warn");
 
   const questions = await safeJson("data/questions.json", []);
-  const answers   = await safeJson("data/answers_1_25.json", []);
-  const domains   = await safeJson("data/domains.json", {}); // optional
+  // Prefer 1-50 if present; otherwise fall back to 1-25
+  let answers = await safeJson("data/answers_1_50.json", null);
+  if (!Array.isArray(answers)) answers = await safeJson("data/answers_1_25.json", []);
+  const domains = await safeJson("data/domains.json", {}); // optional
 
   DATA.questions = questions;
-  DATA.answersById = new Map(answers.map(x => [x.id, x]));
-  DATA.domainsById = new Map(Object.entries(domains));
+  DATA.answersById = new Map((answers || []).map(x => [x.id, x]));
+  DATA.domainsById = new Map(Object.entries(domains || {}));
 
   if (DATA.questions.length === 0){
     setStatus("ERROR: questions.json not loaded", "bad");
@@ -199,6 +232,9 @@ async function loadData(){
   setTimeout(()=>setStatus("", ""), 2000);
 
   renderDomainAudit();
+  // Ensure details hints are correct on initial home render (Domain Audit + anything else)
+  bindDetailsToggleHints(document);
+
   return true;
 }
 
@@ -326,6 +362,9 @@ function renderDomainAudit(){
   ui.unassignedList.textContent = unassignedIds.length
     ? unassignedIds.join(", ")
     : "None — everything is tagged.";
+
+  // If Domain Audit DOM was re-rendered, ensure hints are bound
+  bindDetailsToggleHints(document);
 }
 
 // ---------- selection helpers ----------
@@ -471,7 +510,7 @@ function startSession({mode, setType, explainedOnly, domainFilter, count}){
     } else if (domainFilter !== "all"){
       alert("No questions match this Domain filter yet. Try 'All domains' or 'Unassigned'.");
     } else {
-      alert("No questions available. Check that data/questions.json and data/answers_1_25.json are loading.");
+      alert("No questions available. Check that data/questions.json and the answers file are loading.");
     }
     return;
   }
@@ -663,6 +702,10 @@ function renderExplanation(qid){
   `;
 
   ui.questionBox.appendChild(box);
+
+  // Bind dynamic hints for details inside this explanation block
+  bindDetailsToggleHints(box);
+
   box.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -670,7 +713,7 @@ function renderExplanation(qid){
 function next(){ if (state.index < state.ids.length - 1){ state.index++; saveSession(); renderQuiz(); } }
 function prev(){ if (state.index > 0){ state.index--; saveSession(); renderQuiz(); } }
 
-// ---------- results helpers (NEW) ----------
+// ---------- results helpers ----------
 function countDomainsForIds(ids){
   const c = {1:0,2:0,3:0,4:0,5:0, unassigned:0};
   for (const id of ids){
@@ -700,10 +743,8 @@ function gradeAnswered(){
 }
 
 function renderSessionMixAndWarnings(){
-  // Session mix (selected IDs)
   const selectedMix = countDomainsForIds(state.ids);
 
-  // Answered mix
   const answeredIds = Object.keys(state.answers).map(Number);
   const answeredMix = countDomainsForIds(answeredIds);
 
@@ -718,9 +759,11 @@ function renderSessionMixAndWarnings(){
     `Session domain mix (selected): ${mixToString(selectedMix)} • Blueprint target for ${N}: ${blueprint} • ${weightingMode}${weightingNote}
 Answered mix: ${answeredIds.length ? mixToString(answeredMix) : "None answered yet"}`;
 
-  // Warning: answered questions with missing domain tags
   if (answeredMix.unassigned > 0){
-    const unassignedAnswered = answeredIds.filter(id => getDomainForId(id) === null).sort((a,b)=>a-b);
+    const unassignedAnswered = answeredIds
+      .filter(id => getDomainForId(id) === null)
+      .sort((a,b)=>a-b);
+
     const preview = unassignedAnswered.slice(0, 30).join(", ");
     const more = unassignedAnswered.length > 30 ? ` …(+${unassignedAnswered.length - 30} more)` : "";
 
@@ -777,7 +820,7 @@ function renderResults(){
     </div>
   `;
 
-  renderSessionMixAndWarnings();   // NEW
+  renderSessionMixAndWarnings();
   renderDomainBreakdown();
   renderResultsReview();
 }
