@@ -14,7 +14,7 @@
       <div class="logo">S+</div>
       <div>
         <div class="title">Security+ Practice</div>
-        <div class="subtitle">Study + Exam mode</div>
+        <div class="subtitle">Study + Exam mode (MVP)</div>
       </div>
     </div>
     <div id="statusPill" class="pill hidden"></div>
@@ -22,47 +22,21 @@
 
   <main class="container">
 
-    <!-- Home -->
     <section id="viewHome" class="card">
       <h1>Start</h1>
       <p class="muted">
-        Uses immutable question bank + separate answer/explanation datasets.
-        Explanations appear only after you select an answer.
+        Loads your immutable question bank + answers/explanations for Q1–Q25.
+        Explanations show only after you select an answer.
       </p>
 
       <div class="grid2">
-        <!-- Study -->
         <div class="panel">
           <h2>Study mode</h2>
-          <p class="muted">Immediate explanation after you answer.</p>
-
+          <p class="muted">Immediate feedback + explanation after each answer.</p>
           <label class="row">
             <input id="studyExplainedOnly" type="checkbox" checked />
-            <span>Use only questions with explanations (recommended)</span>
+            <span>Use only questions with explanations (recommended for now)</span>
           </label>
-
-          <label class="row">
-            <span class="w90">Question set</span>
-            <select id="studySetType">
-              <option value="random" selected>Random</option>
-              <option value="flagged">Review flagged</option>
-              <option value="weak">Weak-area training</option>
-            </select>
-          </label>
-
-          <label class="row">
-            <span class="w90">Domain filter</span>
-            <select id="studyDomain">
-              <option value="all" selected>All domains</option>
-              <option value="1">Domain 1</option>
-              <option value="2">Domain 2</option>
-              <option value="3">Domain 3</option>
-              <option value="4">Domain 4</option>
-              <option value="5">Domain 5</option>
-              <option value="unassigned">Unassigned</option>
-            </select>
-          </label>
-
           <label class="row">
             <span class="w90">Number of questions</span>
             <select id="studyCount">
@@ -71,42 +45,16 @@
               <option value="all">All available</option>
             </select>
           </label>
-
           <button id="btnStartStudy" class="btn primary">Start Study</button>
         </div>
 
-        <!-- Exam -->
         <div class="panel">
           <h2>Exam mode</h2>
-          <p class="muted">Randomized. Quit anytime → graded on answered.</p>
-
+          <p class="muted">Random set. Quit anytime and get graded on answered questions.</p>
           <label class="row">
             <input id="examExplainedOnly" type="checkbox" checked />
-            <span>Use only questions with explanations (recommended)</span>
+            <span>Use only questions with explanations (recommended for now)</span>
           </label>
-
-          <label class="row">
-            <span class="w90">Question set</span>
-            <select id="examSetType">
-              <option value="random" selected>Random</option>
-              <option value="flagged">Review flagged</option>
-              <option value="weak">Weak-area training</option>
-            </select>
-          </label>
-
-          <label class="row">
-            <span class="w90">Domain filter</span>
-            <select id="examDomain">
-              <option value="all" selected>All domains</option>
-              <option value="1">Domain 1</option>
-              <option value="2">Domain 2</option>
-              <option value="3">Domain 3</option>
-              <option value="4">Domain 4</option>
-              <option value="5">Domain 5</option>
-              <option value="unassigned">Unassigned</option>
-            </select>
-          </label>
-
           <label class="row">
             <span class="w90">Number of questions</span>
             <select id="examCount">
@@ -115,7 +63,6 @@
               <option value="all">All available</option>
             </select>
           </label>
-
           <button id="btnStartExam" class="btn primary">Start Exam</button>
         </div>
       </div>
@@ -124,23 +71,17 @@
 
       <div class="row wrap">
         <button id="btnResume" class="btn">Resume last session</button>
-        <button id="btnResetSession" class="btn danger">Reset session</button>
-        <button id="btnResetLearning" class="btn danger">Reset flags & learning</button>
+        <button id="btnReset" class="btn danger">Reset saved data</button>
       </div>
     </section>
 
-    <!-- Quiz -->
     <section id="viewQuiz" class="card hidden">
       <div class="quizTop">
         <div>
           <div id="modeLabel" class="pill"></div>
           <div id="progressLabel" class="muted small"></div>
-          <div id="domainLabel" class="muted small"></div>
         </div>
-        <div class="row wrap">
-          <button id="btnFlag" class="btn">Flag</button>
-          <button id="btnQuit" class="btn danger">Quit & Grade</button>
-        </div>
+        <button id="btnQuit" class="btn danger">Quit & Grade</button>
       </div>
 
       <hr />
@@ -152,20 +93,11 @@
       </div>
     </section>
 
-    <!-- Results -->
     <section id="viewResults" class="card hidden">
       <h1>Results</h1>
+      <div id="resultsSummary" class="panel"></div>
 
-      <div class="panel">
-        <div id="resultsSummary"></div>
-        <hr />
-        <label class="row">
-          <input id="chkIncorrectOnly" type="checkbox" />
-          <span>Review incorrect only</span>
-        </label>
-      </div>
-
-      <h2>Review</h2>
+      <h2>Answered questions review</h2>
       <div id="resultsReview" class="stack"></div>
 
       <hr />
