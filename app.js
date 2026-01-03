@@ -1,7 +1,7 @@
 // Security+ Practice (Mobile-friendly)
 // Features: Study + Exam, Quit-anytime grading, Random sessions,
 // Flag questions + Review flagged, Weak-area training, Review incorrect-only.
-// No Domains in this build (stable, fewer moving parts).
+// No Domains in this build (stable).
 
 const DATA = { questions: [], answersById: new Map() };
 
@@ -246,7 +246,6 @@ function renderQuiz(){
   ui.progressLabel.textContent = `Question ${state.index + 1} of ${state.ids.length} • Answered ${answeredCount}`;
 
   updateFlagButton();
-
   ui.questionBox.innerHTML = "";
 
   const pack = DATA.answersById.get(q.id) || null;
@@ -371,8 +370,6 @@ function renderExplanation(qid){
   `;
 
   ui.questionBox.appendChild(box);
-
-  // Keeps the result strip visible on mobile after answer
   box.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -500,7 +497,7 @@ async function safeJson(url, fallback){
 }
 
 async function loadData(){
-  setStatus("Loading data…", "warn");
+  setStatus("Loading…", "warn");
 
   const questions = await safeJson("data/questions.json", []);
   const answers   = await safeJson("data/answers_1_25.json", []);
@@ -509,12 +506,12 @@ async function loadData(){
   DATA.answersById = new Map(answers.map(x => [x.id, x]));
 
   if (DATA.questions.length === 0){
-    setStatus("ERROR: questions.json not loaded. Check /data/questions.json path.", "bad");
+    setStatus("ERROR: questions.json not loaded", "bad");
     alert("Data load error: questions.json could not be loaded. Verify /data/questions.json exists and refresh.");
     return false;
   }
 
-  setStatus(`Loaded ${DATA.questions.length} questions • ${DATA.answersById.size} explanations`, "ok");
+  setStatus(`Loaded ${DATA.questions.length} • Explanations ${DATA.answersById.size}`, "ok");
   setTimeout(()=>setStatus("", ""), 2000);
   return true;
 }
