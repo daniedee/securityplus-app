@@ -1174,5 +1174,1205 @@
       "C": "Geographic restrictions (geo-blocking) are policy controls; VPNs do not inherently enforce geography.",
       "D": "Data sovereignty concerns legal jurisdiction and where data is stored; VPNs address transit security, not jurisdiction."
     }
+  },
+  {
+    "id": 101,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Mobile device security / Data protection",
+    "explanation": "The correct answer is **B. Remote wipe**. Remote wipe (typically via MDM/UEM) lets the organization erase corporate data or reset the device if it is lost or stolen, reducing the risk of data exposure.",
+    "feedback": {
+      "A": "Certificate pinning helps an app trust the correct server certificate; it doesn\u2019t protect local data on a lost device.",
+      "B": "Correct. Remote wipe can remove sensitive data from a lost or stolen mobile device.",
+      "C": "Salting/hashing is for protecting stored passwords, not protecting mobile device data after loss.",
+      "D": "TLS inspection is traffic inspection; it doesn\u2019t prevent exposure of data stored on the device."
+    }
+  },
+  {
+    "id": 102,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Network access control / Authentication",
+    "explanation": "The correct answer is **B. Implement 802.1X**. 802.1X provides port-based network access control so only authenticated/authorized devices (and users) can connect to the corporate network.",
+    "feedback": {
+      "A": "VLANs are used for segmentation; disabling them does not prevent rogue devices from connecting.",
+      "B": "Correct. 802.1X enforces authentication before granting network access, reducing rogue device risk.",
+      "C": "Antivirus helps detect malware, but it doesn\u2019t stop unauthorized devices from connecting to the network.",
+      "D": "WPA2-Personal is a shared-key model for Wi\u2011Fi and does not provide strong enterprise device/user authentication like 802.1X."
+    }
+  },
+  {
+    "id": 103,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Secure SDLC / Secrets management",
+    "explanation": "The correct answer is **A. SAST**. Static application security testing can detect hard-coded secrets and insecure patterns in code repositories before deployment, helping catch accidental credential exposure.",
+    "feedback": {
+      "A": "Correct. SAST can flag hard-coded credentials/secrets in source code during static analysis.",
+      "B": "SCAP focuses on standardized configuration and vulnerability content for systems, not source-code secret detection.",
+      "C": "Fuzzing sends malformed inputs at runtime; it won\u2019t reliably detect committed secrets in code.",
+      "D": "Containerization packages apps for deployment; it doesn\u2019t detect leaked credentials in repositories."
+    }
+  },
+  {
+    "id": 104,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Credential attacks",
+    "explanation": "The correct answer is **B. Credential stuffing**. Credential stuffing uses previously leaked username/password pairs and often comes from many locations (bots/proxies), producing repeated login attempts across regions.",
+    "feedback": {
+      "A": "On-path attacks intercept/alter traffic; they don\u2019t primarily present as many login attempts from multiple locations.",
+      "B": "Correct. Credential stuffing attempts logins using leaked credentials, often distributed across many IPs/locations.",
+      "C": "Memory injection targets process memory and code execution; it\u2019s not a login attempt pattern.",
+      "D": "DNS cache poisoning redirects name resolution; it doesn\u2019t explain repeated login attempts."
+    }
+  },
+  {
+    "id": 105,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Security monitoring / Behavioral analytics",
+    "explanation": "The correct answer is **C. UBA**. User Behavior Analytics detects anomalies in user or privileged account activity (unusual logins, access patterns, data access) and can generate alerts.",
+    "feedback": {
+      "A": "SOAR automates response workflows; it can act on alerts but isn\u2019t the primary analytics capability for unusual user behavior.",
+      "B": "A WAF protects web applications from attacks like SQLi/XSS; it doesn\u2019t analyze privileged user behavior broadly.",
+      "C": "Correct. UBA identifies anomalous behavior by privileged accounts and triggers alerting.",
+      "D": "A CASB governs cloud application use and data controls; it\u2019s not the primary tool for privileged-account anomaly detection across systems."
+    }
+  },
+  {
+    "id": 106,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Business continuity / Disaster recovery sites",
+    "explanation": "The correct answer is **B. Hot site**. A hot site is fully equipped and can restore services quickly after a disaster because it maintains near-ready infrastructure.",
+    "feedback": {
+      "A": "MTBF is a reliability metric, not a disaster recovery capability.",
+      "B": "Correct. Hot sites provide the fastest recovery because systems and infrastructure are already available.",
+      "C": "Qualitative analysis is a risk assessment approach; it doesn\u2019t restore services after a disaster.",
+      "D": "Geofencing restricts access by location; it\u2019s unrelated to disaster recovery restoration speed."
+    }
+  },
+  {
+    "id": 107,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Threat detection / Botnets",
+    "explanation": "The correct answer is **B. Botnet communication**. Sudden coordinated outbound traffic from many devices to an unknown IP is a common indicator of command-and-control (C2) traffic from compromised hosts in a botnet.",
+    "feedback": {
+      "A": "A DDoS is typically outbound from bots toward a victim, but the indicator here is outbound to a single unknown IP (more consistent with C2).",
+      "B": "Correct. Many endpoints contacting an unknown IP at once often indicates botnet C2 communication.",
+      "C": "SQL injection is a web application attack; it wouldn\u2019t explain outbound traffic from multiple endpoints to an unknown IP.",
+      "D": "VLAN hopping is a segmentation bypass technique; it doesn\u2019t match coordinated outbound traffic behavior."
+    }
+  },
+  {
+    "id": 108,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Credential attacks / Password spraying",
+    "explanation": "The correct answer is **B. Password spraying**. Password spraying tries a few common passwords across many accounts, reducing lockouts while still testing widely used passwords.",
+    "feedback": {
+      "A": "Credential harvesting is tricking users into giving credentials (often via phishing), not guessing passwords across accounts.",
+      "B": "Correct. Password spraying uses common passwords across many accounts to avoid lockouts.",
+      "C": "Brute force typically tries many passwords against one (or a few) accounts and often triggers lockouts quickly.",
+      "D": "A dictionary attack tries many words/phrases from a list\u2014usually focused on an account\u2014whereas spraying spreads a small set across many accounts."
+    }
+  },
+  {
+    "id": 109,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Secure protocols / Log transport",
+    "explanation": "The correct answer is **C. TLS**. Using TLS (e.g., syslog over TLS) encrypts and authenticates log traffic between servers to protect confidentiality and integrity in transit.",
+    "feedback": {
+      "A": "SCP securely copies files, but it\u2019s not the standard method for continuous log forwarding between systems.",
+      "B": "SFTP is secure file transfer, but log forwarding is typically done using syslog over TLS rather than file transfer.",
+      "C": "Correct. TLS protects log transmissions in transit (encryption + integrity).",
+      "D": "LDAPS secures LDAP directory traffic, not log transport."
+    }
+  },
+  {
+    "id": 110,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Security controls / Control types",
+    "explanation": "The correct answer is **B. Preventive**. Encryption prevents unauthorized parties from reading data (confidentiality) even if they gain access to it, making it primarily preventive.",
+    "feedback": {
+      "A": "Corrective controls fix issues after they occur; encryption does not \u201crepair\u201d a problem.",
+      "B": "Correct. Encryption is primarily a preventive control that protects confidentiality.",
+      "C": "Detective controls identify events (e.g., IDS, logging); encryption is not primarily detection.",
+      "D": "Compensating controls are alternatives used when a primary control cannot be implemented; encryption is typically a primary protective control."
+    }
+  },
+  {
+    "id": 111,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Architecture / Environment separation",
+    "explanation": "The correct answer is **C. Environment segmentation**. Separating dev, test, and production reduces risk by limiting cross-contamination, preventing unsafe code from reaching production, and controlling access between environments.",
+    "feedback": {
+      "A": "Change control is important, but the scenario is specifically about separating environments, not approving changes.",
+      "B": "Separation of duties is splitting responsibilities among people; this is separation among environments.",
+      "C": "Correct. Environment segmentation isolates dev/test/prod to reduce risk and limit impact.",
+      "D": "Federation is identity sharing across domains/organizations, not environment separation."
+    }
+  },
+  {
+    "id": 112,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Malware / Ransomware",
+    "explanation": "The correct answer is **B. Ransomware**. Ransomware encrypts files and displays a demand for payment to restore access.",
+    "feedback": {
+      "A": "Rootkits focus on stealth and privileged persistence; they don\u2019t primarily encrypt files for ransom.",
+      "B": "Correct. Encrypting files and demanding payment is ransomware behavior.",
+      "C": "Keyloggers capture keystrokes; they don\u2019t typically encrypt files for ransom.",
+      "D": "Spyware collects information secretly; it doesn\u2019t typically lock files and demand payment."
+    }
+  },
+  {
+    "id": 113,
+    "correctAnswer": "D",
+    "studyGuideTopic": "Platform security / Secure boot",
+    "explanation": "The correct answer is **D. Secure boot**. Secure boot verifies the integrity and signature of bootloaders/firmware components to ensure only trusted code loads during startup.",
+    "feedback": {
+      "A": "FIM monitors file changes on a running system; it doesn\u2019t validate firmware at boot.",
+      "B": "TPM can store keys and support attestation, but the boot-time mechanism enforcing approved firmware is secure boot.",
+      "C": "Geofencing restricts access by location; it\u2019s unrelated to firmware loading on boot.",
+      "D": "Correct. Secure boot enforces that only signed/trusted boot components load."
+    }
+  },
+  {
+    "id": 114,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Password attacks",
+    "explanation": "The correct answer is **A. Dictionary attack**. Trying commonly used passwords against accounts is characteristic of a dictionary attack using a known list of likely passwords.",
+    "feedback": {
+      "A": "Correct. A dictionary attack uses a list of common passwords/words rather than exhaustive guesses.",
+      "B": "Password spraying is a small set of passwords across many accounts; the scenario emphasizes testing commonly used passwords on admin accounts.",
+      "C": "Credential harvesting uses phishing or deception to obtain passwords; it\u2019s not password guessing.",
+      "D": "On-path attacks intercept/alter communications; they don\u2019t involve password guessing."
+    }
+  },
+  {
+    "id": 115,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Social engineering / Targeted phishing",
+    "explanation": "The correct answer is **C. Spear phishing**. The message targets employees with a believable HR theme and attempts to obtain personal details. That targeted, crafted nature aligns with spear phishing.",
+    "feedback": {
+      "A": "Impersonation is broadly pretending to be someone else; spear phishing is the specific email-based targeted attack described.",
+      "B": "Pretexting is building a fabricated story to gain trust; it can be part of spear phishing but the best label here is spear phishing.",
+      "C": "Correct. A targeted email attempting to trick employees into revealing sensitive data is spear phishing.",
+      "D": "Whaling targets high-value executives. This targets employees broadly with an HR theme."
+    }
+  },
+  {
+    "id": 116,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Network attacks / Pharming",
+    "explanation": "The correct answer is **A. DNS poisoning**. If a legitimate website redirects users to a fake login page, DNS poisoning/pharming can be responsible by resolving the domain to an attacker-controlled destination.",
+    "feedback": {
+      "A": "Correct. DNS poisoning can redirect users from a legitimate domain to an attacker\u2019s site (pharming).",
+      "B": "ARP spoofing affects local network traffic routing (MITM), not domain-to-IP resolution causing a site redirect.",
+      "C": "Password spraying is a credential guessing technique; it doesn\u2019t cause website redirects.",
+      "D": "Session hijacking steals an existing session; it doesn\u2019t explain a domain redirect to a fake login page."
+    }
+  },
+  {
+    "id": 117,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Malware / Ransomware",
+    "explanation": "The correct answer is **C. Ransomware**. Ransomware encrypts data and demands payment for decryption or restoration.",
+    "feedback": {
+      "A": "A RAT provides remote control; it doesn\u2019t inherently encrypt data for payment.",
+      "B": "Worms self-replicate across networks; they may deliver payloads but aren\u2019t defined by encrypting data for ransom.",
+      "C": "Correct. Encryption plus payment demand is ransomware.",
+      "D": "Spyware steals information silently; it doesn\u2019t typically encrypt files and demand payment."
+    }
+  },
+  {
+    "id": 118,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Digital forensics / Volatile data",
+    "explanation": "The correct answer is **C. RAM dump**. Memory capture preserves volatile data such as running processes, injected code, encryption keys, and network connections\u2014crucial for incident response and forensics.",
+    "feedback": {
+      "A": "A disk image captures persistent storage, but not volatile memory-only artifacts.",
+      "B": "Process listings help, but a RAM dump provides far more complete evidence of memory contents.",
+      "C": "Correct. A RAM dump captures volatile memory evidence for analysis.",
+      "D": "Logs are useful, but they won\u2019t contain the full memory contents required for memory forensics."
+    }
+  },
+  {
+    "id": 119,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Malware / Rootkits",
+    "explanation": "The correct answer is **C. Rootkit**. Rootkits hide by modifying system behavior (e.g., system calls) to conceal malicious processes, files, or registry entries.",
+    "feedback": {
+      "A": "Worms spread automatically; they aren\u2019t defined by hiding via system call modification.",
+      "B": "Keyloggers capture keystrokes; stealth techniques can exist, but system call modification is a hallmark of rootkits.",
+      "C": "Correct. Rootkits commonly hook/modify system calls to hide their presence.",
+      "D": "Spyware collects data covertly; it\u2019s not specifically characterized by system call modification."
+    }
+  },
+  {
+    "id": 120,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Risk management / Treatment options",
+    "explanation": "The correct answer is **B. Avoid**. Risk avoidance eliminates the activity that creates the risk (stopping the activity entirely), removing the risk source.",
+    "feedback": {
+      "A": "Transfer moves risk to a third party (insurance, outsourcing), not stopping the activity.",
+      "B": "Avoidance is not acceptance; acceptance means you keep the activity and accept the risk.",
+      "C": "Correct. Avoidance stops the risky activity so the risk is eliminated.",
+      "D": "Mitigation reduces likelihood/impact while continuing the activity; it doesn\u2019t stop it completely."
+    }
+  },
+  {
+    "id": 121,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Network controls / Geo-blocking & geofencing",
+    "explanation": "The correct answer is **A. Blocking connections from specific countries**. Geofencing/geo-blocking uses geographic attributes (country/region) to allow or deny access based on location.",
+    "feedback": {
+      "A": "Correct. Restricting access by geographic location is geofencing/geo-blocking.",
+      "B": "Restricting access to VLANs is network segmentation, not geofencing.",
+      "C": "Assigning users to roles is RBAC, not location-based control.",
+      "D": "Detecting unauthorized logins is monitoring/detection, not geofencing."
+    }
+  },
+  {
+    "id": 122,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Secrets management / Credential storage",
+    "explanation": "The correct answer is **A. Password vault**. Password vaults securely store and control access to credentials (often with rotation, auditing, and least privilege) for devices and administrators.",
+    "feedback": {
+      "A": "Correct. A password vault securely stores and manages credentials used by systems/devices.",
+      "B": "SOAR automates incident response workflows; it is not a credential storage solution.",
+      "C": "IDS detects suspicious activity; it doesn\u2019t store passwords securely.",
+      "D": "CASB manages cloud app and data controls; it isn\u2019t primarily a password storage system."
+    }
+  },
+  {
+    "id": 123,
+    "correctAnswer": "B",
+    "studyGuideTopic": "PKI / Certificate validation",
+    "explanation": "The correct answer is **B. OCSP**. OCSP checks real-time certificate status to determine if a certificate has been revoked.",
+    "feedback": {
+      "A": "A CSR is used to request a certificate from a CA; it doesn\u2019t validate revocation status.",
+      "B": "Correct. OCSP queries the certificate\u2019s revocation/status at use time.",
+      "C": "A TPM stores cryptographic keys and supports attestation; it doesn\u2019t provide certificate revocation checking.",
+      "D": "IPSec is a secure networking protocol suite; it\u2019s not used to check certificate revocation status."
+    }
+  },
+  {
+    "id": 124,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Backup strategies",
+    "explanation": "The correct answer is **A. Differential**. Differential backups copy all files changed since the last full backup. (Incremental backups copy changes since the last backup, but that is not an option here.)",
+    "feedback": {
+      "A": "Correct. Differential backups copy changes since the last full backup.",
+      "B": "A full backup copies all data every time.",
+      "C": "Snapshots capture a point-in-time state (often at the storage/VM layer) and are not defined as \u201cchanged since last full backup.\u201d",
+      "D": "Cloning copies an entire system/disk; it is not a backup type defined by \u201cchanged since last full.\u201d"
+    }
+  },
+  {
+    "id": 125,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Penetration testing / Rules of engagement",
+    "explanation": "The correct answer is **B. Scope of work**. Before a penetration test, the scope (systems, boundaries, allowed techniques, timelines, contacts, deliverables) must be documented to ensure testing is authorized and controlled.",
+    "feedback": {
+      "A": "Firewall rules may be relevant to testing, but documenting the test scope and boundaries is the required precondition.",
+      "B": "Correct. The scope of work documents what will be tested and under what rules/constraints.",
+      "C": "Code review is not required for a penetration test and is a different activity.",
+      "D": "A patch window is an operational scheduling item, not the core required documentation before a pentest."
+    }
+  },
+  {
+    "id": 126,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Malware / Fileless techniques",
+    "explanation": "The correct answer is **A. Fileless malware**. Fileless malware runs primarily in memory (often leveraging legitimate tools like PowerShell), minimizing disk artifacts and evading some signature-based detection.",
+    "feedback": {
+      "A": "Correct. Fileless malware can execute in memory without writing traditional binaries to disk.",
+      "B": "A RAT is a remote access trojan; it typically exists as a file-based payload even if it later uses memory techniques.",
+      "C": "Worms self-propagate; they are not defined by \u201cwithout writing to disk.\u201d",
+      "D": "Trojans disguise themselves as legitimate files; fileless malware may not need a traditional file to run."
+    }
+  },
+  {
+    "id": 127,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Social engineering / Executive targeting",
+    "explanation": "The correct answer is **A. Whaling**. Whaling is spear phishing aimed at high-level executives (e.g., CEO/CFO) or messages that impersonate them to pressure victims into disclosing sensitive information.",
+    "feedback": {
+      "A": "Correct. CEO-themed phishing is classic whaling/executive targeting.",
+      "B": "Pretexting is the fabricated story; it can be used, but the executive-targeting pattern is best labeled whaling.",
+      "C": "Smishing is phishing via SMS/text messages, not email.",
+      "D": "Vishing is voice phishing via phone calls, not email."
+    }
+  },
+  {
+    "id": 128,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Security monitoring / Anomaly detection",
+    "explanation": "The correct answer is **B. UBA**. User behavior analytics is designed to identify anomalous access patterns, including unauthorized access attempts and unusual login behaviors.",
+    "feedback": {
+      "A": "Antivirus detects malware; it does not reliably identify unauthorized access attempts.",
+      "B": "Correct. UBA detects abnormal user behavior patterns that can indicate unauthorized access attempts.",
+      "C": "A load balancer distributes traffic; it does not detect unauthorized access attempts.",
+      "D": "DHCP assigns IP addresses; it\u2019s unrelated to detecting unauthorized access attempts."
+    }
+  },
+  {
+    "id": 129,
+    "correctAnswer": "D",
+    "studyGuideTopic": "Security principles / CIA triad",
+    "explanation": "The correct answer is **D. Confidentiality**. Sending confidential documents to a competitor is an unauthorized disclosure, which is a failure of confidentiality.",
+    "feedback": {
+      "A": "Integrity concerns unauthorized modification, not disclosure.",
+      "B": "Accountability is about tracing actions to individuals; the key principle violated here is unauthorized disclosure.",
+      "C": "Data masking is a control technique, not a CIA principle.",
+      "D": "Correct. Unauthorized disclosure of confidential information is a confidentiality failure."
+    }
+  },
+  {
+    "id": 130,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Change tracking / Version control",
+    "explanation": "The correct answer is **B. Version control**. Version control systems track changes over time and record who made each change, supporting auditability and rollback.",
+    "feedback": {
+      "A": "A log retention policy defines how long logs are kept; it\u2019s not a record of file/code changes and authorship.",
+      "B": "Correct. Version control records changes, timestamps, and authors (who made them).",
+      "C": "Patch management tracks updates/patches applied; it\u2019s not the general record of changes to code/config files.",
+      "D": "A configuration baseline is a known-good reference state; it\u2019s not the change history and author record."
+    }
+  },
+  {
+    "id": 131,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Network attacks / Man-in-the-middle",
+    "explanation": "The correct answer is **B. On-path**. On-path (man-in-the-middle) attacks intercept and can alter communications between two parties without them realizing.",
+    "feedback": {
+      "A": "Replay attacks reuse captured valid traffic; they don\u2019t necessarily intercept and alter live communication.",
+      "B": "Correct. On-path attacks intercept and may modify communication between users.",
+      "C": "Injection attacks insert malicious input into a process/application; they\u2019re not defined as intercepting a conversation.",
+      "D": "Flooding attacks target availability by overwhelming resources; they don\u2019t describe intercepting and altering communications."
+    }
+  },
+  {
+    "id": 132,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Malware / Rootkit indicators",
+    "explanation": "The correct answer is **A. Rootkit infection**. Unexpected system-level behavior (like altered system time) can indicate a rootkit manipulating system functions to hide activity or disrupt logging/forensics.",
+    "feedback": {
+      "A": "Correct. Rootkits can modify low-level system behavior, leading to abnormal system operation such as time manipulation.",
+      "B": "Worms primarily focus on spreading; they don\u2019t typically present as random system clock changes.",
+      "C": "Spyware collects information; it\u2019s not commonly associated with altering system time.",
+      "D": "Backdoors provide unauthorized access; they don\u2019t inherently cause random clock changes."
+    }
+  },
+  {
+    "id": 133,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Physical security controls",
+    "explanation": "The correct answer is **B. Physical**. Guards, fences, gates, and barriers are physical controls designed to deter, delay, and detect physical access attempts.",
+    "feedback": {
+      "A": "Logical controls are technical controls (passwords, ACLs, encryption), not guards/fencing.",
+      "B": "Correct. Guards and fencing are physical security controls.",
+      "C": "Managerial controls are policies and governance (AUPs, risk management), not guards/fences.",
+      "D": "Detective controls describe a control purpose, not a category; guards/fences are categorized as physical controls."
+    }
+  },
+  {
+    "id": 134,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Secure protocols / File transfer",
+    "explanation": "The correct answer is **C. SCP**. Secure Copy Protocol uses SSH to encrypt file transfers, protecting confidentiality and integrity.",
+    "feedback": {
+      "A": "FTP is unencrypted and exposes credentials/data.",
+      "B": "TFTP is unencrypted and used for simple transfers; it provides no encryption.",
+      "C": "Correct. SCP uses SSH to encrypt file transfers.",
+      "D": "SMTP is for email transport, not secure file transfer."
+    }
+  },
+  {
+    "id": 135,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Endpoint controls / Device control",
+    "explanation": "The correct answer is **B. Endpoint management**. Endpoint management (UEM/MDM) can enforce device control policies such as blocking unknown USB devices and allowing only approved peripherals.",
+    "feedback": {
+      "A": "DLP focuses on preventing sensitive data leakage, not directly blocking unknown USB hardware.",
+      "B": "Correct. Endpoint management tools can enforce USB device control policies at scale.",
+      "C": "EDR focuses on detection/response; it may alert on USB usage but is not the primary policy enforcement for blocking unknown USB devices.",
+      "D": "Application controls restrict what software can run; they don\u2019t directly block unknown USB devices."
+    }
+  },
+  {
+    "id": 136,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Security operations / Indicators of compromise",
+    "explanation": "The correct answer is **A. SIEM dashboards**. SIEM dashboards aggregate alerts and correlated log data, often showing IOCs such as malicious IPs, suspicious authentication patterns, and detected malware activity.",
+    "feedback": {
+      "A": "Correct. SIEMs consolidate and correlate security events and can surface IOCs clearly in dashboards.",
+      "B": "NetFlow shows traffic flow metadata and can help, but SIEM dashboards are the most likely place to find consolidated IOCs.",
+      "C": "Firewall ACLs define allow/deny rules; they are not where IOCs are primarily stored.",
+      "D": "Patch baselines define expected patch state; they do not contain IOCs."
+    }
+  },
+  {
+    "id": 137,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Availability attacks / DDoS",
+    "explanation": "The correct answer is **B. DDoS**. Distributed denial-of-service attacks flood a target with traffic from many sources, preventing legitimate access to resources.",
+    "feedback": {
+      "A": "SQL injection targets databases through input fields, not network traffic floods.",
+      "B": "Correct. A flood of network traffic preventing access indicates a DDoS attack.",
+      "C": "XSS injects scripts into web pages; it doesn\u2019t cause a network flood.",
+      "D": "Directory traversal accesses unauthorized files via path manipulation; it\u2019s not a traffic flood."
+    }
+  },
+  {
+    "id": 138,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Quantitative risk / Frequency metrics",
+    "explanation": "The correct answer is **B. ARO**. Annualized Rate of Occurrence estimates how often an event is expected to occur per year.",
+    "feedback": {
+      "A": "MTTR measures how long it takes to repair/restore after an incident, not frequency.",
+      "B": "Correct. ARO is the expected annual frequency of a risk event.",
+      "C": "RTO is the acceptable downtime target, not how often events occur.",
+      "D": "RPO is acceptable data loss in time, not event frequency."
+    }
+  },
+  {
+    "id": 139,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Identity & access / Federation",
+    "explanation": "The correct answer is **A. Federation**. Federation allows identity and authentication to be trusted across domains/organizations (SSO), enabling access to resources in another domain without creating separate identities.",
+    "feedback": {
+      "A": "Correct. Federation enables cross-domain authentication/authorization using trusted identity providers.",
+      "B": "ACLs control resource permissions but do not provide cross-domain identity trust by themselves.",
+      "C": "VLANs segment networks; they don\u2019t provide identity federation.",
+      "D": "SIEMs collect/correlate logs; they do not enable cross-domain identity use."
+    }
+  },
+  {
+    "id": 140,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Network security / DHCP protections",
+    "explanation": "The correct answer is **A. DHCP snooping**. DHCP snooping filters untrusted DHCP messages and allows DHCP replies only from trusted ports, preventing rogue DHCP servers from handing out malicious configurations.",
+    "feedback": {
+      "A": "Correct. DHCP snooping blocks rogue DHCP server responses on untrusted switch ports.",
+      "B": "DLP doesn\u2019t prevent rogue DHCP servers from operating.",
+      "C": "FIM monitors file integrity; it\u2019s unrelated to DHCP.",
+      "D": "WAF protects web apps; it doesn\u2019t stop rogue DHCP on the LAN."
+    }
+  },
+  {
+    "id": 141,
+    "correctAnswer": "D",
+    "studyGuideTopic": "Backup fundamentals",
+    "explanation": "The correct answer is **D. Full**. A full backup includes all selected data each time it runs.",
+    "feedback": {
+      "A": "Snapshots are point-in-time references and may not copy all data in the same sense as a full backup.",
+      "B": "Differential backups copy changes since the last full backup, not all data every time.",
+      "C": "Incremental backups copy changes since the last backup, not all data.",
+      "D": "Correct. Full backups capture all data each time the job runs."
+    }
+  },
+  {
+    "id": 142,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Compensating controls",
+    "explanation": "The correct answer is **A. Compensating control**. If MFA can\u2019t be implemented on a legacy server, you apply alternate controls (segmentation, jump host, monitoring) to reduce risk.",
+    "feedback": {
+      "A": "Correct. Compensating controls provide alternative protections when the primary control (MFA) can\u2019t be implemented.",
+      "B": "Preventive controls reduce likelihood of an event, but the key concept here is using an alternative because MFA is not supported.",
+      "C": "Detective controls identify events; they may be part of a compensating approach but are not the overarching term here.",
+      "D": "Corrective controls fix issues after they happen; they aren\u2019t the best fit when replacing a missing primary control."
+    }
+  },
+  {
+    "id": 143,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Wireless security / Authentication strength",
+    "explanation": "The correct answer is **B. WPA3**. WPA3 improves security (e.g., stronger handshakes and protection against offline guessing), making it the best defense among the options against brute-force style attacks.",
+    "feedback": {
+      "A": "Hidden SSIDs provide minimal security and can be discovered; they don\u2019t prevent brute-force attacks.",
+      "B": "Correct. WPA3 provides stronger protections than WPA2/WEP/TKIP against password guessing attacks.",
+      "C": "TKIP is an older WPA encryption method with known weaknesses and is not recommended.",
+      "D": "WEP is broken and easily compromised; it is not a defense against brute-force attacks."
+    }
+  },
+  {
+    "id": 144,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Security operations / SIEM",
+    "explanation": "The correct answer is **B. SIEM**. A SIEM centralizes logs and alerts from multiple systems, normalizes/correlates events, and supports detection and reporting across the environment.",
+    "feedback": {
+      "A": "IDS generates alerts for specific traffic patterns, but it doesn\u2019t aggregate alerts from many different systems like a SIEM does.",
+      "B": "Correct. SIEMs collect and correlate alerts/logs from multiple sources for centralized monitoring.",
+      "C": "UBA focuses on user behavior anomalies; it typically relies on data collected centrally (often via SIEM).",
+      "D": "SOAR automates response actions; it typically consumes alerts from a SIEM rather than replacing it."
+    }
+  },
+  {
+    "id": 145,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Environmental controls",
+    "explanation": "The correct answer is **B. HVAC**. Heating, ventilation, and air conditioning controls temperature and humidity in server rooms to prevent overheating and equipment shutdown.",
+    "feedback": {
+      "A": "Fire suppression addresses fire risks, not overheating/temperature control.",
+      "B": "Correct. HVAC prevents overheating by maintaining appropriate environmental conditions.",
+      "C": "Guards address physical access security, not temperature control.",
+      "D": "CCTV provides video monitoring; it doesn\u2019t prevent overheating."
+    }
+  },
+  {
+    "id": 146,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Reconnaissance / Port scanning",
+    "explanation": "The correct answer is **C. Port scanning**. Port scanning identifies which TCP/UDP ports are open and what services may be listening, a common early step in reconnaissance.",
+    "feedback": {
+      "A": "Packet capture records traffic; it doesn\u2019t actively probe for open ports.",
+      "B": "Vulnerability scanning assesses known weaknesses; port scanning is narrower\u2014focused on discovering open ports/services.",
+      "C": "Correct. Port scanning finds open ports and services on a target.",
+      "D": "Log analysis reviews recorded events; it is not the act of scanning for open ports."
+    }
+  },
+  {
+    "id": 147,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Authentication hardening",
+    "explanation": "The correct answer is **B. Account lockout**. Lockout policies limit repeated failed attempts and help reduce brute-force password guessing from a single source.",
+    "feedback": {
+      "A": "Geofencing restricts by location; it won\u2019t stop repeated attempts from one IP.",
+      "B": "Correct. Account lockout policies prevent unlimited password guessing attempts.",
+      "C": "RADIUS is an authentication protocol/service; it doesn\u2019t by itself stop brute-force attempts.",
+      "D": "CAC (smart card) is a strong authentication method, but the question asks what to implement for repeated failed attempts from a single IP\u2014lockout is the direct control."
+    }
+  },
+  {
+    "id": 148,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Administrative access / Jump servers",
+    "explanation": "The correct answer is **B. Segmented administrative access**. Jump servers (bastion hosts) centralize and control administrative access to sensitive systems, enabling tighter monitoring, logging, and segmentation.",
+    "feedback": {
+      "A": "High availability is about redundancy and uptime; jump servers are not primarily an HA control.",
+      "B": "Correct. Jump servers provide controlled, segmented pathways for administrative access and better monitoring.",
+      "C": "Network redundancy improves resilience, not controlled admin access.",
+      "D": "File sharing is unrelated to the purpose of a jump server."
+    }
+  },
+  {
+    "id": 149,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Cloud responsibility model",
+    "explanation": "The correct answer is **C. IaaS**. In IaaS, the customer is responsible for the OS, applications, configuration, and much of the security controls, while the provider manages the underlying infrastructure.",
+    "feedback": {
+      "A": "SaaS has the lowest customer responsibility; the provider manages most of the stack.",
+      "B": "PaaS reduces customer responsibility for OS/runtime, compared to IaaS.",
+      "C": "Correct. IaaS shifts more responsibility to the customer (OS, apps, configs) than PaaS/SaaS.",
+      "D": "BPaaS adds business processes as a service and typically increases provider responsibility, not customer responsibility."
+    }
+  },
+  {
+    "id": 150,
+    "correctAnswer": "D",
+    "studyGuideTopic": "PKI / Certificate formats",
+    "explanation": "The correct answer is **D. PFX**. PFX/PKCS#12 containers can include both the certificate and the associated private key (often protected with a password) for transport/import.",
+    "feedback": {
+      "A": "CER files typically contain a certificate only (no private key).",
+      "B": "CRT files are generally certificate files (often PEM-encoded) and typically do not include the private key as a packaged container.",
+      "C": "PEM is a base64 encoding format that can store keys, but in Security+ contexts the standard container format explicitly used to bundle private key + cert for import is PFX.",
+      "D": "Correct. PFX (PKCS#12) is commonly used to store/export a certificate along with its private key."
+    }
+  },
+  {
+    "id": 151,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Malware propagation (worms)",
+    "explanation": "The correct answer is **A. Worm**. Worms are self-replicating malware that commonly **scan networks for other vulnerable hosts** and then spread automatically without user interaction. A compromised host scanning nearby devices is a classic worm-like propagation pattern.",
+    "feedback": {
+      "A": "Correct. Worms commonly scan and spread laterally to other devices.",
+      "B": "Trojans disguise themselves as legitimate software and typically require user execution; scanning behavior is not their defining trait.",
+      "C": "A RAT provides remote control for an attacker; it may generate traffic, but automated scanning/spreading is more typical of worms.",
+      "D": "Ransomware is primarily focused on encrypting data and extorting payment, not scanning for new hosts as its main behavior."
+    }
+  },
+  {
+    "id": 152,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Data integrity controls / Immutability",
+    "explanation": "The correct answer is **A. Immutability**. Immutability means once data (or a backup/log) is written, it **cannot be altered or rolled back** to an earlier insecure version. This prevents attackers from restoring older, vulnerable configurations or tampering with retained records.",
+    "feedback": {
+      "A": "Correct. Immutable storage prevents rollback/tampering and preserves a trusted state.",
+      "B": "Redundancy improves availability by duplicating resources; it does not prevent rollback to an insecure state.",
+      "C": "Journaling records changes, but it doesn\u2019t prevent reverting to an earlier insecure state on its own.",
+      "D": "Version control tracks change history and supports rollback; it can actually enable returning to older states (which is the opposite of what you want here)."
+    }
+  },
+  {
+    "id": 153,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Insider threats",
+    "explanation": "The correct answer is **B. Insider threat**. An insider (malicious or negligent) with legitimate access can delete files and change permissions/privileges. The combination of **data loss (files disappearing)** and **privilege changes** strongly fits insider activity.",
+    "feedback": {
+      "A": "Logic bombs trigger on a specific condition/time; they are not typically described as changing privileges and removing files in an interactive pattern.",
+      "B": "Correct. Insiders can abuse authorized access to delete files and modify privileges.",
+      "C": "Worms focus on self-propagation; while they can cause damage, targeted privilege modifications are less characteristic.",
+      "D": "A backdoor provides unauthorized access/persistence; it explains access but not necessarily widespread file deletion plus privilege changes as the primary description."
+    }
+  },
+  {
+    "id": 154,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Secure directory services",
+    "explanation": "The correct answer is **B. LDAPS**. LDAPS is LDAP **over TLS**, providing encryption for directory queries and authentication traffic so credentials and directory data aren\u2019t sent in cleartext.",
+    "feedback": {
+      "A": "LDAP by itself is typically unencrypted; it does not provide secure directory services without TLS.",
+      "B": "Correct. LDAPS encrypts LDAP traffic using TLS.",
+      "C": "RADIUS is used for AAA (often network access), not directory services.",
+      "D": "TACACS+ is also AAA-focused and not a directory services protocol."
+    }
+  },
+  {
+    "id": 155,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Incident response / Containment",
+    "explanation": "The correct answer is **B. Segment the host**. When a device is suspected to be compromised, the priority is containment\u2014**isolate/quarantine** it (e.g., via VLAN quarantine, EDR isolation) to stop spread and data exfiltration while preserving evidence.",
+    "feedback": {
+      "A": "Rebooting can destroy volatile evidence and doesn\u2019t ensure the compromise is contained.",
+      "B": "Correct. Network isolation/quarantine limits damage and prevents lateral movement.",
+      "C": "Deleting logs destroys evidence and harms investigation and recovery.",
+      "D": "Patching may be part of remediation later, but containment/isolation comes first to prevent ongoing harm."
+    }
+  },
+  {
+    "id": 156,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Business continuity fundamentals",
+    "explanation": "The correct answer is **B. Business continuity**. Business continuity ensures **critical functions keep operating** (or can quickly resume) during and after disruptions through planning, people/process readiness, and alternative procedures.",
+    "feedback": {
+      "A": "MTBF is a reliability metric (time between failures), not a continuity principle.",
+      "B": "Correct. Business continuity focuses on maintaining critical operations during disruption.",
+      "C": "Risk avoidance stops an activity to eliminate risk; it\u2019s not about continuing operations during disruption.",
+      "D": "Cryptographic integrity ensures data isn\u2019t altered; it doesn\u2019t ensure business functions continue."
+    }
+  },
+  {
+    "id": 157,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Software protection / Obfuscation",
+    "explanation": "The correct answer is **A. Obfuscation**. Obfuscation makes code harder to understand by changing structure/names/flow while keeping functionality, increasing the effort required for reverse engineering and analysis of executables.",
+    "feedback": {
+      "A": "Correct. Obfuscation increases difficulty of analyzing and reverse engineering binaries.",
+      "B": "Hashing verifies integrity; it doesn\u2019t prevent analysis of executable code.",
+      "C": "FIM detects unauthorized file changes; it does not stop attackers from analyzing a binary.",
+      "D": "Backups support recovery; they do not prevent reverse engineering."
+    }
+  },
+  {
+    "id": 158,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Wireless attacks / Evil twin",
+    "explanation": "The correct answer is **B. Evil twin**. An evil twin is a **malicious access point** that mimics a legitimate SSID to trick users into connecting, enabling interception and credential theft.",
+    "feedback": {
+      "A": "A rogue AP is unauthorized, but an evil twin specifically impersonates a legitimate SSID to lure users.",
+      "B": "Correct. Evil twins clone the SSID (and often the look/feel) of a legitimate network.",
+      "C": "Deauth attacks forcibly disconnect clients; they can be used to push users to an evil twin, but the fake SSID itself is the evil twin.",
+      "D": "MAC spoofing changes a device\u2019s MAC address; it\u2019s not the fake-SSID attack."
+    }
+  },
+  {
+    "id": 159,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Vulnerability severity / Prioritization",
+    "explanation": "The correct answer is **C. Critical**. Critical findings represent the highest severity and generally require the fastest remediation because they often have high impact, high exploitability, or active exploitation.",
+    "feedback": {
+      "A": "Informational findings are observations; they typically do not require urgent remediation.",
+      "B": "Low severity items are usually scheduled into normal patch cycles, not immediate action.",
+      "C": "Correct. Critical vulnerabilities are prioritized for immediate remediation.",
+      "D": "Medium severity issues are important, but they usually don\u2019t outrank critical items for urgency."
+    }
+  },
+  {
+    "id": 160,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Network Access Control (NAC) / Posture checking",
+    "explanation": "The correct answer is **B. NAC**. NAC can enforce **device compliance/posture** (OS version, patch level, AV status, certificates) before granting access to resources or networks.",
+    "feedback": {
+      "A": "SSO simplifies authentication across apps; it doesn\u2019t validate device compliance.",
+      "B": "Correct. NAC enforces device posture/compliance before allowing access.",
+      "C": "A WAF protects web applications; it doesn\u2019t enforce device compliance for network/resource access.",
+      "D": "A CASB governs cloud app usage/data controls; it isn\u2019t the primary control for device compliance on a network."
+    }
+  },
+  {
+    "id": 161,
+    "correctAnswer": "C",
+    "studyGuideTopic": "High-security isolation / Air gap",
+    "explanation": "The correct answer is **C. Air-gap**. Air-gapping isolates a system from other networks/devices entirely, minimizing remote attack paths and greatly reducing exposure for high-value assets.",
+    "feedback": {
+      "A": "A firewall restricts traffic but still keeps the server network-connected.",
+      "B": "A VLAN provides logical segmentation but still allows network paths and misconfiguration risk.",
+      "C": "Correct. Air-gapping provides the strongest isolation by removing network connectivity.",
+      "D": "A VPN secures traffic in transit; it does not isolate the server from other devices."
+    }
+  },
+  {
+    "id": 162,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Script integrity / Code signing",
+    "explanation": "The correct answer is **A. Code signing**. Signing scripts ensures only scripts with a valid digital signature (from an approved signer) can run when execution policy/enforcement is configured, providing integrity and publisher validation.",
+    "feedback": {
+      "A": "Correct. Signed scripts can be required to ensure only authorized scripts execute.",
+      "B": "FIM detects changes after the fact; it doesn\u2019t prevent an unauthorized script from running.",
+      "C": "Encryption protects confidentiality; it doesn\u2019t establish who authored a script or prevent execution of unauthorized scripts.",
+      "D": "Federation is an identity concept (SSO) and is unrelated to script execution control."
+    }
+  },
+  {
+    "id": 163,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Access restrictions / IP allow listing",
+    "explanation": "The correct answer is **B. IP allow list**. Allow listing restricts remote access to a known set of trusted IP addresses (often combined with VPN/MFA), reducing exposure to the public internet.",
+    "feedback": {
+      "A": "Geolocation can be bypassed and is less precise than explicit allow-listed IP ranges.",
+      "B": "Correct. IP allow listing restricts access to approved source IPs only.",
+      "C": "DLP prevents data loss; it doesn\u2019t restrict remote access by IP.",
+      "D": "DNSSEC protects DNS integrity; it doesn\u2019t control who can remotely access a service."
+    }
+  },
+  {
+    "id": 164,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Web application security / WAF",
+    "explanation": "The correct answer is **B. SQL injection**. A WAF is designed to detect and block common web application attacks like SQL injection (and XSS), by inspecting HTTP requests for malicious patterns.",
+    "feedback": {
+      "A": "Password spraying is an authentication attack; a WAF is not the primary control for it.",
+      "B": "Correct. WAFs commonly mitigate SQL injection by filtering malicious requests.",
+      "C": "ARP spoofing is a LAN-level attack; a WAF operates at the web application layer.",
+      "D": "Replay attacks reuse captured authentication messages; WAFs are not primarily designed for replay prevention."
+    }
+  },
+  {
+    "id": 165,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Physical attacks / RFID skimming",
+    "explanation": "The correct answer is **B. Skimming**. Skimming devices can capture RFID/NFC badge signals and later replay them, enabling unauthorized access if strong protections (rolling codes, mutual auth) aren\u2019t used.",
+    "feedback": {
+      "A": "Replay is the technique of reusing captured data, but the technology used to capture the RFID signal is commonly referred to as skimming.",
+      "B": "Correct. Skimming captures the RFID badge signal for later misuse.",
+      "C": "Brute force is guessing credentials/keys; it\u2019s not the method of capturing an RFID signal.",
+      "D": "Tailgating is following someone through a door, not capturing RFID signals."
+    }
+  },
+  {
+    "id": 166,
+    "correctAnswer": "D",
+    "studyGuideTopic": "Disaster recovery site types",
+    "explanation": "The correct answer is **D. Cold site**. A cold site provides space and basic utilities but **little to no equipment and no live data**, resulting in the longest recovery time and lowest cost.",
+    "feedback": {
+      "A": "Hot sites are fully equipped with near-live systems and data\u2014fastest recovery.",
+      "B": "Warm sites have some equipment and may have periodic data replication\u2014faster than cold sites.",
+      "C": "Real-time site is not the standard hot/warm/cold classification and implies continuous replication/availability.",
+      "D": "Correct. Cold sites have minimal equipment and no live data."
+    }
+  },
+  {
+    "id": 167,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Email security / Secure Email Gateway",
+    "explanation": "The correct answer is **A. SEG** (Secure Email Gateway). SEGs filter inbound/outbound email to block phishing, malicious links, suspicious attachments, and can apply sandboxing and content controls.",
+    "feedback": {
+      "A": "Correct. Secure Email Gateways are designed to protect users from malicious email content.",
+      "B": "SIEM collects and correlates logs; it doesn\u2019t directly block malicious email links/attachments.",
+      "C": "VPN encrypts network traffic; it doesn\u2019t filter email content.",
+      "D": "HSM securely stores cryptographic keys; it doesn\u2019t scan email links/attachments."
+    }
+  },
+  {
+    "id": 168,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Hardware-based protections / Secure enclave",
+    "explanation": "The correct answer is **A. Isolated processing**. A secure enclave provides a hardware-isolated area for sensitive operations (e.g., key handling, biometric processing), protecting secrets from the main OS environment.",
+    "feedback": {
+      "A": "Correct. Secure enclaves provide isolated execution for sensitive computations and secrets.",
+      "B": "Secure transmission is provided by protocols like TLS/IPsec, not the enclave itself.",
+      "C": "DLP is a policy/technology to prevent data leakage, not a hardware enclave function.",
+      "D": "Redundancy improves availability and fault tolerance, not isolated processing."
+    }
+  },
+  {
+    "id": 169,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Cloud security / CASB",
+    "explanation": "The correct answer is **A. CASB**. Cloud Access Security Brokers enforce policies for cloud services, including blocking unsanctioned cloud storage, controlling uploads, and applying DLP/classification to cloud usage.",
+    "feedback": {
+      "A": "Correct. CASBs control and enforce policy for cloud apps, including personal storage services.",
+      "B": "A firewall may block some IPs/domains, but cloud services change endpoints and users can bypass with mobile/hotspots; it\u2019s not as effective as CASB for cloud governance.",
+      "C": "IPS detects/blocks known attacks; it\u2019s not designed to manage cloud app usage policies.",
+      "D": "DLP helps prevent data leakage, but CASB is the more direct control for governing and blocking unsanctioned cloud storage services."
+    }
+  },
+  {
+    "id": 170,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Log integrity / Hashing",
+    "explanation": "The correct answer is **A. Hashing**. Hashes provide integrity verification: if logs change, the hash changes. Hash chaining or signed hashes can further strengthen tamper evidence.",
+    "feedback": {
+      "A": "Correct. Hashing detects log tampering by validating integrity.",
+      "B": "ACLs control who can access logs, but they don\u2019t prove logs weren\u2019t altered.",
+      "C": "Encryption protects confidentiality; it doesn\u2019t inherently prove logs weren\u2019t modified.",
+      "D": "Permissions restrict access, but integrity validation is best provided by hashes/signatures."
+    }
+  },
+  {
+    "id": 171,
+    "correctAnswer": "B",
+    "studyGuideTopic": "TLS trust / Certificate pinning",
+    "explanation": "The correct answer is **B. Certificate pinning**. Pinning ensures a client will only trust a specific certificate (or public key) for a service, reducing the risk of accepting a spoofed or rogue certificate.",
+    "feedback": {
+      "A": "Key escrow is storing keys with a third party; it does not validate server certificates.",
+      "B": "Correct. Certificate pinning forces clients to accept only known/trusted certificates/keys.",
+      "C": "OCSP checks whether a certificate is revoked; it doesn\u2019t force a client to trust only a specific certificate.",
+      "D": "Key stretching makes password hashes harder to crack; it is unrelated to certificate validation."
+    }
+  },
+  {
+    "id": 172,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Cloud deployment standards / Golden images",
+    "explanation": "The correct answer is **A. Golden images**. Golden images are standardized, hardened templates for cloud/VM workloads that embed best-practice configurations, ensuring consistent secure deployments.",
+    "feedback": {
+      "A": "Correct. Golden images standardize secure configuration for repeatable deployments.",
+      "B": "Code review improves application quality/security but doesn\u2019t ensure infrastructure/workloads are deployed with baseline best practices.",
+      "C": "Data masking protects sensitive values but doesn\u2019t define deployment best practices.",
+      "D": "VPN secures connectivity; it doesn\u2019t enforce workload configuration standards."
+    }
+  },
+  {
+    "id": 173,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Threat prevention / DNS filtering",
+    "explanation": "The correct answer is **B. DNS filtering**. DNS filtering blocks or redirects lookups to known malicious domains, preventing users and systems from reaching threat infrastructure.",
+    "feedback": {
+      "A": "IPSec secures network traffic; it doesn\u2019t block malicious domains.",
+      "B": "Correct. DNS filtering prevents resolution of known-bad domains.",
+      "C": "TLS encrypts traffic in transit; it doesn\u2019t stop users from connecting to malicious domains.",
+      "D": "EDR monitors endpoints and can respond to malicious activity, but DNS filtering is the direct control for blocking domains."
+    }
+  },
+  {
+    "id": 174,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Incident response / Exposure assessment",
+    "explanation": "The correct answer is **B. Impact analysis**. When secrets are exposed, first determine scope and exposure (which secrets, where they were used, what access they enable, whether they were accessed). That drives immediate actions like revocation/rotation and monitoring.",
+    "feedback": {
+      "A": "Reverse engineering is analyzing binaries; it\u2019s not the first step for exposed secrets.",
+      "B": "Correct. Impact analysis determines scope and risk so you can prioritize rotation/revocation and containment.",
+      "C": "System restore won\u2019t remove exposed secrets from git history or external caches, and may not address exposure.",
+      "D": "Log review can be part of the investigation, but the first broader step is impact analysis to understand what\u2019s exposed and what it can access."
+    }
+  },
+  {
+    "id": 175,
+    "correctAnswer": "D",
+    "studyGuideTopic": "Web attacks / Directory traversal",
+    "explanation": "The correct answer is **D. Directory traversal**. Directory traversal manipulates the URL path (e.g., `../`) to access files and directories outside the intended web root, potentially exposing sensitive system files.",
+    "feedback": {
+      "A": "SQL injection targets database queries, not URL path traversal to access filesystem paths.",
+      "B": "Command injection injects OS commands, usually through parameters or inputs; the phrasing about URL path manipulation aligns more with traversal.",
+      "C": "XSS injects scripts into web pages for execution in the browser; it\u2019s not about filesystem path access.",
+      "D": "Correct. Directory traversal uses URL path manipulation to access unauthorized files/directories."
+    }
+  },
+  {
+    "id": 176,
+    "correctAnswer": "A",
+    "studyGuideTopic": "C2 indicators / Beaconing",
+    "explanation": "The correct answer is **A. Beaconing**. Beaconing is periodic outbound communication from compromised systems to command-and-control infrastructure\u2014often at regular intervals (e.g., nightly).",
+    "feedback": {
+      "A": "Correct. Regular, repeated outbound connections are characteristic of beaconing to C2.",
+      "B": "DDoS typically involves flooding a target; the symptom here is outbound periodic traffic from one server.",
+      "C": "Replay attacks reuse captured authentication messages; they don\u2019t explain repeated scheduled outbound traffic.",
+      "D": "Tailgating is a physical intrusion method, not a network traffic pattern."
+    }
+  },
+  {
+    "id": 177,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Hardware security / Key storage",
+    "explanation": "The correct answer is **A. TPM**. A TPM is a hardware security module built into many systems that securely stores cryptographic keys and supports operations like attestation and secure boot measurements.",
+    "feedback": {
+      "A": "Correct. TPMs securely store keys and perform cryptographic functions in hardware.",
+      "B": "LDAP is a directory protocol; it does not store encryption keys in a hardware-protected way.",
+      "C": "RADIUS provides AAA; it does not securely store encryption keys for endpoints.",
+      "D": "A WAF protects web applications; it is unrelated to key storage."
+    }
+  },
+  {
+    "id": 178,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Vulnerability scanning / Host discovery",
+    "explanation": "The correct answer is **C. Discovery scanning**. Discovery scans identify live hosts/devices on a network (e.g., ping sweeps, ARP discovery) and build a target list before deeper scanning.",
+    "feedback": {
+      "A": "Banner grabbing collects service/version information from open ports; it\u2019s not primarily host discovery.",
+      "B": "Credentialed scanning uses valid credentials to scan deeper on hosts; it assumes hosts are already identified.",
+      "C": "Correct. Discovery scanning finds hosts on the network.",
+      "D": "Compliance scanning checks configuration against standards; it\u2019s not the host discovery component."
+    }
+  },
+  {
+    "id": 179,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Integrity monitoring / File Integrity Monitoring",
+    "explanation": "The correct answer is **B. FIM**. FIM monitors critical system files and configurations and alerts when unauthorized changes occur, supporting integrity and change detection.",
+    "feedback": {
+      "A": "Endpoint detection (EDR) can detect behaviors, but FIM is the specific control for tracking file/config changes.",
+      "B": "Correct. FIM detects unauthorized file changes.",
+      "C": "SSO is an authentication convenience mechanism; it doesn\u2019t monitor file integrity.",
+      "D": "A SIEM aggregates logs; it may ingest FIM alerts but isn\u2019t the endpoint control that detects file changes."
+    }
+  },
+  {
+    "id": 180,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Exercises / Tabletop",
+    "explanation": "The correct answer is **B. Validate incident response plans**. Tabletop exercises are discussion-based simulations used to test roles, communications, decision-making, and gaps in incident response procedures without impacting production systems.",
+    "feedback": {
+      "A": "Physical security can be discussed, but tabletop exercises are most commonly used to validate response plans and processes.",
+      "B": "Correct. Tabletops validate incident response readiness, roles, and procedures.",
+      "C": "Backups are tested via restore tests and DR exercises; tabletops can include them, but the primary goal is IR plan validation.",
+      "D": "Penetration testing is an offensive technical assessment; tabletop exercises are scenario discussions."
+    }
+  },
+  {
+    "id": 181,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Common weakness categories / Misconfiguration",
+    "explanation": "The correct answer is **B. Misconfiguration**. If attackers gain access because a server is configured incorrectly (open services, weak permissions, default credentials), that\u2019s a misconfiguration vulnerability.",
+    "feedback": {
+      "A": "Logic flaws are errors in business logic/workflow, not configuration settings.",
+      "B": "Correct. A misconfigured server is vulnerable due to incorrect settings/exposure.",
+      "C": "Zero-days are unknown/unpatched vulnerabilities; misconfiguration is known and fixable through configuration changes.",
+      "D": "Social engineering manipulates people, not server configuration settings."
+    }
+  },
+  {
+    "id": 182,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Secure remote administration",
+    "explanation": "The correct answer is **A. SSH**. SSH encrypts remote terminal sessions and supports secure authentication, making it the standard for secure remote administration.",
+    "feedback": {
+      "A": "Correct. SSH provides encrypted remote administration.",
+      "B": "Telnet is unencrypted and should not be used on untrusted networks.",
+      "C": "HTTP is web traffic and is not an encrypted remote administration protocol by itself.",
+      "D": "FTP is a file transfer protocol and is unencrypted in its basic form."
+    }
+  },
+  {
+    "id": 183,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Security control types",
+    "explanation": "The correct answer is **B. Preventive**. Disabling USB ports is designed to **stop** data leakage before it happens by preventing the use of removable media.",
+    "feedback": {
+      "A": "Compensating controls are alternatives when a primary control can\u2019t be implemented; this is a direct preventive measure.",
+      "B": "Correct. Disabling USB ports prevents unauthorized copying to removable media.",
+      "C": "Detective controls discover events (logs, IDS); disabling ports is not detection.",
+      "D": "Corrective controls fix problems after the fact; disabling ports is preventive."
+    }
+  },
+  {
+    "id": 184,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Malware types / Adware",
+    "explanation": "The correct answer is **C. Adware**. Adware commonly causes unwanted ads, pop-ups, and browser redirections, often installed with other software or via malicious extensions.",
+    "feedback": {
+      "A": "Worms focus on self-propagation across systems; pop-up ads and redirects are not typical worm symptoms.",
+      "B": "Spyware focuses on monitoring/stealing information; it can coexist with adware, but pop-ups/redirects point most directly to adware.",
+      "C": "Correct. Pop-ups and browser redirects are classic adware behavior.",
+      "D": "RATs provide remote control; they are not primarily associated with pop-up ads/redirects."
+    }
+  },
+  {
+    "id": 185,
+    "correctAnswer": "B",
+    "studyGuideTopic": "High availability / Failover",
+    "explanation": "The correct answer is **B. Failover**. Failover automatically shifts workloads to a healthy node when a server fails, maintaining availability in cloud and clustered environments.",
+    "feedback": {
+      "A": "Resiliency is a broader concept; failover is the specific capability that keeps services running when one node fails.",
+      "B": "Correct. Failover moves workloads to another server/node when one fails.",
+      "C": "Containerization packages apps and provides isolation/portability, but it doesn\u2019t inherently provide failover by itself.",
+      "D": "Immutability prevents changes and supports consistency, not automatic continuation after failure."
+    }
+  },
+  {
+    "id": 186,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Secure coding / Input validation",
+    "explanation": "The correct answer is **A. Input validation failure**. When unexpected or malicious input breaks an application, it often indicates poor input validation/sanitization and weak error handling, which can lead to injection and other vulnerabilities.",
+    "feedback": {
+      "A": "Correct. Insufficient input validation allows malformed/malicious input to disrupt or exploit applications.",
+      "B": "XSS is a specific web attack where scripts execute in a victim\u2019s browser; the question describes a broader input handling failure.",
+      "C": "Credential harvesting steals credentials (often via phishing); it\u2019s unrelated to application crashes from malformed input.",
+      "D": "Memory injection is injecting code into a running process; it\u2019s not the typical label for \u201cmalicious input breaks the app\u201d."
+    }
+  },
+  {
+    "id": 187,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Cryptography fundamentals / Symmetric encryption",
+    "explanation": "The correct answer is **C. Symmetric**. Symmetric encryption uses the **same shared key** to encrypt and decrypt data (e.g., AES), and is typically faster than asymmetric encryption.",
+    "feedback": {
+      "A": "Asymmetric encryption uses a public/private key pair, not the same key for both operations.",
+      "B": "Public key refers to asymmetric cryptography; it does not use the same key for encryption and decryption.",
+      "C": "Correct. Symmetric encryption uses one shared key for both encryption and decryption.",
+      "D": "Hashing is one-way and does not support decryption."
+    }
+  },
+  {
+    "id": 188,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Physical security / Tailgating",
+    "explanation": "The correct answer is **A. Tailgating**. Tailgating is when an unauthorized person follows an authorized person into a secure area, bypassing access controls.",
+    "feedback": {
+      "A": "Correct. Following someone into a secured area without authorization is tailgating.",
+      "B": "Vishing is voice phishing via phone calls, unrelated to physical entry.",
+      "C": "Phishing uses deceptive messages to steal information; it\u2019s not physical entry.",
+      "D": "Whaling targets executives via phishing; it\u2019s not physical access."
+    }
+  },
+  {
+    "id": 189,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Availability attacks / DoS",
+    "explanation": "The correct answer is **A. Flooding**. Flooding overwhelms a server with excessive traffic or requests, degrading availability\u2014this is the core behavior of DoS/DDoS attacks.",
+    "feedback": {
+      "A": "Correct. Flooding overwhelms resources with traffic to disrupt availability.",
+      "B": "Credential stuffing attempts logins using leaked credentials; it\u2019s not a traffic-volume availability attack.",
+      "C": "Directory traversal manipulates paths to access files; it\u2019s not a traffic flood.",
+      "D": "SQL injection manipulates database queries; it\u2019s not primarily a traffic-volume attack."
+    }
+  },
+  {
+    "id": 190,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Microservices security / Container isolation",
+    "explanation": "The correct answer is **B. Containerization**. Containers provide lightweight isolation for microservices, limiting dependencies and helping reduce attack surface by separating services and their runtimes.",
+    "feedback": {
+      "A": "Segmentation isolates networks; it can help, but the microservices-specific isolation technique listed is containerization.",
+      "B": "Correct. Containerization isolates microservices and reduces shared attack surface between services.",
+      "C": "Federation is identity trust across domains; it doesn\u2019t isolate microservices.",
+      "D": "Hardening reduces attack surface by configuring systems securely, but it doesn\u2019t inherently provide microservice isolation like containers."
+    }
+  },
+  {
+    "id": 191,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Governance / Data retention",
+    "explanation": "The correct answer is **B. To define how long data must be stored**. Data retention policies specify how long different data types (logs, emails, records) must be kept to meet legal, regulatory, and business requirements, and when they should be disposed of.",
+    "feedback": {
+      "A": "Retention may restrict deletion in some systems, but the policy\u2019s purpose is defining retention periods\u2014not merely preventing email deletion.",
+      "B": "Correct. Retention policies define required storage duration and disposal requirements.",
+      "C": "Blocking websites is a web filtering control, not data retention.",
+      "D": "Encryption may be required by policy, but retention policies focus on time-based storage and disposal."
+    }
+  },
+  {
+    "id": 192,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Botnets / Compromised hosts",
+    "explanation": "The correct answer is **B. Bot**. A compromised device controlled by an attacker and used to attack other systems is commonly called a bot (or zombie) and can be part of a botnet.",
+    "feedback": {
+      "A": "A jump host is a legitimate admin access point used to reach restricted networks; it\u2019s not a compromised device used for attacks.",
+      "B": "Correct. A bot is a compromised machine used to perform attacker-controlled actions.",
+      "C": "A honeypot is a decoy system intended to attract attackers, not a compromised device used to attack others.",
+      "D": "A proxy forwards traffic; it can be abused, but the term for the compromised device itself is a bot."
+    }
+  },
+  {
+    "id": 193,
+    "correctAnswer": "C",
+    "studyGuideTopic": "PKI lifecycle / Certificate renewal",
+    "explanation": "The correct answer is **C. Renew the certificate**. Expired certificates must be renewed (or reissued) so systems can present a valid certificate chain again; otherwise, TLS connections and trust will fail.",
+    "feedback": {
+      "A": "Revocation is used when a certificate is compromised or should no longer be trusted before expiration; it doesn\u2019t restore functionality.",
+      "B": "Submitting a CSR may be part of the renewal/reissue process, but the action needed is renewing/reissuing the certificate.",
+      "C": "Correct. Renewal/reissue provides a new valid certificate to restore trust.",
+      "D": "Regenerating the root CA is unnecessary and highly disruptive for a typical leaf certificate expiration."
+    }
+  },
+  {
+    "id": 194,
+    "correctAnswer": "C",
+    "studyGuideTopic": "BC/DR metrics / RPO",
+    "explanation": "The correct answer is **C. RPO** (Recovery Point Objective). RPO defines how much data loss (in time) is acceptable\u2014how far back you can restore data after a disruption.",
+    "feedback": {
+      "A": "ARO measures frequency of an event per year; it doesn\u2019t define acceptable data loss.",
+      "B": "MTBF is a reliability metric; it doesn\u2019t define acceptable data loss.",
+      "C": "Correct. RPO is the maximum acceptable data loss measured in time.",
+      "D": "MTTF is mean time to failure; it does not define acceptable data loss."
+    }
+  },
+  {
+    "id": 195,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Email security / TLS for SMTP",
+    "explanation": "The correct answer is **B. SMTPS**. SMTPS (SMTP over TLS) encrypts email transmission between mail clients/servers (or server-to-server when supported), protecting email in transit.",
+    "feedback": {
+      "A": "DNSSEC secures DNS records; it doesn\u2019t encrypt email transmission.",
+      "B": "Correct. SMTPS uses TLS to encrypt SMTP traffic.",
+      "C": "SFTP secures file transfer, not email transmission.",
+      "D": "HTTPS secures web traffic; it doesn\u2019t specifically secure SMTP email transport."
+    }
+  },
+  {
+    "id": 196,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Device posture enforcement / NAC",
+    "explanation": "The correct answer is **B. NAC**. NAC can check device posture (including OS version) and block or quarantine devices that don\u2019t meet minimum requirements from connecting to the network.",
+    "feedback": {
+      "A": "CASB controls cloud application usage; it doesn\u2019t enforce LAN/Wi\u2011Fi device posture.",
+      "B": "Correct. NAC enforces device compliance/posture before allowing network access.",
+      "C": "IDS detects suspicious activity but doesn\u2019t prevent noncompliant devices from connecting.",
+      "D": "DLP focuses on preventing sensitive data leakage, not enforcing device OS version compliance."
+    }
+  },
+  {
+    "id": 197,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Layer 2 protections / ARP spoofing mitigation",
+    "explanation": "The correct answer is **A. Dynamic ARP inspection**. DAI validates ARP packets against trusted bindings (often from DHCP snooping) to prevent ARP poisoning and traffic redirection on a switched network.",
+    "feedback": {
+      "A": "Correct. Dynamic ARP inspection blocks forged ARP replies and mitigates ARP poisoning.",
+      "B": "Flood guard can limit MAC flooding attacks but doesn\u2019t specifically validate ARP mappings.",
+      "C": "A VPN encrypts traffic in transit but doesn\u2019t prevent local ARP cache poisoning on a LAN segment.",
+      "D": "DNSSEC protects DNS integrity, not ARP table manipulation."
+    }
+  },
+  {
+    "id": 198,
+    "correctAnswer": "C",
+    "studyGuideTopic": "TLS trust / Anti-spoofing",
+    "explanation": "The correct answer is **C. Certificate pinning**. Pinning prevents clients from accepting a forged/rogue certificate by requiring the server\u2019s certificate (or public key) to match the pinned value.",
+    "feedback": {
+      "A": "OCSP stapling improves revocation checking efficiency, but it doesn\u2019t prevent a spoofed certificate if a rogue CA-issued cert exists.",
+      "B": "Key escrow stores encryption keys; it\u2019s unrelated to preventing certificate spoofing.",
+      "C": "Correct. Pinning blocks spoofed certificates that don\u2019t match the pinned key/cert.",
+      "D": "Hashing verifies data integrity but doesn\u2019t establish certificate authenticity in TLS sessions."
+    }
+  },
+  {
+    "id": 199,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Network access restrictions / Approved systems",
+    "explanation": "The correct answer is **A. MAC filtering**. MAC filtering restricts network access to known device MAC addresses, allowing only approved systems to connect (not perfect, but it matches the requirement among the options).",
+    "feedback": {
+      "A": "Correct. MAC filtering allows only approved device MAC addresses to access the network.",
+      "B": "MFA verifies a user, not whether the connecting system is an approved device.",
+      "C": "Firewall rules control traffic flows; they don\u2019t ensure only approved systems can connect in the first place.",
+      "D": "EDR monitors endpoints for threats; it doesn\u2019t gate network access to only approved systems."
+    }
+  },
+  {
+    "id": 200,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Security operations metrics / MTTD",
+    "explanation": "The correct answer is **B. MTTD** (Mean Time To Detect). If the goal is faster detection of security events, you improve monitoring, alerting, correlation, and response workflows to reduce MTTD.",
+    "feedback": {
+      "A": "MTTF measures time until failure; it\u2019s not about detecting security events.",
+      "B": "Correct. Reducing MTTD means finding incidents faster.",
+      "C": "RTO is how quickly you must restore service after disruption, not detection speed.",
+      "D": "RPO defines acceptable data loss, not detection speed."
+    }
   }
 ]
