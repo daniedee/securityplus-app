@@ -1,0 +1,5912 @@
+[
+  {
+    "id": 1,
+    "question": "Which of the following threat actors is the most likely to be hired by a foreign government to attack critical systems located in other countries?",
+    "choices": {
+      "A": "Hacktivist",
+      "B": "Whistleblower",
+      "C": "Organized crime",
+      "D": "Unskilled attacker"
+    }
+  },
+  {
+    "id": 2,
+    "question": "Which of the following is used to add extra complexity before using a one-way data transformation algorithm?",
+    "choices": {
+      "A": "Key stretching",
+      "B": "Data masking",
+      "C": "Steganography",
+      "D": "Salting"
+    }
+  },
+  {
+    "id": 3,
+    "question": "An employee clicked a link in an email asking to update contact information, entered login credentials, and saw a “page not found” error. What type of social engineering attack occurred?",
+    "choices": {
+      "A": "Brand impersonation",
+      "B": "Pretexting",
+      "C": "Typosquatting",
+      "D": "Phishing"
+    }
+  },
+  {
+    "id": 4,
+    "question": "An organization wants to limit outbound DNS traffic so it originates only from 10.50.10.25. Which ACL accomplishes this?",
+    "choices": {
+      "A": "Access list outbound permit 0.0.0.0/0 0.0.0.0/0 port 53; deny 10.50.10.25/32",
+      "B": "Access list outbound permit 0.0.0.0/0 10.50.10.25/32 port 53; deny all",
+      "C": "Access list outbound permit 0.0.0.0/0 0.0.0.0/0 port 53; deny 0.0.0.0/0 10.50.10.25/32",
+      "D": "Access list outbound permit 10.50.10.25/32 0.0.0.0/0 port 53; deny all"
+    }
+  },
+  {
+    "id": 5,
+    "question": "A company wants employees to use domain credentials to access a SaaS app. Which method supports this?",
+    "choices": {
+      "A": "SSO",
+      "B": "LEAP",
+      "C": "MFA",
+      "D": "PEAP"
+    }
+  },
+  {
+    "id": 6,
+    "question": "Which scenario describes business email compromise (BEC)?",
+    "choices": {
+      "A": "Gift card request with executive’s name in display field",
+      "B": "Ransom message after opening an email attachment",
+      "C": "Email from HR director asking for cloud admin credentials",
+      "D": "Link leading to a phishing page that mimics the login portal"
+    }
+  },
+  {
+    "id": 7,
+    "question": "DBAs cannot access the database segment directly. What should they use?",
+    "choices": {
+      "A": "Jump server",
+      "B": "RADIUS",
+      "C": "HSM",
+      "D": "Load balancer"
+    }
+  },
+  {
+    "id": 8,
+    "question": "A website was compromised via buffer overflow. What should be deployed to protect against this?",
+    "choices": {
+      "A": "NGFW",
+      "B": "WAF",
+      "C": "TLS",
+      "D": "SD-WAN"
+    }
+  },
+  {
+    "id": 9,
+    "question": "Users logged in from suspicious IPs. Passwords were reset. What should be implemented?",
+    "choices": {
+      "A": "MFA",
+      "B": "RBAC",
+      "C": "Network segmentation",
+      "D": "Antivirus"
+    }
+  },
+  {
+    "id": 10,
+    "question": "A researcher finds a password in plaintext in a configuration file. Which attack is this?",
+    "choices": {
+      "A": "Rainbow table",
+      "B": "Credential harvesting",
+      "C": "Brute force",
+      "D": "Default credentials"
+    }
+  },
+  {
+    "id": 11,
+    "question": "A security admin needs to secure data stored on mobile devices. Which encryption should be used?",
+    "choices": {
+      "A": "File",
+      "B": "Folder",
+      "C": "Full disk",
+      "D": "Database"
+    }
+  },
+  {
+    "id": 12,
+    "question": "An insider is installing unauthorized software. Which tool best detects this?",
+    "choices": {
+      "A": "VPN logs",
+      "B": "EDR",
+      "C": "File server logs",
+      "D": "Antivirus"
+    }
+  },
+  {
+    "id": 13,
+    "question": "A user reports slow performance and pop-ups. Which malware is likely?",
+    "choices": {
+      "A": "Worm",
+      "B": "Trojan",
+      "C": "Spyware",
+      "D": "Ransomware"
+    }
+  },
+  {
+    "id": 14,
+    "question": "Which testing ensures a system is back to normal after malware removal?",
+    "choices": {
+      "A": "Regression testing",
+      "B": "User acceptance testing",
+      "C": "Chaos engineering",
+      "D": "Dynamic analysis"
+    }
+  },
+  {
+    "id": 15,
+    "question": "Which type of control is an IDS?",
+    "choices": {
+      "A": "Detective",
+      "B": "Preventive",
+      "C": "Corrective",
+      "D": "Compensating"
+    }
+  },
+  {
+    "id": 16,
+    "question": "Which is used to ensure an application only runs on specific devices?",
+    "choices": {
+      "A": "Hardware attestation",
+      "B": "Virtualization",
+      "C": "RADIUS",
+      "D": "Federation"
+    }
+  },
+  {
+    "id": 17,
+    "question": "A company wants to outsource email filtering securely. Which solution?",
+    "choices": {
+      "A": "CASB",
+      "B": "Secure email gateway",
+      "C": "Jump host",
+      "D": "SOAR"
+    }
+  },
+  {
+    "id": 18,
+    "question": "A company needs to prevent data loss if laptops are stolen. What should be used?",
+    "choices": {
+      "A": "Cloud backups",
+      "B": "Certificate pinning",
+      "C": "Full disk encryption",
+      "D": "Containerization"
+    }
+  },
+  {
+    "id": 19,
+    "question": "Which of the following is a security baseline?",
+    "choices": {
+      "A": "Firewall rule sets",
+      "B": "Patch schedules",
+      "C": "Hardening templates",
+      "D": "Change requests"
+    }
+  },
+  {
+    "id": 20,
+    "question": "Which provides a structured approach to handling security events?",
+    "choices": {
+      "A": "Risk management",
+      "B": "Incident response",
+      "C": "Vulnerability scanning",
+      "D": "Penetration testing"
+    }
+  },
+  {
+    "id": 21,
+    "question": "A cyber analyst finds that an attacker modified logs to hide activity. Which security principle has been violated?",
+    "choices": {
+      "A": "Confidentiality",
+      "B": "Integrity",
+      "C": "Availability",
+      "D": "Non-repudiation"
+    }
+  },
+  {
+    "id": 22,
+    "question": "Which method is most secure for exposing services to an external business partner?",
+    "choices": {
+      "A": "Bastion host",
+      "B": "Perimeter network",
+      "C": "WAF",
+      "D": "SSO"
+    }
+  },
+  {
+    "id": 23,
+    "question": "A security analyst reviewing SIEM alerts needs more information about an executable running on a laptop. Which logs should be used?",
+    "choices": {
+      "A": "Application logs",
+      "B": "IPS/IDS logs",
+      "C": "Network logs",
+      "D": "Endpoint logs"
+    }
+  },
+  {
+    "id": 24,
+    "question": "Malicious actors are using a new tactic that the SIEM is not yet configured to detect. What should the analyst do?",
+    "choices": {
+      "A": "Digital forensics",
+      "B": "E-discovery",
+      "C": "Incident response",
+      "D": "Threat hunting"
+    }
+  },
+  {
+    "id": 25,
+    "question": "A company purchased cyber insurance to handle items listed in the risk register. Which strategy is being used?",
+    "choices": {
+      "A": "Accept",
+      "B": "Transfer",
+      "C": "Mitigate",
+      "D": "Avoid"
+    }
+  },
+  {
+    "id": 26,
+    "question": "Which technique should be used to protect data on employee laptops?",
+    "choices": {
+      "A": "Partition encryption",
+      "B": "Asymmetric encryption",
+      "C": "Full disk encryption",
+      "D": "Database encryption"
+    }
+  },
+  {
+    "id": 27,
+    "question": "An acceptable use policy is what type of control?",
+    "choices": {
+      "A": "Detective",
+      "B": "Compensating",
+      "C": "Corrective",
+      "D": "Preventive"
+    }
+  },
+  {
+    "id": 28,
+    "question": "Only the IT manager and help desk lead will have access to the admin console. Which technique is being applied?",
+    "choices": {
+      "A": "Hardening",
+      "B": "Employee monitoring",
+      "C": "Configuration enforcement",
+      "D": "Least privilege"
+    }
+  },
+  {
+    "id": 29,
+    "question": "Which is most likely used to document risks, responsible parties, and thresholds?",
+    "choices": {
+      "A": "Risk tolerance",
+      "B": "Risk transfer",
+      "C": "Risk register",
+      "D": "Risk analysis"
+    }
+  },
+  {
+    "id": 30,
+    "question": "Which procedure should be followed when setting up new firewall rules?",
+    "choices": {
+      "A": "Disaster recovery plan",
+      "B": "Incident response procedure",
+      "C": "Business continuity plan",
+      "D": "Change management procedure"
+    }
+  },
+  {
+    "id": 31,
+    "question": "A company expands its threat-surface program and pays individuals who find vulnerabilities. What is this?",
+    "choices": {
+      "A": "Compliance testing",
+      "B": "Bug bounty",
+      "C": "Vendor assessment",
+      "D": "Security audit"
+    }
+  },
+  {
+    "id": 32,
+    "question": "A company is performing a penetration test. Which agreement defines responsibilities before the test begins?",
+    "choices": {
+      "A": "SLA",
+      "B": "NDA",
+      "C": "MOU",
+      "D": "SOW"
+    }
+  },
+  {
+    "id": 33,
+    "question": "A newly identified vulnerability exists in the OS of legacy IoT devices. What mitigates it quickly?",
+    "choices": {
+      "A": "Insurance",
+      "B": "Patching",
+      "C": "Segmentation",
+      "D": "Replacement"
+    }
+  },
+  {
+    "id": 34,
+    "question": "A security analyst identifies that outbound traffic is leaving a file server unexpectedly. What is the analyst most likely investigating?",
+    "choices": {
+      "A": "Data exfiltration",
+      "B": "DoS attack",
+      "C": "Local malware",
+      "D": "Shadow IT"
+    }
+  },
+  {
+    "id": 35,
+    "question": "A bank wants to prevent ATM skimmers from capturing card data. Which control best prevents this?",
+    "choices": {
+      "A": "CCTV",
+      "B": "Access logs",
+      "C": "Tamper-resistant hardware",
+      "D": "Security guards"
+    }
+  },
+  {
+    "id": 36,
+    "question": "A cloud service provider wants engineers to deploy virtual machines quickly and consistently. Which should they implement?",
+    "choices": {
+      "A": "Golden images",
+      "B": "Snapshots",
+      "C": "Cloning",
+      "D": "Baseline templates"
+    }
+  },
+  {
+    "id": 37,
+    "question": "A server is repeatedly crashing due to memory corruption. Which type of vulnerability does this represent?",
+    "choices": {
+      "A": "SQL injection",
+      "B": "Buffer overflow",
+      "C": "Cross-site scripting",
+      "D": "Logic flaw"
+    }
+  },
+  {
+    "id": 38,
+    "question": "A security analyst wants to discover unauthorized devices on a network. What should they use?",
+    "choices": {
+      "A": "NetFlow",
+      "B": "Asset inventory",
+      "C": "SIEM",
+      "D": "Firewall logs"
+    }
+  },
+  {
+    "id": 39,
+    "question": "An attacker uses a fake wireless access point to intercept user traffic. What attack is this?",
+    "choices": {
+      "A": "Rogue AP",
+      "B": "Evil twin",
+      "C": "Packet sniffing",
+      "D": "MAC spoofing"
+    }
+  },
+  {
+    "id": 40,
+    "question": "An attacker modifies ARP tables to redirect network traffic. What attack occurred?",
+    "choices": {
+      "A": "DNS poisoning",
+      "B": "ARP spoofing",
+      "C": "Smurf attack",
+      "D": "On-path attack"
+    }
+  },
+  {
+    "id": 41,
+    "question": "A SOAR system is being configured to respond automatically to malware alerts. What capability does this describe?",
+    "choices": {
+      "A": "Aggregation",
+      "B": "Orchestration",
+      "C": "Enrichment",
+      "D": "Filtering"
+    }
+  },
+  {
+    "id": 42,
+    "question": "A security team needs to reduce the attack surface of a publicly accessible web server. What should they do?",
+    "choices": {
+      "A": "Install HIDS",
+      "B": "Remove unnecessary services",
+      "C": "Add encryption",
+      "D": "Install MFA"
+    }
+  },
+  {
+    "id": 43,
+    "question": "A technician must apply a high-priority patch to a production system. What should be done first?",
+    "choices": {
+      "A": "Air-gap the system",
+      "B": "Move the system to another network segment",
+      "C": "Create a change control request",
+      "D": "Apply the patch immediately"
+    }
+  },
+  {
+    "id": 44,
+    "question": "Why is root-cause analysis performed during incident response?",
+    "choices": {
+      "A": "To gather IoCs",
+      "B": "To identify affected systems",
+      "C": "To eradicate malware",
+      "D": "To prevent future similar incidents"
+    }
+  },
+  {
+    "id": 45,
+    "question": "If a large bank fails an internal PCI DSS assessment, what is the most likely outcome?",
+    "choices": {
+      "A": "Fines",
+      "B": "Audit findings",
+      "C": "Sanctions",
+      "D": "Reputation damage"
+    }
+  },
+  {
+    "id": 46,
+    "question": "A company is developing a business continuity strategy and wants to know the minimum staff required to operate during a disruption. What step is this?",
+    "choices": {
+      "A": "Capacity planning",
+      "B": "Redundancy",
+      "C": "Geographic dispersion",
+      "D": "Tabletop exercise"
+    }
+  },
+  {
+    "id": 47,
+    "question": "A legal department wants to ensure documents cannot be accessed from high-risk countries. What should be implemented?",
+    "choices": {
+      "A": "Data masking",
+      "B": "Encryption",
+      "C": "Geolocation policy",
+      "D": "Data sovereignty"
+    }
+  },
+  {
+    "id": 48,
+    "question": "Which of the following is a hardware-specific vulnerability?",
+    "choices": {
+      "A": "Firmware version",
+      "B": "Buffer overflow",
+      "C": "SQL injection",
+      "D": "Cross-site scripting"
+    }
+  },
+  {
+    "id": 49,
+    "question": "A “deny any” rule was added to an ACL and caused servers to become unreachable. What would have prevented this issue?",
+    "choices": {
+      "A": "Documenting the rule in a change request",
+      "B": "Testing the rule in a non-production environment",
+      "C": "Disabling IPS signatures",
+      "D": "Adding “allow any” above the deny rule"
+    }
+  },
+  {
+    "id": 50,
+    "question": "A company wants a low-cost backup data center with RTO/RPO of two days. What site should they choose?",
+    "choices": {
+      "A": "Real-time recovery",
+      "B": "Hot site",
+      "C": "Cold site",
+      "D": "Warm site"
+    }
+  },
+  {
+    "id": 51,
+    "question": "A company requires hard drives to be securely wiped before recycling. What policy does this describe?",
+    "choices": {
+      "A": "Enumeration",
+      "B": "Sanitization",
+      "C": "Destruction",
+      "D": "Inventory"
+    }
+  },
+  {
+    "id": 52,
+    "question": "A hospital administrator must protect patient data. What classification should be applied?",
+    "choices": {
+      "A": "Private",
+      "B": "Critical",
+      "C": "Sensitive",
+      "D": "Public"
+    }
+  },
+  {
+    "id": 53,
+    "question": "A U.S. cloud provider wants to open data centers overseas. What should they consider first?",
+    "choices": {
+      "A": "Local data protection regulations",
+      "B": "Hacker risks in foreign countries",
+      "C": "Contractual obligations",
+      "D": "Time-zone differences"
+    }
+  },
+  {
+    "id": 54,
+    "question": "What is the best way to block unknown programs from running?",
+    "choices": {
+      "A": "ACL",
+      "B": "Application allow list",
+      "C": "Host-based firewall",
+      "D": "DLP solution"
+    }
+  },
+  {
+    "id": 55,
+    "question": "A consultant is hired to perform penetration testing and social engineering. Which team performs this activity?",
+    "choices": {
+      "A": "White team",
+      "B": "Purple team",
+      "C": "Blue team",
+      "D": "Red team"
+    }
+  },
+  {
+    "id": 56,
+    "question": "A development manager wants to ensure authenticity of software produced in-house. What should be implemented?",
+    "choices": {
+      "A": "Input validation",
+      "B": "Code signing",
+      "C": "Static analysis",
+      "D": "Secure cookie"
+    }
+  },
+  {
+    "id": 57,
+    "question": "Which tool identifies attacker activity without affecting production servers?",
+    "choices": {
+      "A": "Honeypot",
+      "B": "Video surveillance",
+      "C": "Zero Trust",
+      "D": "Geofencing"
+    }
+  },
+  {
+    "id": 58,
+    "question": "During an investigation, IR teams try to understand the source of an incident. Which phase is this?",
+    "choices": {
+      "A": "Analysis",
+      "B": "Lessons learned",
+      "C": "Detection",
+      "D": "Containment"
+    }
+  },
+  {
+    "id": 59,
+    "question": "After vulnerabilities were remediated, what should be done next?",
+    "choices": {
+      "A": "Conduct an audit",
+      "B": "Perform a penetration test",
+      "C": "Rescan the network",
+      "D": "Submit a report"
+    }
+  },
+  {
+    "id": 60,
+    "question": "A user logged in remotely after hours and copied large amounts of data to a personal device. What best describes this activity?",
+    "choices": {
+      "A": "Privilege escalation",
+      "B": "Insider threat",
+      "C": "Account takeover",
+      "D": "Data corruption"
+    }
+  },
+  {
+    "id": 61,
+    "question": "A security administrator needs to control which websites employees can access. What should be implemented?",
+    "choices": {
+      "A": "Firewall",
+      "B": "Proxy",
+      "C": "WAF",
+      "D": "Load balancer"
+    }
+  },
+  {
+    "id": 62,
+    "question": "Which of the following wireless attacks forces devices to disconnect from the access point?",
+    "choices": {
+      "A": "Dissociation attack",
+      "B": "Evil twin",
+      "C": "Bluejacking",
+      "D": "Replay attack"
+    }
+  },
+  {
+    "id": 63,
+    "question": "A technician needs to restrict access to the network based on physical port. What should be configured?",
+    "choices": {
+      "A": "802.1X",
+      "B": "Port security",
+      "C": "VPN",
+      "D": "MAC filtering"
+    }
+  },
+  {
+    "id": 64,
+    "question": "Which authentication method sends credentials in cleartext and should never be used?",
+    "choices": {
+      "A": "PAP",
+      "B": "CHAP",
+      "C": "EAP-TLS",
+      "D": "PEAP"
+    }
+  },
+  {
+    "id": 65,
+    "question": "An auditor discovers orphaned accounts. What should be implemented to prevent this in the future?",
+    "choices": {
+      "A": "RBAC",
+      "B": "Account recertification",
+      "C": "MFA",
+      "D": "Hashing"
+    }
+  },
+  {
+    "id": 66,
+    "question": "A system logs the user performing an action along with location and timestamp. What security principle is enforced?",
+    "choices": {
+      "A": "Accountability",
+      "B": "Confidentiality",
+      "C": "Isolation",
+      "D": "Federation"
+    }
+  },
+  {
+    "id": 67,
+    "question": "A developer uses hashed passwords but without salt. What vulnerability exists?",
+    "choices": {
+      "A": "Weak encryption",
+      "B": "Replay",
+      "C": "Rainbow table",
+      "D": "Session fixation"
+    }
+  },
+  {
+    "id": 68,
+    "question": "Which of the following is a compensating control?",
+    "choices": {
+      "A": "Physical locks",
+      "B": "Encryption",
+      "C": "Network segmentation",
+      "D": "MFA"
+    }
+  },
+  {
+    "id": 69,
+    "question": "A user receives a text message asking them to verify their bank account. What attack is this?",
+    "choices": {
+      "A": "Vishing",
+      "B": "Smishing",
+      "C": "Pretexting",
+      "D": "Whaling"
+    }
+  },
+  {
+    "id": 70,
+    "question": "Which method best ensures integrity of a downloaded software package?",
+    "choices": {
+      "A": "Digital signature",
+      "B": "TPM",
+      "C": "MFA",
+      "D": "File share"
+    }
+  },
+  {
+    "id": 71,
+    "question": "A company wants to prevent employees from installing unapproved applications. What should be implemented?",
+    "choices": {
+      "A": "Application deny list",
+      "B": "Application allow list",
+      "C": "Host firewall",
+      "D": "CASB"
+    }
+  },
+  {
+    "id": 72,
+    "question": "Which measure prevents endpoints from reaching malicious websites?",
+    "choices": {
+      "A": "IDS",
+      "B": "DNS filtering",
+      "C": "VLANs",
+      "D": "SIEM"
+    }
+  },
+  {
+    "id": 73,
+    "question": "Which is a primary concern in BYOD programs?",
+    "choices": {
+      "A": "End of life",
+      "B": "Buffer overflow",
+      "C": "VM escape",
+      "D": "Jailbreaking"
+    }
+  },
+  {
+    "id": 74,
+    "question": "A company removes ransomware coverage from its cyber insurance policy to reduce cost. Which analysis element was used?",
+    "choices": {
+      "A": "MTTR",
+      "B": "RTO",
+      "C": "ARO",
+      "D": "MTBF"
+    }
+  },
+  {
+    "id": 75,
+    "question": "Which is most likely included in a security awareness communication?",
+    "choices": {
+      "A": "Reporting phishing attempts",
+      "B": "Detecting insider threats",
+      "C": "Modifying wire transfer data",
+      "D": "Third-party social engineering"
+    }
+  },
+  {
+    "id": 76,
+    "question": "(HOTSPOT SIMULATION — omitted visuals)\n Which attack and remediation pair corresponds to the given scenario?",
+    "choices": {
+      "A": "—",
+      "B": "—",
+      "C": "—",
+      "D": "—"
+    }
+  },
+  {
+    "id": 77,
+    "question": "(HOTSPOT SIMULATION — omitted visuals)\n Determine which host was infected and classify remaining hosts as clean or infected.",
+    "choices": {
+      "A": "—",
+      "B": "—",
+      "C": "—",
+      "D": "—"
+    }
+  },
+  {
+    "id": 78,
+    "question": "Which incident response phase involves reviewing roles and responsibilities?",
+    "choices": {
+      "A": "Preparation",
+      "B": "Recovery",
+      "C": "Lessons learned",
+      "D": "Analysis"
+    }
+  },
+  {
+    "id": 79,
+    "question": "A security engineer needs to harden routers after a vulnerability scan. What should be disabled?",
+    "choices": {
+      "A": "Console access",
+      "B": "Routing protocols",
+      "C": "VLANs",
+      "D": "Web-based administration"
+    }
+  },
+  {
+    "id": 80,
+    "question": "A security administrator needs a method to secure data and track changes. What should be configured?",
+    "choices": {
+      "A": "SPF",
+      "B": "GPO",
+      "C": "NAC",
+      "D": "FIM"
+    }
+  },
+  {
+    "id": 81,
+    "question": "Log entry shows repeated failed admin login attempts. What is occurring?",
+    "choices": {
+      "A": "Brute-force attack",
+      "B": "Man-in-the-middle",
+      "C": "Replay attack",
+      "D": "Privilege escalation"
+    }
+  },
+  {
+    "id": 82,
+    "question": "Which ensures that only authorized software runs on a kiosk?",
+    "choices": {
+      "A": "Application allow list",
+      "B": "File integrity monitoring",
+      "C": "Network ACL",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 83,
+    "question": "A user clicks a malicious link and sends credentials to an attacker. What type of attack is this?",
+    "choices": {
+      "A": "Watering hole",
+      "B": "Phishing",
+      "C": "Tailgating",
+      "D": "Vishing"
+    }
+  },
+  {
+    "id": 84,
+    "question": "Which tool provides real-time endpoint protection?",
+    "choices": {
+      "A": "IDS",
+      "B": "IPS",
+      "C": "EDR",
+      "D": "SIEM"
+    }
+  },
+  {
+    "id": 85,
+    "question": "An employee is tricked into giving account details over the phone. What attack is this?",
+    "choices": {
+      "A": "Vishing",
+      "B": "Smishing",
+      "C": "Pretexting",
+      "D": "Pharming"
+    }
+  },
+  {
+    "id": 86,
+    "question": "A vulnerability scan returns “inconclusive.” What should be done next?",
+    "choices": {
+      "A": "Manual review",
+      "B": "Full penetration test",
+      "C": "Patch immediately",
+      "D": "Ignore it"
+    }
+  },
+  {
+    "id": 87,
+    "question": "Which provides redundancy for high-availability servers?",
+    "choices": {
+      "A": "UPS",
+      "B": "RAID",
+      "C": "VLAN",
+      "D": "Hashing"
+    }
+  },
+  {
+    "id": 88,
+    "question": "A company wants to prevent users from accessing malicious sites via email links. What should be used?",
+    "choices": {
+      "A": "DNS sinkholing",
+      "B": "Switch port security",
+      "C": "ARP inspection",
+      "D": "WAF"
+    }
+  },
+  {
+    "id": 89,
+    "question": "A system administrator needs to securely archive logs for regulatory compliance. What should be done?",
+    "choices": {
+      "A": "Store in plaintext",
+      "B": "Encrypt and store offsite",
+      "C": "Delete after 30 days",
+      "D": "Store in a local folder"
+    }
+  },
+  {
+    "id": 90,
+    "question": "A security engineer needs to prevent malicious code from being executed on servers. Which method is best?",
+    "choices": {
+      "A": "Allow list",
+      "B": "IDS",
+      "C": "Reverse proxy",
+      "D": "SIEM"
+    }
+  },
+  {
+    "id": 91,
+    "question": "A system was infected after a user executed a file from a USB drive. What type of attack is this?",
+    "choices": {
+      "A": "Trojan",
+      "B": "Logic bomb",
+      "C": "Rootkit",
+      "D": "Supply chain"
+    }
+  },
+  {
+    "id": 92,
+    "question": "Which ensures that network devices can verify the identity of another device?",
+    "choices": {
+      "A": "Certificate pinning",
+      "B": "802.1X",
+      "C": "IPSec tunnel",
+      "D": "Federation"
+    }
+  },
+  {
+    "id": 93,
+    "question": "A SOC analyst sees multiple failed login attempts across different company systems. What is most likely happening?",
+    "choices": {
+      "A": "Password spraying",
+      "B": "DDoS",
+      "C": "SQL injection",
+      "D": "DNS poisoning"
+    }
+  },
+  {
+    "id": 94,
+    "question": "A security team finds open RDP services. What should they do first?",
+    "choices": {
+      "A": "Disable RDP",
+      "B": "Enforce MFA",
+      "C": "Encrypt RDP",
+      "D": "Change passwords"
+    }
+  },
+  {
+    "id": 95,
+    "question": "Which attack exploits database misconfigurations?",
+    "choices": {
+      "A": "Buffer overflow",
+      "B": "SQL injection",
+      "C": "VM escape",
+      "D": "Memory injection"
+    }
+  },
+  {
+    "id": 96,
+    "question": "Which validates a certificate when presented?",
+    "choices": {
+      "A": "OCSP",
+      "B": "CSR",
+      "C": "CA",
+      "D": "CRC"
+    }
+  },
+  {
+    "id": 97,
+    "question": "A vendor recommends updating BIOS to fix a security issue. What vulnerability type is addressed?",
+    "choices": {
+      "A": "Virtualization",
+      "B": "Firmware",
+      "C": "Application",
+      "D": "Operating system"
+    }
+  },
+  {
+    "id": 98,
+    "question": "Which quantitatively measures vulnerability criticality?",
+    "choices": {
+      "A": "CVE",
+      "B": "CVSS",
+      "C": "CIA",
+      "D": "CERT"
+    }
+  },
+  {
+    "id": 99,
+    "question": "What ensures workstations/servers are monitored for unauthorized changes?",
+    "choices": {
+      "A": "Log all scheduled tasks",
+      "B": "Monitor outbound traffic",
+      "C": "Block malicious signatures",
+      "D": "Install endpoint management"
+    }
+  },
+  {
+    "id": 100,
+    "question": "A company uses a VPN between HQ and a branch office. What is the VPN protecting?",
+    "choices": {
+      "A": "Data in use",
+      "B": "Data in transit",
+      "C": "Geographic restrictions",
+      "D": "Data sovereignty"
+    }
+  },
+  {
+    "id": 101,
+    "question": "A company wants to reduce the risk of data exposure if mobile devices are lost or stolen. What should be implemented?",
+    "choices": {
+      "A": "Certificate pinning",
+      "B": "Remote wipe",
+      "C": "SALT hashing",
+      "D": "TLS inspection"
+    }
+  },
+  {
+    "id": 102,
+    "question": "Which of the following best mitigates the risk of rogue devices connecting to a corporate network?",
+    "choices": {
+      "A": "Disable VLANs",
+      "B": "Implement 802.1X",
+      "C": "Install antivirus",
+      "D": "Use WPA2-Personal"
+    }
+  },
+  {
+    "id": 103,
+    "question": "A developer accidentally commits credentials to a public repository. Which process would detect this?",
+    "choices": {
+      "A": "SAST",
+      "B": "SCAP",
+      "C": "Fuzzing",
+      "D": "Containerization"
+    }
+  },
+  {
+    "id": 104,
+    "question": "A security analyst sees repeated login attempts from multiple geographic locations. What attack is occurring?",
+    "choices": {
+      "A": "On-path attack",
+      "B": "Credential stuffing",
+      "C": "Memory injection",
+      "D": "DNS cache poisoning"
+    }
+  },
+  {
+    "id": 105,
+    "question": "A security engineer needs to implement alerting when privileged accounts perform unusual activities. What should be used?",
+    "choices": {
+      "A": "SOAR",
+      "B": "WAF",
+      "C": "UBA",
+      "D": "CASB"
+    }
+  },
+  {
+    "id": 106,
+    "question": "A company needs to quickly restore services in the event of a natural disaster. Which should be part of the plan?",
+    "choices": {
+      "A": "MTBF",
+      "B": "Hot site",
+      "C": "Qualitative analysis",
+      "D": "Geofencing"
+    }
+  },
+  {
+    "id": 107,
+    "question": "A SOC analyst sees sudden outbound traffic from multiple devices to an unknown IP. What is this MOST likely?",
+    "choices": {
+      "A": "DDoS",
+      "B": "Botnet communication",
+      "C": "SQL injection",
+      "D": "VLAN hopping"
+    }
+  },
+  {
+    "id": 108,
+    "question": "Which method allows attackers to guess commonly used passwords across many accounts?",
+    "choices": {
+      "A": "Credential harvesting",
+      "B": "Password spraying",
+      "C": "Brute-force",
+      "D": "Dictionary attack"
+    }
+  },
+  {
+    "id": 109,
+    "question": "A security engineer wants to secure log transmissions between servers. Which protocol should be used?",
+    "choices": {
+      "A": "SCP",
+      "B": "SFTP",
+      "C": "TLS",
+      "D": "LDAPS"
+    }
+  },
+  {
+    "id": 110,
+    "question": "Which control type is encryption?",
+    "choices": {
+      "A": "Corrective",
+      "B": "Preventive",
+      "C": "Detective",
+      "D": "Compensating"
+    }
+  },
+  {
+    "id": 111,
+    "question": "A company must separate development, testing, and production environments to reduce risk. Which concept is this?",
+    "choices": {
+      "A": "Change control",
+      "B": "Separation of duties",
+      "C": "Environment segmentation",
+      "D": "Federation"
+    }
+  },
+  {
+    "id": 112,
+    "question": "An employee reports that files were encrypted and a ransom demand appeared. What attack occurred?",
+    "choices": {
+      "A": "Rootkit",
+      "B": "Ransomware",
+      "C": "Keylogger",
+      "D": "Spyware"
+    }
+  },
+  {
+    "id": 113,
+    "question": "Which mechanism ensures that only approved firmware is loaded on boot?",
+    "choices": {
+      "A": "FIM",
+      "B": "TPM",
+      "C": "Geofencing",
+      "D": "Secure boot"
+    }
+  },
+  {
+    "id": 114,
+    "question": "A penetration tester tries commonly used passwords on admin accounts. What technique is used?",
+    "choices": {
+      "A": "Dictionary attack",
+      "B": "Password spraying",
+      "C": "Credential harvesting",
+      "D": "On-path attack"
+    }
+  },
+  {
+    "id": 115,
+    "question": "HR emails employees asking them to verify personal details, but the message came from an external domain. What attack is this?",
+    "choices": {
+      "A": "Impersonation",
+      "B": "Pretexting",
+      "C": "Spear phishing",
+      "D": "Whaling"
+    }
+  },
+  {
+    "id": 116,
+    "question": "A user finds that the company website redirects to a fake login page. What attack is this?",
+    "choices": {
+      "A": "DNS poisoning",
+      "B": "ARP spoofing",
+      "C": "Password spraying",
+      "D": "Session hijacking"
+    }
+  },
+  {
+    "id": 117,
+    "question": "What type of malware encrypts data and demands payment?",
+    "choices": {
+      "A": "RAT",
+      "B": "Worm",
+      "C": "Ransomware",
+      "D": "Spyware"
+    }
+  },
+  {
+    "id": 118,
+    "question": "A company wants to analyze memory contents from a compromised server. What should they collect?",
+    "choices": {
+      "A": "Disk image",
+      "B": "Process listing",
+      "C": "RAM dump",
+      "D": "Logs"
+    }
+  },
+  {
+    "id": 119,
+    "question": "Which type of malware hides its presence by modifying system calls?",
+    "choices": {
+      "A": "Worm",
+      "B": "Keylogger",
+      "C": "Rootkit",
+      "D": "Spyware"
+    }
+  },
+  {
+    "id": 120,
+    "question": "Which risk management strategy stops an activity entirely to eliminate risk?",
+    "choices": {
+      "A": "Transfer",
+      "B": "Avoid",
+      "C": "Accept",
+      "D": "Mitigate"
+    }
+  },
+  {
+    "id": 121,
+    "question": "Which of the following is an example of geofencing?",
+    "choices": {
+      "A": "Blocking connections from specific countries",
+      "B": "Restricting access to specific VLANs",
+      "C": "Assigning users to roles",
+      "D": "Detecting unauthorized logins"
+    }
+  },
+  {
+    "id": 122,
+    "question": "A system administrator needs to securely store passwords used by devices. What should be used?",
+    "choices": {
+      "A": "Password vault",
+      "B": "SOAR",
+      "C": "IDS",
+      "D": "CASB"
+    }
+  },
+  {
+    "id": 123,
+    "question": "A security engineer wants to determine if a certificate has been revoked. Which will help?",
+    "choices": {
+      "A": "CSR",
+      "B": "OCSP",
+      "C": "TPM",
+      "D": "IPSec"
+    }
+  },
+  {
+    "id": 124,
+    "question": "Which backup strategy copies only files that changed since the last full backup?",
+    "choices": {
+      "A": "Differential",
+      "B": "Full",
+      "C": "Snapshot",
+      "D": "Clone"
+    }
+  },
+  {
+    "id": 125,
+    "question": "Which of the following MUST be documented before performing a penetration test?",
+    "choices": {
+      "A": "Firewall rules",
+      "B": "Scope of work",
+      "C": "Code review",
+      "D": "Attestation letter"
+    }
+  },
+  {
+    "id": 126,
+    "question": "What describes a file that can run malware without writing to disk?",
+    "choices": {
+      "A": "Fileless malware",
+      "B": "RAT",
+      "C": "Worm",
+      "D": "Trojan"
+    }
+  },
+  {
+    "id": 127,
+    "question": "A user receives an email that appears to be from the CEO asking for sensitive data. What attack is this?",
+    "choices": {
+      "A": "Whaling",
+      "B": "Pretexting",
+      "C": "Smishing",
+      "D": "Vishing"
+    }
+  },
+  {
+    "id": 128,
+    "question": "Which of the following BEST identifies unauthorized access attempts?",
+    "choices": {
+      "A": "Antivirus",
+      "B": "UBA",
+      "C": "Load balancer",
+      "D": "DHCP"
+    }
+  },
+  {
+    "id": 129,
+    "question": "A malicious insider sends confidential documents to a competitor. Which principle has failed?",
+    "choices": {
+      "A": "Integrity",
+      "B": "Accountability",
+      "C": "Data masking",
+      "D": "Confidentiality"
+    }
+  },
+  {
+    "id": 130,
+    "question": "Which describes a record of changes and who made them?",
+    "choices": {
+      "A": "Log retention policy",
+      "B": "Version control",
+      "C": "Patch management",
+      "D": "Configuration baseline"
+    }
+  },
+  {
+    "id": 131,
+    "question": "What type of attack involves intercepting and altering communication between two users?",
+    "choices": {
+      "A": "Replay",
+      "B": "On-path",
+      "C": "Injection",
+      "D": "Flooding"
+    }
+  },
+  {
+    "id": 132,
+    "question": "A user reports the system clock changing randomly. What likely occurred?",
+    "choices": {
+      "A": "Rootkit infection",
+      "B": "Worm",
+      "C": "Spyware",
+      "D": "Backdoor"
+    }
+  },
+  {
+    "id": 133,
+    "question": "Which type of control includes security guards and fencing?",
+    "choices": {
+      "A": "Logical",
+      "B": "Physical",
+      "C": "Managerial",
+      "D": "Technical"
+    }
+  },
+  {
+    "id": 134,
+    "question": "Which method securely transfers files with encryption?",
+    "choices": {
+      "A": "FTP",
+      "B": "TFTP",
+      "C": "SCP",
+      "D": "SMTP"
+    }
+  },
+  {
+    "id": 135,
+    "question": "A company wants to block all unknown USB devices. What should they configure?",
+    "choices": {
+      "A": "DLP",
+      "B": "Endpoint management",
+      "C": "EDR",
+      "D": "Application controls"
+    }
+  },
+  {
+    "id": 136,
+    "question": "Which is MOST likely to contain indicators of compromise?",
+    "choices": {
+      "A": "SIEM dashboards",
+      "B": "NetFlow",
+      "C": "Firewall ACL",
+      "D": "Certificate revocation list"
+    }
+  },
+  {
+    "id": 137,
+    "question": "A user cannot access resources due to a flood of network traffic. What attack is this?",
+    "choices": {
+      "A": "SQL injection",
+      "B": "DDoS",
+      "C": "XSS",
+      "D": "Directory traversal"
+    }
+  },
+  {
+    "id": 138,
+    "question": "Which key risk metric estimates how often an event is expected to occur?",
+    "choices": {
+      "A": "MTTR",
+      "B": "ARO",
+      "C": "RTO",
+      "D": "RPO"
+    }
+  },
+  {
+    "id": 139,
+    "question": "Which allows use of identity from one domain to access resources in another?",
+    "choices": {
+      "A": "Federation",
+      "B": "ACL",
+      "C": "VLAN",
+      "D": "SIEM"
+    }
+  },
+  {
+    "id": 140,
+    "question": "What would BEST prevent rogue DHCP servers?",
+    "choices": {
+      "A": "DHCP snooping",
+      "B": "DLP",
+      "C": "FIM",
+      "D": "WAF"
+    }
+  },
+  {
+    "id": 141,
+    "question": "What backup type includes ALL data every time it runs?",
+    "choices": {
+      "A": "Snapshot",
+      "B": "Differential",
+      "C": "Incremental",
+      "D": "Full"
+    }
+  },
+  {
+    "id": 142,
+    "question": "A security engineer discovers that a legacy server cannot support MFA. Which control is appropriate?",
+    "choices": {
+      "A": "Compensating control",
+      "B": "Preventive control",
+      "C": "Detective control",
+      "D": "Corrective control"
+    }
+  },
+  {
+    "id": 143,
+    "question": "What BEST defends wireless networks against brute-force attacks?",
+    "choices": {
+      "A": "Hidden SSID",
+      "B": "WPA3",
+      "C": "TKIP",
+      "D": "WEP"
+    }
+  },
+  {
+    "id": 144,
+    "question": "A company wants an automated solution to collect alerts from multiple systems. What should they use?",
+    "choices": {
+      "A": "IDS",
+      "B": "SIEM",
+      "C": "UBA",
+      "D": "SOAR"
+    }
+  },
+  {
+    "id": 145,
+    "question": "A file server suddenly shuts down due to overheating. Which control addresses this?",
+    "choices": {
+      "A": "Fire suppression",
+      "B": "HVAC",
+      "C": "Guards",
+      "D": "CCTV"
+    }
+  },
+  {
+    "id": 146,
+    "question": "A penetration tester uses a tool to search for open ports on a system. What is this?",
+    "choices": {
+      "A": "Packet capture",
+      "B": "Vulnerability scanning",
+      "C": "Port scanning",
+      "D": "Log analysis"
+    }
+  },
+  {
+    "id": 147,
+    "question": "A company sees repeated failed login attempts from a single IP. What should they implement?",
+    "choices": {
+      "A": "Geofencing",
+      "B": "Account lockout",
+      "C": "RADIUS",
+      "D": "CAC"
+    }
+  },
+  {
+    "id": 148,
+    "question": "Which is a PRIMARY benefit of using a jump server?",
+    "choices": {
+      "A": "High availability",
+      "B": "Segmented administrative access",
+      "C": "Network redundancy",
+      "D": "File sharing"
+    }
+  },
+  {
+    "id": 149,
+    "question": "Which cloud model provides the highest customer responsibility?",
+    "choices": {
+      "A": "SaaS",
+      "B": "PaaS",
+      "C": "IaaS",
+      "D": "BPaaS"
+    }
+  },
+  {
+    "id": 150,
+    "question": "Which certificate file format supports storing a private key?",
+    "choices": {
+      "A": "CER",
+      "B": "CRT",
+      "C": "PEM",
+      "D": "PFX"
+    }
+  },
+  {
+    "id": 151,
+    "question": "A compromised workstation begins scanning nearby devices. What is this behavior typical of?",
+    "choices": {
+      "A": "Worm",
+      "B": "Trojan",
+      "C": "RAT",
+      "D": "Ransomware"
+    }
+  },
+  {
+    "id": 152,
+    "question": "Which setting prevents data from being restored to a previous, insecure state?",
+    "choices": {
+      "A": "Immutability",
+      "B": "Redundancy",
+      "C": "Journaling",
+      "D": "Version control"
+    }
+  },
+  {
+    "id": 153,
+    "question": "A user reports files disappearing and privileges being modified. What attack occurred?",
+    "choices": {
+      "A": "Logic bomb",
+      "B": "Insider threat",
+      "C": "Worm",
+      "D": "Backdoor"
+    }
+  },
+  {
+    "id": 154,
+    "question": "Which protocol provides secure directory services?",
+    "choices": {
+      "A": "LDAP",
+      "B": "LDAPS",
+      "C": "RADIUS",
+      "D": "TACACS+"
+    }
+  },
+  {
+    "id": 155,
+    "question": "A SOC analyst needs to isolate a compromised device. What should they do?",
+    "choices": {
+      "A": "Reboot the system",
+      "B": "Segment the host",
+      "C": "Delete logs",
+      "D": "Patch the system"
+    }
+  },
+  {
+    "id": 156,
+    "question": "Which principle ensures that critical functions continue during disruptions?",
+    "choices": {
+      "A": "MTBF",
+      "B": "Business continuity",
+      "C": "Risk avoidance",
+      "D": "Cryptographic integrity"
+    }
+  },
+  {
+    "id": 157,
+    "question": "A security engineer wants to prevent attackers from analyzing executable files. What technique helps?",
+    "choices": {
+      "A": "Obfuscation",
+      "B": "Hashing",
+      "C": "File integrity monitoring",
+      "D": "Encryption"
+    }
+  },
+  {
+    "id": 158,
+    "question": "A threat actor uses a fake SSID similar to the company’s SSID. What attack is this?",
+    "choices": {
+      "A": "Rogue AP",
+      "B": "Evil twin",
+      "C": "Deauth attack",
+      "D": "MAC spoofing"
+    }
+  },
+  {
+    "id": 159,
+    "question": "Which vulnerability scan result requires immediate remediation?",
+    "choices": {
+      "A": "Informational",
+      "B": "Low",
+      "C": "Critical",
+      "D": "Medium"
+    }
+  },
+  {
+    "id": 160,
+    "question": "A company needs a method to restrict access to resources based on device compliance. What should they implement?",
+    "choices": {
+      "A": "SSO",
+      "B": "NAC",
+      "C": "WAF",
+      "D": "CASB"
+    }
+  },
+  {
+    "id": 161,
+    "question": "A high-value database server must be isolated from all non-essential devices. What should be used?",
+    "choices": {
+      "A": "Firewall",
+      "B": "VLAN",
+      "C": "Air-gap",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 162,
+    "question": "What technique ensures only authorized scripts can run in production?",
+    "choices": {
+      "A": "Code signing",
+      "B": "FIM",
+      "C": "Encryption",
+      "D": "Federation"
+    }
+  },
+  {
+    "id": 163,
+    "question": "A company needs to restrict remote access to only approved IP addresses. What should be implemented?",
+    "choices": {
+      "A": "Geolocation",
+      "B": "IP allow list",
+      "C": "DLP",
+      "D": "DNSSEC"
+    }
+  },
+  {
+    "id": 164,
+    "question": "A WAF primarily protects against which type of attack?",
+    "choices": {
+      "A": "Password spray",
+      "B": "SQL injection",
+      "C": "ARP spoofing",
+      "D": "Replay attack"
+    }
+  },
+  {
+    "id": 165,
+    "question": "What technology allows an attacker to steal an RFID badge signal?",
+    "choices": {
+      "A": "Replay attack",
+      "B": "Skimming",
+      "C": "Brute force",
+      "D": "Tailgating"
+    }
+  },
+  {
+    "id": 166,
+    "question": "Which disaster recovery site has minimal equipment and no live data?",
+    "choices": {
+      "A": "Hot site",
+      "B": "Warm site",
+      "C": "Real-time site",
+      "D": "Cold site"
+    }
+  },
+  {
+    "id": 167,
+    "question": "Which protects email users from malicious links and attachments?",
+    "choices": {
+      "A": "SEG",
+      "B": "SIEM",
+      "C": "VPN",
+      "D": "HSM"
+    }
+  },
+  {
+    "id": 168,
+    "question": "A secure enclave provides which of the following?",
+    "choices": {
+      "A": "Isolated processing",
+      "B": "Secure transmission",
+      "C": "Data loss prevention",
+      "D": "Redundancy"
+    }
+  },
+  {
+    "id": 169,
+    "question": "A company wants to prevent employees from using personal storage services. What should they use?",
+    "choices": {
+      "A": "CASB",
+      "B": "Firewall",
+      "C": "IPS",
+      "D": "DLP"
+    }
+  },
+  {
+    "id": 170,
+    "question": "A team wants to ensure logs have not been tampered with. Which helps validate this?",
+    "choices": {
+      "A": "Hashing",
+      "B": "ACLs",
+      "C": "Encryption",
+      "D": "Permissions"
+    }
+  },
+  {
+    "id": 171,
+    "question": "What technique ensures that clients validate server certificates?",
+    "choices": {
+      "A": "Key escrow",
+      "B": "Certificate pinning",
+      "C": "OCSP",
+      "D": "Key stretching"
+    }
+  },
+  {
+    "id": 172,
+    "question": "A security administrator needs to ensure cloud workloads are deployed using best practices. What should they use?",
+    "choices": {
+      "A": "Golden images",
+      "B": "Code review",
+      "C": "Data masking",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 173,
+    "question": "Which security mechanism blocks access to malicious domains?",
+    "choices": {
+      "A": "IPSec",
+      "B": "DNS filtering",
+      "C": "TLS",
+      "D": "EDR"
+    }
+  },
+  {
+    "id": 174,
+    "question": "A developer accidentally exposes application secrets. What should the security team perform first?",
+    "choices": {
+      "A": "Reverse engineering",
+      "B": "Impact analysis",
+      "C": "System restore",
+      "D": "Log review"
+    }
+  },
+  {
+    "id": 175,
+    "question": "Which attack relies on injecting commands into a URL path?",
+    "choices": {
+      "A": "SQL injection",
+      "B": "Command injection",
+      "C": "Cross-site scripting",
+      "D": "Directory traversal"
+    }
+  },
+  {
+    "id": 176,
+    "question": "A server is experiencing unusual outbound traffic every night. What is this likely?",
+    "choices": {
+      "A": "Beaconing",
+      "B": "DDoS",
+      "C": "Replay attack",
+      "D": "Tailgating"
+    }
+  },
+  {
+    "id": 177,
+    "question": "Which technology is used to store encryption keys securely?",
+    "choices": {
+      "A": "TPM",
+      "B": "LDAP",
+      "C": "RADIUS",
+      "D": "WAF"
+    }
+  },
+  {
+    "id": 178,
+    "question": "Which vulnerability scanning component helps identify hosts on a network?",
+    "choices": {
+      "A": "Banner grabbing",
+      "B": "Credentialed scanning",
+      "C": "Discovery scanning",
+      "D": "Certificate mapping"
+    }
+  },
+  {
+    "id": 179,
+    "question": "What should be used to detect unauthorized changes to system files?",
+    "choices": {
+      "A": "Endpoint detection",
+      "B": "FIM",
+      "C": "SSO",
+      "D": "SIEM"
+    }
+  },
+  {
+    "id": 180,
+    "question": "What is the PRIMARY reason to conduct tabletop exercises?",
+    "choices": {
+      "A": "Improve physical security",
+      "B": "Validate incident response plans",
+      "C": "Test backups",
+      "D": "Conduct penetration testing"
+    }
+  },
+  {
+    "id": 181,
+    "question": "Attackers exploit a misconfigured server to gain access. What type of vulnerability is this?",
+    "choices": {
+      "A": "Logic flaw",
+      "B": "Misconfiguration",
+      "C": "Zero-day",
+      "D": "Social engineering"
+    }
+  },
+  {
+    "id": 182,
+    "question": "Which protocol provides encrypted remote administration?",
+    "choices": {
+      "A": "SSH",
+      "B": "Telnet",
+      "C": "HTTP",
+      "D": "FTP"
+    }
+  },
+  {
+    "id": 183,
+    "question": "A company disables USB ports to prevent data leakage. This is an example of which control type?",
+    "choices": {
+      "A": "Compensating",
+      "B": "Preventive",
+      "C": "Detective",
+      "D": "Corrective"
+    }
+  },
+  {
+    "id": 184,
+    "question": "A user sees pop-up ads and browser redirections. What malware is this most likely?",
+    "choices": {
+      "A": "Worm",
+      "B": "Spyware",
+      "C": "Adware",
+      "D": "RAT"
+    }
+  },
+  {
+    "id": 185,
+    "question": "What capability allows cloud workloads to continue running if one server fails?",
+    "choices": {
+      "A": "Resiliency",
+      "B": "Failover",
+      "C": "Containerization",
+      "D": "Immutability"
+    }
+  },
+  {
+    "id": 186,
+    "question": "An attacker sends malicious input to a field that unexpectedly breaks an application. What vulnerability is this?",
+    "choices": {
+      "A": "Input validation failure",
+      "B": "XSS",
+      "C": "Credential harvesting",
+      "D": "Memory injection"
+    }
+  },
+  {
+    "id": 187,
+    "question": "What type of encryption uses the same key for encryption and decryption?",
+    "choices": {
+      "A": "Asymmetric",
+      "B": "Public key",
+      "C": "Symmetric",
+      "D": "Hashing"
+    }
+  },
+  {
+    "id": 188,
+    "question": "A user reports someone followed them into a secure area without authorization. What attack is this?",
+    "choices": {
+      "A": "Tailgating",
+      "B": "Vishing",
+      "C": "Phishing",
+      "D": "Whaling"
+    }
+  },
+  {
+    "id": 189,
+    "question": "A malicious actor tries to overwhelm a web server with traffic. What attack is this?",
+    "choices": {
+      "A": "Flooding",
+      "B": "Credential stuffing",
+      "C": "Directory traversal",
+      "D": "SQL injection"
+    }
+  },
+  {
+    "id": 190,
+    "question": "Which technique isolates microservices to reduce attack surface?",
+    "choices": {
+      "A": "Segmentation",
+      "B": "Containerization",
+      "C": "Federation",
+      "D": "Hardening"
+    }
+  },
+  {
+    "id": 191,
+    "question": "What is the purpose of a data retention policy?",
+    "choices": {
+      "A": "To prevent employees from deleting email",
+      "B": "To define how long data must be stored",
+      "C": "To block unauthorized websites",
+      "D": "To enforce encryption"
+    }
+  },
+  {
+    "id": 192,
+    "question": "Attackers compromise a device and use it to attack other systems. What is this device called?",
+    "choices": {
+      "A": "Jump host",
+      "B": "Bot",
+      "C": "Honeypot",
+      "D": "Proxy"
+    }
+  },
+  {
+    "id": 193,
+    "question": "A certificate has expired. What must be done to restore functionality?",
+    "choices": {
+      "A": "Revoke the certificate",
+      "B": "Submit CSR",
+      "C": "Renew the certificate",
+      "D": "Regenerate root CA"
+    }
+  },
+  {
+    "id": 194,
+    "question": "Which helps determine the amount of data loss acceptable during a disruption?",
+    "choices": {
+      "A": "ARO",
+      "B": "MTBF",
+      "C": "RPO",
+      "D": "MTTF"
+    }
+  },
+  {
+    "id": 195,
+    "question": "Which protocol should be implemented to secure email transmission?",
+    "choices": {
+      "A": "DNSSEC",
+      "B": "SMTPS",
+      "C": "SFTP",
+      "D": "HTTPS"
+    }
+  },
+  {
+    "id": 196,
+    "question": "A company wants to prevent devices with outdated OS versions from connecting. What should they implement?",
+    "choices": {
+      "A": "CASB",
+      "B": "NAC",
+      "C": "IDS",
+      "D": "DLP"
+    }
+  },
+  {
+    "id": 197,
+    "question": "An attacker modifies the ARP table to redirect traffic. What mitigation prevents this?",
+    "choices": {
+      "A": "Dynamic ARP inspection",
+      "B": "Flood guard",
+      "C": "VPN",
+      "D": "DNSSEC"
+    }
+  },
+  {
+    "id": 198,
+    "question": "Which technique prevents certificate spoofing?",
+    "choices": {
+      "A": "OCSP stapling",
+      "B": "Key escrow",
+      "C": "Certificate pinning",
+      "D": "Hashing"
+    }
+  },
+  {
+    "id": 199,
+    "question": "A security engineer must ensure that only approved systems can access a secure network. What should they implement?",
+    "choices": {
+      "A": "MAC filtering",
+      "B": "Multifactor authentication",
+      "C": "Firewall rules",
+      "D": "EDR"
+    }
+  },
+  {
+    "id": 200,
+    "question": "A company wants to shorten the time needed to detect security events. What should they enhance?",
+    "choices": {
+      "A": "MTTF",
+      "B": "MTTD",
+      "C": "RTO",
+      "D": "RPO"
+    }
+  },
+  {
+    "id": 201,
+    "question": " Which of the following would best explain why a security analyst is running daily vulnerability scans on all corporate endpoints?",
+    "choices": {
+      "A": "To track the status of patching installations",
+      "B": "To find shadow IT cloud deployments",
+      "C": "To continuously the monitor hardware inventory",
+      "D": "To hunt for active attackers in the network"
+    }
+  },
+  {
+    "id": 202,
+    "question": " Which of the following is classified as high availability in a cloud environment?",
+    "choices": {
+      "A": "Access broker",
+      "B": "Cloud HSM",
+      "C": "WAF",
+      "D": "Load balancer"
+    }
+  },
+  {
+    "id": 203,
+    "question": " Which of the following security measures is required when using a cloud-based platform for IoT management?",
+    "choices": {
+      "A": "Encrypted connection",
+      "B": "Federated identity",
+      "C": "Firewall",
+      "D": "Single sign-on"
+    }
+  },
+  {
+    "id": 204,
+    "question": " Which of the following threat vectors is most commonly utilized by insider threat actors attempting data exfiltration?",
+    "choices": {
+      "A": "Unidentified removable devices",
+      "B": "Default network device credentials",
+      "C": "Spear phishing emails",
+      "D": "Impersonation of business units through typosquatting"
+    }
+  },
+  {
+    "id": 205,
+    "question": " Which of the following methods to secure credit card data is best to use when a requirement is to see only the last four numbers on a credit card?",
+    "choices": {
+      "A": "Encryption",
+      "B": "Hashing",
+      "C": "Masking",
+      "D": "Tokenization"
+    }
+  },
+  {
+    "id": 206,
+    "question": " The Chief Information Security Officer (CISO) has determined the company is non-compliant with local data privacy regulations. The CISO needs to justify the budget request for more resources. Which of the following should the CISO present to the board as the direct consequence of non-compliance?",
+    "choices": {
+      "A": "Fines",
+      "B": "Reputational damage",
+      "C": "Sanctions",
+      "D": "Contractual implications"
+    }
+  },
+  {
+    "id": 207,
+    "question": " Which of the following alert types is the most likely to be ignored over time?",
+    "choices": {
+      "A": "True positive",
+      "B": "True negative",
+      "C": "False positive",
+      "D": "False negative"
+    }
+  },
+  {
+    "id": 208,
+    "question": " A security analyst is investigating an application server and discovers that software on the server is behaving abnormally. The software normally runs batch jobs locally and does not generate traffic, but the process is now generating outbound traffic over random high ports. Which of the following vulnerabilities has likely been exploited in this software?",
+    "choices": {
+      "A": "Memory injection",
+      "B": "Race condition",
+      "C": "Side loading",
+      "D": "SQL injection"
+    }
+  },
+  {
+    "id": 209,
+    "question": " An important patch for a critical application has just been released, and a systems administrator is identifying all of the systems requiring the patch. Which of the following must be maintained in order to ensure that all systems requiring the patch are updated?",
+    "choices": {
+      "A": "Asset inventory",
+      "B": "Network enumeration",
+      "C": "Data certification",
+      "D": "Procurement process"
+    }
+  },
+  {
+    "id": 210,
+    "question": " Which of the following should a security operations center use to improve its incident response procedure?",
+    "choices": {
+      "A": "Playbooks",
+      "B": "Frameworks",
+      "C": "Baselines",
+      "D": "Benchmarks"
+    }
+  },
+  {
+    "id": 211,
+    "question": " Which of the following describes an executive team that is meeting in a board room and testing the company's incident response plan?",
+    "choices": {
+      "A": "Continuity of operations",
+      "B": "Capacity planning",
+      "C": "Tabletop exercise",
+      "D": "Parallel processing"
+    }
+  },
+  {
+    "id": 212,
+    "question": " A healthcare organization wants to provide a web application that allows individuals to digitally report health emergencies. Which of the following is the most important consideration during development?",
+    "choices": {
+      "A": "Scalability",
+      "B": "Availability",
+      "C": "Cost",
+      "D": "Ease of deployment"
+    }
+  },
+  {
+    "id": 213,
+    "question": " Which of the following agreement types defines the time frame in which a vendor needs to respond?",
+    "choices": {
+      "A": "SOW",
+      "B": "SLA",
+      "C": "MOA",
+      "D": "MOU"
+    }
+  },
+  {
+    "id": 214,
+    "question": " Which of the following is a feature of a next-generation SIEM system?",
+    "choices": {
+      "A": "Virus signatures",
+      "B": "Automated response actions",
+      "C": "Security agent deployment",
+      "D": "Vulnerability scanning"
+    }
+  },
+  {
+    "id": 215,
+    "question": " To improve the security at a data center, a security administrator implements a CCTV system and posts several signs about the possibility of being filmed. Which of the following best describe these types of controls? (Choose two.)",
+    "choices": {
+      "A": "Preventive",
+      "B": "Deterrent",
+      "C": "Corrective",
+      "D": "Directive\n E. Compensating\n F. Detective"
+    }
+  },
+  {
+    "id": 216,
+    "question": " Which of the following examples would be best mitigated by input sanitization?",
+    "choices": {
+      "A": "<script>alert(\"Warning!\");</script>",
+      "B": "nmap - 10.11.1.130",
+      "C": "Email message: \"Click this link to get your free gift card.\"",
+      "D": "Browser message: \"Your connection is not private.\""
+    }
+  },
+  {
+    "id": 217,
+    "question": " An attacker posing as the Chief Executive Officer calls an employee and instructs the employee to buy gift cards. Which of the following techniques is the attacker using?",
+    "choices": {
+      "A": "Smishing",
+      "B": "Disinformation",
+      "C": "Impersonating",
+      "D": "Whaling"
+    }
+  },
+  {
+    "id": 218,
+    "question": " After conducting a vulnerability scan, a systems administrator notices that one of the identified vulnerabilities is not present on the systems that were scanned. Which of the following describes this example?",
+    "choices": {
+      "A": "False positive",
+      "B": "False negative",
+      "C": "True positive",
+      "D": "True negative"
+    }
+  },
+  {
+    "id": 219,
+    "question": " A recent penetration test identified that an attacker could flood the MAC address table of network switches. Which of the following would best mitigate this type of attack?",
+    "choices": {
+      "A": "Load balancer",
+      "B": "Port security",
+      "C": "IPS",
+      "D": "NGFW"
+    }
+  },
+  {
+    "id": 220,
+    "question": " A user would like to install software and features that are not available with a smartphone's default software. Which of the following would allow the user to install unauthorized software and enable new features?",
+    "choices": {
+      "A": "SQLi",
+      "B": "Cross-site scripting",
+      "C": "Jailbreaking",
+      "D": "Side loading"
+    }
+  },
+  {
+    "id": 221,
+    "question": "A security administrator is configuring a segmented network for billing, payroll, and audit systems. Which of the following BEST describes the security benefit achieved?",
+    "choices": {
+      "A": "Authentication",
+      "B": "Isolation",
+      "C": "Obfuscation",
+      "D": "Tokenization"
+    }
+  },
+  {
+    "id": 222,
+    "question": "A web server is experiencing unauthorized website defacement. Which of the following attacks is MOST likely responsible?",
+    "choices": {
+      "A": "MITM",
+      "B": "DNS poisoning",
+      "C": "Cross-site scripting",
+      "D": "Code injection"
+    }
+  },
+  {
+    "id": 223,
+    "question": "Which of the following BEST supports a remote administrator connecting securely to systems over an unsecured network?",
+    "choices": {
+      "A": "Telnet",
+      "B": "SSH",
+      "C": "FTP",
+      "D": "HTTP"
+    }
+  },
+  {
+    "id": 224,
+    "question": "A security engineer reviews logs showing repeated attempts to access a disabled account. Which of the following is MOST likely happening?",
+    "choices": {
+      "A": "Brute-force attack",
+      "B": "Account enumeration",
+      "C": "Replay attack",
+      "D": "Data exfiltration"
+    }
+  },
+  {
+    "id": 225,
+    "question": "A company wants to ensure backups cannot be modified or deleted for 90 days. What should be implemented?",
+    "choices": {
+      "A": "Immutable backups",
+      "B": "RAID 1",
+      "C": "Full backups",
+      "D": "Data masking"
+    }
+  },
+  {
+    "id": 226,
+    "question": "A user connects to a public Wi-Fi network and immediately receives certificate warnings for all websites. What attack is MOST likely?",
+    "choices": {
+      "A": "Rogue access point",
+      "B": "Evil twin",
+      "C": "Bluejacking",
+      "D": "Deauthentication attack"
+    }
+  },
+  {
+    "id": 227,
+    "question": "Which type of attack specifically aims to mislead search engines and manipulate website rankings?",
+    "choices": {
+      "A": "SEO poisoning",
+      "B": "XSS",
+      "C": "SQL injection",
+      "D": "ARP spoofing"
+    }
+  },
+  {
+    "id": 228,
+    "question": "Which of the following policies governs how long logs should be stored?",
+    "choices": {
+      "A": "Data minimization policy",
+      "B": "Retention policy",
+      "C": "Sanitization policy",
+      "D": "Classification policy"
+    }
+  },
+  {
+    "id": 229,
+    "question": "A cloud engineer wants to restrict east-west traffic between virtual machines. What should they configure?",
+    "choices": {
+      "A": "Load balancer",
+      "B": "VPC security groups",
+      "C": "DNS filtering",
+      "D": "CASB"
+    }
+  },
+  {
+    "id": 230,
+    "question": "Which of the following BEST describes a benefit of an out-of-band management network?",
+    "choices": {
+      "A": "Faster data transfer",
+      "B": "Segregated remote access",
+      "C": "Lower storage costs",
+      "D": "Increased wireless coverage"
+    }
+  },
+  {
+    "id": 231,
+    "question": "An attacker captures WPA2 handshake packets. What attack will they MOST likely attempt next?",
+    "choices": {
+      "A": "ARP spoofing",
+      "B": "Password cracking",
+      "C": "Rogue AP creation",
+      "D": "Deauthentication"
+    }
+  },
+  {
+    "id": 232,
+    "question": "A security consultant is reviewing an access control model based on job responsibilities. Which model is this?",
+    "choices": {
+      "A": "MAC",
+      "B": "DAC",
+      "C": "RBAC",
+      "D": "ABAC"
+    }
+  },
+  {
+    "id": 233,
+    "question": "Which tool is used to identify outdated libraries in container images?",
+    "choices": {
+      "A": "SCAP",
+      "B": "Container scanner",
+      "C": "Credential scanner",
+      "D": "Load balancer"
+    }
+  },
+  {
+    "id": 234,
+    "question": "A user reports slow browsing, CPU spikes, and multiple browser redirects. What is MOST likely present?",
+    "choices": {
+      "A": "Keylogger",
+      "B": "Adware",
+      "C": "Rootkit",
+      "D": "Worm"
+    }
+  },
+  {
+    "id": 235,
+    "question": "A cybersecurity analyst wants to determine whether highly sensitive documents have been altered. What should be used?",
+    "choices": {
+      "A": "Hashing",
+      "B": "Digital signature",
+      "C": "Encryption",
+      "D": "ACL"
+    }
+  },
+  {
+    "id": 236,
+    "question": "A database server is running at full capacity. Management wants to ensure service availability. What should they implement?",
+    "choices": {
+      "A": "Clustering",
+      "B": "Snapshots",
+      "C": "Hashing",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 237,
+    "question": "A penetration tester successfully modifies a variable stored in memory to escalate privileges. What attack did they perform?",
+    "choices": {
+      "A": "Buffer overflow",
+      "B": "Code injection",
+      "C": "Logic bomb",
+      "D": "Password spraying"
+    }
+  },
+  {
+    "id": 238,
+    "question": "Which of the following cloud models offers the MOST control over the underlying infrastructure?",
+    "choices": {
+      "A": "SaaS",
+      "B": "PaaS",
+      "C": "IaaS",
+      "D": "CASB"
+    }
+  },
+  {
+    "id": 239,
+    "question": "Which logging level provides the MOST detail for troubleshooting a running application?",
+    "choices": {
+      "A": "Warning",
+      "B": "Debug",
+      "C": "Error",
+      "D": "Fatal"
+    }
+  },
+  {
+    "id": 240,
+    "question": "A user plugs in a USB drive and malware begins executing automatically without interaction. What is this called?",
+    "choices": {
+      "A": "Fileless malware",
+      "B": "AutoRun exploit",
+      "C": "Supply-chain attack",
+      "D": "RAT infection"
+    }
+  },
+  {
+    "id": 241,
+    "question": "Which device filters traffic based on layer 7 inspection?",
+    "choices": {
+      "A": "Switch",
+      "B": "IDS",
+      "C": "NGFW",
+      "D": "Router"
+    }
+  },
+  {
+    "id": 242,
+    "question": "A user reports a suspicious pop-up requesting payment to unlock files. What type of malware is this?",
+    "choices": {
+      "A": "Boot sector virus",
+      "B": "Worm",
+      "C": "Ransomware",
+      "D": "Rootkit"
+    }
+  },
+  {
+    "id": 243,
+    "question": "Which of the following storage options is MOST appropriate for long-term archiving of security logs?",
+    "choices": {
+      "A": "SSD",
+      "B": "Local RAID",
+      "C": "Cold storage",
+      "D": "RAM"
+    }
+  },
+  {
+    "id": 244,
+    "question": "A security engineer needs to enforce configuration standards across all servers. Which of the following tools is BEST for this?",
+    "choices": {
+      "A": "IDS",
+      "B": "Configuration management",
+      "C": "EDR",
+      "D": "Load balancer"
+    }
+  },
+  {
+    "id": 245,
+    "question": "A user clicks a malicious link, and the browser redirects to a fake banking site. What attack is this?",
+    "choices": {
+      "A": "URL hijacking",
+      "B": "Credential stuffing",
+      "C": "Replay attack",
+      "D": "Brute-force"
+    }
+  },
+  {
+    "id": 246,
+    "question": "A developer needs to store API keys securely. What should they use?",
+    "choices": {
+      "A": "Vault",
+      "B": "IPS",
+      "C": "DNSSEC",
+      "D": "NAT"
+    }
+  },
+  {
+    "id": 247,
+    "question": "A company wants to restrict access to financial systems based on device type, location, and time. Which access model supports this?",
+    "choices": {
+      "A": "RBAC",
+      "B": "ACL",
+      "C": "ABAC",
+      "D": "DAC"
+    }
+  },
+  {
+    "id": 248,
+    "question": "Which of the following controls would BEST prevent attackers from exploiting a known vulnerability?",
+    "choices": {
+      "A": "IPS",
+      "B": "Patch management",
+      "C": "VPN",
+      "D": "Email filtering"
+    }
+  },
+  {
+    "id": 249,
+    "question": "A staff member's access is disabled at 5pm daily and restored at 9am. What is this an example of?",
+    "choices": {
+      "A": "Role-based access",
+      "B": "Time-of-day restrictions",
+      "C": "Conditional access",
+      "D": "Baseline configuration"
+    }
+  },
+  {
+    "id": 250,
+    "question": "Which of the following is MOST important to include in a disaster recovery plan for an online retailer?",
+    "choices": {
+      "A": "Vendor contracts",
+      "B": "Recovery procedures",
+      "C": "Budget",
+      "D": "Shift schedules"
+    }
+  },
+  {
+    "id": 251,
+    "question": "An unauthorized user attempts to tailgate into a restricted building. What type of control prevents this?",
+    "choices": {
+      "A": "CCTV",
+      "B": "Mantrap",
+      "C": "Door alarm",
+      "D": "IDS"
+    }
+  },
+  {
+    "id": 252,
+    "question": "A SIEM alert indicates a service account is authenticating from another country. What should the analyst check FIRST?",
+    "choices": {
+      "A": "Group policy",
+      "B": "Baseline deviations",
+      "C": "Credential compromise",
+      "D": "Patch level"
+    }
+  },
+  {
+    "id": 253,
+    "question": "Which of the following is a PRIMARY benefit of storing encryption keys in an HSM?",
+    "choices": {
+      "A": "Performance improvement",
+      "B": "Reduces key exposure risk",
+      "C": "Centralizes application deployment",
+      "D": "Improves VLAN segmentation"
+    }
+  },
+  {
+    "id": 254,
+    "question": "A developer wants to perform real-time testing of a web application. What type of testing is this?",
+    "choices": {
+      "A": "Static",
+      "B": "Dynamic",
+      "C": "Manual",
+      "D": "Regression"
+    }
+  },
+  {
+    "id": 255,
+    "question": "Which backup type includes only changes since the last backup of any type?",
+    "choices": {
+      "A": "Full",
+      "B": "Differential",
+      "C": "Incremental",
+      "D": "Snapshot"
+    }
+  },
+  {
+    "id": 256,
+    "question": "A penetration tester uses a tool to analyze how many steps it takes to compromise an account. Which is being tested?",
+    "choices": {
+      "A": "Password entropy",
+      "B": "ARO",
+      "C": "MTTR",
+      "D": "RTO"
+    }
+  },
+  {
+    "id": 257,
+    "question": "A user suspects someone is intercepting their wireless communications. Which mitigation should they apply?",
+    "choices": {
+      "A": "Disable SSID broadcast",
+      "B": "Use WPA3",
+      "C": "Install a WAF",
+      "D": "Use a firewall"
+    }
+  },
+  {
+    "id": 258,
+    "question": "Which of the following identifies the MOST critical systems in a business?",
+    "choices": {
+      "A": "RPO",
+      "B": "BIA",
+      "C": "MTBF",
+      "D": "Gap analysis"
+    }
+  },
+  {
+    "id": 259,
+    "question": "An attacker mirrors a user’s email inbox and reads messages in real time. What attack is this?",
+    "choices": {
+      "A": "Smishing",
+      "B": "Account takeover",
+      "C": "MITM",
+      "D": "Ransomware"
+    }
+  },
+  {
+    "id": 260,
+    "question": "A database crashed during a power outage. What BEST prevents this from happening again?",
+    "choices": {
+      "A": "RAID",
+      "B": "UPS",
+      "C": "Air-gap",
+      "D": "Hot site"
+    }
+  },
+  {
+    "id": 261,
+    "question": "An organization wants to deploy honeypots and record attacker behavior. This is an example of:",
+    "choices": {
+      "A": "Vulnerability scanning",
+      "B": "Threat intelligence",
+      "C": "Deception technology",
+      "D": "Baselining"
+    }
+  },
+  {
+    "id": 262,
+    "question": "Which of the following BEST describes a legal hold?",
+    "choices": {
+      "A": "Prevents log deletion",
+      "B": "Ensures data is retained for litigation",
+      "C": "Encrypts documents",
+      "D": "Monitors network access"
+    }
+  },
+  {
+    "id": 263,
+    "question": "Which of the following techniques helps validate software integrity during execution?",
+    "choices": {
+      "A": "FDE",
+      "B": "Runtime application self-protection",
+      "C": "Password rotations",
+      "D": "Data masking"
+    }
+  },
+  {
+    "id": 264,
+    "question": "A hacker uses a botnet to send large amounts of traffic to a website. What attack is happening?",
+    "choices": {
+      "A": "XSS",
+      "B": "DDoS",
+      "C": "SQL injection",
+      "D": "Replay"
+    }
+  },
+  {
+    "id": 265,
+    "question": "A user reports that files have been replaced with random characters. What has MOST likely occurred?",
+    "choices": {
+      "A": "Data corruption",
+      "B": "Keylogger",
+      "C": "Adware",
+      "D": "Credential theft"
+    }
+  },
+  {
+    "id": 266,
+    "question": "A company needs a solution for secure and automated configuration updates. What should they implement?",
+    "choices": {
+      "A": "SIEM",
+      "B": "SOAR",
+      "C": "SCAP",
+      "D": "NAC"
+    }
+  },
+  {
+    "id": 267,
+    "question": "Which encryption method is MOST appropriate for securing sensitive fields in a database?",
+    "choices": {
+      "A": "TLS",
+      "B": "Row-level encryption",
+      "C": "WPA3",
+      "D": "AES for full disk"
+    }
+  },
+  {
+    "id": 268,
+    "question": "A ransomware attack encrypted several customer databases. What should be restored FIRST?",
+    "choices": {
+      "A": "Logs",
+      "B": "Backups",
+      "C": "Snapshots",
+      "D": "TLS certificates"
+    }
+  },
+  {
+    "id": 269,
+    "question": "A system repeatedly reboots without warning. Which is MOST likely?",
+    "choices": {
+      "A": "Logic bomb",
+      "B": "Hardware fault",
+      "C": "RAT",
+      "D": "Worm"
+    }
+  },
+  {
+    "id": 270,
+    "question": "A security consultant is implementing an email signing solution. What technology enables this?",
+    "choices": {
+      "A": "S/MIME",
+      "B": "DNSSEC",
+      "C": "SNMPv3",
+      "D": "TACACS+"
+    }
+  },
+  {
+    "id": 271,
+    "question": "Which type of control is an annual cybersecurity training requirement?",
+    "choices": {
+      "A": "Detective",
+      "B": "Administrative",
+      "C": "Technical",
+      "D": "Physical"
+    }
+  },
+  {
+    "id": 272,
+    "question": "An attacker sends a malformed string to crash a system. What vulnerability is being targeted?",
+    "choices": {
+      "A": "Input validation",
+      "B": "Cross-site scripting",
+      "C": "Code injection",
+      "D": "LDAP injection"
+    }
+  },
+  {
+    "id": 273,
+    "question": "A cloud engineer wants to prevent unauthorized remote access. Which should they configure?",
+    "choices": {
+      "A": "CASB",
+      "B": "MFA",
+      "C": "SSO",
+      "D": "TPM"
+    }
+  },
+  {
+    "id": 274,
+    "question": "A firewall rule allowing ANY/ANY is discovered. What should be done FIRST?",
+    "choices": {
+      "A": "Disable the rule",
+      "B": "Investigate rule impact",
+      "C": "Block outbound traffic",
+      "D": "Enable logging"
+    }
+  },
+  {
+    "id": 275,
+    "question": "Which threat actor is MOST capable of developing zero-day exploits?",
+    "choices": {
+      "A": "Script kiddie",
+      "B": "Insider",
+      "C": "Nation-state",
+      "D": "Hacktivist"
+    }
+  },
+  {
+    "id": 276,
+    "question": "A compromised user workstation is beaconing to an external IP. What is MOST likely happening?",
+    "choices": {
+      "A": "DNS poisoning",
+      "B": "RAT communication",
+      "C": "XSS",
+      "D": "ARP spoofing"
+    }
+  },
+  {
+    "id": 277,
+    "question": "Which of the following would BEST help prevent unauthorized data exfiltration?",
+    "choices": {
+      "A": "SIEM",
+      "B": "DLP",
+      "C": "DNS filtering",
+      "D": "WAF"
+    }
+  },
+  {
+    "id": 278,
+    "question": "A penetration tester attempts to exploit a SQL injection vulnerability but gets a “403 Forbidden” error. Which control blocked the request?",
+    "choices": {
+      "A": "Web server ACL",
+      "B": "WAF",
+      "C": "Firewall",
+      "D": "IPS"
+    }
+  },
+  {
+    "id": 279,
+    "question": "A cloud team needs to validate the integrity of virtual machine images. Which technique helps?",
+    "choices": {
+      "A": "Checksums",
+      "B": "Obfuscation",
+      "C": "Federation",
+      "D": "Load balancing"
+    }
+  },
+  {
+    "id": 280,
+    "question": "A security engineer wants to restrict remote access to only approved devices. What should be implemented?",
+    "choices": {
+      "A": "DHCP snooping",
+      "B": "NAC",
+      "C": "EDR",
+      "D": "DNSSEC"
+    }
+  },
+  {
+    "id": 281,
+    "question": "A Linux server shows signs of compromise. The SOC needs a disk image. What tool should be used?",
+    "choices": {
+      "A": "dd",
+      "B": "netstat",
+      "C": "ps",
+      "D": "chmod"
+    }
+  },
+  {
+    "id": 282,
+    "question": "Which of the following is MOST effective for stopping brute-force attacks?",
+    "choices": {
+      "A": "Password policy",
+      "B": "Account lockout",
+      "C": "Encryption",
+      "D": "SIEM"
+    }
+  },
+  {
+    "id": 283,
+    "question": "A company needs logs that cannot be modified. What technology accomplishes this?",
+    "choices": {
+      "A": "Immutable storage",
+      "B": "DHCP snooping",
+      "C": "Network segmentation",
+      "D": "TLS inspection"
+    }
+  },
+  {
+    "id": 284,
+    "question": "An engineer wants to safely test malware samples. What environment is BEST?",
+    "choices": {
+      "A": "Production VLAN",
+      "B": "Air-gapped sandbox",
+      "C": "Cloud shared tenant",
+      "D": "Developer machine"
+    }
+  },
+  {
+    "id": 285,
+    "question": "IT needs to ensure that only encrypted connections are used for internal web applications. What should be enabled?",
+    "choices": {
+      "A": "TLS",
+      "B": "DNSSEC",
+      "C": "IPSec tunnel",
+      "D": "802.1X"
+    }
+  },
+  {
+    "id": 286,
+    "question": "A user receives repeated password reset emails they did not request. What attack is likely?",
+    "choices": {
+      "A": "Password spraying",
+      "B": "Account enumeration",
+      "C": "Credential stuffing",
+      "D": "Replay attack"
+    }
+  },
+  {
+    "id": 287,
+    "question": "What should a security engineer implement to detect abnormal administrator activity?",
+    "choices": {
+      "A": "UBA",
+      "B": "NGFW",
+      "C": "SIEM",
+      "D": "CASB"
+    }
+  },
+  {
+    "id": 288,
+    "question": "Which malware type pretends to be legitimate but hides malicious code?",
+    "choices": {
+      "A": "Worm",
+      "B": "Trojan",
+      "C": "Rootkit",
+      "D": "RAT"
+    }
+  },
+  {
+    "id": 289,
+    "question": "A company discovers that confidential documents were uploaded to a personal cloud account. What control helps prevent this?",
+    "choices": {
+      "A": "DLP",
+      "B": "HVAC",
+      "C": "Load balancer",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 290,
+    "question": "A pen tester receives a hash from a compromised server and runs a cracking tool against it. What attack is this?",
+    "choices": {
+      "A": "ARP spoofing",
+      "B": "Brute-force",
+      "C": "Dictionary",
+      "D": "Pass-the-hash"
+    }
+  },
+  {
+    "id": 291,
+    "question": "Which of the following is a characteristic of a hot disaster recovery site?",
+    "choices": {
+      "A": "Requires hours to restore",
+      "B": "No equipment installed",
+      "C": "Fully operational",
+      "D": "Only basic services available"
+    }
+  },
+  {
+    "id": 292,
+    "question": "A SOC needs to investigate suspicious outbound DNS traffic. What is the BEST first step?",
+    "choices": {
+      "A": "Review DNS logs",
+      "B": "Run packet capture",
+      "C": "Block the domain",
+      "D": "Disable DNS service"
+    }
+  },
+  {
+    "id": 293,
+    "question": "A user reports that emails are arriving with slight misspellings in the domain name. What attack is this?",
+    "choices": {
+      "A": "Typosquatting",
+      "B": "Whaling",
+      "C": "Vishing",
+      "D": "Smishing"
+    }
+  },
+  {
+    "id": 294,
+    "question": "A new HR application must verify employee identity using certificates. What should be implemented?",
+    "choices": {
+      "A": "LDAP",
+      "B": "RADIUS",
+      "C": "PKI",
+      "D": "SSO"
+    }
+  },
+  {
+    "id": 295,
+    "question": "Which report BEST helps assess long-term risk patterns?",
+    "choices": {
+      "A": "Daily audit logs",
+      "B": "Quarterly trend analysis",
+      "C": "Hourly SIEM alerts",
+      "D": "Packet capture summaries"
+    }
+  },
+  {
+    "id": 296,
+    "question": "Which component of an incident response plan includes restoring affected systems?",
+    "choices": {
+      "A": "Eradication",
+      "B": "Recovery",
+      "C": "Analysis",
+      "D": "Detection"
+    }
+  },
+  {
+    "id": 297,
+    "question": "A developer needs to validate user input for an application. What security technique is required?",
+    "choices": {
+      "A": "Tokenization",
+      "B": "Input validation",
+      "C": "Hashing",
+      "D": "Segmentation"
+    }
+  },
+  {
+    "id": 298,
+    "question": "A cloud provider needs a security mechanism to ensure virtual machines do not access each other. What should be used?",
+    "choices": {
+      "A": "VLAN tagging",
+      "B": "Security groups",
+      "C": "Encryption",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 299,
+    "question": "Which of the following detects abnormal outbound traffic patterns?",
+    "choices": {
+      "A": "Load balancing",
+      "B": "NetFlow",
+      "C": "DHCP snooping",
+      "D": "Jump server"
+    }
+  },
+  {
+    "id": 300,
+    "question": "A company needs a secure method for employees to access internal resources from home. What is the BEST solution?",
+    "choices": {
+      "A": "VPN",
+      "B": "VPC",
+      "C": "DNSSEC",
+      "D": "FTP"
+    }
+  },
+  {
+    "id": 301,
+    "question": "A user reports that their system is infected with malware that blocks access to the Internet and security tools. What type of malware is MOST likely responsible?",
+    "choices": {
+      "A": "Trojan",
+      "B": "Logic bomb",
+      "C": "Rootkit",
+      "D": "Bot"
+    }
+  },
+  {
+    "id": 302,
+    "question": "Which of the following security principles is enforced when a user can only access the minimum resources required to perform their job?",
+    "choices": {
+      "A": "Segmentation",
+      "B": "Least privilege",
+      "C": "Tokenization",
+      "D": "Data minimization"
+    }
+  },
+  {
+    "id": 303,
+    "question": "A SOC analyst identifies several failed login attempts followed by a successful login using the same credentials. What is MOST likely occurring?",
+    "choices": {
+      "A": "Credential stuffing",
+      "B": "Password spraying",
+      "C": "Brute-force attack",
+      "D": "Account enumeration"
+    }
+  },
+  {
+    "id": 304,
+    "question": "A company wants to monitor access to sensitive data stored on file servers. Which of the following should they implement?",
+    "choices": {
+      "A": "File integrity monitoring",
+      "B": "UBA",
+      "C": "SIEM",
+      "D": "DLP"
+    }
+  },
+  {
+    "id": 305,
+    "question": "A user reports their laptop fan is running loudly, and performance is slow. A process is using excessive CPU. What type of malware is this MOST likely?",
+    "choices": {
+      "A": "Worm",
+      "B": "Cryptominer",
+      "C": "Trojan",
+      "D": "Keylogger"
+    }
+  },
+  {
+    "id": 306,
+    "question": "Which of the following is MOST effective for preventing unauthorized access to a building?",
+    "choices": {
+      "A": "CCTV",
+      "B": "Alarm system",
+      "C": "Smart cards",
+      "D": "Security guards"
+    }
+  },
+  {
+    "id": 307,
+    "question": "A developer wants to ensure secrets are not accidentally committed to code repositories. Which of the following tools will help?",
+    "choices": {
+      "A": "Credential scanner",
+      "B": "Fuzzer",
+      "C": "Load balancer",
+      "D": "Data masking"
+    }
+  },
+  {
+    "id": 308,
+    "question": "A penetration tester discovers a parameter in a URL that allows directory navigation. Which attack is this?",
+    "choices": {
+      "A": "Directory traversal",
+      "B": "SQL injection",
+      "C": "Command injection",
+      "D": "CSRF"
+    }
+  },
+  {
+    "id": 309,
+    "question": "A user opens an email attachment that installs malware. The malware spreads automatically to other systems. What type of malware is this?",
+    "choices": {
+      "A": "RAT",
+      "B": "Worm",
+      "C": "Rootkit",
+      "D": "Trojan"
+    }
+  },
+  {
+    "id": 310,
+    "question": "Which of the following BEST ensures system administrators cannot deny actions they performed?",
+    "choices": {
+      "A": "MFA",
+      "B": "Non-repudiation",
+      "C": "Obfuscation",
+      "D": "Federation"
+    }
+  },
+  {
+    "id": 311,
+    "question": "An organization wants to generate a report detailing which systems must be restored first after an outage. Which should be used?",
+    "choices": {
+      "A": "Impact analysis",
+      "B": "Trend analysis",
+      "C": "Baseline document",
+      "D": "Patch report"
+    }
+  },
+  {
+    "id": 312,
+    "question": "A database was recently patched. Which scan type confirms whether vulnerabilities still exist?",
+    "choices": {
+      "A": "Credentialed scan",
+      "B": "Non-credentialed scan",
+      "C": "Architecture review",
+      "D": "Penetration test"
+    }
+  },
+  {
+    "id": 313,
+    "question": "Which cloud model requires the customer to manage the OS?",
+    "choices": {
+      "A": "SaaS",
+      "B": "PaaS",
+      "C": "IaaS",
+      "D": "CASB"
+    }
+  },
+  {
+    "id": 314,
+    "question": "A security engineer wants to deploy a tool that automatically blocks connections to known malicious URLs. What should be used?",
+    "choices": {
+      "A": "WAF",
+      "B": "DNS filtering",
+      "C": "IPS",
+      "D": "SIEM"
+    }
+  },
+  {
+    "id": 315,
+    "question": "A security engineer wants to identify old protocols running on a network. Which tool should they use?",
+    "choices": {
+      "A": "Packet capture",
+      "B": "Jump host",
+      "C": "Load balancer",
+      "D": "GPO"
+    }
+  },
+  {
+    "id": 316,
+    "question": "A developer wants to allow a mobile application to authenticate using facial recognition. Which authentication factor is this?",
+    "choices": {
+      "A": "Something you know",
+      "B": "Something you have",
+      "C": "Something you are",
+      "D": "Somewhere you are"
+    }
+  },
+  {
+    "id": 317,
+    "question": "A network engineer needs to ensure that a user’s identity can be verified before assigning network access. What should be implemented?",
+    "choices": {
+      "A": "Federation",
+      "B": "802.1X",
+      "C": "NAC",
+      "D": "SSO"
+    }
+  },
+  {
+    "id": 318,
+    "question": "An attacker embeds malicious JavaScript into a website’s comment field. What type of attack is this?",
+    "choices": {
+      "A": "XSS",
+      "B": "CSRF",
+      "C": "SQL injection",
+      "D": "DNS cache poisoning"
+    }
+  },
+  {
+    "id": 319,
+    "question": "A company wants to ensure their log files cannot be modified after creation. Which technology should be used?",
+    "choices": {
+      "A": "Immutable storage",
+      "B": "TPM",
+      "C": "HSM",
+      "D": "IPS"
+    }
+  },
+  {
+    "id": 320,
+    "question": "A network technician needs to disable remote administration on all switches. Which hardening step is this?",
+    "choices": {
+      "A": "Removing unnecessary services",
+      "B": "Changing default credentials",
+      "C": "Implementing ACLs",
+      "D": "Updating firmware"
+    }
+  },
+  {
+    "id": 321,
+    "question": "Which of the following BEST describes a disaster recovery test that involves restoring services at an alternate site without halting operations at the primary site?",
+    "choices": {
+      "A": "Parallel test",
+      "B": "Tabletop test",
+      "C": "Full interruption test",
+      "D": "Failover test"
+    }
+  },
+  {
+    "id": 322,
+    "question": "Which of the following is a security requirement for containers?",
+    "choices": {
+      "A": "Full disk encryption",
+      "B": "Namespace isolation",
+      "C": "VLAN segmentation",
+      "D": "BIOS security"
+    }
+  },
+  {
+    "id": 323,
+    "question": "A network engineer discovers multiple unauthorized access points broadcasting the corporate SSID. What is this an example of?",
+    "choices": {
+      "A": "Rogue AP",
+      "B": "Evil twin",
+      "C": "MAC spoofing",
+      "D": "Bluejacking"
+    }
+  },
+  {
+    "id": 324,
+    "question": "Which of the following is a common benefit of SD-WAN?",
+    "choices": {
+      "A": "Application identification",
+      "B": "Secure enclave creation",
+      "C": "Packet capture",
+      "D": "MFA enforcement"
+    }
+  },
+  {
+    "id": 325,
+    "question": "What is the PRIMARY purpose of a digital signature?",
+    "choices": {
+      "A": "Confidentiality",
+      "B": "Availability",
+      "C": "Authentication and integrity",
+      "D": "Data minimization"
+    }
+  },
+  {
+    "id": 326,
+    "question": "A developer wants to ensure an application remains available even during heavy load. What should be implemented?",
+    "choices": {
+      "A": "Load balancing",
+      "B": "DLP",
+      "C": "HSM",
+      "D": "SIEM"
+    }
+  },
+  {
+    "id": 327,
+    "question": "Which of the following is the MOST significant risk when using public cloud services?",
+    "choices": {
+      "A": "Shadow IT",
+      "B": "Physical theft",
+      "C": "Downtime",
+      "D": "Data exposure"
+    }
+  },
+  {
+    "id": 328,
+    "question": "A workstation is suspected of beaconing to a C2 server. Which log source would BEST confirm this?",
+    "choices": {
+      "A": "DHCP logs",
+      "B": "DNS logs",
+      "C": "Access logs",
+      "D": "System logs"
+    }
+  },
+  {
+    "id": 329,
+    "question": "An attacker exploits a misconfigured input field to run commands on a server. What attack is this?",
+    "choices": {
+      "A": "Command injection",
+      "B": "LDAP injection",
+      "C": "XSS",
+      "D": "Directory traversal"
+    }
+  },
+  {
+    "id": 330,
+    "question": "A developer wants to run code in an isolated environment for testing. What should be used?",
+    "choices": {
+      "A": "Sandbox",
+      "B": "VPN",
+      "C": "VLAN",
+      "D": "SOAR"
+    }
+  },
+  {
+    "id": 331,
+    "question": "A security analyst finds an SSH key left on a system long after the user changed roles. What should be implemented?",
+    "choices": {
+      "A": "Key escrow",
+      "B": "Account recertification",
+      "C": "Password complexity",
+      "D": "Hashing"
+    }
+  },
+  {
+    "id": 332,
+    "question": "Which of the following BEST describes SSO?",
+    "choices": {
+      "A": "A user logs in once and gains access to multiple systems",
+      "B": "A user authenticates using multiple factors",
+      "C": "Users are required to use strong passwords",
+      "D": "Authentication based on certificates only"
+    }
+  },
+  {
+    "id": 333,
+    "question": "A cloud engineer wants to allow only specific DNS servers to query internal resources. What should be configured?",
+    "choices": {
+      "A": "DNS sinkholing",
+      "B": "DNSSEC",
+      "C": "DNS filtering",
+      "D": "DNS allow list"
+    }
+  },
+  {
+    "id": 334,
+    "question": "An organization wants to prevent replay attacks during authentication. Which method helps?",
+    "choices": {
+      "A": "Timestamps",
+      "B": "Hashing",
+      "C": "MFA",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 335,
+    "question": "Which vulnerability occurs when an application receives more data than it can handle?",
+    "choices": {
+      "A": "Input validation",
+      "B": "Buffer overflow",
+      "C": "DLL injection",
+      "D": "Memory corruption"
+    }
+  },
+  {
+    "id": 336,
+    "question": "Which of the following is MOST likely to reveal a misconfigured device on an internal network?",
+    "choices": {
+      "A": "Discovery scan",
+      "B": "Load balancer",
+      "C": "GPO audit",
+      "D": "File integrity monitoring"
+    }
+  },
+  {
+    "id": 337,
+    "question": "What is the PRIMARY purpose of a honeypot?",
+    "choices": {
+      "A": "Prevent attacks",
+      "B": "Encrypt data in transit",
+      "C": "Detect and analyze attacker behavior",
+      "D": "Improve failover capacity"
+    }
+  },
+  {
+    "id": 338,
+    "question": "A user reports unauthorized transactions on their online banking account. Which attack MOST likely occurred?",
+    "choices": {
+      "A": "MITM",
+      "B": "CSRF",
+      "C": "XSS",
+      "D": "Directory traversal"
+    }
+  },
+  {
+    "id": 339,
+    "question": "A security engineer wants to segregate network traffic by department. Which technology is BEST suited?",
+    "choices": {
+      "A": "VLANs",
+      "B": "VPN",
+      "C": "CASB",
+      "D": "SIEM"
+    }
+  },
+  {
+    "id": 340,
+    "question": "A server admin needs to determine whether unauthorized applications are running. What tool helps with this?",
+    "choices": {
+      "A": "Application allow list",
+      "B": "RAID",
+      "C": "DHCP snooping",
+      "D": "MFA"
+    }
+  },
+  {
+    "id": 341,
+    "question": "A user receives an email threatening to leak their data unless money is paid. Which attack is this?",
+    "choices": {
+      "A": "Extortion",
+      "B": "Social engineering",
+      "C": "Ransomware",
+      "D": "Spear phishing"
+    }
+  },
+  {
+    "id": 342,
+    "question": "Which protocol provides integrity for web communications?",
+    "choices": {
+      "A": "HTTPS",
+      "B": "IMAP",
+      "C": "FTP",
+      "D": "TFTP"
+    }
+  },
+  {
+    "id": 343,
+    "question": "A company wants to ensure that devices connecting to the network have the latest patches installed. What should they implement?",
+    "choices": {
+      "A": "VLAN segmentation",
+      "B": "FDE",
+      "C": "NAC",
+      "D": "SSO"
+    }
+  },
+  {
+    "id": 344,
+    "question": "Which backup method provides the FASTEST restoration time?",
+    "choices": {
+      "A": "Full backup",
+      "B": "Differential backup",
+      "C": "Incremental backup",
+      "D": "Snapshot"
+    }
+  },
+  {
+    "id": 345,
+    "question": "Attackers gained access to a server due to a weak administrator password. What remediation is MOST important?",
+    "choices": {
+      "A": "Add network segmentation",
+      "B": "Reset all user passwords",
+      "C": "Implement password policy",
+      "D": "Replace the server"
+    }
+  },
+  {
+    "id": 346,
+    "question": "Which of the following BEST ensures non-repudiation in an email exchange?",
+    "choices": {
+      "A": "TLS",
+      "B": "S/MIME",
+      "C": "VPN",
+      "D": "DNSSEC"
+    }
+  },
+  {
+    "id": 347,
+    "question": "Which vulnerability is MOST likely found in outdated printer firmware?",
+    "choices": {
+      "A": "SQL injection",
+      "B": "Memory leak",
+      "C": "Buffer overflow",
+      "D": "Improper input handling"
+    }
+  },
+  {
+    "id": 348,
+    "question": "A user reports that files were exfiltrated over HTTPS. What control can specifically detect this?",
+    "choices": {
+      "A": "IDS",
+      "B": "DLP",
+      "C": "VPN",
+      "D": "DNS sinkholing"
+    }
+  },
+  {
+    "id": 349,
+    "question": "A SOC alerts that multiple systems are performing outbound scans. This behavior MOST likely indicates:",
+    "choices": {
+      "A": "Worm infection",
+      "B": "DLP policy violation",
+      "C": "Insider threat",
+      "D": "DNS poisoning"
+    }
+  },
+  {
+    "id": 350,
+    "question": "Which of the following controls is implemented to stop an incident from spreading?",
+    "choices": {
+      "A": "Eradication",
+      "B": "Isolation",
+      "C": "Recovery",
+      "D": "Evidence preservation"
+    }
+  },
+  {
+    "id": 351,
+    "question": "What type of risk analysis uses numerical values?",
+    "choices": {
+      "A": "Qualitative",
+      "B": "Quantitative",
+      "C": "Subjective",
+      "D": "Predictive"
+    }
+  },
+  {
+    "id": 352,
+    "question": "Which technique helps detect brute-force login attempts?",
+    "choices": {
+      "A": "Accounting",
+      "B": "Rate limiting",
+      "C": "MFA",
+      "D": "Encryption"
+    }
+  },
+  {
+    "id": 353,
+    "question": "Which device would MOST likely be configured to prevent SQL injection attacks?",
+    "choices": {
+      "A": "Switch",
+      "B": "WAF",
+      "C": "DNS server",
+      "D": "Load balancer"
+    }
+  },
+  {
+    "id": 354,
+    "question": "A malicious actor uses stolen cookies to access a user account. What attack is this?",
+    "choices": {
+      "A": "Credential stuffing",
+      "B": "Session hijacking",
+      "C": "Replay attack",
+      "D": "Vishing"
+    }
+  },
+  {
+    "id": 355,
+    "question": "A user reports that pop-ups appear even when the browser is closed. Which malware is this MOST likely?",
+    "choices": {
+      "A": "Worm",
+      "B": "Bot",
+      "C": "Adware",
+      "D": "Spyware"
+    }
+  },
+  {
+    "id": 356,
+    "question": "A company wants to restrict access to payroll servers to specific IP ranges only. What should they use?",
+    "choices": {
+      "A": "ACL",
+      "B": "MFA",
+      "C": "DNSSEC",
+      "D": "Jump server"
+    }
+  },
+  {
+    "id": 357,
+    "question": "Which of the following MOST effectively prevents attackers from exploiting unpatched vulnerabilities?",
+    "choices": {
+      "A": "Antivirus",
+      "B": "Patch management",
+      "C": "Encryption",
+      "D": "Data masking"
+    }
+  },
+  {
+    "id": 358,
+    "question": "A security team wants to test the incident response plan by simulating a cyberattack. What exercise is this?",
+    "choices": {
+      "A": "Functional exercise",
+      "B": "Parallel test",
+      "C": "Tabletop exercise",
+      "D": "Post-mortem"
+    }
+  },
+  {
+    "id": 359,
+    "question": "A software engineer needs to hide internal code logic in an application. What should they use?",
+    "choices": {
+      "A": "Tokenization",
+      "B": "Obfuscation",
+      "C": "Hardening",
+      "D": "Hashing"
+    }
+  },
+  {
+    "id": 360,
+    "question": "Which component ensures authenticity in public key cryptography?",
+    "choices": {
+      "A": "Private key",
+      "B": "Digital certificate",
+      "C": "Recovery agent",
+      "D": "Federation"
+    }
+  },
+  {
+    "id": 361,
+    "question": "An attacker manipulates a user into resetting their MFA token. What attack is this?",
+    "choices": {
+      "A": "Vishing",
+      "B": "Pretexting",
+      "C": "Impersonation",
+      "D": "Whaling"
+    }
+  },
+  {
+    "id": 362,
+    "question": "Which of the following solutions can prevent users from accessing prohibited websites?",
+    "choices": {
+      "A": "SIEM",
+      "B": "DNS filtering",
+      "C": "Endpoint detection",
+      "D": "Load balancer"
+    }
+  },
+  {
+    "id": 363,
+    "question": "What is the MOST likely reason an attacker would perform social engineering instead of directly hacking into a system?",
+    "choices": {
+      "A": "It is easier",
+      "B": "It cannot be detected",
+      "C": "It is legal",
+      "D": "It is faster to execute"
+    }
+  },
+  {
+    "id": 364,
+    "question": "A cloud engineer wants to enforce encryption for all traffic leaving the VPC. What should be implemented?",
+    "choices": {
+      "A": "VPN",
+      "B": "HTTPS redirect",
+      "C": "TLS inspection",
+      "D": "IPSec tunnel"
+    }
+  },
+  {
+    "id": 365,
+    "question": "A security team identifies several systems running outdated protocols. Which tool would have detected this?",
+    "choices": {
+      "A": "Port scanner",
+      "B": "Certificates",
+      "C": "RAID controller",
+      "D": "DHCP logs"
+    }
+  },
+  {
+    "id": 366,
+    "question": "A developer wants to secure API keys stored in an application. What should they use?",
+    "choices": {
+      "A": "Tokenization",
+      "B": "HSM",
+      "C": "FIM",
+      "D": "Baseline"
+    }
+  },
+  {
+    "id": 367,
+    "question": "What security function does hashing provide?",
+    "choices": {
+      "A": "Authentication",
+      "B": "Integrity",
+      "C": "Authorization",
+      "D": "Availability"
+    }
+  },
+  {
+    "id": 368,
+    "question": "An attacker attempts to execute commands on a database using malformed SQL statements. What attack is this?",
+    "choices": {
+      "A": "SQL injection",
+      "B": "URL manipulation",
+      "C": "LDAP injection",
+      "D": "DLL injection"
+    }
+  },
+  {
+    "id": 369,
+    "question": "A company wants to allow users to authenticate with a single login across multiple applications. Which solution is this?",
+    "choices": {
+      "A": "Federation",
+      "B": "RBAC",
+      "C": "SSO",
+      "D": "ACL"
+    }
+  },
+  {
+    "id": 370,
+    "question": "An organization wants to find unknown threats using behavioral analysis. Which security capability is needed?",
+    "choices": {
+      "A": "UEBA",
+      "B": "Firewall",
+      "C": "IPS",
+      "D": "SIEM log correlation"
+    }
+  },
+  {
+    "id": 371,
+    "question": "A data center requires redundant power sources. Which is MOST appropriate?",
+    "choices": {
+      "A": "RAID",
+      "B": "Dual power supplies",
+      "C": "Clustering",
+      "D": "Load balancing"
+    }
+  },
+  {
+    "id": 372,
+    "question": "Which access control method allows users to choose access permissions for their own files?",
+    "choices": {
+      "A": "MAC",
+      "B": "DAC",
+      "C": "RBAC",
+      "D": "ABAC"
+    }
+  },
+  {
+    "id": 373,
+    "question": "A malware sample records keystrokes and sends them to an attacker. What type is it?",
+    "choices": {
+      "A": "Worm",
+      "B": "Keylogger",
+      "C": "RAT",
+      "D": "Spyware"
+    }
+  },
+  {
+    "id": 374,
+    "question": "A company needs to prevent unauthorized outbound traffic to malicious IP addresses. Which control helps?",
+    "choices": {
+      "A": "DNS filtering",
+      "B": "EDR",
+      "C": "WAF",
+      "D": "IPSec"
+    }
+  },
+  {
+    "id": 375,
+    "question": "An attacker registers a domain similar to a bank’s official website. What is this attack type?",
+    "choices": {
+      "A": "Impersonation",
+      "B": "Typosquatting",
+      "C": "DDoS",
+      "D": "Whaling"
+    }
+  },
+  {
+    "id": 376,
+    "question": "A security analyst captures network packets showing repeated SYN packets without completion. What attack is this?",
+    "choices": {
+      "A": "SQL injection",
+      "B": "SYN flood",
+      "C": "XSS",
+      "D": "Replay"
+    }
+  },
+  {
+    "id": 377,
+    "question": "A company discovers unauthorized hardware installed under a desk. What type of attack is this?",
+    "choices": {
+      "A": "Hardware implant",
+      "B": "Misconfiguration",
+      "C": "Insider threat",
+      "D": "Rogue access point"
+    }
+  },
+  {
+    "id": 378,
+    "question": "Which of the following backups captures the state of the entire VM?",
+    "choices": {
+      "A": "Snapshot",
+      "B": "Full backup",
+      "C": "Differential backup",
+      "D": "Cloning"
+    }
+  },
+  {
+    "id": 379,
+    "question": "A user reports that their screen locks and demands cryptocurrency payment. Which malware is this?",
+    "choices": {
+      "A": "Spyware",
+      "B": "Ransomware",
+      "C": "RAT",
+      "D": "Worm"
+    }
+  },
+  {
+    "id": 380,
+    "question": "Which control helps reduce the impact of a DDoS attack?",
+    "choices": {
+      "A": "Load balancer",
+      "B": "VPN",
+      "C": "DNSSEC",
+      "D": "Jump box"
+    }
+  },
+  {
+    "id": 381,
+    "question": "A cloud security engineer needs to restrict access to an S3 bucket to specific IP ranges. What should be used?",
+    "choices": {
+      "A": "Security groups",
+      "B": "Bucket policies",
+      "C": "CASB",
+      "D": "DNS sinkholing"
+    }
+  },
+  {
+    "id": 382,
+    "question": "An attacker uses a vulnerability in a browser plugin to run code. What type of vulnerability is this?",
+    "choices": {
+      "A": "Third-party component",
+      "B": "Misconfiguration",
+      "C": "Zero-day",
+      "D": "Logic flaw"
+    }
+  },
+  {
+    "id": 383,
+    "question": "A business continuity plan includes which of the following?",
+    "choices": {
+      "A": "Containment steps",
+      "B": "Restoration procedures",
+      "C": "Patch schedule",
+      "D": "Data classification"
+    }
+  },
+  {
+    "id": 384,
+    "question": "A network administrator wants to inspect encrypted traffic. Which technology is needed?",
+    "choices": {
+      "A": "VPN",
+      "B": "TLS inspection",
+      "C": "WAF",
+      "D": "IPS"
+    }
+  },
+  {
+    "id": 385,
+    "question": "A user is receiving targeted phishing emails referencing personal details. What type of attack is this?",
+    "choices": {
+      "A": "Spear phishing",
+      "B": "Trojan",
+      "C": "Smishing",
+      "D": "Whaling"
+    }
+  },
+  {
+    "id": 386,
+    "question": "A server suddenly becomes unreachable. Logs show continuous large ICMP packets. What attack is this?",
+    "choices": {
+      "A": "Ping flood",
+      "B": "Port scan",
+      "C": "MITM",
+      "D": "DNS poisoning"
+    }
+  },
+  {
+    "id": 387,
+    "question": "A company wants to keep production and development networks separate. Which concept applies?",
+    "choices": {
+      "A": "Tokenization",
+      "B": "Segmentation",
+      "C": "Resiliency",
+      "D": "Data minimization"
+    }
+  },
+  {
+    "id": 388,
+    "question": "A system admin needs to confirm whether logs were tampered with. What should they check?",
+    "choices": {
+      "A": "Checksums",
+      "B": "ACLs",
+      "C": "Permissions",
+      "D": "DLP alerts"
+    }
+  },
+  {
+    "id": 389,
+    "question": "Which security framework focuses specifically on payment card data?",
+    "choices": {
+      "A": "ISO 27001",
+      "B": "SOX",
+      "C": "PCI DSS",
+      "D": "HIPAA"
+    }
+  },
+  {
+    "id": 390,
+    "question": "A developer needs to perform secure testing on a web app using simulated user input. What test should they use?",
+    "choices": {
+      "A": "Dynamic analysis",
+      "B": "Regression testing",
+      "C": "Static analysis",
+      "D": "Fuzz testing"
+    }
+  },
+  {
+    "id": 391,
+    "question": "Which authentication method provides mutual authentication between client and server?",
+    "choices": {
+      "A": "PEAP",
+      "B": "PAP",
+      "C": "CHAP",
+      "D": "EAP-TLS"
+    }
+  },
+  {
+    "id": 392,
+    "question": "An attacker modifies an application parameter in the browser to escalate privileges. What is this attack called?",
+    "choices": {
+      "A": "Parameter tampering",
+      "B": "CSRF",
+      "C": "XSS",
+      "D": "LDAP injection"
+    }
+  },
+  {
+    "id": 393,
+    "question": "Which of the following provides tamper-resistant storage for encryption keys?",
+    "choices": {
+      "A": "TPM",
+      "B": "RAID",
+      "C": "CASB",
+      "D": "Jump server"
+    }
+  },
+  {
+    "id": 394,
+    "question": "A security team wants to detect unauthorized devices on the network. Which tool helps?",
+    "choices": {
+      "A": "Port scanner",
+      "B": "UBA",
+      "C": "FIM",
+      "D": "EDR"
+    }
+  },
+  {
+    "id": 395,
+    "question": "A user complains of random shutdowns. Logs show overheating warnings. What is MOST likely failing?",
+    "choices": {
+      "A": "UPS",
+      "B": "HVAC",
+      "C": "RAM",
+      "D": "HSM"
+    }
+  },
+  {
+    "id": 396,
+    "question": "Which protocol should be used to securely manage network devices?",
+    "choices": {
+      "A": "SNMPv2",
+      "B": "SNMPv3",
+      "C": "FTP",
+      "D": "HTTP"
+    }
+  },
+  {
+    "id": 397,
+    "question": "A malicious actor intercepts and alters communication between two parties. What attack is this?",
+    "choices": {
+      "A": "MITM",
+      "B": "Replay",
+      "C": "SQL injection",
+      "D": "CSRF"
+    }
+  },
+  {
+    "id": 398,
+    "question": "A company wants to ensure backups are stored in a geographically distant location. What is this an example of?",
+    "choices": {
+      "A": "Air gap",
+      "B": "Redundancy",
+      "C": "Geo-replication",
+      "D": "Load balancing"
+    }
+  },
+  {
+    "id": 399,
+    "question": "A database admin wants to prevent unauthorized data extraction. Which control helps?",
+    "choices": {
+      "A": "DLP",
+      "B": "DNS sinkholing",
+      "C": "VPN",
+      "D": "File integrity monitoring"
+    }
+  },
+  {
+    "id": 400,
+    "question": "A manager needs to enforce a policy requiring multi-factor authentication. Which control type is this?",
+    "choices": {
+      "A": "Preventive",
+      "B": "Deterrent",
+      "C": "Corrective",
+      "D": "Physical"
+    }
+  },
+  {
+    "id": 401,
+    "question": " The private key for a website was stolen, and a new certificate has been issued. Which of the following needs to be updated next?",
+    "choices": {
+      "A": "SCEP",
+      "B": "CRL",
+      "C": "OCSP",
+      "D": "CSR"
+    }
+  },
+  {
+    "id": 402,
+    "question": " Which of the following organizational documents is most often used to establish and communicate expectations associated with integrity and ethical behavior within an organization?",
+    "choices": {
+      "A": "AUP",
+      "B": "SLA",
+      "C": "EULA",
+      "D": "MOA"
+    }
+  },
+  {
+    "id": 403,
+    "question": " Which of the following explains how to determine the global regulations that data is subject to regardless of the country where the data is stored?",
+    "choices": {
+      "A": "Geographic dispersion",
+      "B": "Data sovereignty",
+      "C": "Geographic restrictions",
+      "D": "Data segmentation"
+    }
+  },
+  {
+    "id": 404,
+    "question": " An organization's web servers host an online ordering system. The organization discovers that the servers are vulnerable to a malicious JavaScript injection, which could allow attackers to access customer payment information. Which of the following mitigation strategies would be most effective for preventing an attack on the organization's web servers? (Choose two.)",
+    "choices": {
+      "A": "Regularly updating server software and patches",
+      "B": "Implementing strong password policies",
+      "C": "Encrypting sensitive data at rest and in transit",
+      "D": "Utilizing a web-application firewall\n E. Performing regular vulnerability scans\n F. Removing payment information from the servers"
+    }
+  },
+  {
+    "id": 405,
+    "question": " Which of the following tools is best for logging and monitoring in a cloud environment?",
+    "choices": {
+      "A": "IPS",
+      "B": "FIM",
+      "C": "NAC",
+      "D": "SIEM"
+    }
+  },
+  {
+    "id": 406,
+    "question": " During a SQL update of a database, a temporary field that was created was replaced by an attacker in order to allow access to the system. Which of the following best describes this type of vulnerability?",
+    "choices": {
+      "A": "Race condition",
+      "B": "Memory injection",
+      "C": "Malicious update",
+      "D": "Side loading"
+    }
+  },
+  {
+    "id": 407,
+    "question": " A group of developers has a shared backup account to access the source code repository. Which of the following is the best way to secure the backup account if there is an SSO failure?",
+    "choices": {
+      "A": "RAS",
+      "B": "EAP",
+      "C": "SAML",
+      "D": "PAM"
+    }
+  },
+  {
+    "id": 408,
+    "question": " Which of the following elements of digital forensics should a company use if it needs to ensure the integrity of evidence?",
+    "choices": {
+      "A": "Preservation",
+      "B": "E-discovery",
+      "C": "Acquisition",
+      "D": "Containment"
+    }
+  },
+  {
+    "id": 409,
+    "question": " A company suffered a critical incident where 30GB of data was exfiltrated from the corporate network. Which of the following actions is the most efficient way to identify where the system data was exfiltrated from and what location the attacker sent the data to?",
+    "choices": {
+      "A": "Analyze firewall and network logs for large amounts of outbound traffic to external IP addresses or domains.",
+      "B": "Analyze IPS and IDS logs to find the IP addresses used by the attacker for reconnaissance scans.",
+      "C": "Analyze endpoint and application logs to see whether file-sharing programs were running on the company systems.",
+      "D": "Analyze external vulnerability scans and automated reports to identify the systems the attacker could have exploited with a remote code vulnerability."
+    }
+  },
+  {
+    "id": 410,
+    "question": " Which of the following describes the procedures a penetration tester must follow while conducting a test?",
+    "choices": {
+      "A": "Rules of engagement",
+      "B": "Rules of acceptance",
+      "C": "Rules of understanding",
+      "D": "Rules of execution"
+    }
+  },
+  {
+    "id": 411,
+    "question": "A systems administrator wants to allow only certain devices to access administrative interfaces on network equipment. Which of the following would BEST accomplish this?",
+    "choices": {
+      "A": "Geofencing",
+      "B": "IP allow list",
+      "C": "VLAN tagging",
+      "D": "SSO"
+    }
+  },
+  {
+    "id": 412,
+    "question": "Which of the following MOST helps ensure that certificates cannot be used after they have been compromised?",
+    "choices": {
+      "A": "Key escrow",
+      "B": "CRL",
+      "C": "CA hierarchy",
+      "D": "Certificate signing request"
+    }
+  },
+  {
+    "id": 413,
+    "question": "An attacker successfully compromises a web server by exploiting an OS vulnerability. Which of the following would BEST reduce the likelihood of this happening again?",
+    "choices": {
+      "A": "Password rotation",
+      "B": "Patch management",
+      "C": "Load balancing",
+      "D": "Obfuscation"
+    }
+  },
+  {
+    "id": 414,
+    "question": "A security engineer needs to correlate events from multiple systems in order to detect lateral movement. Which tool is MOST appropriate?",
+    "choices": {
+      "A": "EDR",
+      "B": "DNS sinkhole",
+      "C": "SIEM",
+      "D": "IPS"
+    }
+  },
+  {
+    "id": 415,
+    "question": "Which of the following cloud characteristics is MOST associated with cost efficiency and rapid elasticity?",
+    "choices": {
+      "A": "Metered usage",
+      "B": "Zero trust",
+      "C": "Data minimization",
+      "D": "Non-repudiation"
+    }
+  },
+  {
+    "id": 416,
+    "question": "A user reports suspicious network activity. A security analyst discovers that unauthorized software was installed. Which of the following BEST describes the analyst’s next step?",
+    "choices": {
+      "A": "Eradication",
+      "B": "Lessons learned",
+      "C": "Preparation",
+      "D": "Containment"
+    }
+  },
+  {
+    "id": 417,
+    "question": "Which type of malware modifies system processes to hide its presence?",
+    "choices": {
+      "A": "Worm",
+      "B": "Rootkit",
+      "C": "Keylogger",
+      "D": "Ransomware"
+    }
+  },
+  {
+    "id": 418,
+    "question": "A security engineer wants to implement a solution that allows the organization to automatically block malicious IP addresses when detected. Which solution is BEST?",
+    "choices": {
+      "A": "ACL",
+      "B": "SOAR",
+      "C": "VPN",
+      "D": "BIOS hardening"
+    }
+  },
+  {
+    "id": 419,
+    "question": "A user reports that their device is overheating and the battery is draining quickly. The SOC identifies unauthorized cryptographic operations. Which malware is MOST likely?",
+    "choices": {
+      "A": "Trojan",
+      "B": "Cryptominer",
+      "C": "Spyware",
+      "D": "RAT"
+    }
+  },
+  {
+    "id": 420,
+    "question": "Which security capability BEST identifies deviations from normal user behavior?",
+    "choices": {
+      "A": "UEBA",
+      "B": "HSM",
+      "C": "CASB",
+      "D": "RAID"
+    }
+  },
+  {
+    "id": 421,
+    "question": "A digital certificate is used to ensure that software comes from a trusted source. Which concept does this support?",
+    "choices": {
+      "A": "Non-repudiation",
+      "B": "Integrity",
+      "C": "Federation",
+      "D": "Obfuscation"
+    }
+  },
+  {
+    "id": 422,
+    "question": "Which of the following BEST protects wireless communication from eavesdropping?",
+    "choices": {
+      "A": "MAC filtering",
+      "B": "WPA3",
+      "C": "Hidden SSID",
+      "D": "Port security"
+    }
+  },
+  {
+    "id": 423,
+    "question": "A DDoS attack is overwhelming a web server. Which mitigation technique can reduce the impact?",
+    "choices": {
+      "A": "Jump server",
+      "B": "Load balancer",
+      "C": "VLAN",
+      "D": "CASB"
+    }
+  },
+  {
+    "id": 424,
+    "question": "A developer reports that their code is being altered between execution steps. What attack is this?",
+    "choices": {
+      "A": "Buffer overflow",
+      "B": "Race condition",
+      "C": "Injection",
+      "D": "Logic bomb"
+    }
+  },
+  {
+    "id": 425,
+    "question": "A company needs to prevent administrators from disabling endpoint security tools. Which component enforces this?",
+    "choices": {
+      "A": "HIPS",
+      "B": "TPM",
+      "C": "UEFI secure boot",
+      "D": "EDR tamper protection"
+    }
+  },
+  {
+    "id": 426,
+    "question": "Which authentication method involves verifying identity through a smartphone approval prompt?",
+    "choices": {
+      "A": "Something you know",
+      "B": "Something you have",
+      "C": "Something you are",
+      "D": "Somewhere you are"
+    }
+  },
+  {
+    "id": 427,
+    "question": "A security analyst detects repeated login attempts using a list of common passwords. What is this?",
+    "choices": {
+      "A": "Brute-force attack",
+      "B": "Password spraying",
+      "C": "Replay attack",
+      "D": "Credential stuffing"
+    }
+  },
+  {
+    "id": 428,
+    "question": "Which of the following is a characteristic of a warm disaster recovery site?",
+    "choices": {
+      "A": "Only network cables installed",
+      "B": "Fully operational with live data",
+      "C": "Partially equipped with some hardware",
+      "D": "No equipment available"
+    }
+  },
+  {
+    "id": 429,
+    "question": "A company wants to move applications to the cloud but still needs control of the OS and storage. Which cloud model should they use?",
+    "choices": {
+      "A": "SaaS",
+      "B": "IaaS",
+      "C": "PaaS",
+      "D": "SECaaS"
+    }
+  },
+  {
+    "id": 430,
+    "question": "A security engineer wants to protect the encryption keys for a critical application. Which technology should be used?",
+    "choices": {
+      "A": "TPM",
+      "B": "HSM",
+      "C": "MFA",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 431,
+    "question": "A user unknowingly grants a malicious website permission to perform actions on a banking site. What attack is this?",
+    "choices": {
+      "A": "CSRF",
+      "B": "XSS",
+      "C": "SQL injection",
+      "D": "Vishing"
+    }
+  },
+  {
+    "id": 432,
+    "question": "A company wants to ensure all cloud workloads use hardened images. What should they implement?",
+    "choices": {
+      "A": "CASB",
+      "B": "Golden images",
+      "C": "Network segmentation",
+      "D": "UBA"
+    }
+  },
+  {
+    "id": 433,
+    "question": "Which security control prevents rogue DHCP servers?",
+    "choices": {
+      "A": "DHCP snooping",
+      "B": "Port security",
+      "C": "EDR",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 434,
+    "question": "A user is unable to authenticate because their certificate has been revoked. Which part of PKI is responsible for this?",
+    "choices": {
+      "A": "CSR",
+      "B": "CRL",
+      "C": "OCSP stapling",
+      "D": "CA hierarchy"
+    }
+  },
+  {
+    "id": 435,
+    "question": "A security analyst finds unauthorized connections leaving a corporate server over an unknown port. What should they check FIRST?",
+    "choices": {
+      "A": "DNS logs",
+      "B": "NetFlow",
+      "C": "DHCP logs",
+      "D": "Certificate validity"
+    }
+  },
+  {
+    "id": 436,
+    "question": "A penetration tester wants to determine what OS a target device is running. Which technique is used?",
+    "choices": {
+      "A": "Port scanning",
+      "B": "Banner grabbing",
+      "C": "DNS inspection",
+      "D": "Hashing"
+    }
+  },
+  {
+    "id": 437,
+    "question": "Which policy defines expectations for appropriate employee use of company resources?",
+    "choices": {
+      "A": "BYOD",
+      "B": "AUP",
+      "C": "NDA",
+      "D": "MOU"
+    }
+  },
+  {
+    "id": 438,
+    "question": "Which type of malware uses keylogging and screenshot capturing to steal user credentials?",
+    "choices": {
+      "A": "Worm",
+      "B": "RAT",
+      "C": "Spyware",
+      "D": "Adware"
+    }
+  },
+  {
+    "id": 439,
+    "question": "A company wants to prevent unauthorized USB mass-storage devices from connecting. What is the BEST solution?",
+    "choices": {
+      "A": "DLP",
+      "B": "Endpoint management",
+      "C": "IDS",
+      "D": "Firewall"
+    }
+  },
+  {
+    "id": 440,
+    "question": "Which authentication factor is represented by a smart card?",
+    "choices": {
+      "A": "Something you have",
+      "B": "Something you know",
+      "C": "Something you are",
+      "D": "Something you do"
+    }
+  },
+  {
+    "id": 441,
+    "question": "Which attack occurs when an attacker purposely crashes a process to inject malicious code?",
+    "choices": {
+      "A": "DLL injection",
+      "B": "Buffer overflow",
+      "C": "CSRF",
+      "D": "Race condition"
+    }
+  },
+  {
+    "id": 442,
+    "question": "Which of the following controls is designed to SNOWBALL attacker behavior for learning threat patterns?",
+    "choices": {
+      "A": "WAF",
+      "B": "IDS",
+      "C": "Honeypot",
+      "D": "DLP"
+    }
+  },
+  {
+    "id": 443,
+    "question": "A company wants employees to authenticate to cloud applications using their on-premises credentials. Which should be implemented?",
+    "choices": {
+      "A": "Federation",
+      "B": "VPN",
+      "C": "SAML",
+      "D": "MFA"
+    }
+  },
+  {
+    "id": 444,
+    "question": "A suspicious process repeatedly modifies critical system files. Which tool detects this?",
+    "choices": {
+      "A": "SIEM",
+      "B": "DLP",
+      "C": "FIM",
+      "D": "DNS sinkhole"
+    }
+  },
+  {
+    "id": 445,
+    "question": "Which term describes the process of removing sensitive data from a dataset before using it in testing?",
+    "choices": {
+      "A": "Masking",
+      "B": "Hashing",
+      "C": "Salting",
+      "D": "Obfuscation"
+    }
+  },
+  {
+    "id": 446,
+    "question": "A cloud security engineer wants to restrict API calls to approved IP ranges. What should be used?",
+    "choices": {
+      "A": "VPN",
+      "B": "API gateway",
+      "C": "Load balancer",
+      "D": "DNSSEC"
+    }
+  },
+  {
+    "id": 447,
+    "question": "A system is performing slow and shows high memory usage after installing unverified software. What attack is likely?",
+    "choices": {
+      "A": "Worm",
+      "B": "Logic bomb",
+      "C": "Trojan",
+      "D": "Adware"
+    }
+  },
+  {
+    "id": 448,
+    "question": "Which of the following helps organizations identify the likelihood and impact of risks?",
+    "choices": {
+      "A": "BIA",
+      "B": "MTBF",
+      "C": "RPO",
+      "D": "ARO"
+    }
+  },
+  {
+    "id": 449,
+    "question": "What is the MOST important first step after detecting unauthorized access to a server?",
+    "choices": {
+      "A": "Notify management",
+      "B": "Containment",
+      "C": "Replace the server",
+      "D": "Reset all passwords"
+    }
+  },
+  {
+    "id": 450,
+    "question": "Which wireless security protocol is considered the strongest?",
+    "choices": {
+      "A": "WPA",
+      "B": "WPA2",
+      "C": "WPA3",
+      "D": "WEP"
+    }
+  },
+  {
+    "id": 451,
+    "question": "Which authentication method uses a hardware token generating rotating codes?",
+    "choices": {
+      "A": "Something you are",
+      "B": "Something you know",
+      "C": "Something you do",
+      "D": "Something you have"
+    }
+  },
+  {
+    "id": 452,
+    "question": "Which backup option requires the LEAST amount of time to restore?",
+    "choices": {
+      "A": "Incremental backup",
+      "B": "Differential backup",
+      "C": "Snapshot",
+      "D": "Full backup"
+    }
+  },
+  {
+    "id": 453,
+    "question": "Which configuration change MOST helps prevent unauthorized access via remote administration tools?",
+    "choices": {
+      "A": "Disable default accounts",
+      "B": "Disable unused services",
+      "C": "Enable TLS",
+      "D": "Install antivirus"
+    }
+  },
+  {
+    "id": 454,
+    "question": "A company wants to restrict database access based on job title. Which model applies?",
+    "choices": {
+      "A": "DAC",
+      "B": "RBAC",
+      "C": "ABAC",
+      "D": "MAC"
+    }
+  },
+  {
+    "id": 455,
+    "question": "A malicious attacker captures wireless traffic to gather credential information. What attack is this?",
+    "choices": {
+      "A": "Eavesdropping",
+      "B": "Replay attack",
+      "C": "Evil twin",
+      "D": "Rogue AP"
+    }
+  },
+  {
+    "id": 456,
+    "question": "Which process ensures that code changes do not introduce new vulnerabilities?",
+    "choices": {
+      "A": "Regression testing",
+      "B": "Static code analysis",
+      "C": "Dynamic analysis",
+      "D": "Fuzzing"
+    }
+  },
+  {
+    "id": 457,
+    "question": "Which of the following mitigates DNS spoofing?",
+    "choices": {
+      "A": "DNS filtering",
+      "B": "DNS tunneling",
+      "C": "DNSSEC",
+      "D": "DHCP snooping"
+    }
+  },
+  {
+    "id": 458,
+    "question": "A user reports that their account is being used to send spam emails. What attack occurred?",
+    "choices": {
+      "A": "Account takeover",
+      "B": "Logic bomb",
+      "C": "Data corruption",
+      "D": "Replay attack"
+    }
+  },
+  {
+    "id": 459,
+    "question": "Which component stores certificates and supports secure key usage?",
+    "choices": {
+      "A": "TPM",
+      "B": "HSM",
+      "C": "RAID",
+      "D": "MFA"
+    }
+  },
+  {
+    "id": 460,
+    "question": "A developer needs to ensure input fields reject dangerous characters. What should be implemented?",
+    "choices": {
+      "A": "Data masking",
+      "B": "Obfuscation",
+      "C": "Input validation",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 461,
+    "question": "An attacker modifies URL parameters to increase privileges. What attack type is this?",
+    "choices": {
+      "A": "Parameter tampering",
+      "B": "SQL injection",
+      "C": "XSS",
+      "D": "Command injection"
+    }
+  },
+  {
+    "id": 462,
+    "question": "A cybersecurity analyst needs to prevent sensitive files from being emailed out of the company. Which control is BEST?",
+    "choices": {
+      "A": "UBA",
+      "B": "DLP",
+      "C": "DNS sinkholing",
+      "D": "WAF"
+    }
+  },
+  {
+    "id": 463,
+    "question": "Which mechanism ensures certificates remain valid without downloading a full CRL?",
+    "choices": {
+      "A": "CSR",
+      "B": "OCSP",
+      "C": "SCEP",
+      "D": "CA hierarchy"
+    }
+  },
+  {
+    "id": 464,
+    "question": "An unauthorized device is detected connecting to a wireless network. What should be implemented?",
+    "choices": {
+      "A": "Port security",
+      "B": "EAP-TLS",
+      "C": "Rogue AP detection",
+      "D": "DNS filtering"
+    }
+  },
+  {
+    "id": 465,
+    "question": "Which risk strategy involves reducing the probability or impact of a risk?",
+    "choices": {
+      "A": "Transfer",
+      "B": "Mitigate",
+      "C": "Avoid",
+      "D": "Accept"
+    }
+  },
+  {
+    "id": 466,
+    "question": "Which of the following is a PHYSICAL security control?",
+    "choices": {
+      "A": "MFA",
+      "B": "Biometrics",
+      "C": "Encryption",
+      "D": "Segmentation"
+    }
+  },
+  {
+    "id": 467,
+    "question": "Which of the following identifies the point at which data loss becomes unacceptable?",
+    "choices": {
+      "A": "RPO",
+      "B": "RTO",
+      "C": "MTBF",
+      "D": "MTTR"
+    }
+  },
+  {
+    "id": 468,
+    "question": "A hacker sends a phishing email that appears from a known vendor. What attack is this?",
+    "choices": {
+      "A": "Pretexting",
+      "B": "Impersonation",
+      "C": "Whaling",
+      "D": "Vishing"
+    }
+  },
+  {
+    "id": 469,
+    "question": "A company wants to detect unauthorized file modifications in real-time. Which tool should be used?",
+    "choices": {
+      "A": "FIM",
+      "B": "IDS",
+      "C": "IPS",
+      "D": "SIEM"
+    }
+  },
+  {
+    "id": 470,
+    "question": "Which vulnerability is MOST likely caused by improper bounds checking?",
+    "choices": {
+      "A": "SQL injection",
+      "B": "Buffer overflow",
+      "C": "Race condition",
+      "D": "Zero-day"
+    }
+  },
+  {
+    "id": 471,
+    "question": "Which authentication method uses two or more factors?",
+    "choices": {
+      "A": "SSO",
+      "B": "MFA",
+      "C": "Federation",
+      "D": "RADIUS"
+    }
+  },
+  {
+    "id": 472,
+    "question": "Which of the following cloud features provides automatic scaling during peak workloads?",
+    "choices": {
+      "A": "Elasticity",
+      "B": "Zero trust",
+      "C": "Immutability",
+      "D": "Tokenization"
+    }
+  },
+  {
+    "id": 473,
+    "question": "A SOC analyst detects multiple failed logins from unrelated geographic locations. What is MOST likely occurring?",
+    "choices": {
+      "A": "Vishing",
+      "B": "Credential stuffing",
+      "C": "Replay attack",
+      "D": "Typosquatting"
+    }
+  },
+  {
+    "id": 474,
+    "question": "A network team must create secure tunnels between branch offices. Which protocol is MOST appropriate?",
+    "choices": {
+      "A": "TLS",
+      "B": "SSH",
+      "C": "IPSec",
+      "D": "DNSSEC"
+    }
+  },
+  {
+    "id": 475,
+    "question": "A penetration tester needs to capture packets on a target system. What tool would be used?",
+    "choices": {
+      "A": "Hashcat",
+      "B": "Wireshark",
+      "C": "GPO",
+      "D": "TLS"
+    }
+  },
+  {
+    "id": 476,
+    "question": "A user’s browser repeatedly redirects to fake login pages. What attack is this?",
+    "choices": {
+      "A": "DNS poisoning",
+      "B": "ARP spoofing",
+      "C": "Replay attack",
+      "D": "Tailgating"
+    }
+  },
+  {
+    "id": 477,
+    "question": "A cloud admin wants to enforce the principle of least privilege. What should be used?",
+    "choices": {
+      "A": "ACL",
+      "B": "Role-based access",
+      "C": "VPN",
+      "D": "TLS"
+    }
+  },
+  {
+    "id": 478,
+    "question": "A system detects multiple unauthorized attempts to access restricted files. What control alerts the security team?",
+    "choices": {
+      "A": "EDR",
+      "B": "IDS",
+      "C": "SIEM",
+      "D": "Firewall"
+    }
+  },
+  {
+    "id": 479,
+    "question": "A user attempts to connect a personal laptop to the company network. Which control prevents this?",
+    "choices": {
+      "A": "NAC",
+      "B": "VPN",
+      "C": "HSM",
+      "D": "TPM"
+    }
+  },
+  {
+    "id": 480,
+    "question": "Which technique helps prevent data corruption during transfers?",
+    "choices": {
+      "A": "Hash verification",
+      "B": "NAC",
+      "C": "Firewall",
+      "D": "SSO"
+    }
+  },
+  {
+    "id": 481,
+    "question": "An attacker intercepts and alters packets in real time. What is this?",
+    "choices": {
+      "A": "MITM",
+      "B": "Replay",
+      "C": "Worm",
+      "D": "Bot"
+    }
+  },
+  {
+    "id": 482,
+    "question": "Which of the following is an example of defense in depth?",
+    "choices": {
+      "A": "MFA + IDS + firewall",
+      "B": "Single firewall",
+      "C": "One-time password",
+      "D": "Network segmentation only"
+    }
+  },
+  {
+    "id": 483,
+    "question": "Which solution prevents password reuse across systems?",
+    "choices": {
+      "A": "Account lockout",
+      "B": "Password history",
+      "C": "MFA",
+      "D": "Geo-restrictions"
+    }
+  },
+  {
+    "id": 484,
+    "question": "A suspicious program sends keystrokes to an external server. What is this?",
+    "choices": {
+      "A": "Spyware",
+      "B": "RAT",
+      "C": "Ransomware",
+      "D": "Worm"
+    }
+  },
+  {
+    "id": 485,
+    "question": "Which option ensures continuous monitoring of configuration drift?",
+    "choices": {
+      "A": "Patch baseline",
+      "B": "Configuration management",
+      "C": "SIEM",
+      "D": "DLP"
+    }
+  },
+  {
+    "id": 486,
+    "question": "A pen tester injects JavaScript into a search field to test browser behavior. Which vulnerability is being tested?",
+    "choices": {
+      "A": "CSRF",
+      "B": "XSS",
+      "C": "Memory corruption",
+      "D": "Directory traversal"
+    }
+  },
+  {
+    "id": 487,
+    "question": "Which control protects against unauthorized firmware changes?",
+    "choices": {
+      "A": "UEFI secure boot",
+      "B": "DLP",
+      "C": "IPS",
+      "D": "MFA"
+    }
+  },
+  {
+    "id": 488,
+    "question": "What type of attack involves flooding a target with connection requests?",
+    "choices": {
+      "A": "DDoS",
+      "B": "Brute force",
+      "C": "SQL injection",
+      "D": "Replay"
+    }
+  },
+  {
+    "id": 489,
+    "question": "A network admin wants to block outbound connections to known malicious addresses. What should be used?",
+    "choices": {
+      "A": "SIEM",
+      "B": "DNS sinkhole",
+      "C": "HSM",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 490,
+    "question": "Which log source is MOST useful for tracking unusual outbound traffic patterns?",
+    "choices": {
+      "A": "DHCP",
+      "B": "NetFlow",
+      "C": "Certificate logs",
+      "D": "Access logs"
+    }
+  },
+  {
+    "id": 491,
+    "question": "Which type of malware allows remote control of a device?",
+    "choices": {
+      "A": "RAT",
+      "B": "Adware",
+      "C": "Worm",
+      "D": "Keylogger"
+    }
+  },
+  {
+    "id": 492,
+    "question": "An organization wants to ensure employees cannot deny involvement in a digital transaction. What concept applies?",
+    "choices": {
+      "A": "Redundancy",
+      "B": "Authorization",
+      "C": "Non-repudiation",
+      "D": "Tokenization"
+    }
+  },
+  {
+    "id": 493,
+    "question": "Which of the following BEST prevents users from installing unauthorized software?",
+    "choices": {
+      "A": "App allow list",
+      "B": "DNS filtering",
+      "C": "IPS",
+      "D": "TLS"
+    }
+  },
+  {
+    "id": 494,
+    "question": "Which tool BEST identifies vulnerabilities before attackers exploit them?",
+    "choices": {
+      "A": "Vulnerability scanner",
+      "B": "WAF",
+      "C": "DNS sinkhole",
+      "D": "EDR"
+    }
+  },
+  {
+    "id": 495,
+    "question": "Which event is MOST associated with failing hard drives?",
+    "choices": {
+      "A": "MTBF",
+      "B": "MTTF",
+      "C": "MTTR",
+      "D": "RPO"
+    }
+  },
+  {
+    "id": 496,
+    "question": "An attacker uses compromised credentials without cracking passwords. What attack is this?",
+    "choices": {
+      "A": "SQL injection",
+      "B": "Pass-the-hash",
+      "C": "Replay attack",
+      "D": "Credential stuffing"
+    }
+  },
+  {
+    "id": 497,
+    "question": "Which solution is BEST for securing remote administrative access to servers?",
+    "choices": {
+      "A": "Telnet",
+      "B": "SSH",
+      "C": "HTTP",
+      "D": "FTP"
+    }
+  },
+  {
+    "id": 498,
+    "question": "A penetration tester uses a stolen cookie to impersonate a user. What attack is this?",
+    "choices": {
+      "A": "Session hijacking",
+      "B": "Replay",
+      "C": "MITM",
+      "D": "Dictionary attack"
+    }
+  },
+  {
+    "id": 499,
+    "question": "A company wants to ensure cloud configurations match compliance requirements. Which tool should be used?",
+    "choices": {
+      "A": "SCAP",
+      "B": "VPN",
+      "C": "HSM",
+      "D": "RAID"
+    }
+  },
+  {
+    "id": 500,
+    "question": "A backup strategy requires daily incremental backups and weekly full backups. What is the advantage?",
+    "choices": {
+      "A": "Fast recovery",
+      "B": "Least storage consumption",
+      "C": "Most redundancy",
+      "D": "Low bandwidth usage"
+    }
+  },
+  {
+    "id": 501,
+    "question": "Which of the following provides continuous monitoring of cloud service configurations?",
+    "choices": {
+      "A": "CASB",
+      "B": "RADIUS",
+      "C": "SAML",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 502,
+    "question": "A security analyst identifies inconsistent timestamps across servers. What should be implemented?",
+    "choices": {
+      "A": "DNSSEC",
+      "B": "NTP",
+      "C": "Load balancing",
+      "D": "Sandboxing"
+    }
+  },
+  {
+    "id": 503,
+    "question": "Which of the following BEST protects a system from unauthorized firmware updates?",
+    "choices": {
+      "A": "Secure boot",
+      "B": "DLP",
+      "C": "EDR",
+      "D": "DNS filtering"
+    }
+  },
+  {
+    "id": 504,
+    "question": "A user is receiving numerous password reset messages they did not initiate. What attack is MOST likely?",
+    "choices": {
+      "A": "Brute force",
+      "B": "Password spraying",
+      "C": "Account enumeration",
+      "D": "Replay attack"
+    }
+  },
+  {
+    "id": 505,
+    "question": "A team wants to ensure code commits meet security requirements before merging. Which process helps?",
+    "choices": {
+      "A": "Code signing",
+      "B": "Static analysis",
+      "C": "FIM",
+      "D": "Obfuscation"
+    }
+  },
+  {
+    "id": 506,
+    "question": "Which of the following is the BEST way to protect stored passwords?",
+    "choices": {
+      "A": "Symmetric encryption",
+      "B": "SHA-256 hashing",
+      "C": "Hashing with salt",
+      "D": "TLS encryption"
+    }
+  },
+  {
+    "id": 507,
+    "question": "A server admin wants to ensure only approved scripts run on a system. What should be implemented?",
+    "choices": {
+      "A": "App allow list",
+      "B": "VPN",
+      "C": "MFA",
+      "D": "Federation"
+    }
+  },
+  {
+    "id": 508,
+    "question": "An attacker attempts to insert untrusted code into a memory buffer. What attack is this?",
+    "choices": {
+      "A": "DLL injection",
+      "B": "Buffer overflow",
+      "C": "SQL injection",
+      "D": "MITM"
+    }
+  },
+  {
+    "id": 509,
+    "question": "What technology isolates browser sessions to protect endpoints?",
+    "choices": {
+      "A": "Deception grid",
+      "B": "Virtualization",
+      "C": "Secure enclave",
+      "D": "Microsegmentation"
+    }
+  },
+  {
+    "id": 510,
+    "question": "A company needs to identify unauthorized devices connected to the network. What control helps?",
+    "choices": {
+      "A": "DHCP snooping",
+      "B": "HIPS",
+      "C": "NAC",
+      "D": "DLP"
+    }
+  },
+  {
+    "id": 511,
+    "question": "Which of the following ensures cloud workloads launch with secure default configurations?",
+    "choices": {
+      "A": "Golden images",
+      "B": "UEFI",
+      "C": "DLP",
+      "D": "Jump host"
+    }
+  },
+  {
+    "id": 512,
+    "question": "A forensic analyst needs to verify that evidence images have not been altered. What should be used?",
+    "choices": {
+      "A": "Password rotation",
+      "B": "Integrity verification (hashing)",
+      "C": "Encryption",
+      "D": "Key escrow"
+    }
+  },
+  {
+    "id": 513,
+    "question": "Which attack targets authentication by replaying valid credentials?",
+    "choices": {
+      "A": "Credential stuffing",
+      "B": "Replay attack",
+      "C": "MITM",
+      "D": "Brute force"
+    }
+  },
+  {
+    "id": 514,
+    "question": "A SOC wants to automate incident response actions based on alerts. What should be deployed?",
+    "choices": {
+      "A": "SIEM",
+      "B": "SOAR",
+      "C": "FIM",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 515,
+    "question": "Which solution prevents web applications from being exploited via input manipulation?",
+    "choices": {
+      "A": "WAF",
+      "B": "IDS",
+      "C": "DLP",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 516,
+    "question": "A database server needs redundancy and fault tolerance. What solution provides this?",
+    "choices": {
+      "A": "RAID",
+      "B": "FDE",
+      "C": "UBA",
+      "D": "TLS"
+    }
+  },
+  {
+    "id": 517,
+    "question": "A system admin is decommissioning old hardware. Which method ensures data cannot be recovered?",
+    "choices": {
+      "A": "Salting",
+      "B": "Degaussing",
+      "C": "Hashing",
+      "D": "Signing"
+    }
+  },
+  {
+    "id": 518,
+    "question": "Which access control method uses contextual data such as device type and risk score?",
+    "choices": {
+      "A": "RBAC",
+      "B": "MAC",
+      "C": "ABAC",
+      "D": "DAC"
+    }
+  },
+  {
+    "id": 519,
+    "question": "A developer is building a mobile app requiring secure key storage. What should be used?",
+    "choices": {
+      "A": "Database encryption",
+      "B": "Trusted execution environment",
+      "C": "VPN",
+      "D": "Data masking"
+    }
+  },
+  {
+    "id": 520,
+    "question": "Which backup type includes only files that changed since the last backup of any type?",
+    "choices": {
+      "A": "Full",
+      "B": "Differential",
+      "C": "Incremental",
+      "D": "Snapshot"
+    }
+  },
+  {
+    "id": 521,
+    "question": "Which tool provides insights into east-west traffic for lateral movement detection?",
+    "choices": {
+      "A": "NetFlow",
+      "B": "SIEM",
+      "C": "DNSSEC",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 522,
+    "question": "Which protocol ensures the integrity of DNS data?",
+    "choices": {
+      "A": "DNS sinkholing",
+      "B": "DNSSEC",
+      "C": "LDAPS",
+      "D": "SFTP"
+    }
+  },
+  {
+    "id": 523,
+    "question": "An attacker sends a large number of SYN packets without completing the handshake. What attack is this?",
+    "choices": {
+      "A": "XSS",
+      "B": "SYN flood",
+      "C": "Buffer overflow",
+      "D": "DNS poisoning"
+    }
+  },
+  {
+    "id": 524,
+    "question": "A company wants to prevent sensitive emails from being forwarded externally. What should be implemented?",
+    "choices": {
+      "A": "EDR",
+      "B": "DLP",
+      "C": "IDS",
+      "D": "NAC"
+    }
+  },
+  {
+    "id": 525,
+    "question": "Which cloud security tool ensures API calls comply with policy?",
+    "choices": {
+      "A": "CASB",
+      "B": "VPN",
+      "C": "IDS",
+      "D": "UEF"
+    }
+  },
+  {
+    "id": 526,
+    "question": "A malicious actor compromises a badge reader to clone RFID credentials. What attack is this?",
+    "choices": {
+      "A": "Skimming",
+      "B": "Tailgating",
+      "C": "Shoulder surfing",
+      "D": "Impersonation"
+    }
+  },
+  {
+    "id": 527,
+    "question": "A backup strategy requires the shortest recovery time and maximum availability. What should be used?",
+    "choices": {
+      "A": "Differential",
+      "B": "Hot site",
+      "C": "Cold site",
+      "D": "Incremental"
+    }
+  },
+  {
+    "id": 528,
+    "question": "An attacker tricks a user into scanning a QR code that loads malware. What attack is this?",
+    "choices": {
+      "A": "Vishing",
+      "B": "QR phishing",
+      "C": "Smishing",
+      "D": "Pretexting"
+    }
+  },
+  {
+    "id": 529,
+    "question": "To protect against SQL injection, developers must implement:",
+    "choices": {
+      "A": "Output encoding",
+      "B": "Parameterized queries",
+      "C": "VPN",
+      "D": "TLS"
+    }
+  },
+  {
+    "id": 530,
+    "question": "A security analyst sees repeated failed logins followed by a successful one. What should be checked FIRST?",
+    "choices": {
+      "A": "Password policy",
+      "B": "Geo-location",
+      "C": "Credential compromise",
+      "D": "Firewall rules"
+    }
+  },
+  {
+    "id": 531,
+    "question": "A company needs to ensure that users can’t deny actions they performed. Which concept applies?",
+    "choices": {
+      "A": "Authorization",
+      "B": "Confidentiality",
+      "C": "Non-repudiation",
+      "D": "Tokenization"
+    }
+  },
+  {
+    "id": 532,
+    "question": "Which of the following helps prevent credential theft via phishing?",
+    "choices": {
+      "A": "Password rotation",
+      "B": "Phishing awareness training",
+      "C": "Federation",
+      "D": "Dynamic ARP inspection"
+    }
+  },
+  {
+    "id": 533,
+    "question": "Which technology ensures that only approved firmware loads at boot?",
+    "choices": {
+      "A": "UEFI secure boot",
+      "B": "TPM",
+      "C": "HSM",
+      "D": "BIOS password"
+    }
+  },
+  {
+    "id": 534,
+    "question": "A ransomware attack encrypted critical systems. What is the MOST important FIRST action?",
+    "choices": {
+      "A": "Notify law enforcement",
+      "B": "Disconnect affected systems",
+      "C": "Pay requested ransom",
+      "D": "Restore backups"
+    }
+  },
+  {
+    "id": 535,
+    "question": "A user attempts to access HR systems from an unknown device. Access is blocked. Which control caused this?",
+    "choices": {
+      "A": "NAC",
+      "B": "VPN",
+      "C": "SSO",
+      "D": "DNS filtering"
+    }
+  },
+  {
+    "id": 536,
+    "question": "A SOC alerts on unusual outbound traffic from a privileged account. What is MOST likely?",
+    "choices": {
+      "A": "Insider threat",
+      "B": "Rogue AP",
+      "C": "Password spraying",
+      "D": "Logic bomb"
+    }
+  },
+  {
+    "id": 537,
+    "question": "A developer commits hard-coded passwords to a public repository. What should be done FIRST?",
+    "choices": {
+      "A": "Contact legal counsel",
+      "B": "Rotate credentials",
+      "C": "Delete the repository",
+      "D": "Notify users"
+    }
+  },
+  {
+    "id": 538,
+    "question": "Which authentication method uses certificates to verify both client and server identity?",
+    "choices": {
+      "A": "SSL offloading",
+      "B": "EAP-TLS",
+      "C": "Kerberos",
+      "D": "RADIUS"
+    }
+  },
+  {
+    "id": 539,
+    "question": "A company wants to detect misconfigurations in cloud environments. Which tool is MOST appropriate?",
+    "choices": {
+      "A": "FIM",
+      "B": "CASB",
+      "C": "VPN",
+      "D": "Load balancer"
+    }
+  },
+  {
+    "id": 540,
+    "question": "An attacker registers a look-alike domain to steal login credentials. What is this attack?",
+    "choices": {
+      "A": "Typosquatting",
+      "B": "Impersonation",
+      "C": "Shoulder surfing",
+      "D": "Vishing"
+    }
+  },
+  {
+    "id": 541,
+    "question": "Which control type is a firewall?",
+    "choices": {
+      "A": "Detective",
+      "B": "Preventive",
+      "C": "Corrective",
+      "D": "Compensating"
+    }
+  },
+  {
+    "id": 542,
+    "question": "What type of malware encrypts data but does NOT demand a ransom?",
+    "choices": {
+      "A": "Worm",
+      "B": "Crypto-malware",
+      "C": "Spyware",
+      "D": "Logic bomb"
+    }
+  },
+  {
+    "id": 543,
+    "question": "Which of the following minimizes damage by separating critical systems into isolated segments?",
+    "choices": {
+      "A": "Federation",
+      "B": "Segmentation",
+      "C": "Obfuscation",
+      "D": "Failover"
+    }
+  },
+  {
+    "id": 544,
+    "question": "Which attack manipulates a user into performing unintended actions on a trusted website?",
+    "choices": {
+      "A": "XSS",
+      "B": "CSRF",
+      "C": "SQL injection",
+      "D": "MITM"
+    }
+  },
+  {
+    "id": 545,
+    "question": "A security engineer needs to protect APIs from unauthorized use. What should be implemented?",
+    "choices": {
+      "A": "API gateway",
+      "B": "TPM",
+      "C": "RAID",
+      "D": "DLP"
+    }
+  },
+  {
+    "id": 546,
+    "question": "What is MOST helpful to identify the source of account lockouts?",
+    "choices": {
+      "A": "DNS logs",
+      "B": "Authentication logs",
+      "C": "File server logs",
+      "D": "Network flow logs"
+    }
+  },
+  {
+    "id": 547,
+    "question": "A user receives a text message requesting bank login details. What attack is this?",
+    "choices": {
+      "A": "Smishing",
+      "B": "Vishing",
+      "C": "Pretexting",
+      "D": "Trojans"
+    }
+  },
+  {
+    "id": 548,
+    "question": "Which of the following is MOST effective for secure password storage?",
+    "choices": {
+      "A": "Reversible encryption",
+      "B": "Hashing with salt",
+      "C": "Tokenization",
+      "D": "AES encryption"
+    }
+  },
+  {
+    "id": 549,
+    "question": "A company wants to ensure administrators can’t alter logs. What should be implemented?",
+    "choices": {
+      "A": "Immutable logging",
+      "B": "VPN",
+      "C": "MFA",
+      "D": "SIEM"
+    }
+  },
+  {
+    "id": 550,
+    "question": "Which vulnerability occurs when data is executed as code due to insufficient validation?",
+    "choices": {
+      "A": "Injection",
+      "B": "Replay",
+      "C": "Skimming",
+      "D": "ARP spoofing"
+    }
+  },
+  {
+    "id": 551,
+    "question": "A cloud team enables automatic scaling of workloads. Which cloud attribute is this?",
+    "choices": {
+      "A": "Metered usage",
+      "B": "Elasticity",
+      "C": "Redundancy",
+      "D": "Availability"
+    }
+  },
+  {
+    "id": 552,
+    "question": "Which protocol is used to distribute certificates automatically?",
+    "choices": {
+      "A": "OCSP",
+      "B": "SCEP",
+      "C": "DNSSEC",
+      "D": "SCP"
+    }
+  },
+  {
+    "id": 553,
+    "question": "Which policy specifies how employees must protect sensitive information?",
+    "choices": {
+      "A": "Data classification",
+      "B": "BYOD",
+      "C": "SLA",
+      "D": "BIA"
+    }
+  },
+  {
+    "id": 554,
+    "question": "What helps detect rogue wireless devices?",
+    "choices": {
+      "A": "WIPS",
+      "B": "VPN",
+      "C": "SIEM",
+      "D": "HSM"
+    }
+  },
+  {
+    "id": 555,
+    "question": "Which of the following prevents plaintext passwords from being captured during authentication?",
+    "choices": {
+      "A": "HTTPS",
+      "B": "PAP",
+      "C": "Telnet",
+      "D": "FTP"
+    }
+  },
+  {
+    "id": 556,
+    "question": "Which of the following is a benefit of SSO?",
+    "choices": {
+      "A": "Stronger cryptography",
+      "B": "Reduced password fatigue",
+      "C": "Lower bandwidth",
+      "D": "Increased segmentation"
+    }
+  },
+  {
+    "id": 557,
+    "question": "A SOC identifies an attacker modifying audit logs. What security principle is violated?",
+    "choices": {
+      "A": "Integrity",
+      "B": "Availability",
+      "C": "Confidentiality",
+      "D": "Redundancy"
+    }
+  },
+  {
+    "id": 558,
+    "question": "A team wants logs analyzed for correlations and alerts. What should they use?",
+    "choices": {
+      "A": "IDS",
+      "B": "SIEM",
+      "C": "FIM",
+      "D": "VPN"
+    }
+  },
+  {
+    "id": 559,
+    "question": "Which control is MOST appropriate for stopping a malware outbreak?",
+    "choices": {
+      "A": "Containment",
+      "B": "Eradication",
+      "C": "Recovery",
+      "D": "Forensic acquisition"
+    }
+  },
+  {
+    "id": 560,
+    "question": "Which of the following is a certificate format that contains both private and public keys?",
+    "choices": {
+      "A": "CER",
+      "B": "CRT",
+      "C": "PFX",
+      "D": "PEM"
+    }
+  },
+  {
+    "id": 561,
+    "question": "A team wants to reduce the risk of software supply-chain attacks. What should be implemented?",
+    "choices": {
+      "A": "Code signing",
+      "B": "Containerization",
+      "C": "Hashing",
+      "D": "TLS"
+    }
+  },
+  {
+    "id": 562,
+    "question": "Which security concept ensures systems continue operating during an outage?",
+    "choices": {
+      "A": "Resiliency",
+      "B": "Authentication",
+      "C": "Integrity",
+      "D": "Obfuscation"
+    }
+  },
+  {
+    "id": 563,
+    "question": "An attacker gains access to a system by exploiting an unpatched vulnerability. What type of threat is this?",
+    "choices": {
+      "A": "Zero-day",
+      "B": "Insider",
+      "C": "Rogue AP",
+      "D": "Tailgating"
+    }
+  },
+  {
+    "id": 564,
+    "question": "Which log source helps identify unauthorized DNS tunneling?",
+    "choices": {
+      "A": "Web logs",
+      "B": "DNS logs",
+      "C": "Access logs",
+      "D": "Certificate logs"
+    }
+  },
+  {
+    "id": 565,
+    "question": "Which of the following BEST mitigates drive-by download attacks?",
+    "choices": {
+      "A": "Antivirus",
+      "B": "Browser isolation",
+      "C": "WAF",
+      "D": "DNSSEC"
+    }
+  },
+  {
+    "id": 566,
+    "question": "What ensures data remains accessible after hardware failure?",
+    "choices": {
+      "A": "RAID",
+      "B": "UEFI",
+      "C": "MFA",
+      "D": "ACL"
+    }
+  },
+  {
+    "id": 567,
+    "question": "A user clicks a link that appears to be from their bank, but it leads to a fake website. What attack is this?",
+    "choices": {
+      "A": "Impersonation",
+      "B": "Phishing",
+      "C": "Replay",
+      "D": "Pretexting"
+    }
+  },
+  {
+    "id": 568,
+    "question": "Which control helps verify whether a file has been altered?",
+    "choices": {
+      "A": "Hashing",
+      "B": "Hardening",
+      "C": "Federation",
+      "D": "Encryption"
+    }
+  },
+  {
+    "id": 569,
+    "question": "Which attack relies on exploiting predictable session IDs?",
+    "choices": {
+      "A": "Session hijacking",
+      "B": "SQL injection",
+      "C": "Buffer overflow",
+      "D": "MITM"
+    }
+  },
+  {
+    "id": 570,
+    "question": "Which of the following reduces the attack surface of a server?",
+    "choices": {
+      "A": "Load balancing",
+      "B": "Disabling unused services",
+      "C": "RAID",
+      "D": "Hashing"
+    }
+  },
+  {
+    "id": 571,
+    "question": "Which control ensures data remains usable during a disaster?",
+    "choices": {
+      "A": "Backups",
+      "B": "DNSSEC",
+      "C": "MFA",
+      "D": "Fuzzing"
+    }
+  },
+  {
+    "id": 572,
+    "question": "A malicious actor walks into a building behind an authorized employee. What attack is this?",
+    "choices": {
+      "A": "Tailgating",
+      "B": "Vishing",
+      "C": "Social engineering",
+      "D": "Shoulder surfing"
+    }
+  },
+  {
+    "id": 573,
+    "question": "What ensures that expired certificates are no longer trusted?",
+    "choices": {
+      "A": "CRL",
+      "B": "Certificate pinning",
+      "C": "Key escrow",
+      "D": "RAID"
+    }
+  },
+  {
+    "id": 574,
+    "question": "Which attack involves sending fraudulent SMS messages?",
+    "choices": {
+      "A": "Smishing",
+      "B": "Vishing",
+      "C": "Phishing",
+      "D": "Spear phishing"
+    }
+  },
+  {
+    "id": 575,
+    "question": "A company wants to enforce device encryption for all remote laptops. What should they enable?",
+    "choices": {
+      "A": "TLS",
+      "B": "FDE",
+      "C": "CASB",
+      "D": "RAID"
+    }
+  },
+  {
+    "id": 576,
+    "question": "Which backup type captures only data changed since the last full backup?",
+    "choices": {
+      "A": "Differential",
+      "B": "Incremental",
+      "C": "Snapshot",
+      "D": "Clone"
+    }
+  },
+  {
+    "id": 577,
+    "question": "Which tool captures indicators of compromise at runtime?",
+    "choices": {
+      "A": "SIEM",
+      "B": "IDS",
+      "C": "EDR",
+      "D": "UBA"
+    }
+  },
+  {
+    "id": 578,
+    "question": "A security engineer wants to validate the chain of trust for a certificate. What should be checked?",
+    "choices": {
+      "A": "OCSP",
+      "B": "Root CA",
+      "C": "CRL",
+      "D": "CSR"
+    }
+  },
+  {
+    "id": 579,
+    "question": "Which of the following provides the HIGHEST level of availability?",
+    "choices": {
+      "A": "Redundant power",
+      "B": "Clustering",
+      "C": "Load balancing",
+      "D": "Cold site"
+    }
+  },
+  {
+    "id": 580,
+    "question": "A threat actor performs reconnaissance by scanning open ports. What tool is MOST likely used?",
+    "choices": {
+      "A": "Wireshark",
+      "B": "Nmap",
+      "C": "SCP",
+      "D": "Ping"
+    }
+  },
+  {
+    "id": 581,
+    "question": "Which provides secure file transfer with integrity and authentication?",
+    "choices": {
+      "A": "TFTP",
+      "B": "FTP",
+      "C": "SFTP",
+      "D": "SMTP"
+    }
+  },
+  {
+    "id": 582,
+    "question": "A company wants to prevent employees from accessing personal email on company laptops. What solution helps?",
+    "choices": {
+      "A": "DNS filtering",
+      "B": "VPN",
+      "C": "VLAN segmentation",
+      "D": "MFA"
+    }
+  },
+  {
+    "id": 583,
+    "question": "Which type of attack involves tricking DNS servers into sending users to malicious sites?",
+    "choices": {
+      "A": "DNS poisoning",
+      "B": "SQL injection",
+      "C": "MITM",
+      "D": "CSRF"
+    }
+  },
+  {
+    "id": 584,
+    "question": "A SOC analyst identifies an unauthorized IoT device. What is the MOST likely root cause?",
+    "choices": {
+      "A": "Misconfiguration",
+      "B": "Insider threat",
+      "C": "Rogue device",
+      "D": "Default credentials"
+    }
+  },
+  {
+    "id": 585,
+    "question": "Which is a benefit of least privilege?",
+    "choices": {
+      "A": "Lower storage usage",
+      "B": "Increased user productivity",
+      "C": "Reduced attack surface",
+      "D": "Reduced power consumption"
+    }
+  },
+  {
+    "id": 586,
+    "question": "Which concept ensures sensitive logs cannot be changed?",
+    "choices": {
+      "A": "Immutable storage",
+      "B": "Tokenization",
+      "C": "Federation",
+      "D": "RAID"
+    }
+  },
+  {
+    "id": 587,
+    "question": "A team wants to ensure employees cannot send sensitive files to personal cloud accounts. Which control should be deployed?",
+    "choices": {
+      "A": "VPN",
+      "B": "DLP",
+      "C": "MFA",
+      "D": "DNSSEC"
+    }
+  },
+  {
+    "id": 588,
+    "question": "Which process determines which business functions are most critical?",
+    "choices": {
+      "A": "Risk acceptance",
+      "B": "Authentication",
+      "C": "BIA",
+      "D": "Obfuscation"
+    }
+  },
+  {
+    "id": 589,
+    "question": "A security analyst sees a large amount of unusual outbound SSL traffic. What could indicate compromise?",
+    "choices": {
+      "A": "XSS",
+      "B": "DNS tunneling",
+      "C": "C2 communication",
+      "D": "MAC flooding"
+    }
+  },
+  {
+    "id": 590,
+    "question": "A penetration tester discovers an undocumented application running on a server. What is this?",
+    "choices": {
+      "A": "Shadow IT",
+      "B": "Misconfiguration",
+      "C": "Zero-day",
+      "D": "Rogue AP"
+    }
+  },
+  {
+    "id": 591,
+    "question": "Which of the following is MOST effective at preventing credential stuffing attacks?",
+    "choices": {
+      "A": "Account lockout",
+      "B": "MFA",
+      "C": "Password rotation",
+      "D": "TLS"
+    }
+  }
+]
