@@ -598,5 +598,581 @@
       "C": "Correct. Cold sites are low cost and support longer RTO/RPO windows (days).",
       "D": "Warm sites provide some infrastructure and faster recovery than cold sites; they cost more and are often used when RTO/RPO are shorter than multiple days."
     }
+  },
+  {
+    "id": 51,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Media sanitization / Data disposal",
+    "explanation": "The correct answer is **B. Sanitization**. Secure wiping is a form of media sanitization\u2014removing data from storage media so it cannot be recovered before reuse, resale, or recycling.",
+    "feedback": {
+      "A": "Enumeration is discovering systems/services/users; it is unrelated to securely wiping data from drives.",
+      "B": "Correct. Sanitization (e.g., secure erase, overwrite, crypto-erase) ensures data cannot be recovered before disposal/recycling.",
+      "C": "Destruction is physically destroying the drive (shredding, degaussing, pulverizing). Wiping is sanitization, not necessarily destruction.",
+      "D": "Inventory is tracking assets; it does not describe a secure data wiping requirement."
+    }
+  },
+  {
+    "id": 52,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Data classification / PHI protection",
+    "explanation": "The correct answer is **C. Sensitive**. Patient data (PHI/PII) requires strong confidentiality controls and is typically classified as sensitive to ensure encryption, access controls, and auditing are applied.",
+    "feedback": {
+      "A": "Private is sometimes used as a label, but \"sensitive\" best matches regulated patient data requiring heightened controls.",
+      "B": "Critical usually refers to system importance/availability. Patient data is important, but the question is about classification for protection.",
+      "C": "Correct. Patient records are sensitive information (PHI/PII) requiring restricted access and strong protections.",
+      "D": "Public data is intended for broad distribution; patient data must not be public."
+    }
+  },
+  {
+    "id": 53,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Data sovereignty / Privacy & compliance",
+    "explanation": "The correct answer is **A. Local data protection regulations**. Hosting data in other countries introduces legal and regulatory requirements (privacy laws, breach notification rules, cross-border transfer restrictions) that must be addressed first.",
+    "feedback": {
+      "A": "Correct. Data residency/sovereignty and local privacy regulations determine what you can store/process and how.",
+      "B": "Threat levels vary by region, but compliance requirements can be absolute blockers even before security design.",
+      "C": "Contracts matter, but regulatory compliance (and legal authority over data) is the first concern for foreign data centers.",
+      "D": "Time-zone differences are operational considerations, not the primary gating factor for international data centers."
+    }
+  },
+  {
+    "id": 54,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Application control / Allow listing",
+    "explanation": "The correct answer is **B. Application allow list**. Allow listing blocks unknown or unauthorized programs by permitting only approved applications to run (often used on servers, kiosks, and high-security endpoints).",
+    "feedback": {
+      "A": "ACLs control access to files/objects and network resources, but they do not reliably prevent unknown executables from running.",
+      "B": "Correct. Allow listing permits only approved software, effectively blocking unknown programs.",
+      "C": "A host-based firewall controls network traffic, not whether an application can execute.",
+      "D": "DLP focuses on preventing data loss/exfiltration, not stopping unknown applications from launching."
+    }
+  },
+  {
+    "id": 55,
+    "correctAnswer": "D",
+    "studyGuideTopic": "Offensive security / Penetration testing",
+    "explanation": "The correct answer is **D. Red team**. Red teams emulate adversaries using tactics like penetration testing and social engineering to test defenses and detection/response capabilities.",
+    "feedback": {
+      "A": "White team typically oversees rules, scope, and safety\u2014more common in exercises\u2014rather than conducting the attacks.",
+      "B": "Purple team is a collaboration model between red and blue to improve detection; it\u2019s not the primary offensive team.",
+      "C": "Blue team is the defensive team responsible for monitoring, detection, and response.",
+      "D": "Correct. Red teams perform offensive testing including pentesting and social engineering."
+    }
+  },
+  {
+    "id": 56,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Software integrity / Supply chain controls",
+    "explanation": "The correct answer is **B. Code signing**. Code signing uses digital signatures to prove software came from the organization and was not altered, providing authenticity and integrity to users and systems.",
+    "feedback": {
+      "A": "Input validation prevents injection and data handling issues, but it does not prove software authenticity.",
+      "B": "Correct. Code signing validates the publisher and detects tampering of the software package.",
+      "C": "Static analysis finds code defects and vulnerabilities, but it does not provide authenticity to released binaries.",
+      "D": "Secure cookies protect web sessions; they are unrelated to validating software authenticity."
+    }
+  },
+  {
+    "id": 57,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Deception technology / Honeypots",
+    "explanation": "The correct answer is **A. Honeypot**. Honeypots are decoy systems designed to attract attackers and observe their behavior, providing detection and intelligence without risking production systems.",
+    "feedback": {
+      "A": "Correct. Honeypots detect and study attacker actions using decoy resources isolated from production.",
+      "B": "Video surveillance is physical security monitoring, not a technical tool for observing attacker activity on systems.",
+      "C": "Zero Trust is an architecture model (verify explicitly, least privilege), not a specific decoy/detection system.",
+      "D": "Geofencing restricts access by geography; it doesn't safely capture attacker behavior like a honeypot."
+    }
+  },
+  {
+    "id": 58,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Incident response lifecycle / Analysis",
+    "explanation": "The correct answer is **A. Analysis**. In the analysis phase, responders investigate what happened, determine root cause, scope impact, identify IOCs, and understand the source and method of the incident.",
+    "feedback": {
+      "A": "Correct. Analysis focuses on understanding the incident details, including source and cause.",
+      "B": "Lessons learned is post-incident review to improve processes and controls, after recovery.",
+      "C": "Detection is discovering/alerting that an incident may be occurring; analysis comes after detection.",
+      "D": "Containment focuses on stopping spread and limiting damage, not primarily discovering the source."
+    }
+  },
+  {
+    "id": 59,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Vulnerability management / Validation",
+    "explanation": "The correct answer is **C. Rescan the network**. After remediation, you validate that vulnerabilities are actually fixed by rescanning and confirming the findings are resolved.",
+    "feedback": {
+      "A": "An audit may be useful later, but the immediate next step after remediation is to validate the fix.",
+      "B": "A penetration test is broader and more resource-intensive; rescanning is the standard validation step.",
+      "C": "Correct. Rescanning verifies remediation and confirms vulnerabilities are no longer present.",
+      "D": "Reporting is important, but it should be based on validated results after rescanning."
+    }
+  },
+  {
+    "id": 60,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Insider risk / Data exfiltration indicators",
+    "explanation": "The correct answer is **B. Insider threat**. An after-hours remote login followed by copying large amounts of data to a personal device is a strong indicator of malicious or negligent insider activity (often data theft/exfiltration).",
+    "feedback": {
+      "A": "Privilege escalation is gaining higher permissions than authorized; the scenario describes suspicious data copying behavior.",
+      "B": "Correct. The user\u2019s behavior fits insider threat indicators (unauthorized data copying/exfiltration).",
+      "C": "Account takeover is possible, but nothing states the account was compromised; the best classification for the behavior is insider threat.",
+      "D": "Data corruption is damaging/altering data; the scenario describes data copying, not corruption."
+    }
+  },
+  {
+    "id": 61,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Web security / Secure web gateway",
+    "explanation": "The correct answer is **B. Proxy**. Web proxies (secure web gateways) can enforce acceptable use, block categories/domains, inspect traffic, and log user web activity.",
+    "feedback": {
+      "A": "A firewall can block IPs/ports, but it is less effective for URL/category filtering and user-level web policy enforcement.",
+      "B": "Correct. A proxy is designed to control and filter web access and can apply detailed browsing policies.",
+      "C": "A WAF protects web applications from attacks (SQLi/XSS) and does not control employee browsing to external sites.",
+      "D": "A load balancer distributes traffic across servers; it does not enforce web access policies for employees."
+    }
+  },
+  {
+    "id": 62,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Wireless attacks / Deauthentication",
+    "explanation": "The correct answer is **A. Dissociation attack**. A dissociation/deauthentication attack forces clients off the access point, often to capture handshakes or cause disruption.",
+    "feedback": {
+      "A": "Correct. Dissociation (deauth) attacks disconnect devices from an AP.",
+      "B": "Evil twin is a fake AP that impersonates a legitimate network to lure users, not force disconnects directly.",
+      "C": "Bluejacking is sending unsolicited messages via Bluetooth, unrelated to Wi\u2011Fi disconnections.",
+      "D": "Replay attacks reuse captured authentication/traffic; they do not specifically force clients to disconnect."
+    }
+  },
+  {
+    "id": 63,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Switch security / Port security",
+    "explanation": "The correct answer is **B. Port security**. Port security restricts which devices (MAC addresses) can use a specific switch port and can shut down or restrict the port when an unauthorized device connects.",
+    "feedback": {
+      "A": "802.1X is port-based authentication, but the typical control described as restricting by physical port/device is switch port security.",
+      "B": "Correct. Port security binds allowed MAC addresses/limits to a physical switch port.",
+      "C": "A VPN secures remote connections over untrusted networks; it does not enforce access based on a physical switch port.",
+      "D": "MAC filtering is often used on wireless or general access lists; port security is the switch-port-specific control."
+    }
+  },
+  {
+    "id": 64,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Authentication protocols / Legacy risks",
+    "explanation": "The correct answer is **A. PAP**. Password Authentication Protocol sends credentials without encryption (cleartext), making it insecure and unsuitable for modern use.",
+    "feedback": {
+      "A": "Correct. PAP transmits credentials in cleartext and is vulnerable to interception.",
+      "B": "CHAP uses a challenge-response mechanism and does not send the password in cleartext.",
+      "C": "EAP-TLS uses certificates for strong authentication and is secure when properly implemented.",
+      "D": "PEAP tunnels EAP inside TLS, protecting credentials in transit."
+    }
+  },
+  {
+    "id": 65,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Identity governance / Access reviews",
+    "explanation": "The correct answer is **B. Account recertification**. Periodic access reviews and recertification ensure accounts are still required and properly authorized, reducing orphaned or unnecessary accounts.",
+    "feedback": {
+      "A": "RBAC helps structure permissions by role, but it doesn\u2019t automatically remove accounts that are no longer needed.",
+      "B": "Correct. Recertification/access reviews detect and remove orphaned or excessive access over time.",
+      "C": "MFA strengthens authentication but does not prevent orphaned accounts from existing.",
+      "D": "Hashing protects stored secrets (e.g., passwords) but does not manage account lifecycle."
+    }
+  },
+  {
+    "id": 66,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Logging & auditing / Accountability",
+    "explanation": "The correct answer is **A. Accountability**. Recording who performed an action, along with time and location, supports tracing actions to individuals for auditing and investigation.",
+    "feedback": {
+      "A": "Correct. Detailed logs create accountability by tying actions to specific users with context.",
+      "B": "Confidentiality is preventing unauthorized disclosure; logging actions does not directly provide confidentiality.",
+      "C": "Isolation separates systems or workloads; logs don\u2019t enforce isolation.",
+      "D": "Federation is sharing identity across systems; logging activity is not federation."
+    }
+  },
+  {
+    "id": 67,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Password storage / Salting",
+    "explanation": "The correct answer is **C. Rainbow table**. Without a unique salt, identical passwords produce identical hashes, enabling attackers to use precomputed rainbow tables to crack passwords efficiently.",
+    "feedback": {
+      "A": "The issue is not \"weak encryption\"\u2014hashing without salt is still a hash, but it\u2019s vulnerable to precomputed attacks.",
+      "B": "Replay attacks reuse captured authentication tokens/traffic; they are unrelated to password hashing.",
+      "C": "Correct. Unsalted hashes are susceptible to rainbow table and hash lookup attacks.",
+      "D": "Session fixation targets web session IDs, not password hashing."
+    }
+  },
+  {
+    "id": 68,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Compensating controls / Segmentation",
+    "explanation": "The correct answer is **C. Network segmentation**. Segmentation is often used as a compensating control when a primary control cannot be implemented (e.g., isolating legacy systems that cannot be patched).",
+    "feedback": {
+      "A": "Physical locks are preventive physical controls, not typically described as compensating controls.",
+      "B": "Encryption is a primary confidentiality control, not usually a compensating control by itself.",
+      "C": "Correct. Segmentation commonly compensates for unpatchable/legacy systems by limiting exposure and blast radius.",
+      "D": "MFA is a strong preventive control, but it is not typically categorized as a compensating control without specific context."
+    }
+  },
+  {
+    "id": 69,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Social engineering / Messaging-based phishing",
+    "explanation": "The correct answer is **B. Smishing**. Smishing is phishing delivered via SMS/text messages, often urging urgent account verification or payments.",
+    "feedback": {
+      "A": "Vishing is voice phishing over phone calls, not texts.",
+      "B": "Correct. Smishing uses SMS texts to trick victims into revealing information or clicking malicious links.",
+      "C": "Pretexting is creating a fabricated scenario to gain trust; it can be used within smishing, but the delivery method here is specifically text.",
+      "D": "Whaling targets high-profile executives; this question focuses on the SMS delivery method."
+    }
+  },
+  {
+    "id": 70,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Integrity verification / Software distribution",
+    "explanation": "The correct answer is **A. Digital signature**. Digital signatures verify both integrity (no tampering) and authenticity (signed by the publisher) for downloaded software.",
+    "feedback": {
+      "A": "Correct. A valid signature proves the package wasn\u2019t altered and came from the expected signer.",
+      "B": "A TPM protects keys and supports attestation, but it doesn\u2019t by itself verify a downloaded package\u2019s integrity.",
+      "C": "MFA protects logins; it does not validate file integrity.",
+      "D": "A file share is a storage/location method; it does not ensure integrity."
+    }
+  },
+  {
+    "id": 71,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Endpoint controls / Application control",
+    "explanation": "The correct answer is **B. Application allow list**. Allow listing prevents installation/execution of unapproved applications by allowing only known-good software.",
+    "feedback": {
+      "A": "A deny list blocks known bad apps, but unknown or new malicious apps can still run if not listed.",
+      "B": "Correct. Allow lists block everything except explicitly approved applications.",
+      "C": "Host firewalls control traffic, not application approval for install/run.",
+      "D": "A CASB governs cloud app usage and data; it\u2019s not the primary tool for preventing local app installs."
+    }
+  },
+  {
+    "id": 72,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Web threat prevention / DNS security",
+    "explanation": "The correct answer is **B. DNS filtering**. DNS filtering blocks resolution to known malicious domains, preventing endpoints from reaching phishing and malware sites.",
+    "feedback": {
+      "A": "IDS detects suspicious traffic but does not prevent endpoints from reaching malicious domains.",
+      "B": "Correct. DNS filtering stops domain resolution to known bad sites, preventing connections.",
+      "C": "VLANs segment networks; they do not directly block specific malicious domains.",
+      "D": "A SIEM correlates logs and alerts; it is not a prevention control for blocking domains."
+    }
+  },
+  {
+    "id": 73,
+    "correctAnswer": "D",
+    "studyGuideTopic": "Mobile security / BYOD risks",
+    "explanation": "The correct answer is **D. Jailbreaking**. BYOD devices that are jailbroken/rooted bypass built-in OS security controls, increasing malware risk and weakening device integrity.",
+    "feedback": {
+      "A": "End of life is a risk for unsupported devices, but BYOD\u2019s primary concern here is users modifying device security controls.",
+      "B": "Buffer overflow is a software flaw; it is not a primary BYOD program concern as stated.",
+      "C": "VM escape relates to virtualization, not typical BYOD mobile devices.",
+      "D": "Correct. Jailbreaking/rooting undermines platform security and policy enforcement."
+    }
+  },
+  {
+    "id": 74,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Quantitative risk / ARO",
+    "explanation": "The correct answer is **C. ARO** (Annualized Rate of Occurrence). ARO estimates how often a specific event (like ransomware) is expected to occur in a year and is used in quantitative risk decisions, including insurance coverage choices.",
+    "feedback": {
+      "A": "MTTR measures mean time to repair/restore service; it\u2019s not a risk frequency metric.",
+      "B": "RTO is recovery time objective; it describes acceptable downtime, not incident likelihood.",
+      "C": "Correct. ARO measures expected frequency per year and is used in quantitative risk calculations (e.g., ALE).",
+      "D": "MTBF measures reliability time between failures; it\u2019s not used to estimate cyber event frequency."
+    }
+  },
+  {
+    "id": 75,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Security awareness / Phishing reporting",
+    "explanation": "The correct answer is **A. Reporting phishing attempts**. Awareness messaging commonly focuses on recognizing and reporting phishing, suspicious links, and social engineering to reduce user-driven compromise.",
+    "feedback": {
+      "A": "Correct. User awareness programs emphasize spotting and reporting phishing/suspicious messages.",
+      "B": "Detecting insider threats is typically a security operations function using monitoring and analytics, not a user awareness message.",
+      "C": "Modifying wire transfer data is a fraud scenario (often BEC) and is not itself a recommended awareness communication item as written.",
+      "D": "Third-party social engineering is a risk, but awareness messaging typically focuses on employee reporting/verification behaviors\u2014phishing reporting is the best match."
+    }
+  },
+  {
+    "id": 78,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Incident response / Preparation",
+    "explanation": "The correct answer is **A. Preparation**. Preparation includes defining roles/responsibilities, training, playbooks, communication plans, and ensuring tools and access are ready before incidents occur.",
+    "feedback": {
+      "A": "Correct. Roles and responsibilities are defined and exercised during the preparation phase.",
+      "B": "Recovery focuses on restoring services and returning systems to normal operations.",
+      "C": "Lessons learned is the post-incident review to improve processes after recovery.",
+      "D": "Analysis investigates what happened during the incident; roles should already be defined beforehand."
+    }
+  },
+  {
+    "id": 79,
+    "correctAnswer": "D",
+    "studyGuideTopic": "Network device hardening / Management interfaces",
+    "explanation": "The correct answer is **D. Web-based administration**. Disabling unnecessary or risky management interfaces\u2014especially web GUIs exposed to networks\u2014reduces attack surface on routers and other infrastructure devices.",
+    "feedback": {
+      "A": "Console access is typically local and can be tightly controlled; disabling it can hinder recovery/maintenance.",
+      "B": "Disabling routing protocols could break network functionality; the question is about hardening after a scan.",
+      "C": "VLANs are segmentation mechanisms; disabling them is not a hardening action for routers.",
+      "D": "Correct. Web-based administration increases attack surface; disable it when not required (or restrict/secure it)."
+    }
+  },
+  {
+    "id": 80,
+    "correctAnswer": "D",
+    "studyGuideTopic": "Integrity monitoring / File Integrity Monitoring (FIM)",
+    "explanation": "The correct answer is **D. FIM**. File Integrity Monitoring tracks changes to critical files and configurations and can alert when unauthorized modifications occur\u2014supporting integrity and change tracking.",
+    "feedback": {
+      "A": "SPF is an email anti-spoofing control; it does not track file changes.",
+      "B": "GPO configures Windows policies, but it is not the control specifically designed to detect and track file changes.",
+      "C": "NAC controls network access based on device posture; it doesn\u2019t track file changes on endpoints by itself.",
+      "D": "Correct. FIM detects and records changes to files/configs, supporting integrity monitoring."
+    }
+  },
+  {
+    "id": 81,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Authentication attacks / Brute force",
+    "explanation": "The correct answer is **A. Brute-force attack**. Repeated failed admin login attempts are a classic indicator of brute-force guessing (or password spraying depending on pattern). With repeated attempts against an admin account, brute force is the best match.",
+    "feedback": {
+      "A": "Correct. Many failed login attempts against an account commonly indicates brute-force password guessing.",
+      "B": "Man-in-the-middle intercepts/relays traffic; failed logins alone don\u2019t indicate MITM.",
+      "C": "Replay attacks reuse captured valid authentication messages; they typically won\u2019t show as repeated failed guesses.",
+      "D": "Privilege escalation is obtaining higher permissions; repeated failed logins indicate attempted access, not escalated privileges."
+    }
+  },
+  {
+    "id": 82,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Kiosk/locked-down systems / Application control",
+    "explanation": "The correct answer is **A. Application allow list**. Kiosks should be locked down so only approved applications can run, preventing users or malware from executing unauthorized software.",
+    "feedback": {
+      "A": "Correct. Allow listing restricts execution to approved applications\u2014ideal for kiosks.",
+      "B": "FIM detects changes but does not prevent an unauthorized program from launching.",
+      "C": "A network ACL controls traffic, not local application execution.",
+      "D": "A VPN secures network traffic for remote access; it does not control what apps can run on a kiosk."
+    }
+  },
+  {
+    "id": 83,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Phishing / Credential harvesting",
+    "explanation": "The correct answer is **B. Phishing**. The user clicked a malicious link and submitted credentials to an attacker\u2014classic credential-harvesting phishing.",
+    "feedback": {
+      "A": "A watering hole compromises a site users commonly visit; the scenario specifically describes a malicious link capturing credentials.",
+      "B": "Correct. Phishing uses deceptive messages/links to trick users into revealing credentials.",
+      "C": "Tailgating is physical social engineering (following someone into a secure area).",
+      "D": "Vishing is voice phishing over phone calls, not link-based credential capture."
+    }
+  },
+  {
+    "id": 84,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Endpoint security / EDR",
+    "explanation": "The correct answer is **C. EDR** (Endpoint Detection and Response). EDR provides continuous endpoint monitoring, detection, and rapid response actions (isolation, kill process, quarantine) for real-time protection.",
+    "feedback": {
+      "A": "IDS monitors network/host activity for alerts, but it is not the typical tool for real-time endpoint protection and response.",
+      "B": "IPS can block network attacks in transit, but it does not provide full endpoint telemetry and response.",
+      "C": "Correct. EDR provides real-time endpoint monitoring and response capabilities.",
+      "D": "A SIEM correlates logs centrally; it relies on sources like EDR but is not itself endpoint protection."
+    }
+  },
+  {
+    "id": 85,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Social engineering / Voice phishing",
+    "explanation": "The correct answer is **A. Vishing**. Vishing is phishing conducted over voice calls, persuading victims to reveal credentials or account details.",
+    "feedback": {
+      "A": "Correct. A phone call tricking a user into revealing account details is vishing.",
+      "B": "Smishing is phishing via SMS/text, not phone calls.",
+      "C": "Pretexting is using a fabricated story to gain trust; it can be used in vishing, but the best label here is vishing.",
+      "D": "Pharming redirects users to fake sites via DNS/hosts manipulation; it\u2019s not a phone-based scam."
+    }
+  },
+  {
+    "id": 86,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Vulnerability assessment / Follow-up actions",
+    "explanation": "The correct answer is **A. Manual review**. An inconclusive scan means the tool couldn\u2019t determine the status reliably; the next step is to manually validate (check configs, versions, logs) or run targeted verification.",
+    "feedback": {
+      "A": "Correct. Manual validation/verification is appropriate when automated results are inconclusive.",
+      "B": "A full penetration test is heavy-weight; you typically validate the specific finding first.",
+      "C": "Patching immediately may cause outages and is inappropriate if you don\u2019t know what\u2019s actually vulnerable.",
+      "D": "Ignoring inconclusive results can leave real vulnerabilities unaddressed."
+    }
+  },
+  {
+    "id": 87,
+    "correctAnswer": "B",
+    "studyGuideTopic": "High availability / Redundancy",
+    "explanation": "The correct answer is **B. RAID**. RAID provides disk redundancy (and sometimes performance benefits), helping servers continue operating after a disk failure (depending on RAID level).",
+    "feedback": {
+      "A": "A UPS provides power backup, which improves availability, but the question asks specifically about redundancy for servers (commonly storage redundancy).",
+      "B": "Correct. RAID provides redundancy for storage to tolerate disk failures.",
+      "C": "VLANs segment networks; they do not provide hardware redundancy.",
+      "D": "Hashing ensures integrity, not redundancy."
+    }
+  },
+  {
+    "id": 88,
+    "correctAnswer": "A",
+    "studyGuideTopic": "DNS security / Sinkholing",
+    "explanation": "The correct answer is **A. DNS sinkholing**. Sinkholing redirects requests to known malicious domains to a controlled server or blocks them, preventing users from reaching malicious sites clicked from emails.",
+    "feedback": {
+      "A": "Correct. DNS sinkholing/blackholing blocks or redirects malicious domain lookups from email links.",
+      "B": "Switch port security restricts devices on a switch port; it does not block malicious web destinations.",
+      "C": "ARP inspection prevents ARP spoofing on a LAN; it\u2019s unrelated to blocking malicious sites.",
+      "D": "A WAF protects web applications you host; it does not stop users from browsing to external malicious domains."
+    }
+  },
+  {
+    "id": 89,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Log management / Secure retention",
+    "explanation": "The correct answer is **B. Encrypt and store offsite**. Regulatory log retention requires protecting confidentiality and integrity and ensuring availability, often via encrypted, write-protected, and offsite/immutable storage.",
+    "feedback": {
+      "A": "Plaintext storage increases risk of disclosure and tampering and is not appropriate for compliance retention.",
+      "B": "Correct. Encrypting and storing logs offsite (ideally immutable/WORM) supports confidentiality and resilience.",
+      "C": "Deleting logs after 30 days may violate retention requirements and removes forensic evidence.",
+      "D": "Storing only locally increases risk of loss/tampering and is weaker for compliance and disaster recovery."
+    }
+  },
+  {
+    "id": 90,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Malware prevention / Application control",
+    "explanation": "The correct answer is **A. Allow list**. Allow listing prevents execution of unauthorized binaries/scripts on servers, which is one of the strongest controls against unknown malware execution.",
+    "feedback": {
+      "A": "Correct. Allow listing blocks unapproved executables, reducing malware execution risk on servers.",
+      "B": "IDS detects suspicious activity but does not directly prevent execution on the server.",
+      "C": "A reverse proxy protects web apps and can filter requests, but it won\u2019t stop malware from executing on the server OS.",
+      "D": "A SIEM collects/correlates logs; it is not an execution prevention mechanism."
+    }
+  },
+  {
+    "id": 91,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Malware types / Trojans",
+    "explanation": "The correct answer is **A. Trojan**. A trojan disguises itself as legitimate software to trick users into executing it (common via USB drives).",
+    "feedback": {
+      "A": "Correct. Trojans rely on user execution of a seemingly legitimate file.",
+      "B": "A logic bomb is malicious code that triggers on a specific event/time; the scenario emphasizes user execution from USB.",
+      "C": "Rootkits focus on stealth and privileged persistence; they may be delivered by a trojan, but the best match is trojan.",
+      "D": "Supply chain attacks compromise software/hardware from a vendor; a USB file executed by a user is not supply chain."
+    }
+  },
+  {
+    "id": 92,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Network security / Mutual authentication",
+    "explanation": "The correct answer is **C. IPSec tunnel**. IPSec site-to-site (or host-to-host) tunnels use mutual authentication (certificates or pre-shared keys) so devices can verify the identity of the peer device.",
+    "feedback": {
+      "A": "Certificate pinning is an application/client technique to trust a specific server certificate; it\u2019s not a general device-to-device network authentication solution.",
+      "B": "802.1X authenticates endpoints to a network (port-based NAC). It\u2019s not primarily used for device-to-device identity verification between network peers.",
+      "C": "Correct. IPSec supports mutual authentication between peers, enabling devices to verify each other\u2019s identity.",
+      "D": "Federation is identity sharing between organizations/services (SSO). It does not authenticate network device peers."
+    }
+  },
+  {
+    "id": 93,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Credential attacks / Password spraying",
+    "explanation": "The correct answer is **A. Password spraying**. Password spraying uses a small set of common passwords across many accounts/systems, causing many failures across different systems without triggering lockouts quickly.",
+    "feedback": {
+      "A": "Correct. Many failed logins across multiple systems strongly suggests password spraying behavior.",
+      "B": "DDoS targets availability by flooding resources; it\u2019s not characterized by failed login attempts.",
+      "C": "SQL injection targets web apps/databases via input fields; it doesn\u2019t present as failed logins across many systems.",
+      "D": "DNS poisoning redirects name resolution; it\u2019s unrelated to login failure patterns."
+    }
+  },
+  {
+    "id": 94,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Remote access hardening / Exposure reduction",
+    "explanation": "The correct answer is **A. Disable RDP** (or otherwise remove external exposure). If RDP is unnecessarily exposed, the first action is to eliminate or restrict it to reduce immediate attack surface and prevent brute-force compromise.",
+    "feedback": {
+      "A": "Correct. Removing/closing exposed RDP is the fastest way to reduce immediate risk (then replace with safer access methods).",
+      "B": "MFA is excellent, but it still leaves the service exposed; disabling/restricting exposure is typically the first containment step.",
+      "C": "RDP traffic is already encrypted in modern deployments; encryption alone doesn\u2019t address exposure and brute-force attempts.",
+      "D": "Changing passwords helps, but exposed RDP can still be attacked; reducing exposure is the priority first action."
+    }
+  },
+  {
+    "id": 95,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Web application attacks / SQL injection",
+    "explanation": "The correct answer is **B. SQL injection**. SQL injection exploits improper input handling to manipulate database queries, often enabled by misconfigurations and weak parameterization/validation.",
+    "feedback": {
+      "A": "Buffer overflow is a memory corruption issue, not a database query manipulation attack.",
+      "B": "Correct. SQL injection targets databases through improperly handled input and query construction.",
+      "C": "VM escape is breaking out of a virtual machine into the host; it\u2019s unrelated to databases.",
+      "D": "Memory injection is process/memory manipulation, not specifically a database misconfiguration exploitation method."
+    }
+  },
+  {
+    "id": 96,
+    "correctAnswer": "A",
+    "studyGuideTopic": "PKI / Certificate status validation",
+    "explanation": "The correct answer is **A. OCSP**. Online Certificate Status Protocol checks whether a certificate is valid/revoked at the time it\u2019s presented.",
+    "feedback": {
+      "A": "Correct. OCSP provides real-time certificate revocation/status checking.",
+      "B": "A CSR (Certificate Signing Request) is used to request a new certificate from a CA, not validate one during use.",
+      "C": "A CA issues certificates; it doesn\u2019t provide the specific protocol for real-time status checks in this answer set.",
+      "D": "CRC is an error-detection method for data integrity, not a certificate validation mechanism."
+    }
+  },
+  {
+    "id": 97,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Firmware security / BIOS/UEFI",
+    "explanation": "The correct answer is **B. Firmware**. BIOS/UEFI updates address firmware vulnerabilities that can affect boot process integrity and hardware-level security.",
+    "feedback": {
+      "A": "Virtualization vulnerabilities relate to hypervisors/VMs, not BIOS updates.",
+      "B": "Correct. BIOS/UEFI is firmware; updating it remediates firmware vulnerabilities.",
+      "C": "Application vulnerabilities are patched by updating the application, not the BIOS.",
+      "D": "Operating system vulnerabilities are addressed with OS patches, not BIOS updates."
+    }
+  },
+  {
+    "id": 98,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Vulnerability scoring / CVSS",
+    "explanation": "The correct answer is **B. CVSS**. CVSS provides a numerical score representing vulnerability severity/criticality, helping prioritize remediation.",
+    "feedback": {
+      "A": "CVE is an identifier for vulnerabilities, not a quantitative severity score.",
+      "B": "Correct. CVSS provides a numeric score used for prioritization.",
+      "C": "CIA is the security triad (confidentiality, integrity, availability), not a scoring system.",
+      "D": "CERT is an organization/term related to incident response advisories; it\u2019s not a vulnerability scoring system."
+    }
+  },
+  {
+    "id": 99,
+    "correctAnswer": "D",
+    "studyGuideTopic": "Endpoint management / Configuration monitoring",
+    "explanation": "The correct answer is **D. Install endpoint management**. Endpoint management platforms (MDM/UEM/endpoint management suites) provide centralized monitoring and control, including detecting unauthorized configuration or software changes across servers and workstations.",
+    "feedback": {
+      "A": "Logging scheduled tasks is a narrow control and won\u2019t comprehensively detect unauthorized changes across endpoints.",
+      "B": "Outbound traffic monitoring focuses on network behavior, not configuration/file change monitoring on endpoints.",
+      "C": "Signature blocking can stop known malware, but it doesn\u2019t ensure monitoring for unauthorized configuration changes.",
+      "D": "Correct. Endpoint management enables centralized monitoring/compliance and can detect/report unauthorized changes."
+    }
+  },
+  {
+    "id": 100,
+    "correctAnswer": "B",
+    "studyGuideTopic": "VPNs / Data in transit protection",
+    "explanation": "The correct answer is **B. Data in transit**. A VPN encrypts traffic between sites so data traveling across untrusted networks cannot be intercepted or modified easily.",
+    "feedback": {
+      "A": "Data in use is data being processed in memory/CPU; VPNs do not protect data while it\u2019s being used.",
+      "B": "Correct. VPNs protect data in transit by encrypting and authenticating network communications.",
+      "C": "Geographic restrictions (geo-blocking) are policy controls; VPNs do not inherently enforce geography.",
+      "D": "Data sovereignty concerns legal jurisdiction and where data is stored; VPNs address transit security, not jurisdiction."
+    }
   }
 ]
