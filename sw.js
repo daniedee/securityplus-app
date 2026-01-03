@@ -7,6 +7,7 @@ const ASSETS = [
   "./manifest.json",
   "./data/questions.json",
   "./data/answers_1_25.json"
+  "./data/domains.json"
 ];
 
 self.addEventListener("install", (event) => {
