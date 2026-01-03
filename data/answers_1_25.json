@@ -2374,5 +2374,593 @@
       "C": "RTO is how quickly you must restore service after disruption, not detection speed.",
       "D": "RPO defines acceptable data loss, not detection speed."
     }
+  },
+  {
+    "id": 201,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Vulnerability management / Continuous scanning",
+    "explanation": "The correct answer is **A. To track the status of patching installations**. Running daily vulnerability scans helps validate whether systems are still exposed and whether remediation/patching is effective across endpoints.",
+    "feedback": {
+      "A": "Correct. Continuous vulnerability scanning helps confirm patch status and identify remaining exposure.",
+      "B": "Shadow IT cloud deployments are better found via CASB, cloud discovery, or network monitoring\u2014vulnerability scans aren\u2019t the best primary method.",
+      "C": "Hardware inventory is typically handled by asset management/endpoint management tools, not daily vuln scans.",
+      "D": "Threat hunting focuses on active adversary behaviors and IOCs; vulnerability scans focus on known weaknesses and missing patches."
+    }
+  },
+  {
+    "id": 202,
+    "correctAnswer": "D",
+    "studyGuideTopic": "Cloud high availability",
+    "explanation": "The correct answer is **D. Load balancer**. Load balancers distribute traffic across multiple instances and enable failover, which is a core building block of high availability in cloud environments.",
+    "feedback": {
+      "A": "An access broker (e.g., CASB) governs cloud access/policy, not high availability.",
+      "B": "Cloud HSM protects cryptographic keys; it doesn\u2019t provide high availability for applications by itself.",
+      "C": "A WAF protects web applications from attacks; it is not the primary HA mechanism.",
+      "D": "Correct. Load balancing supports redundancy and failover, improving availability."
+    }
+  },
+  {
+    "id": 203,
+    "correctAnswer": "A",
+    "studyGuideTopic": "IoT platform security / Encryption in transit",
+    "explanation": "The correct answer is **A. Encrypted connection**. IoT management involves device telemetry and control traffic that must be protected in transit (typically via TLS) to prevent interception and tampering.",
+    "feedback": {
+      "A": "Correct. Encryption in transit (e.g., TLS) protects confidentiality and integrity between devices and the cloud platform.",
+      "B": "Federated identity can help with SSO across services, but it\u2019s not the baseline security requirement for IoT communications.",
+      "C": "Firewalls are important, but they don\u2019t replace the need to encrypt device-to-cloud communications.",
+      "D": "SSO improves user login experience; it doesn\u2019t ensure IoT device communications are protected."
+    }
+  },
+  {
+    "id": 204,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Insider threat / Data exfiltration vectors",
+    "explanation": "The correct answer is **A. Unidentified removable devices**. Insiders commonly exfiltrate data via removable media (USB drives/external storage) because it\u2019s easy, fast, and often bypasses network monitoring.",
+    "feedback": {
+      "A": "Correct. Removable media is a frequent and effective data exfiltration path for insider threats.",
+      "B": "Default network device credentials are an external/administrative weakness, not a common insider exfiltration method.",
+      "C": "Spear phishing targets users to steal credentials; it\u2019s not typically the insider\u2019s chosen method for exfiltrating data they already can access.",
+      "D": "Typosquatting impersonates domains/business units to trick users; it\u2019s not the typical insider exfil mechanism."
+    }
+  },
+  {
+    "id": 205,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Data protection / PCI and PAN display",
+    "explanation": "The correct answer is **C. Masking**. Masking hides parts of the PAN (credit card number) so only the last four digits are visible while the underlying value remains protected.",
+    "feedback": {
+      "A": "Encryption protects the full value but doesn\u2019t inherently enforce displaying only the last four digits.",
+      "B": "Hashing is one-way and would not allow showing the last four digits of the original number.",
+      "C": "Correct. Masking is designed to partially obscure data in displays/logs (e.g., **** **** **** 1234).",
+      "D": "Tokenization replaces the PAN with a token for storage/processing; masking is specifically about limiting what is shown."
+    }
+  },
+  {
+    "id": 206,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Compliance risk / Regulatory outcomes",
+    "explanation": "The correct answer is **A. Fines**. A direct and common consequence of regulatory non-compliance is monetary penalties assessed by regulators.",
+    "feedback": {
+      "A": "Correct. Fines are a direct, measurable consequence of non-compliance.",
+      "B": "Reputational damage is possible, but it is an indirect consequence and harder to quantify as the direct outcome.",
+      "C": "Sanctions can occur in certain regimes/industries, but fines are the most typical direct outcome described broadly.",
+      "D": "Contractual implications may occur, but they\u2019re not the most direct consequence of regulatory non-compliance."
+    }
+  },
+  {
+    "id": 207,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Alerting / False positives and alert fatigue",
+    "explanation": "The correct answer is **C. False positive**. False positives create alert fatigue, causing analysts to ignore or delay response to alerts over time.",
+    "feedback": {
+      "A": "True positives represent real issues and should not be ignored if the team trusts the alerts.",
+      "B": "True negatives are correct \u2018no issue\u2019 outcomes and generally aren\u2019t surfaced as actionable alerts.",
+      "C": "Correct. Too many false positives lead to alert fatigue and ignored alerts.",
+      "D": "False negatives are missed detections; you typically don\u2019t see them as alerts to ignore."
+    }
+  },
+  {
+    "id": 208,
+    "correctAnswer": "D",
+    "studyGuideTopic": "Web application vulnerabilities / Injection",
+    "explanation": "The correct answer is **D. SQL injection**. Among the options, SQL injection is the most commonly exploited application-server vulnerability and results from unsafe query construction and insufficient input handling.",
+    "feedback": {
+      "A": "Memory injection involves manipulating running process memory; it is not the most typical root cause for common application-server exploitation patterns.",
+      "B": "Race conditions require concurrency timing issues; without clear concurrency context, it\u2019s less likely than injection flaws.",
+      "C": "Side loading involves abusing trusted processes to load malicious code; it\u2019s not primarily an application input/database exploitation issue.",
+      "D": "Correct. SQL injection exploits unsafe database query handling and is a frequent real-world application exploit class."
+    }
+  },
+  {
+    "id": 209,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Asset management / Patch targeting",
+    "explanation": "The correct answer is **A. Asset inventory**. To ensure every affected system gets a critical patch, you first need an accurate inventory of assets and where the vulnerable application is installed.",
+    "feedback": {
+      "A": "Correct. Asset inventory tells you which systems are in scope for the patch.",
+      "B": "Network enumeration finds hosts/services, but it won\u2019t reliably identify which endpoints run the vulnerable application/version.",
+      "C": "Data certification is about validating data quality/ownership, not patch deployment coverage.",
+      "D": "Procurement governs purchasing; it doesn\u2019t ensure existing systems are patched."
+    }
+  },
+  {
+    "id": 210,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Incident response / Playbooks",
+    "explanation": "The correct answer is **A. Playbooks**. Playbooks provide step-by-step procedures and decision points for specific incident types, improving consistency and speed of response.",
+    "feedback": {
+      "A": "Correct. Playbooks standardize and improve incident response actions for common scenarios.",
+      "B": "Frameworks provide broad guidance (e.g., NIST), but playbooks are the tactical procedures SOC teams use day-to-day.",
+      "C": "Baselines define normal/expected configurations or behavior; they don\u2019t provide IR steps.",
+      "D": "Benchmarks are comparison standards; they don\u2019t define response procedures."
+    }
+  },
+  {
+    "id": 211,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Incident response testing / Tabletop",
+    "explanation": "The correct answer is **C. Tabletop exercise**. Executive teams discussing scenarios in a board room to test the IR plan is a classic tabletop exercise.",
+    "feedback": {
+      "A": "Continuity of operations is the outcome/goal of planning, not the exercise format.",
+      "B": "Capacity planning is ensuring resources meet demand; it\u2019s not an IR plan exercise.",
+      "C": "Correct. Tabletop exercises are discussion-based simulations to test plans and roles.",
+      "D": "A disaster recovery test often involves technical restoration steps; the question describes discussion in a board room."
+    }
+  },
+  {
+    "id": 212,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Healthcare systems / Availability requirements",
+    "explanation": "The correct answer is **B. Availability**. Healthcare services and patient-facing applications often have strict availability needs because downtime can disrupt care and access to critical information.",
+    "feedback": {
+      "A": "Scalability is important, but the most critical concern in many healthcare delivery contexts is staying available when needed.",
+      "B": "Correct. Availability is often the top nonfunctional requirement for healthcare-related access to services and information.",
+      "C": "Cost matters, but it generally does not outrank patient care and operational availability requirements.",
+      "D": "Ease of deployment is desirable, but it is not as critical as keeping the service accessible and reliable."
+    }
+  },
+  {
+    "id": 213,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Vendor management / SLAs",
+    "explanation": "The correct answer is **B. SLA**. A Service Level Agreement defines service expectations such as response time, uptime, and remediation timelines.",
+    "feedback": {
+      "A": "A SOW defines the work to be performed and deliverables; it\u2019s not primarily about response time commitments.",
+      "B": "Correct. SLAs define response and resolution timeframes and service performance metrics.",
+      "C": "MOAs define how parties will work together; they\u2019re not typically used for response-time guarantees.",
+      "D": "MOUs are nonbinding agreements of intent; they don\u2019t define enforceable response time metrics like an SLA."
+    }
+  },
+  {
+    "id": 214,
+    "correctAnswer": "B",
+    "studyGuideTopic": "SIEM evolution / Automated response",
+    "explanation": "The correct answer is **B. Automated response actions**. Next-generation SIEM capabilities often include orchestration/automation to respond to alerts (or tight integration with SOAR).",
+    "feedback": {
+      "A": "Virus signatures are typically endpoint/AV features, not SIEM features.",
+      "B": "Correct. Automated response (or SOAR-like actions) is a hallmark of modern/next-gen SIEM capabilities.",
+      "C": "Security agent deployment is more aligned with endpoint management/EDR platforms than SIEM functionality.",
+      "D": "Vulnerability scanning is a separate capability; SIEMs ingest and correlate data rather than scan systems."
+    }
+  },
+  {
+    "id": 216,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Secure coding / Input sanitization",
+    "explanation": "The correct answer is **A. <script>alert(\"Warning!\");</script>**. This is a classic cross-site scripting (XSS) payload that is mitigated by proper input sanitization and output encoding.",
+    "feedback": {
+      "A": "Correct. Sanitizing/encoding input/output prevents script injection in web content.",
+      "B": "This is a network scanning command, not something mitigated by input sanitization.",
+      "C": "That is a phishing-style message; awareness training and email security controls mitigate it, not input sanitization.",
+      "D": "A certificate warning indicates TLS/trust issues; input sanitization won\u2019t fix TLS certificate problems."
+    }
+  },
+  {
+    "id": 217,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Social engineering / Impersonation",
+    "explanation": "The correct answer is **C. Impersonating**. The attacker is pretending to be the CEO to pressure an employee into purchasing gift cards\u2014classic impersonation social engineering.",
+    "feedback": {
+      "A": "Smishing is phishing via SMS/text, not a phone call impersonation scenario.",
+      "B": "Disinformation is spreading false information to mislead broadly; this is targeted social engineering.",
+      "C": "Correct. The attacker is impersonating an executive to gain compliance.",
+      "D": "Whaling is phishing that targets executives; here the attacker is impersonating the executive to target an employee\u2014impersonation is the best fit."
+    }
+  },
+  {
+    "id": 218,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Vulnerability scanning / Validation",
+    "explanation": "The correct answer is **A. False positive**. A false positive is a reported vulnerability that is not actually present after verification.",
+    "feedback": {
+      "A": "Correct. The scan flagged a vulnerability that manual validation could not confirm.",
+      "B": "A false negative is when a real vulnerability exists but the scan misses it.",
+      "C": "A true positive is a real vulnerability correctly identified by the scan; here the finding could not be confirmed.",
+      "D": "A true negative is correctly reporting no vulnerability; this scenario is the opposite."
+    }
+  },
+  {
+    "id": 219,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Switch security / Port security",
+    "explanation": "The correct answer is **B. Port security**. Port security restricts what devices (MAC addresses/limits) can use a switch port, preventing unauthorized devices from connecting.",
+    "feedback": {
+      "A": "A load balancer distributes application traffic; it doesn\u2019t stop unauthorized devices at the switch port.",
+      "B": "Correct. Port security prevents unauthorized devices from connecting to switch ports.",
+      "C": "An IPS can block malicious traffic patterns, but it doesn\u2019t prevent a rogue device from physically connecting to the network.",
+      "D": "An NGFW improves traffic inspection/control; it doesn\u2019t enforce physical port-level device restrictions."
+    }
+  },
+  {
+    "id": 220,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Mobile security / Device hardening",
+    "explanation": "The correct answer is **C. Jailbreaking**. Jailbreaking removes manufacturer/OS restrictions, allowing installation of unauthorized apps and enabling features not permitted by the platform\u2019s security model.",
+    "feedback": {
+      "A": "SQL injection is a web/database attack, not a mobile device modification technique.",
+      "B": "XSS is a browser/web attack, not how a user enables unauthorized device features.",
+      "C": "Correct. Jailbreaking/rooting bypasses OS restrictions and allows unauthorized software/features.",
+      "D": "Side loading is installing apps outside an official store; jailbreaking is broader (removing OS restrictions), and the prompt indicates enabling features beyond normal limits."
+    }
+  },
+  {
+    "id": 221,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Network segmentation / Isolation",
+    "explanation": "The correct answer is **B. Isolation**. Segmentation reduces the blast radius by isolating systems/traffic so compromise in one segment can\u2019t easily spread to others.",
+    "feedback": {
+      "A": "Authentication is verifying identity; segmentation is about separating networks/traffic.",
+      "B": "Correct. Segmentation provides isolation and limits lateral movement.",
+      "C": "Obfuscation hides information; it\u2019s not the primary benefit of network segmentation.",
+      "D": "Tokenization protects sensitive values by substitution; it\u2019s unrelated to segmentation."
+    }
+  },
+  {
+    "id": 222,
+    "correctAnswer": "D",
+    "studyGuideTopic": "Web application attacks / Code injection",
+    "explanation": "The correct answer is **D. Code injection**. Website defacement typically involves injecting or modifying server-side code/content, enabling an attacker to change what the site displays.",
+    "feedback": {
+      "A": "MITM intercepts communications; it doesn\u2019t typically change the website content hosted on the server.",
+      "B": "DNS poisoning can redirect users to a fake site, but the prompt indicates the actual web server is defaced.",
+      "C": "XSS can alter content in a user\u2019s browser, but defacement of the website itself is more consistent with server-side code injection/compromise.",
+      "D": "Correct. Code injection/server compromise allows attackers to change web content and deface the site."
+    }
+  },
+  {
+    "id": 223,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Secure remote administration",
+    "explanation": "The correct answer is **B. SSH**. SSH provides encrypted remote access for administration over untrusted networks.",
+    "feedback": {
+      "A": "Telnet is unencrypted and exposes credentials and session data.",
+      "B": "Correct. SSH encrypts remote administration sessions and supports secure authentication.",
+      "C": "FTP is unencrypted for credentials/data and is not used for secure remote administration.",
+      "D": "HTTP is web traffic; it is not a secure remote administration protocol."
+    }
+  },
+  {
+    "id": 224,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Authentication threats / Account enumeration",
+    "explanation": "The correct answer is **B. Account enumeration**. Repeated attempts against a disabled account often indicates an attacker is probing which usernames exist and which accounts are valid (even if disabled), building a target list.",
+    "feedback": {
+      "A": "Brute force focuses on guessing passwords for a known account; enumeration focuses on discovering valid accounts.",
+      "B": "Correct. Attempts against known/disabled accounts are commonly seen when attackers are enumerating which accounts exist.",
+      "C": "Replay attacks reuse captured valid authentication exchanges; they don\u2019t present as repeated failed logins to a disabled account.",
+      "D": "Data exfiltration is moving data out of the environment; failed login attempts to a disabled account don\u2019t indicate exfiltration."
+    }
+  },
+  {
+    "id": 225,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Backup protection / Immutability",
+    "explanation": "The correct answer is **A. Immutable backups**. Immutability enforces write-once behavior for a defined retention period so backups can\u2019t be altered or deleted\u2014even by attackers with admin access.",
+    "feedback": {
+      "A": "Correct. Immutable backups prevent modification/deletion for the configured retention window.",
+      "B": "RAID 1 provides disk redundancy; it does not prevent deletion or modification of backup data.",
+      "C": "Full backups describe backup type, not protection against deletion/tampering.",
+      "D": "Data masking is for limiting displayed data; it\u2019s unrelated to protecting backups."
+    }
+  },
+  {
+    "id": 226,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Wireless attacks / Evil twin",
+    "explanation": "The correct answer is **B. Evil twin**. An evil twin impersonates a legitimate Wi\u2011Fi network and can perform MITM attacks, causing widespread certificate warnings when intercepting HTTPS traffic.",
+    "feedback": {
+      "A": "A rogue AP is unauthorized, but an evil twin specifically mimics a legitimate SSID to lure users and intercept traffic.",
+      "B": "Correct. Evil twins commonly lead to MITM behavior and certificate warnings when HTTPS interception occurs.",
+      "C": "Bluejacking is a Bluetooth message attack; it\u2019s unrelated to Wi\u2011Fi certificate warnings.",
+      "D": "Deauthentication attacks disconnect clients; they don\u2019t directly cause certificate warnings across websites."
+    }
+  },
+  {
+    "id": 227,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Web threats / SEO poisoning",
+    "explanation": "The correct answer is **A. SEO poisoning**. SEO poisoning manipulates search results to push malicious sites higher in rankings, tricking users into clicking them.",
+    "feedback": {
+      "A": "Correct. SEO poisoning targets search engines and rankings to drive users to malicious pages.",
+      "B": "XSS is script injection in web pages; it\u2019s not primarily about manipulating search engine rankings.",
+      "C": "SQL injection targets databases; it doesn\u2019t directly aim to mislead search engines.",
+      "D": "ARP spoofing is a LAN traffic redirection technique; it\u2019s unrelated to search rankings."
+    }
+  },
+  {
+    "id": 228,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Governance / Log retention",
+    "explanation": "The correct answer is **B. Retention policy**. Retention policies define how long logs (and other records) must be stored to meet legal, regulatory, and business needs.",
+    "feedback": {
+      "A": "Data minimization focuses on collecting/keeping only what is necessary, not defining required retention duration.",
+      "B": "Correct. Retention policies set the required storage duration and disposal rules for logs.",
+      "C": "Sanitization policies address secure wiping/disposal of media and data, not how long logs are kept.",
+      "D": "Classification policies define sensitivity levels and handling rules, not retention periods."
+    }
+  },
+  {
+    "id": 229,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Cloud network security / East-west controls",
+    "explanation": "The correct answer is **B. VPC security groups**. Security groups (or equivalent virtual firewall rules) restrict traffic between instances, controlling east-west flows within the cloud network.",
+    "feedback": {
+      "A": "A load balancer distributes traffic; it doesn\u2019t restrict VM-to-VM traffic.",
+      "B": "Correct. Security groups/network security rules control east-west traffic between VMs/instances.",
+      "C": "DNS filtering blocks malicious domains; it doesn\u2019t control VM-to-VM traffic paths.",
+      "D": "A CASB controls cloud app usage and data; it doesn\u2019t manage east-west VM network segmentation."
+    }
+  },
+  {
+    "id": 230,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Network architecture / Out-of-band management",
+    "explanation": "The correct answer is **B. Segregated remote access**. Out-of-band management networks provide separate pathways for administering devices even when the primary production network is down or unstable.",
+    "feedback": {
+      "A": "Out-of-band networks are not designed to speed up production data transfer.",
+      "B": "Correct. They provide segregated/independent management access for resilience and security.",
+      "C": "They do not primarily reduce storage costs.",
+      "D": "They do not increase wireless coverage; they\u2019re typically wired and dedicated for management."
+    }
+  },
+  {
+    "id": 231,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Wireless security / Handshake capture",
+    "explanation": "The correct answer is **B. Password cracking**. Capturing a WPA2 handshake enables offline attempts to crack the pre-shared key using dictionary/brute-force methods.",
+    "feedback": {
+      "A": "ARP spoofing is a LAN MITM technique and doesn\u2019t follow directly from capturing a WPA2 handshake.",
+      "B": "Correct. Handshake capture is used to attempt offline password cracking.",
+      "C": "Rogue AP creation can be used to capture handshakes, but after a handshake is captured, the next step is typically offline cracking.",
+      "D": "Deauthentication is used to force reconnects and capture the handshake; after capture, cracking is next."
+    }
+  },
+  {
+    "id": 232,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Access control models / RBAC",
+    "explanation": "The correct answer is **C. RBAC**. Role-based access control assigns permissions based on job roles/responsibilities.",
+    "feedback": {
+      "A": "MAC is system-enforced classification-based control (often military/government), not job role mapping.",
+      "B": "DAC is owner-controlled permission assignment, not primarily job role-driven.",
+      "C": "Correct. RBAC maps access based on roles and responsibilities.",
+      "D": "ABAC uses attributes (device, location, time); RBAC is specifically job responsibility-based."
+    }
+  },
+  {
+    "id": 233,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Container security / Dependency scanning",
+    "explanation": "The correct answer is **B. Container scanner**. Container scanners analyze images for outdated/vulnerable libraries and packages.",
+    "feedback": {
+      "A": "SCAP is a compliance/configuration standard and can help with baselines, but container scanners are the tool designed for image dependency vulnerability detection.",
+      "B": "Correct. Container scanners identify vulnerable/outdated libraries in images.",
+      "C": "Credential scanners look for secrets (keys/passwords), not outdated libraries.",
+      "D": "Load balancers distribute traffic; they don\u2019t analyze container images."
+    }
+  },
+  {
+    "id": 234,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Malware / Adware indicators",
+    "explanation": "The correct answer is **B. Adware**. Browser redirects, pop-ups, and performance issues often indicate adware or malicious extensions designed to push ads and redirect traffic.",
+    "feedback": {
+      "A": "A keylogger steals keystrokes; it doesn\u2019t typically cause pop-ups and redirects as primary symptoms.",
+      "B": "Correct. Adware commonly causes pop-ups, redirects, and degraded performance.",
+      "C": "Rootkits focus on stealth and privileged persistence; they aren\u2019t primarily associated with pop-up ads.",
+      "D": "Worms spread across networks; they don\u2019t primarily cause browser ad redirects."
+    }
+  },
+  {
+    "id": 235,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Integrity verification / Hashing",
+    "explanation": "The correct answer is **A. Hashing**. Hashes provide a quick integrity check\u2014if the document changes, the hash changes.",
+    "feedback": {
+      "A": "Correct. Hashing detects whether the content has changed.",
+      "B": "Digital signatures also provide integrity, but hashing is the most direct and fundamental control for detecting alteration.",
+      "C": "Encryption protects confidentiality; it does not prove whether content changed unless paired with integrity mechanisms.",
+      "D": "ACLs restrict access; they do not detect whether a file was altered."
+    }
+  },
+  {
+    "id": 236,
+    "correctAnswer": "A",
+    "studyGuideTopic": "High availability / Clustering",
+    "explanation": "The correct answer is **A. Clustering**. Clustering distributes workload and provides failover so service remains available even if a node is overloaded or fails.",
+    "feedback": {
+      "A": "Correct. Clustering supports capacity and failover for availability.",
+      "B": "Snapshots are backups/restore points; they don\u2019t increase runtime capacity or availability.",
+      "C": "Hashing provides integrity checks; it doesn\u2019t address capacity/availability.",
+      "D": "A VPN secures connections; it doesn\u2019t increase database service availability."
+    }
+  },
+  {
+    "id": 237,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Memory exploitation / Buffer overflow",
+    "explanation": "The correct answer is **A. Buffer overflow**. Modifying variables in memory to change execution flow or privileges is a common outcome of buffer overflow exploitation.",
+    "feedback": {
+      "A": "Correct. Buffer overflows can overwrite memory (including variables/return addresses) and enable privilege escalation.",
+      "B": "Code injection is a broad term; the memory-variable overwrite detail aligns more directly with buffer overflow exploitation.",
+      "C": "Logic bombs trigger on conditions/time; they don\u2019t describe memory overwrites for privilege escalation.",
+      "D": "Password spraying is an authentication attack; it\u2019s unrelated to memory manipulation."
+    }
+  },
+  {
+    "id": 238,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Cloud service models / Responsibility",
+    "explanation": "The correct answer is **C. IaaS**. Infrastructure as a Service provides the most control among these options over OS configuration, networking, and deployed software compared to PaaS and SaaS.",
+    "feedback": {
+      "A": "SaaS provides the least control; the provider manages the application stack.",
+      "B": "PaaS provides control over the application but less control over the underlying OS/runtime.",
+      "C": "Correct. IaaS gives you control over VMs/OS/networking and many security configurations.",
+      "D": "All are cloud models, but IaaS is the one with the most control over infrastructure components."
+    }
+  },
+  {
+    "id": 239,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Logging / Troubleshooting detail",
+    "explanation": "The correct answer is **B. Debug**. Debug-level logging is the most verbose and detailed, used to troubleshoot application behavior.",
+    "feedback": {
+      "A": "Warning logs indicate potential issues but are less detailed than debug.",
+      "B": "Correct. Debug provides detailed diagnostic information.",
+      "C": "Error logs record failures but usually contain less granular step-by-step context than debug.",
+      "D": "Fatal logs are severe termination-level events and are not the most detailed level."
+    }
+  },
+  {
+    "id": 240,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Removable media threats / AutoRun",
+    "explanation": "The correct answer is **B. AutoRun exploit**. AutoRun/AutoPlay mechanisms can be abused so malware executes automatically when removable media is inserted.",
+    "feedback": {
+      "A": "Fileless malware runs in memory; it doesn\u2019t specifically describe auto-execution on USB insertion.",
+      "B": "Correct. AutoRun exploits trigger automatic execution when media is inserted.",
+      "C": "Supply-chain attacks involve compromised vendor products/updates, not USB auto-execution.",
+      "D": "A RAT is a type of malware; the specific mechanism here is AutoRun-based execution."
+    }
+  },
+  {
+    "id": 241,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Network security / Layer 7 inspection",
+    "explanation": "The correct answer is **C. NGFW**. Next-generation firewalls perform deep packet inspection and application-layer (Layer 7) awareness to filter traffic by application and content.",
+    "feedback": {
+      "A": "Switches operate primarily at Layer 2 and do not perform Layer 7 inspection.",
+      "B": "IDS detects suspicious traffic but typically doesn\u2019t enforce filtering decisions like an NGFW.",
+      "C": "Correct. NGFWs inspect and control traffic at Layer 7 with application awareness.",
+      "D": "Routers operate primarily at Layer 3 and do not provide application-layer inspection."
+    }
+  },
+  {
+    "id": 242,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Malware / Ransomware",
+    "explanation": "The correct answer is **C. Ransomware**. Ransomware extorts payment by denying access to files (often via encryption) and presenting a payment demand.",
+    "feedback": {
+      "A": "Boot sector viruses target boot records; they are not defined by ransom pop-ups to unlock files.",
+      "B": "Worms spread automatically; they don\u2019t typically demand payment to unlock encrypted files.",
+      "C": "Correct. Payment demand to unlock files is ransomware behavior.",
+      "D": "Rootkits focus on stealth and persistence; they don\u2019t typically display payment pop-ups."
+    }
+  },
+  {
+    "id": 243,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Log retention / Archival storage",
+    "explanation": "The correct answer is **C. Cold storage**. Cold storage is cost-effective for long-term archiving where access is infrequent but durability is important.",
+    "feedback": {
+      "A": "SSDs are fast but not the most cost-effective for long-term archive storage.",
+      "B": "Local RAID helps availability but doesn\u2019t provide offsite archival durability and cost benefits for long-term retention.",
+      "C": "Correct. Cold storage is designed for inexpensive long-term archival.",
+      "D": "RAM is volatile and unsuitable for log retention."
+    }
+  },
+  {
+    "id": 244,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Configuration management / Baselines",
+    "explanation": "The correct answer is **B. Configuration management**. Configuration management tools enforce and audit standardized configurations across many servers (desired state), reducing drift and improving security consistency.",
+    "feedback": {
+      "A": "IDS detects suspicious activity; it doesn\u2019t enforce baseline configurations across servers.",
+      "B": "Correct. Configuration management enforces standards and reduces configuration drift.",
+      "C": "EDR detects and responds to endpoint threats; it\u2019s not the tool for enforcing configuration standards.",
+      "D": "Load balancers distribute traffic; they don\u2019t manage server configurations."
+    }
+  },
+  {
+    "id": 245,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Phishing / URL redirection",
+    "explanation": "The correct answer is **A. URL hijacking**. The user is redirected to a fake site after clicking a malicious link\u2014this is a link-based redirection/URL manipulation attack leading to credential capture.",
+    "feedback": {
+      "A": "Correct. URL hijacking (malicious redirection) can send users to attacker-controlled look-alike sites.",
+      "B": "Credential stuffing is using leaked credentials to attempt logins; it doesn\u2019t describe redirecting a browser.",
+      "C": "Replay attacks reuse captured authentication messages; they don\u2019t describe redirecting to a fake site.",
+      "D": "Brute force is password guessing; it doesn\u2019t cause a redirect to a fake site."
+    }
+  },
+  {
+    "id": 246,
+    "correctAnswer": "A",
+    "studyGuideTopic": "Secrets management / Vaults",
+    "explanation": "The correct answer is **A. Vault**. A secrets vault securely stores API keys, supports access controls, auditing, and often rotation\u2014much safer than embedding keys in code.",
+    "feedback": {
+      "A": "Correct. Vaults are designed for secure secret storage, access control, and rotation.",
+      "B": "IPS blocks malicious traffic patterns; it doesn\u2019t store API keys.",
+      "C": "DNSSEC protects DNS integrity; it doesn\u2019t store secrets.",
+      "D": "NAT translates addresses; it doesn\u2019t store or protect API keys."
+    }
+  },
+  {
+    "id": 247,
+    "correctAnswer": "C",
+    "studyGuideTopic": "Access control / Attribute-based access control",
+    "explanation": "The correct answer is **C. ABAC**. ABAC evaluates multiple attributes (user, device, location, time, resource sensitivity) to decide access, matching the requirement exactly.",
+    "feedback": {
+      "A": "RBAC is based on roles; it doesn\u2019t inherently include device/location/time conditions.",
+      "B": "ACLs list permissions for subjects/objects but don\u2019t naturally express rich attribute policies across many dimensions like ABAC.",
+      "C": "Correct. ABAC supports policies based on device type, location, time, and other attributes.",
+      "D": "DAC is owner-controlled permissions; it doesn\u2019t provide rich conditional policies by default."
+    }
+  },
+  {
+    "id": 248,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Vulnerability management / Patching",
+    "explanation": "The correct answer is **B. Patch management**. The best way to prevent exploitation of a known vulnerability is to remediate it\u2014apply patches or updates that remove the vulnerability.",
+    "feedback": {
+      "A": "IPS can block known exploit patterns, but it\u2019s not as complete or reliable as removing the vulnerability through patching.",
+      "B": "Correct. Patch management fixes known vulnerabilities and prevents exploitation.",
+      "C": "A VPN secures connections; it doesn\u2019t address software vulnerabilities on endpoints/servers.",
+      "D": "Email filtering helps against phishing/malware delivery, not exploitation of a known vulnerability in a system."
+    }
+  },
+  {
+    "id": 249,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Access control / Time-based restrictions",
+    "explanation": "The correct answer is **B. Time-of-day restrictions**. Disabling and restoring access based on business hours is a time-based access control.",
+    "feedback": {
+      "A": "RBAC grants access based on role, not time schedule.",
+      "B": "Correct. Time-of-day restrictions enforce access only during specified hours.",
+      "C": "Conditional access can include many conditions, but this specific example is directly time-based scheduling.",
+      "D": "A baseline configuration is a standard system state; it is unrelated to scheduled access enable/disable."
+    }
+  },
+  {
+    "id": 250,
+    "correctAnswer": "B",
+    "studyGuideTopic": "Disaster recovery planning / Procedures",
+    "explanation": "The correct answer is **B. Recovery procedures**. A DR plan must include step-by-step procedures to restore critical services, systems, and data to meet business requirements.",
+    "feedback": {
+      "A": "Vendor contracts can be useful, but they don\u2019t replace documented restoration procedures.",
+      "B": "Correct. Recovery procedures are essential to execute recovery effectively and consistently.",
+      "C": "Budget matters for planning, but it\u2019s not the most important operational component of the DR plan.",
+      "D": "Shift schedules are staffing logistics; recovery procedures are the core of executing DR."
+    }
   }
 ]
