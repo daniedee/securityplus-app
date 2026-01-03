@@ -170,6 +170,58 @@
 
       <hr />
 
+      <!-- Domain Audit -->
+      <details class="audit" open>
+        <summary>
+          Domain Audit
+          <span class="summaryHint">see tag coverage + counts</span>
+        </summary>
+
+        <div class="auditBody">
+          <div id="domainAuditSummary" class="muted small"></div>
+
+          <div class="auditMeter">
+            <div class="auditMeter__bar" id="auditMeterBar"></div>
+          </div>
+          <div id="auditMeterLabel" class="muted small" style="margin-top:6px"></div>
+
+          <div class="auditGrid">
+            <div class="panel">
+              <div class="row space">
+                <b>Tagged counts</b>
+                <span id="auditReliabilityPill" class="pill"></span>
+              </div>
+              <div id="domainAuditTableWrap" style="margin-top:10px"></div>
+            </div>
+
+            <div class="panel">
+              <div class="row space">
+                <b>Blueprint targets</b>
+                <span class="pill">SY0-701</span>
+              </div>
+              <div class="muted small" style="margin-top:8px">
+                These are the target question counts when selecting a weighted set.
+              </div>
+              <div id="blueprintTargets" style="margin-top:10px"></div>
+            </div>
+          </div>
+
+          <div class="panel" style="margin-top:12px">
+            <div class="row space">
+              <b>Unassigned question IDs</b>
+              <button id="btnRefreshAudit" class="btn">Refresh audit</button>
+            </div>
+            <div id="unassignedList" class="muted small" style="margin-top:10px"></div>
+          </div>
+
+          <div class="muted small tip">
+            If tag coverage is low, the app automatically falls back to normal random selection (it will not break).
+          </div>
+        </div>
+      </details>
+
+      <hr />
+
       <div class="row wrap">
         <button id="btnResume" class="btn">
           <span class="btnIcon">⟲</span>
@@ -183,10 +235,6 @@
           <span class="btnIcon">♻</span>
           Reset flags & learning
         </button>
-      </div>
-
-      <div class="muted small tip">
-        If domains aren’t tagged yet, the app automatically falls back to normal random selection (it will not break).
       </div>
     </section>
 
@@ -232,7 +280,13 @@
 
       <div class="panel">
         <div id="resultsSummary"></div>
+
+        <!-- NEW: session domain mix + domain warnings -->
+        <div id="sessionMix" class="muted small" style="margin-top:10px"></div>
+        <div id="domainWarnings" class="alert hidden" style="margin-top:10px"></div>
+
         <div id="domainBreakdown" class="muted small" style="margin-top:10px"></div>
+
         <hr />
         <label class="row">
           <input id="chkIncorrectOnly" type="checkbox" />
