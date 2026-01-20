@@ -1,28 +1,17 @@
-// Security+ Practice (Domains + Blueprint-weighted selection + Domain Audit + Results mix/warnings)
-// Domains are OPTIONAL (safe): missing/empty domains.json will never break the app.
+// Security+ Practice: Flags + Incorrect review + Domains + Weak-area training
+const DATA = { questions: [], answersById: new Map(), domainsById: new Map() };
 
-const DATA = {
-  questions: [],
-  answersById: new Map(),
-  domainsById: new Map(), // id(string) -> domain number (1..5) OR null/undefined for unassigned
-};
-
-const STORAGE_SESSION = "secplus_session_v5";
-const STORAGE_FLAGS   = "secplus_flags_v3";
-const STORAGE_PERF    = "secplus_perf_v3";
+const STORAGE_SESSION = "secplus_session_v2";
+const STORAGE_FLAGS = "secplus_flags_v1";
+const STORAGE_PERF  = "secplus_perf_v1";
 
 const el = (id) => document.getElementById(id);
 
-const views = {
-  home: el("viewHome"),
-  quiz: el("viewQuiz"),
-  results: el("viewResults"),
-};
+const views = { home: el("viewHome"), quiz: el("viewQuiz"), results: el("viewResults") };
 
 const ui = {
   statusPill: el("statusPill"),
 
-  // Home controls
   studyExplainedOnly: el("studyExplainedOnly"),
   studySetType: el("studySetType"),
   studyDomain: el("studyDomain"),
@@ -39,17 +28,6 @@ const ui = {
   btnResetSession: el("btnResetSession"),
   btnResetLearning: el("btnResetLearning"),
 
-  // Domain Audit
-  domainAuditSummary: el("domainAuditSummary"),
-  auditMeterBar: el("auditMeterBar"),
-  auditMeterLabel: el("auditMeterLabel"),
-  auditReliabilityPill: el("auditReliabilityPill"),
-  domainAuditTableWrap: el("domainAuditTableWrap"),
-  blueprintTargets: el("blueprintTargets"),
-  unassignedList: el("unassignedList"),
-  btnRefreshAudit: el("btnRefreshAudit"),
-
-  // Quiz controls
   modeLabel: el("modeLabel"),
   progressLabel: el("progressLabel"),
   domainLabel: el("domainLabel"),
@@ -59,39 +37,26 @@ const ui = {
   btnQuit: el("btnQuit"),
   btnFlag: el("btnFlag"),
 
-  // Results controls
   resultsSummary: el("resultsSummary"),
-  sessionMix: el("sessionMix"),
-  domainWarnings: el("domainWarnings"),
-  domainBreakdown: el("domainBreakdown"),
-  chkIncorrectOnly: el("chkIncorrectOnly"),
   resultsReview: el("resultsReview"),
+  chkIncorrectOnly: el("chkIncorrectOnly"),
+  btnRetestMissedStudy: el("btnRetestMissedStudy"),
+  btnRetestMissedExam: el("btnRetestMissedExam"),
   btnHome: el("btnHome"),
   btnStartOver: el("btnStartOver"),
 };
 
-const DOMAIN_NAMES_SHORT = {
-  1: "Domain 1 (12%)",
-  2: "Domain 2 (22%)",
-  3: "Domain 3 (18%)",
-  4: "Domain 4 (28%)",
-  5: "Domain 5 (20%)",
+const DOMAIN_NAMES = {
+  1: "Domain 1: General Security Concepts",
+  2: "Domain 2: Threats, Vulnerabilities, and Mitigations",
+  3: "Domain 3: Security Architecture",
+  4: "Domain 4: Security Operations",
+  5: "Domain 5: Security Program Management and Oversight",
 };
 
-const DOMAIN_NAMES_LONG = {
-  1: "Domain 1: General Security Concepts (12%)",
-  2: "Domain 2: Threats, Vulnerabilities, and Mitigations (22%)",
-  3: "Domain 3: Security Architecture (18%)",
-  4: "Domain 4: Security Operations (28%)",
-  5: "Domain 5: Security Program Management and Oversight (20%)",
-};
-
-const DOMAIN_WEIGHTS = { 1: 0.12, 2: 0.22, 3: 0.18, 4: 0.28, 5: 0.20 };
-const WEIGHT_MIN_TAG_COVERAGE = 0.60; // if less than 60% tagged for a given N, fall back to random
-
-let state = null;
 let FLAGS = new Set();
 let PERF = {};
+let state = null;
 
 // ---------- helpers ----------
 function showView(name){
@@ -112,41 +77,8 @@ function shuffle(arr){
 }
 function escapeHtml(str){
   return String(str)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#39;");
-}
-function pct(n){ return (n * 100).toFixed(1) + "%"; }
-
-/**
- * Binds dynamic hint text for <details> blocks:
- * - When closed: uses the original hint text that was in the HTML
- * - When open: changes to "tap to collapse"
- *
- * Works for Feedback/Explanation sections AND Domain Audit summary hints.
- */
-function bindDetailsToggleHints(root = document){
-  const detailsList = root.querySelectorAll ? root.querySelectorAll("details") : [];
-  detailsList.forEach((d) => {
-    if (d.dataset.hintBound === "1") return; // prevent double-binding
-    d.dataset.hintBound = "1";
-
-    const hint = d.querySelector("summary .summaryHint");
-    if (!hint) return;
-
-    // Store the original (closed) hint text once.
-    // This preserves special home text like "see tag coverage + counts".
-    if (!d.dataset.hintClosed) d.dataset.hintClosed = hint.textContent || "tap to expand";
-
-    const update = () => {
-      hint.textContent = d.open ? "tap to collapse" : (d.dataset.hintClosed || "tap to expand");
-    };
-
-    update();
-    d.addEventListener("toggle", update);
-  });
+    .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;").replaceAll("'","&#39;");
 }
 
 // ---------- storage ----------
@@ -164,6 +96,7 @@ function loadFlags(){
   if (!raw) return new Set();
   try { return new Set(JSON.parse(raw)); } catch { return new Set(); }
 }
+
 function savePerf(){ localStorage.setItem(STORAGE_PERF, JSON.stringify(PERF)); }
 function loadPerf(){
   const raw = localStorage.getItem(STORAGE_PERF);
@@ -180,9 +113,7 @@ function clearLearning(){
 // ---------- domains ----------
 function getDomainForId(id){
   const d = DATA.domainsById.get(String(id));
-  if (d === undefined || d === null) return null;
-  const n = Number(d);
-  return Number.isFinite(n) ? n : null;
+  return d ? Number(d) : null;
 }
 function domainMatchesFilter(id, filterValue){
   const d = getDomainForId(id);
@@ -191,344 +122,105 @@ function domainMatchesFilter(id, filterValue){
   return d === Number(filterValue);
 }
 
-// ---------- data loading ----------
-async function safeJson(url, fallback){
-  try{
-    const res = await fetch(url, { cache: "no-store" });
-    if (!res.ok) return fallback;
-
-    const ct = (res.headers.get("content-type") || "").toLowerCase();
-    if (url.endsWith(".json") && !ct.includes("application/json") && !ct.includes("text/json")){
-      const text = await res.text();
-      if (text.trim().startsWith("<")) return fallback; // HTML
-      try { return JSON.parse(text); } catch { return fallback; }
-    }
-    return await res.json();
-  } catch {
-    return fallback;
-  }
-}
-
-async function loadData(){
-  setStatus("Loading…", "warn");
-
-  const questions = await safeJson("data/questions.json", []);
-  // Prefer 1-50 if present; otherwise fall back to 1-25
-  let answers = await safeJson("data/answers_1_50.json", null);
-  if (!Array.isArray(answers)) answers = await safeJson("data/answers_1_25.json", []);
-  const domains = await safeJson("data/domains.json", {}); // optional
-
-  DATA.questions = questions;
-  DATA.answersById = new Map((answers || []).map(x => [x.id, x]));
-  DATA.domainsById = new Map(Object.entries(domains || {}));
-
-  if (DATA.questions.length === 0){
-    setStatus("ERROR: questions.json not loaded", "bad");
-    alert("Data load error: questions.json could not be loaded. Verify /data/questions.json exists and refresh.");
-    return false;
-  }
-
-  setStatus(`Loaded ${DATA.questions.length} • Explanations ${DATA.answersById.size} • Domains ${DATA.domainsById.size}`, "ok");
-  setTimeout(()=>setStatus("", ""), 2000);
-
-  renderDomainAudit();
-  // Ensure details hints are correct on initial home render (Domain Audit + anything else)
-  bindDetailsToggleHints(document);
-
-  return true;
-}
-
-// ---------- Domain Audit ----------
-function computeBlueprintCounts(N){
-  // Largest remainder method
-  const floorCounts = {};
-  const remainders = [];
-  let sumFloors = 0;
-
-  for (const d of [1,2,3,4,5]){
-    const raw = N * DOMAIN_WEIGHTS[d];
-    const f = Math.floor(raw);
-    floorCounts[d] = f;
-    sumFloors += f;
-    remainders.push({ d, r: raw - f });
-  }
-
-  let remaining = N - sumFloors;
-  remainders.sort((a,b) => b.r - a.r);
-
-  // Tie jitter
-  for (let i=0; i<remainders.length; i++){
-    for (let j=i+1; j<remainders.length; j++){
-      if (Math.abs(remainders[i].r - remainders[j].r) < 1e-9 && Math.random() < 0.5){
-        [remainders[i], remainders[j]] = [remainders[j], remainders[i]];
-      }
-    }
-  }
-
-  let idx = 0;
-  while (remaining > 0){
-    const d = remainders[idx % remainders.length].d;
-    floorCounts[d] += 1;
-    remaining -= 1;
-    idx += 1;
-  }
-  return floorCounts;
-}
-
-function renderDomainAudit(){
-  const total = DATA.questions.length;
-
-  const counts = {1:0,2:0,3:0,4:0,5:0, unassigned:0};
-  const unassignedIds = [];
-
-  for (const q of DATA.questions){
-    const d = getDomainForId(q.id);
-    if (d && counts[d] !== undefined) counts[d] += 1;
-    else { counts.unassigned += 1; unassignedIds.push(q.id); }
-  }
-
-  const tagged = total - counts.unassigned;
-  const coverage = total ? (tagged / total) : 0;
-
-  ui.domainAuditSummary.textContent =
-    `Total questions: ${total} • Tagged: ${tagged} • Unassigned: ${counts.unassigned}`;
-
-  ui.auditMeterBar.style.width = (coverage * 100).toFixed(1) + "%";
-  ui.auditMeterLabel.textContent = `Tag coverage: ${pct(coverage)} (weighted selection becomes most reliable as coverage increases)`;
-
-  if (coverage >= 0.80){
-    ui.auditReliabilityPill.className = "pill ok";
-    ui.auditReliabilityPill.textContent = "Excellent coverage";
-  } else if (coverage >= WEIGHT_MIN_TAG_COVERAGE){
-    ui.auditReliabilityPill.className = "pill warn";
-    ui.auditReliabilityPill.textContent = "Usable coverage";
-  } else {
-    ui.auditReliabilityPill.className = "pill bad";
-    ui.auditReliabilityPill.textContent = "Low coverage";
-  }
-
-  const rows = [
-    { d: 1, label: DOMAIN_NAMES_SHORT[1], n: counts[1], w: DOMAIN_WEIGHTS[1] },
-    { d: 2, label: DOMAIN_NAMES_SHORT[2], n: counts[2], w: DOMAIN_WEIGHTS[2] },
-    { d: 3, label: DOMAIN_NAMES_SHORT[3], n: counts[3], w: DOMAIN_WEIGHTS[3] },
-    { d: 4, label: DOMAIN_NAMES_SHORT[4], n: counts[4], w: DOMAIN_WEIGHTS[4] },
-    { d: 5, label: DOMAIN_NAMES_SHORT[5], n: counts[5], w: DOMAIN_WEIGHTS[5] },
-    { d: "ua", label: "Unassigned", n: counts.unassigned, w: null },
-  ];
-
-  ui.domainAuditTableWrap.innerHTML = `
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Domain</th>
-          <th>Count</th>
-          <th>% of bank</th>
-          <th>Exam weight</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${rows.map(r => `
-          <tr>
-            <td><b>${escapeHtml(r.label)}</b></td>
-            <td><b>${r.n}</b></td>
-            <td>${total ? pct(r.n / total) : "—"}</td>
-            <td>${r.w === null ? "—" : pct(r.w)}</td>
-          </tr>
-        `).join("")}
-      </tbody>
-    </table>
-  `;
-
-  const t10 = computeBlueprintCounts(10);
-  const t25 = computeBlueprintCounts(25);
-
-  function targetBox(N, t){
-    return `
-      <div class="panel" style="margin-top:10px">
-        <div class="row space">
-          <b>${N} questions</b>
-          <span class="pill">weighted</span>
-        </div>
-        <div class="muted small" style="margin-top:8px">
-          D1 ${t[1]} • D2 ${t[2]} • D3 ${t[3]} • D4 ${t[4]} • D5 ${t[5]}
-        </div>
-      </div>
-    `;
-  }
-
-  ui.blueprintTargets.innerHTML = targetBox(10, t10) + targetBox(25, t25);
-
-  unassignedIds.sort((a,b) => a-b);
-  ui.unassignedList.textContent = unassignedIds.length
-    ? unassignedIds.join(", ")
-    : "None — everything is tagged.";
-
-  // If Domain Audit DOM was re-rendered, ensure hints are bound
-  bindDetailsToggleHints(document);
-}
-
-// ---------- selection helpers ----------
-function eligibleIds({explainedOnly, domainFilter}){
+// ---------- question selection ----------
+function eligibleIds(explainedOnly, domainFilter){
   let ids = DATA.questions.map(q => q.id);
   if (explainedOnly) ids = ids.filter(id => DATA.answersById.has(id));
   ids = ids.filter(id => domainMatchesFilter(id, domainFilter));
   return ids;
 }
-
 function pickIdsRandom(ids, count){
   const shuffled = shuffle([...ids]);
-  if (count === "all") return { ids: shuffled, usedWeighted: false, note: "Random" };
+  if (count === "all") return shuffled;
   const n = Math.min(parseInt(count,10), shuffled.length);
-  return { ids: shuffled.slice(0, n), usedWeighted: false, note: "Random" };
+  return shuffled.slice(0, n);
 }
-
 function pickIdsFlagged(ids, count){
   const flagged = ids.filter(id => FLAGS.has(id));
-  if (flagged.length === 0) return { ids: [], usedWeighted: false, note: "Flagged (none)" };
-  return { ...pickIdsRandom(flagged, count), usedWeighted: false, note: "Flagged" };
+  if (flagged.length === 0) return [];
+  return pickIdsRandom(flagged, count);
 }
-
 function weaknessScore(id){
   const p = PERF[id];
   if (!p) return 0;
   return (p.wrong || 0) - (p.correct || 0);
 }
-
 function pickIdsWeak(ids, count){
   const scored = ids
-    .map(id => ({ id, score: weaknessScore(id) }))
+    .map(id => ({id, score: weaknessScore(id)}))
     .sort((a,b) => b.score - a.score);
 
   if (scored.length === 0 || scored[0].score <= 0){
-    const r = pickIdsRandom(ids, count);
-    return { ...r, usedWeighted: false, note: "Weak (fallback to random)" };
+    return pickIdsRandom(ids, count);
   }
-
   const ordered = scored.map(x => x.id);
-  if (count === "all") return { ids: ordered, usedWeighted: false, note: "Weak" };
+  if (count === "all") return ordered;
   const n = Math.min(parseInt(count,10), ordered.length);
-  return { ids: ordered.slice(0, n), usedWeighted: false, note: "Weak" };
+  return ordered.slice(0, n);
 }
 
-function pickIdsBlueprintWeighted(ids, count){
-  if (count === "all"){
-    const r = pickIdsRandom(ids, count);
-    return { ...r, usedWeighted: false, note: "All (no weighting needed)" };
-  }
-
-  const N = Math.min(parseInt(count,10), ids.length);
-
-  const pools = {1:[],2:[],3:[],4:[],5:[]};
-  for (const id of ids){
-    const d = getDomainForId(id);
-    if (d && pools[d]) pools[d].push(id);
-  }
-
-  const taggedCount = pools[1].length + pools[2].length + pools[3].length + pools[4].length + pools[5].length;
-  const tagCoverageWithinFilter = ids.length ? (taggedCount / ids.length) : 0;
-
-  // If too few tagged within this filtered set, fall back to random
-  if (taggedCount < Math.ceil(N * WEIGHT_MIN_TAG_COVERAGE)){
-    const r = pickIdsRandom(ids, N);
-    return {
-      ...r,
-      usedWeighted: false,
-      note: `Fallback random (tag coverage too low for weighting in this filter: ${pct(tagCoverageWithinFilter)})`,
-      tagCoverageWithinFilter
-    };
-  }
-
-  for (const d of [1,2,3,4,5]) shuffle(pools[d]);
-
-  const targets = computeBlueprintCounts(N);
-  const chosen = [];
-  let shortfall = 0;
-
-  for (const d of [1,2,3,4,5]){
-    const want = targets[d];
-    const take = Math.min(want, pools[d].length);
-    chosen.push(...pools[d].slice(0, take));
-    shortfall += (want - take);
-    pools[d] = pools[d].slice(take);
-  }
-
-  function anyLeft(){
-    return [1,2,3,4,5].some(d => pools[d].length > 0);
-  }
-
-  if (shortfall > 0){
-    const order = [];
-    for (const d of [4,2,5,3,1]){
-      const reps = Math.max(1, Math.round(DOMAIN_WEIGHTS[d] * 10));
-      for (let i=0; i<reps; i++) order.push(d);
-    }
-    shuffle(order);
-
-    let i = 0;
-    while (shortfall > 0 && anyLeft()){
-      const d = order[i % order.length];
-      if (pools[d].length > 0){
-        chosen.push(pools[d].shift());
-        shortfall -= 1;
-      }
-      i += 1;
-    }
-  }
-
-  // Fill any remaining from other ids (including unassigned) without duplicates
-  if (chosen.length < N){
-    const remaining = ids.filter(x => !chosen.includes(x));
-    chosen.push(...remaining.slice(0, N - chosen.length));
-  }
-
-  return {
-    ids: shuffle(chosen).slice(0, N),
-    usedWeighted: true,
-    note: `Blueprint-weighted (tag coverage within filter: ${pct(tagCoverageWithinFilter)})`,
-    tagCoverageWithinFilter
-  };
+function pickIdsIncorrect(ids, count){
+  const incorrect = ids.filter(id => (PERF[id]?.wrong || 0) > 0);
+  if (incorrect.length === 0) return [];
+  // prioritize most-missed first
+  const ordered = incorrect
+    .map(id => ({id, score: (PERF[id]?.wrong || 0) - (PERF[id]?.correct || 0)}))
+    .sort((a,b)=>b.score-a.score)
+    .map(x=>x.id);
+  if (count === "all") return ordered;
+  const n = Math.min(parseInt(count,10), ordered.length);
+  return ordered.slice(0, n);
 }
 
-function buildSessionSelection({setType, explainedOnly, domainFilter, count}){
-  const ids = eligibleIds({ explainedOnly, domainFilter });
-  if (ids.length === 0) return { ids: [], usedWeighted: false, note: "No eligible questions" };
-
+function buildSessionIds({setType, explainedOnly, domainFilter, count}){
+  const ids = eligibleIds(explainedOnly, domainFilter);
+  if (ids.length === 0) return [];
   if (setType === "flagged") return pickIdsFlagged(ids, count);
   if (setType === "weak") return pickIdsWeak(ids, count);
-
-  // Random mode = blueprint weighted by default (with safe fallback)
-  return pickIdsBlueprintWeighted(ids, count);
+  if (setType === "incorrect") return pickIdsIncorrect(ids, count);
+  return pickIdsRandom(ids, count);
 }
 
 // ---------- session ----------
-function startSession({mode, setType, explainedOnly, domainFilter, count}){
-  const selection = buildSessionSelection({ setType, explainedOnly, domainFilter, count });
+function startSession({mode, setType, explainedOnly, domainFilter, count, idsOverride}){
+  let ids = (idsOverride && Array.isArray(idsOverride))
+    ? [...idsOverride]
+    : buildSessionIds({setType, explainedOnly, domainFilter, count});
 
-  if (selection.ids.length === 0){
+  // If we are given an explicit pool (e.g., retest missed), respect explainedOnly but ignore domain filters.
+  if (idsOverride){
+    if (explainedOnly) ids = ids.filter(id => DATA.answersById.has(id));
+    ids = ids.filter(id => DATA.questionsById.has(id));
+    ids = shuffle(ids);
+    if (count !== "all"){
+      const n = Math.min(parseInt(count,10), ids.length);
+      ids = ids.slice(0, n);
+    }
+  }
+
+
+  if (ids.length === 0){
     if (setType === "flagged"){
       alert("No flagged questions found for this filter. Flag a few questions first.");
+    } else if (setType === "incorrect"){
+      alert("No incorrect questions found yet. Answer a few questions first so the app can learn what you missed.");
     } else if (domainFilter !== "all"){
-      alert("No questions match this Domain filter yet. Try 'All domains' or 'Unassigned'.");
+      alert("No questions match this Domain filter yet. Try 'All domains' or 'Unassigned' until domains.json is filled.");
     } else {
-      alert("No questions available. Check that data/questions.json and the answers file are loading.");
+      alert("No questions available. Check that data/questions.json and data/answers_1_25.json are loading.");
     }
     return;
   }
 
   state = {
-    version: 5,
+    version: 2,
     mode,
     setType,
     explainedOnly: !!explainedOnly,
     domainFilter,
     startedAt: nowISO(),
     finishedAt: null,
-    ids: selection.ids,
-    selectionMeta: {
-      usedWeighted: !!selection.usedWeighted,
-      note: selection.note || "",
-      tagCoverageWithinFilter: selection.tagCoverageWithinFilter ?? null
-    },
+    ids,
     index: 0,
     answers: {},
   };
@@ -548,7 +240,7 @@ function updateFlagButton(){
   const q = currentQuestion();
   if (!q) return;
   const isFlagged = FLAGS.has(q.id);
-  ui.btnFlag.innerHTML = `${isFlagged ? "Unflag" : "Flag"}`;
+  ui.btnFlag.textContent = isFlagged ? "Unflag" : "Flag";
   ui.btnFlag.className = "btn " + (isFlagged ? "primary" : "");
 }
 function toggleFlag(){
@@ -574,12 +266,13 @@ function renderQuiz(){
   ui.modeLabel.className = "pill " + (state.mode === "study" ? "ok" : "warn");
 
   const answeredCount = Object.keys(state.answers).length;
-  ui.progressLabel.textContent = `Question ${state.index + 1} of ${state.ids.length} • Answered ${answeredCount}`;
+  ui.progressLabel.textContent = `Question ${state.index+1} of ${state.ids.length} • Answered ${answeredCount}`;
 
   const d = getDomainForId(q.id);
-  ui.domainLabel.textContent = d ? DOMAIN_NAMES_LONG[d] : "Domain: Unassigned";
+  ui.domainLabel.textContent = d ? DOMAIN_NAMES[d] : "Domain: Unassigned";
 
   updateFlagButton();
+
   ui.questionBox.innerHTML = "";
 
   const pack = DATA.answersById.get(q.id) || null;
@@ -635,7 +328,7 @@ function onSelect(questionId, letter){
   const correct = pack?.correctAnswer || null;
   const isCorrect = correct ? (letter === correct) : false;
 
-  state.answers[questionId] = { selected: letter, isCorrect, answeredAt: nowISO() };
+  state.answers[questionId] = { selected: letter, isCorrect, answeredAt: new Date().toISOString() };
   saveSession();
 
   PERF[questionId] = PERF[questionId] || { correct: 0, wrong: 0 };
@@ -662,76 +355,29 @@ function renderExplanation(qid){
     return;
   }
 
-  const isCorrect = selected === pack.correctAnswer;
-
   box.innerHTML = `
-    <div class="row wrap" style="gap:10px; margin-bottom:10px">
-      <span class="pill ${isCorrect ? "ok" : "bad"}">${isCorrect ? "Correct" : "Incorrect"}</span>
-      <span class="pill">Correct answer: <b>${pack.correctAnswer}</b></span>
-      ${FLAGS.has(qid) ? `<span class="pill warn">Flagged</span>` : ``}
-    </div>
-
-    <details open>
-      <summary>
-        Explanation
-        <span class="summaryHint">tap to collapse</span>
-      </summary>
-      <div style="margin-top:10px">${escapeHtml(pack.explanation || "")}</div>
-    </details>
-
-    <details>
-      <summary>
-        Why the other options are wrong
-        <span class="summaryHint">tap to expand</span>
-      </summary>
-
-      <div class="stack" style="margin-top:10px">
-        ${["A","B","C","D"].map(L => `
-          <div class="panel">
-            <div class="row space">
-              <div><b>${L}</b></div>
-              <div class="pill ${L === pack.correctAnswer ? "ok" : ""}">
-                ${L === pack.correctAnswer ? "Correct" : "Not correct"}
-              </div>
-            </div>
-            <div class="muted" style="margin-top:6px">${escapeHtml(pack.feedback?.[L] || "")}</div>
+    <div><b>Correct answer:</b> ${pack.correctAnswer}</div>
+    <div style="margin-top:8px">${escapeHtml(pack.explanation || "")}</div>
+    <hr/>
+    <b>Feedback:</b>
+    <div class="stack" style="margin-top:8px">
+      ${["A","B","C","D"].map(L => `
+        <div class="panel">
+          <div class="row space">
+            <div><b>${L}</b></div>
+            <div class="pill ${L===pack.correctAnswer ? "ok" : ""}">${L===pack.correctAnswer ? "Correct" : "Not correct"}</div>
           </div>
-        `).join("")}
-      </div>
-    </details>
+          <div class="muted" style="margin-top:6px">${escapeHtml(pack.feedback?.[L] || "")}</div>
+        </div>
+      `).join("")}
+    </div>
   `;
-
   ui.questionBox.appendChild(box);
-
-  // Bind dynamic hints for details inside this explanation block
-  bindDetailsToggleHints(box);
-
-  box.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 // ---------- navigation ----------
-function next(){ if (state.index < state.ids.length - 1){ state.index++; saveSession(); renderQuiz(); } }
+function next(){ if (state.index < state.ids.length-1){ state.index++; saveSession(); renderQuiz(); } }
 function prev(){ if (state.index > 0){ state.index--; saveSession(); renderQuiz(); } }
-
-// ---------- results helpers ----------
-function countDomainsForIds(ids){
-  const c = {1:0,2:0,3:0,4:0,5:0, unassigned:0};
-  for (const id of ids){
-    const d = getDomainForId(id);
-    if (d && c[d] !== undefined) c[d] += 1;
-    else c.unassigned += 1;
-  }
-  return c;
-}
-function mixToString(c){
-  const parts = [`D1 ${c[1]}`, `D2 ${c[2]}`, `D3 ${c[3]}`, `D4 ${c[4]}`, `D5 ${c[5]}`];
-  if (c.unassigned) parts.push(`Unassigned ${c.unassigned}`);
-  return parts.join(" • ");
-}
-function blueprintTargetString(N){
-  const t = computeBlueprintCounts(N);
-  return `D1 ${t[1]} • D2 ${t[2]} • D3 ${t[3]} • D4 ${t[4]} • D5 ${t[5]}`;
-}
 
 // ---------- results ----------
 function gradeAnswered(){
@@ -742,57 +388,15 @@ function gradeAnswered(){
   return { answeredCount, correctCount, score };
 }
 
-function renderSessionMixAndWarnings(){
-  const selectedMix = countDomainsForIds(state.ids);
-
-  const answeredIds = Object.keys(state.answers).map(Number);
-  const answeredMix = countDomainsForIds(answeredIds);
-
-  const N = state.ids.length;
-  const blueprint = blueprintTargetString(N);
-
-  const meta = state.selectionMeta || null;
-  const weightingNote = meta?.note ? ` • ${meta.note}` : "";
-  const weightingMode = meta?.usedWeighted ? "Blueprint-weighted" : "Random selection";
-
-  ui.sessionMix.textContent =
-    `Session domain mix (selected): ${mixToString(selectedMix)} • Blueprint target for ${N}: ${blueprint} • ${weightingMode}${weightingNote}
-Answered mix: ${answeredIds.length ? mixToString(answeredMix) : "None answered yet"}`;
-
-  if (answeredMix.unassigned > 0){
-    const unassignedAnswered = answeredIds
-      .filter(id => getDomainForId(id) === null)
-      .sort((a,b)=>a-b);
-
-    const preview = unassignedAnswered.slice(0, 30).join(", ");
-    const more = unassignedAnswered.length > 30 ? ` …(+${unassignedAnswered.length - 30} more)` : "";
-
-    ui.domainWarnings.classList.remove("hidden");
-    ui.domainWarnings.innerHTML =
-      `<b>Domain tagging warning:</b> ${answeredMix.unassigned} answered question(s) are <b>Unassigned</b> (no domain tag). ` +
-      `This can reduce how closely sessions mimic the exam blueprint. ` +
-      `<div class="muted small" style="margin-top:6px">Unassigned answered IDs: ${escapeHtml(preview)}${escapeHtml(more)}</div>`;
-  } else {
-    ui.domainWarnings.classList.add("hidden");
-    ui.domainWarnings.textContent = "";
-  }
-}
-
-function renderDomainBreakdown(){
-  const buckets = {1:{a:0,c:0},2:{a:0,c:0},3:{a:0,c:0},4:{a:0,c:0},5:{a:0,c:0},unassigned:{a:0,c:0}};
-  for (const [idStr, ans] of Object.entries(state.answers)){
-    const id = Number(idStr);
-    const d = getDomainForId(id);
-    const key = d ? d : "unassigned";
-    buckets[key].a += 1;
-    if (ans.isCorrect) buckets[key].c += 1;
-  }
-  const parts = [];
-  for (const d of [1,2,3,4,5]){
-    if (buckets[d].a > 0) parts.push(`D${d}: ${buckets[d].c}/${buckets[d].a}`);
-  }
-  if (buckets.unassigned.a > 0) parts.push(`Unassigned: ${buckets.unassigned.c}/${buckets.unassigned.a}`);
-  ui.domainBreakdown.textContent = parts.length ? `By domain (correct/answered): ${parts.join(" • ")}` : "";
+function missedIdsFromState(s){
+  if (!s) return [];
+  const ids = Object.keys(s.answers || {}).map(Number);
+  return ids.filter(id => {
+    const a = s.answers[id];
+    const pack = DATA.answersById.get(id);
+    const correct = pack?.correctAnswer || null;
+    return !!correct && a && a.selected && a.selected !== correct;
+  }).sort((a,b)=>a-b);
 }
 
 function quitAndGrade(){
@@ -802,7 +406,6 @@ function quitAndGrade(){
   renderResults();
   showView("results");
 }
-
 function renderResults(){
   const { answeredCount, correctCount, score } = gradeAnswered();
 
@@ -810,7 +413,6 @@ function renderResults(){
     <div class="row wrap">
       <span class="pill">${state.mode === "study" ? "Study" : "Exam"}</span>
       <span class="pill">Set: ${state.setType}</span>
-      <span class="pill">Domain filter: ${state.domainFilter}</span>
       <span class="pill">Session total: ${state.ids.length}</span>
       <span class="pill">Answered: ${answeredCount}</span>
       <span class="pill ${score===null ? "" : score>=0.8 ? "ok" : score>=0.6 ? "warn" : "bad"}">
@@ -819,23 +421,20 @@ function renderResults(){
       <span class="pill">${score===null ? "" : `Correct: ${correctCount}/${answeredCount}`}</span>
     </div>
   `;
-
-  renderSessionMixAndWarnings();
-  renderDomainBreakdown();
   renderResultsReview();
 }
-
 function renderResultsReview(){
   ui.resultsReview.innerHTML = "";
   const incorrectOnly = ui.chkIncorrectOnly.checked;
 
   const answeredIds = Object.keys(state.answers).map(Number).sort((a,b)=>a-b);
   const filteredIds = answeredIds.filter(id => {
-    if (!incorrectOnly) return true;
     const pack = DATA.answersById.get(id);
     const correct = pack?.correctAnswer || null;
+    const ans = state.answers[id];
+    if (!incorrectOnly) return true;
     if (!correct) return false;
-    return state.answers[id].selected !== correct;
+    return ans.selected !== correct;
   });
 
   if (filteredIds.length === 0){
@@ -847,35 +446,70 @@ function renderResultsReview(){
     const q = DATA.questions.find(x => x.id === id);
     const pack = DATA.answersById.get(id);
     const ans = state.answers[id];
-    const correct = pack?.correctAnswer || null;
+    const correct = pack?.correctAnswer;
     const isCorrect = correct ? ans.selected === correct : false;
 
     const d = getDomainForId(id);
-    const domainText = d ? DOMAIN_NAMES_LONG[d] : "Domain: Unassigned";
+    const domainText = d ? DOMAIN_NAMES[d] : "Domain: Unassigned";
 
     const card = document.createElement("div");
     card.className = "panel";
     card.innerHTML = `
       <div class="row space">
-        <div>
-          <b>Q${id}</b>
-          ${FLAGS.has(id) ? `<span class="pill warn" style="margin-left:8px">Flagged</span>` : ``}
-        </div>
-        <div class="pill ${correct ? (isCorrect ? "ok" : "bad") : "warn"}">
-          ${correct ? (isCorrect ? "Correct" : "Incorrect") : "Answered"}
-        </div>
+        <div><b>Q${id}</b> ${FLAGS.has(id) ? `<span class="pill warn">Flagged</span>` : ""}</div>
+        <div class="pill ${correct ? (isCorrect ? "ok" : "bad") : "warn"}">${correct ? (isCorrect ? "Correct" : "Incorrect") : "Answered"}</div>
       </div>
       <div class="muted small" style="margin-top:6px">${escapeHtml(domainText)}</div>
       <div style="margin-top:8px">${escapeHtml(q?.question || "")}</div>
-      <div class="muted" style="margin-top:8px">
-        <b>Your answer:</b> ${ans.selected}${correct ? ` • <b>Correct:</b> ${correct}` : ""}
-      </div>
+      <div class="muted" style="margin-top:8px"><b>Your answer:</b> ${ans.selected}${correct ? ` • <b>Correct:</b> ${correct}` : ""}</div>
     `;
     ui.resultsReview.appendChild(card);
   });
 }
 
-// ---------- wiring ----------
+// ---------- robust data loading ----------
+async function safeJson(url, fallback){
+  try{
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) return fallback;
+
+    const ct = (res.headers.get("content-type") || "").toLowerCase();
+
+    // GitHub 404 pages often return HTML; avoid JSON parse crash
+    if (url.endsWith(".json") && !ct.includes("application/json") && !ct.includes("text/json")){
+      const text = await res.text();
+      if (text.trim().startsWith("<")) return fallback;
+      try { return JSON.parse(text); } catch { return fallback; }
+    }
+
+    return await res.json();
+  } catch {
+    return fallback;
+  }
+}
+
+async function loadData(){
+  setStatus("Loading data…", "warn");
+
+  const questions = await safeJson("data/questions.json", []);
+  const answers   = await safeJson("data/answers_1_25.json", []);
+  const domains   = await safeJson("data/domains.json", {});
+
+  DATA.questions = questions;
+  DATA.answersById = new Map(answers.map(x => [x.id, x]));
+  DATA.domainsById = new Map(Object.entries(domains));
+
+  if (DATA.questions.length === 0){
+    setStatus("ERROR: questions.json not loaded. Check /data/questions.json path.", "bad");
+    alert("Data load error: questions.json could not be loaded. Verify /data/questions.json exists and refresh.");
+    return;
+  }
+
+  setStatus(`Loaded ${DATA.questions.length} questions • ${DATA.answersById.size} explanations`, "ok");
+  setTimeout(()=>setStatus("", ""), 2200);
+}
+
+// ---------- UI wiring ----------
 function wireUI(){
   ui.btnStartStudy.addEventListener("click", () => {
     startSession({
@@ -924,18 +558,47 @@ function wireUI(){
 
   ui.chkIncorrectOnly.addEventListener("change", renderResultsReview);
 
+  ui.btnRetestMissedStudy.addEventListener("click", () => {
+    const missed = missedIdsFromState(state);
+    if (missed.length === 0){
+      alert("No missed questions in this session.");
+      return;
+    }
+    startSession({
+      mode: "study",
+      setType: "random",
+      explainedOnly: true,
+      domainFilter: "all",
+      count: "all",
+      idsOverride: missed
+    });
+  });
+
+  ui.btnRetestMissedExam.addEventListener("click", () => {
+    const missed = missedIdsFromState(state);
+    if (missed.length === 0){
+      alert("No missed questions in this session.");
+      return;
+    }
+    startSession({
+      mode: "exam",
+      setType: "random",
+      explainedOnly: state?.explainedOnly ?? true,
+      domainFilter: "all",
+      count: "all",
+      idsOverride: missed
+    });
+  });
+
   ui.btnHome.addEventListener("click", () => showView("home"));
   ui.btnStartOver.addEventListener("click", () => { clearSession(); showView("home"); });
-
-  ui.btnRefreshAudit.addEventListener("click", () => renderDomainAudit());
 }
 
 // ---------- init ----------
 (async function init(){
   FLAGS = loadFlags();
   PERF = loadPerf();
-
   wireUI();
-  const ok = await loadData();
-  if (ok) showView("home");
+  await loadData();
+  showView("home");
 })();
