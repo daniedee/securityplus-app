@@ -2,77 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Security+ Practice</title>
-  <meta name="theme-color" content="#081018" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Security+ Practice (MVP)</title>
+  <meta name="theme-color" content="#111827" />
+  <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-
-<body class="app">
-  <!-- Cyber background layers -->
-  <div class="bg">
-    <div class="bg__aurora"></div>
-    <div class="bg__grid"></div>
-    <div class="bg__circuit"></div>
-    <div class="bg__noise"></div>
-    <div class="bg__vignette"></div>
-  </div>
-
+<body>
   <header class="topbar">
     <div class="brand">
-      <div class="logo" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
-          <path d="M7.5 10V7.75a4.5 4.5 0 1 1 9 0V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <path d="M6.5 10h11a2 2 0 0 1 2 2v6.5a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8"/>
-          <path d="M12 14.2v2.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
-      </div>
-
-      <div class="brandText">
+      <div class="logo">S+</div>
+      <div>
         <div class="title">Security+ Practice</div>
-        <div class="subtitle">Study • Exam • Domains • Flags • Weak-mode</div>
+        <div class="subtitle">Study + Exam • Flags • Domains • Weak-mode</div>
       </div>
     </div>
-
-    <div class="rightHeader">
-      <div id="statusPill" class="pill hidden"></div>
-    </div>
+    <div id="statusPill" class="pill hidden"></div>
   </header>
 
   <main class="container">
 
-    <!-- HOME -->
     <section id="viewHome" class="card">
-      <div class="hero">
-        <div class="hero__left">
-          <h1>Blueprint-weighted practice.</h1>
-          <p class="muted">
-            Immutable question bank + separate explanations dataset.
-            Explanations appear only after you select an answer.
-          </p>
-          <div class="hero__chips">
-            <span class="chip">Domain-weighted selection</span>
-            <span class="chip">Quit anytime → graded</span>
-            <span class="chip">Mobile friendly</span>
-          </div>
-        </div>
-
-        <div class="hero__right" aria-hidden="true">
-          <div class="badge">
-            <div class="badge__top">SY0-701</div>
-            <div class="badge__mid">SEC+</div>
-            <div class="badge__bot">BLUEPRINT</div>
-          </div>
-        </div>
-      </div>
+      <h1>Start</h1>
+      <p class="muted">
+        Immutable question bank + separate answers/explanations. Explanations show only after you select an answer.
+      </p>
 
       <div class="grid2">
-        <!-- Study -->
         <div class="panel">
-          <div class="panelTitle">
-            <h2>Study mode</h2>
-            <span class="pill ok">Learn</span>
-          </div>
+          <h2>Study mode</h2>
           <p class="muted">Immediate explanation after you answer.</p>
 
           <label class="row">
@@ -81,16 +39,17 @@
           </label>
 
           <label class="row">
-            <span class="w160">Question set</span>
+            <span class="w90">Question set</span>
             <select id="studySetType">
-              <option value="random" selected>Random (weighted by blueprint)</option>
+              <option value="random" selected>Random</option>
               <option value="flagged">Review flagged</option>
+              <option value="incorrect">Review incorrect (all-time)</option>
               <option value="weak">Weak-area training</option>
             </select>
           </label>
 
           <label class="row">
-            <span class="w160">Domain filter</span>
+            <span class="w90">Domain filter</span>
             <select id="studyDomain">
               <option value="all" selected>All domains</option>
               <option value="1">Domain 1</option>
@@ -103,27 +62,20 @@
           </label>
 
           <label class="row">
-            <span class="w160">Number of questions</span>
+            <span class="w90">Number of questions</span>
             <select id="studyCount">
-              <option value="50">50</option>
-              <option value="100" selected>100</option>
-              <option value="150" selected>150</option>
+              <option value="50" selected>50</option>
+              <option value="90">90</option>
+              <option value="150">150</option>
               <option value="all">All available</option>
             </select>
           </label>
 
-          <button id="btnStartStudy" class="btn primary">
-            <span class="btnIcon">▶</span>
-            Start Study
-          </button>
+          <button id="btnStartStudy" class="btn primary">Start Study</button>
         </div>
 
-        <!-- Exam -->
         <div class="panel">
-          <div class="panelTitle">
-            <h2>Exam mode</h2>
-            <span class="pill warn">Sim</span>
-          </div>
+          <h2>Exam mode</h2>
           <p class="muted">Quit anytime → graded on answered.</p>
 
           <label class="row">
@@ -132,16 +84,17 @@
           </label>
 
           <label class="row">
-            <span class="w160">Question set</span>
+            <span class="w90">Question set</span>
             <select id="examSetType">
-              <option value="random" selected>Random (weighted by blueprint)</option>
+              <option value="random" selected>Random</option>
               <option value="flagged">Review flagged</option>
+              <option value="incorrect">Review incorrect (all-time)</option>
               <option value="weak">Weak-area training</option>
             </select>
           </label>
 
           <label class="row">
-            <span class="w160">Domain filter</span>
+            <span class="w90">Domain filter</span>
             <select id="examDomain">
               <option value="all" selected>All domains</option>
               <option value="1">Domain 1</option>
@@ -154,146 +107,64 @@
           </label>
 
           <label class="row">
-            <span class="w160">Number of questions</span>
+            <span class="w90">Number of questions</span>
             <select id="examCount">
-              <option value="50">50</option>
-              <option value="90" selected>90</option>
-              <option value="150" selected>150</option>
+              <option value="50" selected>50</option>
+              <option value="90">90</option>
+              <option value="150">150</option>
               <option value="all">All available</option>
             </select>
           </label>
 
-          <button id="btnStartExam" class="btn primary alt">
-            <span class="btnIcon">⚡</span>
-            Start Exam
-          </button>
+          <button id="btnStartExam" class="btn primary">Start Exam</button>
         </div>
       </div>
-
-      <hr />
-
-      <!-- Domain Audit -->
-      <details class="audit">
-        <summary>
-          Domain Audit
-          <span class="summaryHint">see tag coverage + counts</span>
-        </summary>
-
-        <div class="auditBody">
-          <div id="domainAuditSummary" class="muted small"></div>
-
-          <div class="auditMeter">
-            <div class="auditMeter__bar" id="auditMeterBar"></div>
-          </div>
-          <div id="auditMeterLabel" class="muted small" style="margin-top:6px"></div>
-
-          <div class="auditGrid">
-            <div class="panel">
-              <div class="row space">
-                <b>Tagged counts</b>
-                <span id="auditReliabilityPill" class="pill"></span>
-              </div>
-              <div id="domainAuditTableWrap" style="margin-top:10px"></div>
-            </div>
-
-            <div class="panel">
-              <div class="row space">
-                <b>Blueprint targets</b>
-                <span class="pill">SY0-701</span>
-              </div>
-              <div class="muted small" style="margin-top:8px">
-                These are the target question counts when selecting a weighted set.
-              </div>
-              <div id="blueprintTargets" style="margin-top:10px"></div>
-            </div>
-          </div>
-
-          <div class="panel" style="margin-top:12px">
-            <div class="row space">
-              <b>Unassigned question IDs</b>
-              <button id="btnRefreshAudit" class="btn">Refresh audit</button>
-            </div>
-            <div id="unassignedList" class="muted small" style="margin-top:10px"></div>
-          </div>
-
-          <div class="muted small tip">
-            If tag coverage is low, the app automatically falls back to normal random selection (it will not break).
-          </div>
-        </div>
-      </details>
 
       <hr />
 
       <div class="row wrap">
-        <button id="btnResume" class="btn">
-          <span class="btnIcon">⟲</span>
-          Resume last session
-        </button>
-        <button id="btnResetSession" class="btn danger">
-          <span class="btnIcon">🧹</span>
-          Reset session
-        </button>
-        <button id="btnResetLearning" class="btn danger ghost">
-          <span class="btnIcon">♻</span>
-          Reset flags & learning
-        </button>
+        <button id="btnResume" class="btn">Resume last session</button>
+        <button id="btnResetSession" class="btn danger">Reset session</button>
+        <button id="btnResetLearning" class="btn danger">Reset flags & learning</button>
       </div>
     </section>
 
-    <!-- QUIZ -->
     <section id="viewQuiz" class="card hidden">
       <div class="quizTop">
-        <div class="quizMeta">
+        <div>
           <div id="modeLabel" class="pill"></div>
           <div id="progressLabel" class="muted small"></div>
           <div id="domainLabel" class="muted small"></div>
         </div>
-
         <div class="row wrap">
-          <button id="btnFlag" class="btn">
-            <span class="btnIcon">🏳</span>
-            Flag
-          </button>
-          <button id="btnQuit" class="btn danger">
-            <span class="btnIcon">⏹</span>
-            Quit & Grade
-          </button>
+          <button id="btnFlag" class="btn">Flag</button>
+          <button id="btnQuit" class="btn danger">Quit & Grade</button>
         </div>
       </div>
 
       <hr />
       <div id="questionBox"></div>
 
-      <div class="stickyNav row space">
-        <button id="btnPrev" class="btn">
-          <span class="btnIcon">←</span>
-          Previous
-        </button>
-        <button id="btnNext" class="btn primary">
-          Next
-          <span class="btnIcon">→</span>
-        </button>
+      <div class="row space">
+        <button id="btnPrev" class="btn">Previous</button>
+        <button id="btnNext" class="btn primary">Next</button>
       </div>
     </section>
 
-    <!-- RESULTS -->
     <section id="viewResults" class="card hidden">
       <h1>Results</h1>
 
       <div class="panel">
         <div id="resultsSummary"></div>
-
-        <!-- NEW: session domain mix + domain warnings -->
-        <div id="sessionMix" class="muted small" style="margin-top:10px"></div>
-        <div id="domainWarnings" class="alert hidden" style="margin-top:10px"></div>
-
-        <div id="domainBreakdown" class="muted small" style="margin-top:10px"></div>
-
         <hr />
         <label class="row">
           <input id="chkIncorrectOnly" type="checkbox" />
           <span>Review incorrect only</span>
         </label>
+        <div class="row wrap mt8">
+          <button id="btnRetestMissedStudy" class="btn">Retest missed (Study)</button>
+          <button id="btnRetestMissedExam" class="btn">Retest missed (Exam)</button>
+        </div>
       </div>
 
       <h2>Review</h2>
@@ -301,14 +172,8 @@
 
       <hr />
       <div class="row wrap">
-        <button id="btnHome" class="btn primary">
-          <span class="btnIcon">⌂</span>
-          Back to Home
-        </button>
-        <button id="btnStartOver" class="btn">
-          <span class="btnIcon">＋</span>
-          Start a new session
-        </button>
+        <button id="btnHome" class="btn primary">Back to Home</button>
+        <button id="btnStartOver" class="btn">Start a new session</button>
       </div>
     </section>
 
