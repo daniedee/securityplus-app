@@ -64,11 +64,11 @@
           <label class="row">
             <span class="w90">Number of questions</span>
             <select id="studyCount">
-              <option value="50">50</option>
+              <option value="50" selected>50</option>
               <option value="90">90</option>
               <option value="150">150</option>
               <option value="all">All available</option>
-</select>
+            </select>
           </label>
 
           <button id="btnStartStudy" class="btn primary">Start Study</button>
@@ -109,11 +109,11 @@
           <label class="row">
             <span class="w90">Number of questions</span>
             <select id="examCount">
-              <option value="50">50</option>
+              <option value="50" selected>50</option>
               <option value="90">90</option>
               <option value="150">150</option>
               <option value="all">All available</option>
-</select>
+            </select>
           </label>
 
           <button id="btnStartExam" class="btn primary">Start Exam</button>
@@ -161,12 +161,10 @@
           <input id="chkIncorrectOnly" type="checkbox" />
           <span>Review incorrect only</span>
         </label>
-
-        <div class="row wrap" style="margin-top:10px">
+        <div class="row wrap mt8">
           <button id="btnRetestMissedStudy" class="btn">Retest missed (Study)</button>
           <button id="btnRetestMissedExam" class="btn">Retest missed (Exam)</button>
         </div>
-
       </div>
 
       <h2>Review</h2>

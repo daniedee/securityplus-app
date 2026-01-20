@@ -1,10 +1,9 @@
 // Security+ Practice: Flags + Incorrect review + Domains + Weak-area training
-const DATA = { questions: [], answersById: new Map(), domainsById: new Map() };
+const DATA = { questions: [], questionsById: new Map(), answersById: new Map(), domainsById: new Map() };
 
 const STORAGE_SESSION = "secplus_session_v2";
 const STORAGE_FLAGS = "secplus_flags_v1";
 const STORAGE_PERF  = "secplus_perf_v1";
-const STORAGE_LAST_MISSED = "secplus_last_missed_v1";
 
 const el = (id) => document.getElementById(id);
 
@@ -28,8 +27,6 @@ const ui = {
   btnResume: el("btnResume"),
   btnResetSession: el("btnResetSession"),
   btnResetLearning: el("btnResetLearning"),
-  btnRetestMissedStudy: el("btnRetestMissedStudy"),
-  btnRetestMissedExam: el("btnRetestMissedExam"),
 
   modeLabel: el("modeLabel"),
   progressLabel: el("progressLabel"),
@@ -43,6 +40,8 @@ const ui = {
   resultsSummary: el("resultsSummary"),
   resultsReview: el("resultsReview"),
   chkIncorrectOnly: el("chkIncorrectOnly"),
+  btnRetestMissedStudy: el("btnRetestMissedStudy"),
+  btnRetestMissedExam: el("btnRetestMissedExam"),
   btnHome: el("btnHome"),
   btnStartOver: el("btnStartOver"),
 };
@@ -59,21 +58,6 @@ let FLAGS = new Set();
 let PERF = {};
 let state = null;
 
-
-function getMissedIdsFromState(){
-  if (!state) return [];
-  const answeredIds = Object.keys(state.answers).map(Number);
-  const missed = answeredIds.filter(id => state.answers[id]?.isCorrect === false);
-  return missed.sort((a,b)=>a-b);
-}
-function saveLastMissed(ids){
-  try { localStorage.setItem(STORAGE_LAST_MISSED, JSON.stringify(ids)); } catch {}
-}
-function loadLastMissed(){
-  const raw = localStorage.getItem(STORAGE_LAST_MISSED);
-  if (!raw) return [];
-  try { return JSON.parse(raw) || []; } catch { return []; }
-}
 // ---------- helpers ----------
 function showView(name){
   Object.entries(views).forEach(([k,v]) => v.classList.toggle("hidden", k !== name));
@@ -174,34 +158,52 @@ function pickIdsWeak(ids, count){
   const n = Math.min(parseInt(count,10), ordered.length);
   return ordered.slice(0, n);
 }
+
+function pickIdsIncorrect(ids, count){
+  const incorrect = ids.filter(id => (PERF[id]?.wrong || 0) > 0);
+  if (incorrect.length === 0) return [];
+  // prioritize most-missed first
+  const ordered = incorrect
+    .map(id => ({id, score: (PERF[id]?.wrong || 0) - (PERF[id]?.correct || 0)}))
+    .sort((a,b)=>b.score-a.score)
+    .map(x=>x.id);
+  if (count === "all") return ordered;
+  const n = Math.min(parseInt(count,10), ordered.length);
+  return ordered.slice(0, n);
+}
+
 function buildSessionIds({setType, explainedOnly, domainFilter, count}){
   const ids = eligibleIds(explainedOnly, domainFilter);
   if (ids.length === 0) return [];
   if (setType === "flagged") return pickIdsFlagged(ids, count);
   if (setType === "weak") return pickIdsWeak(ids, count);
-  if (setType === "incorrect"){
-    const wrongIds = ids.filter(id => (PERF[id]?.wrong || 0) > 0);
-    if (wrongIds.length === 0) return [];
-    return pickIdsRandom(wrongIds, count);
-  }
+  if (setType === "incorrect") return pickIdsIncorrect(ids, count);
   return pickIdsRandom(ids, count);
 }
 
 // ---------- session ----------
-function startSession({mode, setType, explainedOnly, domainFilter, count, idsOverride=null}){
-  let ids = idsOverride ? [...idsOverride] : buildSessionIds({setType, explainedOnly, domainFilter, count});
-  // keep only valid questions
-  ids = ids.filter(id => DATA.questionsById.has(id));
-  // honor explainedOnly filter if requested
-  if (explainedOnly) ids = ids.filter(id => DATA.answersById.has(id));
-  // honor domain filter if a specific domain was selected
-  if (domainFilter && domainFilter !== "all") ids = ids.filter(id => domainMatchesFilter(id, domainFilter));
-  // apply count
-  ids = pickIdsRandom(ids, count);
+function startSession({mode, setType, explainedOnly, domainFilter, count, idsOverride}){
+  let ids = (idsOverride && Array.isArray(idsOverride))
+    ? [...idsOverride]
+    : buildSessionIds({setType, explainedOnly, domainFilter, count});
+
+  // If we are given an explicit pool (e.g., retest missed), respect explainedOnly but ignore domain filters.
+  if (idsOverride){
+    if (explainedOnly) ids = ids.filter(id => DATA.answersById.has(id));
+    ids = ids.filter(id => DATA.questionsById.has(id));
+    ids = shuffle(ids);
+    if (count !== "all"){
+      const n = Math.min(parseInt(count,10), ids.length);
+      ids = ids.slice(0, n);
+    }
+  }
+
 
   if (ids.length === 0){
     if (setType === "flagged"){
       alert("No flagged questions found for this filter. Flag a few questions first.");
+    } else if (setType === "incorrect"){
+      alert("No incorrect questions found yet. Answer a few questions first so the app can learn what you missed.");
     } else if (domainFilter !== "all"){
       alert("No questions match this Domain filter yet. Try 'All domains' or 'Unassigned' until domains.json is filled.");
     } else {
@@ -230,7 +232,7 @@ function startSession({mode, setType, explainedOnly, domainFilter, count, idsOve
 
 function currentQuestion(){
   const id = state.ids[state.index];
-  return DATA.questions.find(q => q.id === id);
+  return DATA.questionsById.get(id) || null;
 }
 
 // ---------- flagging ----------
@@ -385,6 +387,18 @@ function gradeAnswered(){
   const score = answeredCount ? (correctCount / answeredCount) : null;
   return { answeredCount, correctCount, score };
 }
+
+function missedIdsFromState(s){
+  if (!s) return [];
+  const ids = Object.keys(s.answers || {}).map(Number);
+  return ids.filter(id => {
+    const a = s.answers[id];
+    const pack = DATA.answersById.get(id);
+    const correct = pack?.correctAnswer || null;
+    return !!correct && a && a.selected && a.selected !== correct;
+  }).sort((a,b)=>a-b);
+}
+
 function quitAndGrade(){
   if (!confirm("Quit and grade answered questions?")) return;
   state.finishedAt = nowISO();
@@ -394,11 +408,6 @@ function quitAndGrade(){
 }
 function renderResults(){
   const { answeredCount, correctCount, score } = gradeAnswered();
-  const missedIds = getMissedIdsFromState();
-  saveLastMissed(missedIds);
-  // enable/disable retest buttons
-  if (ui.btnRetestMissedStudy) ui.btnRetestMissedStudy.disabled = missedIds.length === 0;
-  if (ui.btnRetestMissedExam) ui.btnRetestMissedExam.disabled = missedIds.length === 0;
 
   ui.resultsSummary.innerHTML = `
     <div class="row wrap">
@@ -418,11 +427,12 @@ function renderResultsReview(){
   ui.resultsReview.innerHTML = "";
   const incorrectOnly = ui.chkIncorrectOnly.checked;
 
-  const answeredIds = Object.keys(state.answers).map(Number).sort((a,b)=>a-b);
+  const answeredIds = Object.keys(state.answers || {}).map(Number).sort((a,b)=>a-b);
   const filteredIds = answeredIds.filter(id => {
     const pack = DATA.answersById.get(id);
     const correct = pack?.correctAnswer || null;
     const ans = state.answers[id];
+    if (!ans || !ans.selected) return false;
     if (!incorrectOnly) return true;
     if (!correct) return false;
     return ans.selected !== correct;
@@ -434,37 +444,56 @@ function renderResultsReview(){
   }
 
   filteredIds.forEach(id => {
-    const q = DATA.questions.find(x => x.id === id);
+    const q = (DATA.questionsById && DATA.questionsById.get(id)) || DATA.questions.find(x => x.id === id) || null;
     const pack = DATA.answersById.get(id);
-    const ans = state.answers[id];
-    const correct = pack?.correctAnswer;
+    const ans = state.answers[id] || { selected: null };
+    const correct = pack?.correctAnswer || null;
     const isCorrect = correct ? ans.selected === correct : false;
 
     const d = getDomainForId(id);
     const domainText = d ? DOMAIN_NAMES[d] : "Domain: Unassigned";
 
-    const choicesHtml = ["A","B","C","D"].map(L => {
-      const text = q?.choices?.[L] || "";
-      const isChosen = ans?.selected === L;
-      const isCorr = correct === L;
-      const cls = ["reviewChoice"];
-      if (isChosen) cls.push("chosen");
-      if (isCorr) cls.push("correct");
-      if (isChosen && correct && !isCorr) cls.push("wrong");
-      return `<div class="${cls.join(" ")}"><span class="letter">${L}.</span><span class="text">${escapeHtml(text)}</span></div>`;
+    const choices = q?.choices || {};
+    const choiceHtml = ["A","B","C","D"].map(letter => {
+      const txt = choices[letter] ?? "";
+      const cls = ["review-choice"];
+      if (correct === letter) cls.push("correct");
+      if (ans.selected === letter) cls.push("selected");
+      if (correct && ans.selected === letter && letter !== correct) cls.push("wrong");
+      return `
+        <div class="${cls.join(" ")}">
+          <span class="choice-letter">${letter}.</span>
+          <span class="choice-text">${escapeHtml(txt)}</span>
+        </div>
+      `;
     }).join("");
+
+    const statusText = correct ? (isCorrect ? "Correct" : "Incorrect") : "Answered";
+    const statusClass = correct ? (isCorrect ? "ok" : "bad") : "";
 
     const card = document.createElement("div");
     card.className = "panel";
     card.innerHTML = `
       <div class="row space">
-        <div><b>Q${id}</b> ${FLAGS.has(id) ? `<span class="pill warn">Flagged</span>` : ""}</div>
-        <div class="pill ${correct ? (isCorrect ? "ok" : "bad") : "warn"}">${correct ? (isCorrect ? "Correct" : "Incorrect") : "Answered"}</div>
+        <div>
+          <b>Q${id}</b>
+          ${FLAGS.has(id) ? `<span class="pill warn" style="margin-left:8px">Flagged</span>` : ""}
+        </div>
+        <div class="pill ${statusClass}">${statusText}</div>
       </div>
+
       <div class="muted small" style="margin-top:6px">${escapeHtml(domainText)}</div>
-      <div style="margin-top:8px">${escapeHtml(q?.question || "")}</div>
-      <div class="reviewChoices" style="margin-top:10px">${choicesHtml}</div>
-      <div class="muted" style="margin-top:10px"><b>Your answer:</b> ${ans.selected}${correct ? ` • <b>Correct:</b> ${correct}` : ""}</div>
+
+      <div class="review-q" style="margin-top:8px">${escapeHtml(q?.question || "")}</div>
+
+      <div class="review-choices">
+        ${choiceHtml}
+      </div>
+
+      <div class="muted" style="margin-top:10px">
+        <b>Your answer:</b> ${escapeHtml(ans.selected || "—")}
+        ${correct ? ` • <b>Correct:</b> ${correct}` : ""}
+      </div>
     `;
     ui.resultsReview.appendChild(card);
   });
@@ -499,6 +528,7 @@ async function loadData(){
   const domains   = await safeJson("data/domains.json", {});
 
   DATA.questions = questions;
+  DATA.questionsById = new Map(questions.map(q => [q.id, q]));
   DATA.answersById = new Map(answers.map(x => [x.id, x]));
   DATA.domainsById = new Map(Object.entries(domains));
 
@@ -560,6 +590,38 @@ function wireUI(){
   });
 
   ui.chkIncorrectOnly.addEventListener("change", renderResultsReview);
+
+  ui.btnRetestMissedStudy.addEventListener("click", () => {
+    const missed = missedIdsFromState(state);
+    if (missed.length === 0){
+      alert("No missed questions in this session.");
+      return;
+    }
+    startSession({
+      mode: "study",
+      setType: "random",
+      explainedOnly: true,
+      domainFilter: "all",
+      count: "all",
+      idsOverride: missed
+    });
+  });
+
+  ui.btnRetestMissedExam.addEventListener("click", () => {
+    const missed = missedIdsFromState(state);
+    if (missed.length === 0){
+      alert("No missed questions in this session.");
+      return;
+    }
+    startSession({
+      mode: "exam",
+      setType: "random",
+      explainedOnly: state?.explainedOnly ?? true,
+      domainFilter: "all",
+      count: "all",
+      idsOverride: missed
+    });
+  });
 
   ui.btnHome.addEventListener("click", () => showView("home"));
   ui.btnStartOver.addEventListener("click", () => { clearSession(); showView("home"); });

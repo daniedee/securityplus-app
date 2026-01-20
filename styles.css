@@ -90,35 +90,37 @@ hr{border:0; border-top:1px solid var(--border); margin:16px 0}
 .stack{display:flex; flex-direction:column; gap:10px}
 
 
-/* Review list choices */
-.reviewChoices{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
+/* spacing helpers */
+.mt8{ margin-top: 8px; }
+/* --- Review: show A–D choices with highlights --- */
+.review-choices{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-.reviewChoice{
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  padding:10px 12px;
-  border:1px solid rgba(148,163,184,.25);
-  border-radius:12px;
-  background: rgba(15,23,42,.35);
+.review-choice{
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 14px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.04);
 }
-.reviewChoice .letter{
-  width:28px;
-  min-width:28px;
-  font-weight:800;
-  color:#e5e7eb;
+.review-choice.correct{
+  border-color: rgba(34,197,94,0.75);
+  background: rgba(34,197,94,0.12);
 }
-.reviewChoice.correct{
-  border-color: rgba(34,197,94,.55);
-  background: rgba(34,197,94,.10);
+.review-choice.selected{
+  outline: 2px solid rgba(59,130,246,0.8);
+  outline-offset: 0;
 }
-.reviewChoice.chosen{
-  outline:2px solid rgba(59,130,246,.55);
+.review-choice.wrong{
+  border-color: rgba(239,68,68,0.75);
+  background: rgba(239,68,68,0.10);
 }
-.reviewChoice.wrong{
-  border-color: rgba(239,68,68,.55);
-  background: rgba(239,68,68,.10);
+.choice-letter{
+  font-weight: 800;
+  margin-right: 8px;
+}
+.choice-text{
+  word-break: break-word;
 }
