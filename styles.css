@@ -90,5 +90,35 @@ hr{border:0; border-top:1px solid var(--border); margin:16px 0}
 .stack{display:flex; flex-direction:column; gap:10px}
 
 
-/* spacing helpers */
-.mt8{ margin-top: 8px; }
+/* Review list choices */
+.reviewChoices{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.reviewChoice{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  padding:10px 12px;
+  border:1px solid rgba(148,163,184,.25);
+  border-radius:12px;
+  background: rgba(15,23,42,.35);
+}
+.reviewChoice .letter{
+  width:28px;
+  min-width:28px;
+  font-weight:800;
+  color:#e5e7eb;
+}
+.reviewChoice.correct{
+  border-color: rgba(34,197,94,.55);
+  background: rgba(34,197,94,.10);
+}
+.reviewChoice.chosen{
+  outline:2px solid rgba(59,130,246,.55);
+}
+.reviewChoice.wrong{
+  border-color: rgba(239,68,68,.55);
+  background: rgba(239,68,68,.10);
+}
