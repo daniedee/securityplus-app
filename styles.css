@@ -1,67 +1,3 @@
-
-/* =========================
-   Cyber / Tech Theme Upgrade
-   ========================= */
-:root{
-  --bg0: #070A13;
-  --bg1: #0B1224;
-  --card: rgba(255,255,255,0.06);
-  --card2: rgba(255,255,255,0.08);
-  --stroke: rgba(148,163,184,0.18);
-  --stroke2: rgba(59,130,246,0.25);
-  --text: rgba(255,255,255,0.92);
-  --muted: rgba(255,255,255,0.68);
-  --accent: rgba(59,130,246,1);
-  --accent2: rgba(34,197,94,1);
-  --warn: rgba(245,158,11,1);
-  --bad: rgba(239,68,68,1);
-  --shadow: 0 18px 50px rgba(0,0,0,0.35);
-  --radius: 18px;
-}
-
-/* Background layers */
-.theme-cyber{
-  background: radial-gradient(1400px 600px at 15% 5%, rgba(59,130,246,0.16), transparent 55%),
-              radial-gradient(900px 540px at 85% 15%, rgba(34,197,94,0.10), transparent 55%),
-              radial-gradient(900px 540px at 70% 90%, rgba(245,158,11,0.08), transparent 55%),
-              linear-gradient(180deg, var(--bg0), var(--bg1));
-  color: var(--text);
-}
-
-.bgGrid{
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.22;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 52px 52px;
-  mask-image: radial-gradient(800px 450px at 50% 12%, black, transparent 70%);
-  z-index: 0;
-}
-
-.bgGlow{
-  position: fixed;
-  inset: -200px -200px auto auto;
-  width: 700px;
-  height: 700px;
-  background:
-    radial-gradient(circle at 30% 35%, rgba(59,130,246,0.35), transparent 60%),
-    radial-gradient(circle at 60% 55%, rgba(34,197,94,0.18), transparent 60%),
-    radial-gradient(circle at 55% 25%, rgba(245,158,11,0.12), transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-  filter: blur(0px);
-  opacity: 0.95;
-}
-
-/* Make sure the app container stays above background layers */
-main, .container, #app, .app, header, section{
-  position: relative;
-  z-index: 1;
-}
-
 /* Minimal, clean UI */
 :root{
   --bg:#0b1220; --panel:#111c33;
@@ -156,175 +92,136 @@ hr{border:0; border-top:1px solid var(--border); margin:16px 0}
 
 /* spacing helpers */
 .mt8{ margin-top: 8px; }
+/* ================================
+   Colorful Tech Background Upgrade
+   Roblox-style 3D grid background
+   ================================ */
 
-/* --- Home brand strip (compact header) --- */
+/* More colorful animated base */
+.theme-cyber{
+  background:
+    radial-gradient(1200px 700px at 10% 5%, rgba(99,102,241,0.22), transparent 55%),
+    radial-gradient(900px 560px at 88% 12%, rgba(34,197,94,0.16), transparent 58%),
+    radial-gradient(980px 640px at 72% 92%, rgba(245,158,11,0.14), transparent 58%),
+    radial-gradient(980px 640px at 18% 88%, rgba(236,72,153,0.12), transparent 58%),
+    linear-gradient(180deg, #060912, #0A1430 55%, #050912);
+  animation: bgHue 16s linear infinite;
+}
+
+/* Smooth hue shift for the whole page */
+@keyframes bgHue{
+  0%{ filter: hue-rotate(0deg) saturate(1.05); }
+  50%{ filter: hue-rotate(18deg) saturate(1.15); }
+  100%{ filter: hue-rotate(0deg) saturate(1.05); }
+}
+
+/* Color wave blobs (subtle) */
+.bgColorWaves{
+  position: fixed;
+  inset: -140px -140px -140px -140px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(59,130,246,0.22), transparent 42%),
+    radial-gradient(circle at 70% 25%, rgba(34,197,94,0.16), transparent 45%),
+    radial-gradient(circle at 30% 78%, rgba(236,72,153,0.16), transparent 46%),
+    radial-gradient(circle at 78% 76%, rgba(245,158,11,0.12), transparent 46%);
+  filter: blur(2px);
+  animation: waves 10s ease-in-out infinite alternate;
+}
+@keyframes waves{
+  0%{ transform: translate3d(0,0,0) scale(1); }
+  100%{ transform: translate3d(10px,-12px,0) scale(1.03); }
+}
+
+/* Roblox-like 3D grid “floor” */
+.bgGrid3D{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -220px;
+  height: 65vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.42;
+  transform-origin: bottom center;
+  transform: perspective(800px) rotateX(62deg);
+  background:
+    /* major lines */
+    repeating-linear-gradient(90deg,
+      rgba(59,130,246,0.00) 0,
+      rgba(59,130,246,0.00) 46px,
+      rgba(59,130,246,0.55) 47px,
+      rgba(59,130,246,0.00) 48px,
+      rgba(59,130,246,0.00) 94px
+    ),
+    repeating-linear-gradient(0deg,
+      rgba(34,197,94,0.00) 0,
+      rgba(34,197,94,0.00) 46px,
+      rgba(34,197,94,0.40) 47px,
+      rgba(34,197,94,0.00) 48px,
+      rgba(34,197,94,0.00) 94px
+    );
+  mask-image: radial-gradient(900px 520px at 50% 85%, black, transparent 70%);
+  box-shadow: 0 -40px 120px rgba(59,130,246,0.10);
+  animation: gridDrift 12s linear infinite;
+}
+@keyframes gridDrift{
+  0%{ background-position: 0 0, 0 0; }
+  100%{ background-position: 220px 0, 0 220px; }
+}
+
+/* Soft scanning line effect */
+.bgScan{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.18;
+  background: linear-gradient(180deg, transparent 0%, rgba(59,130,246,0.18) 48%, transparent 100%);
+  transform: translateY(-60%);
+  animation: scan 7s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+@keyframes scan{
+  0%{ transform: translateY(-70%); }
+  50%{ transform: translateY(0%); }
+  100%{ transform: translateY(70%); }
+}
+
+/* Very subtle noise so gradients feel “tech” */
+.bgNoise{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.06;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* Make brand strip pop more */
 .brandStrip{
-  display:flex;
-  align-items:center;
-  gap: 12px;
-  padding: 12px 14px;
-  border-radius: 18px;
-  border: 1px solid rgba(59,130,246,.22);
+  border-color: rgba(59,130,246,.30);
   background:
-    radial-gradient(900px 240px at 10% 10%, rgba(59,130,246,.22), transparent 55%),
-    linear-gradient(180deg, rgba(11,20,42,.55), rgba(11,20,42,.18));
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 14px;
+    radial-gradient(900px 260px at 15% 20%, rgba(59,130,246,.30), transparent 58%),
+    radial-gradient(800px 260px at 85% 10%, rgba(236,72,153,.16), transparent 60%),
+    linear-gradient(180deg, rgba(11,20,42,.64), rgba(11,20,42,.18));
 }
 
-.brandStrip::after{
-  content:"";
-  position:absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 0;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(59,130,246,.0), rgba(59,130,246,.85), rgba(34,197,94,.65), rgba(59,130,246,.0));
-  opacity:.85;
-}
-
-.brandIcon{
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  color: rgba(255,255,255,.95);
-  background:
-    radial-gradient(circle at 30% 30%, rgba(59,130,246,.45), rgba(59,130,246,.10) 55%),
-    rgba(255,255,255,.06);
-  border: 1px solid rgba(59,130,246,.28);
-  box-shadow: 0 8px 24px rgba(0,0,0,.18);
-}
-
-.brandTitle{
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  line-height: 1.05;
-}
-
-.brandSub{
-  margin-top: 2px;
-  font-size: 12px;
-  color: var(--muted);
-}
-
-@media (max-width: 520px){
-  .brandTitle{font-size: 16px;}
-  .brandIcon{width: 38px; height: 38px;}
-}
-
-
-/* Cards / panels */
-.card, .panel{
-  border-radius: var(--radius);
-  border: 1px solid var(--stroke);
-  background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(10px);
-}
-
-/* Typography */
-h1,h2,h3{
-  letter-spacing: -0.02em;
-}
-.small{color: var(--muted);}
-
-/* Buttons */
+/* Vibrant buttons */
 button, .btn{
-  border-radius: 14px;
-  border: 1px solid rgba(59,130,246,0.28);
-  background: linear-gradient(180deg, rgba(59,130,246,0.22), rgba(59,130,246,0.10));
-  color: rgba(255,255,255,0.92);
-  transition: transform .08s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+  border-color: rgba(99,102,241,0.36);
+  background: linear-gradient(180deg, rgba(99,102,241,0.32), rgba(59,130,246,0.12));
 }
 button:hover, .btn:hover{
-  transform: translateY(-1px);
-  border-color: rgba(59,130,246,0.45);
-  background: linear-gradient(180deg, rgba(59,130,246,0.30), rgba(59,130,246,0.12));
-}
-button:active, .btn:active{transform: translateY(0px) scale(0.99);}
-button[disabled]{opacity: .55; cursor:not-allowed; transform:none;}
-
-/* Secondary buttons (if you have .secondary class) */
-button.secondary, .btn.secondary{
-  border-color: rgba(148,163,184,0.22);
-  background: linear-gradient(180deg, rgba(148,163,184,0.12), rgba(148,163,184,0.06));
+  border-color: rgba(236,72,153,0.44);
+  background: linear-gradient(180deg, rgba(236,72,153,0.24), rgba(59,130,246,0.12));
 }
 
-/* Inputs / selects */
-input, select, textarea{
-  border-radius: 14px !important;
-  border: 1px solid rgba(148,163,184,0.20) !important;
-  background: rgba(0,0,0,0.18) !important;
-  color: rgba(255,255,255,0.92) !important;
-  outline: none !important;
-}
-input:focus, select:focus, textarea:focus{
-  border-color: rgba(59,130,246,0.55) !important;
-  box-shadow: 0 0 0 3px rgba(59,130,246,0.18);
-}
-
-/* Pills */
-.pill{
-  border: 1px solid rgba(148,163,184,0.18);
-  background: rgba(255,255,255,0.06);
-}
-.pill.ok{
-  border-color: rgba(34,197,94,0.35);
-  background: rgba(34,197,94,0.14);
-}
-.pill.warn{
-  border-color: rgba(245,158,11,0.35);
-  background: rgba(245,158,11,0.14);
-}
-.pill.bad{
-  border-color: rgba(239,68,68,0.35);
-  background: rgba(239,68,68,0.14);
-}
-
-/* Question choices: give options a tech card feel */
-.choice, .option, .answerChoice{
-  border-radius: 16px;
-  border: 1px solid rgba(148,163,184,0.18);
-  background: rgba(255,255,255,0.04);
-}
-.choice:hover, .option:hover, .answerChoice:hover{
-  border-color: rgba(59,130,246,0.40);
-  background: rgba(59,130,246,0.08);
-}
-
-/* Review section already has .review-choice styles; amplify readability */
-.review-choice{
-  background: rgba(255,255,255,0.04);
-}
-.review-choice.correct{
-  box-shadow: 0 0 0 1px rgba(34,197,94,0.22), 0 10px 26px rgba(0,0,0,0.22);
-}
-.review-choice.selected{
-  box-shadow: 0 0 0 2px rgba(59,130,246,0.45);
-}
-.review-choice.wrong{
-  box-shadow: 0 0 0 1px rgba(239,68,68,0.22), 0 10px 26px rgba(0,0,0,0.22);
-}
-
-/* Footer tag */
-.footerTag{
-  position: relative;
-  z-index: 1;
-  margin: 18px auto 26px;
-  max-width: 980px;
-  padding: 10px 14px;
-  border-radius: 14px;
-  border: 1px solid rgba(148,163,184,0.14);
-  background: rgba(0,0,0,0.14);
-  color: rgba(255,255,255,0.58);
-  font-size: 12px;
-  text-align: center;
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .theme-cyber, .bgColorWaves, .bgGrid3D, .bgScan{ animation: none !important; }
 }
