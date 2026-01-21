@@ -427,12 +427,11 @@ function renderResultsReview(){
   ui.resultsReview.innerHTML = "";
   const incorrectOnly = ui.chkIncorrectOnly.checked;
 
-  const answeredIds = Object.keys(state.answers || {}).map(Number).sort((a,b)=>a-b);
+  const answeredIds = Object.keys(state.answers).map(Number).sort((a,b)=>a-b);
   const filteredIds = answeredIds.filter(id => {
     const pack = DATA.answersById.get(id);
     const correct = pack?.correctAnswer || null;
     const ans = state.answers[id];
-    if (!ans || !ans.selected) return false;
     if (!incorrectOnly) return true;
     if (!correct) return false;
     return ans.selected !== correct;
@@ -444,56 +443,25 @@ function renderResultsReview(){
   }
 
   filteredIds.forEach(id => {
-    const q = (DATA.questionsById && DATA.questionsById.get(id)) || DATA.questions.find(x => x.id === id) || null;
+    const q = DATA.questions.find(x => x.id === id);
     const pack = DATA.answersById.get(id);
-    const ans = state.answers[id] || { selected: null };
-    const correct = pack?.correctAnswer || null;
+    const ans = state.answers[id];
+    const correct = pack?.correctAnswer;
     const isCorrect = correct ? ans.selected === correct : false;
 
     const d = getDomainForId(id);
     const domainText = d ? DOMAIN_NAMES[d] : "Domain: Unassigned";
 
-    const choices = q?.choices || {};
-    const choiceHtml = ["A","B","C","D"].map(letter => {
-      const txt = choices[letter] ?? "";
-      const cls = ["review-choice"];
-      if (correct === letter) cls.push("correct");
-      if (ans.selected === letter) cls.push("selected");
-      if (correct && ans.selected === letter && letter !== correct) cls.push("wrong");
-      return `
-        <div class="${cls.join(" ")}">
-          <span class="choice-letter">${letter}.</span>
-          <span class="choice-text">${escapeHtml(txt)}</span>
-        </div>
-      `;
-    }).join("");
-
-    const statusText = correct ? (isCorrect ? "Correct" : "Incorrect") : "Answered";
-    const statusClass = correct ? (isCorrect ? "ok" : "bad") : "";
-
     const card = document.createElement("div");
     card.className = "panel";
     card.innerHTML = `
       <div class="row space">
-        <div>
-          <b>Q${id}</b>
-          ${FLAGS.has(id) ? `<span class="pill warn" style="margin-left:8px">Flagged</span>` : ""}
-        </div>
-        <div class="pill ${statusClass}">${statusText}</div>
+        <div><b>Q${id}</b> ${FLAGS.has(id) ? `<span class="pill warn">Flagged</span>` : ""}</div>
+        <div class="pill ${correct ? (isCorrect ? "ok" : "bad") : "warn"}">${correct ? (isCorrect ? "Correct" : "Incorrect") : "Answered"}</div>
       </div>
-
       <div class="muted small" style="margin-top:6px">${escapeHtml(domainText)}</div>
-
-      <div class="review-q" style="margin-top:8px">${escapeHtml(q?.question || "")}</div>
-
-      <div class="review-choices">
-        ${choiceHtml}
-      </div>
-
-      <div class="muted" style="margin-top:10px">
-        <b>Your answer:</b> ${escapeHtml(ans.selected || "—")}
-        ${correct ? ` • <b>Correct:</b> ${correct}` : ""}
-      </div>
+      <div style="margin-top:8px">${escapeHtml(q?.question || "")}</div>
+      <div class="muted" style="margin-top:8px"><b>Your answer:</b> ${ans.selected}${correct ? ` • <b>Correct:</b> ${correct}` : ""}</div>
     `;
     ui.resultsReview.appendChild(card);
   });
