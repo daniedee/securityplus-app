@@ -1,5 +1,5 @@
 // Security+ Practice: Flags + Incorrect review + Domains + Weak-area training
-const DATA = { questions: [], answersById: new Map(), domainsById: new Map() };
+const DATA = { questions: [], questionsById: new Map(), answersById: new Map(), domainsById: new Map() };
 
 const STORAGE_SESSION = "secplus_session_v2";
 const STORAGE_FLAGS = "secplus_flags_v1";
@@ -232,7 +232,7 @@ function startSession({mode, setType, explainedOnly, domainFilter, count, idsOve
 
 function currentQuestion(){
   const id = state.ids[state.index];
-  return DATA.questions.find(q => q.id === id);
+  return DATA.questionsById.get(id) || null;
 }
 
 // ---------- flagging ----------
@@ -496,6 +496,7 @@ async function loadData(){
   const domains   = await safeJson("data/domains.json", {});
 
   DATA.questions = questions;
+  DATA.questionsById = new Map(questions.map(q => [q.id, q]));
   DATA.answersById = new Map(answers.map(x => [x.id, x]));
   DATA.domainsById = new Map(Object.entries(domains));
 
