@@ -1,5 +1,5 @@
 // Security+ Practice: Flags + Incorrect review + Domains + Weak-area training
-const DATA = { questions: [], questionsById: new Map(), answersById: new Map(), domainsById: new Map() };
+const DATA = { questions: [], answersById: new Map(), domainsById: new Map() };
 
 const STORAGE_SESSION = "secplus_session_v2";
 const STORAGE_FLAGS = "secplus_flags_v1";
@@ -44,7 +44,6 @@ const ui = {
   btnRetestMissedExam: el("btnRetestMissedExam"),
   btnHome: el("btnHome"),
   btnStartOver: el("btnStartOver"),
-  examNotice: el("examNotice"),
 };
 
 const DOMAIN_NAMES = {
@@ -208,7 +207,7 @@ function startSession({mode, setType, explainedOnly, domainFilter, count, idsOve
     } else if (domainFilter !== "all"){
       alert("No questions match this Domain filter yet. Try 'All domains' or 'Unassigned' until domains.json is filled.");
     } else {
-      alert("No questions available. Check that data/questions.json and data/answers_1_25.json are loading.");
+      alert("No questions available. Check that data/questions.json and data/answers.json are loading.");
     }
     return;
   }
@@ -233,7 +232,7 @@ function startSession({mode, setType, explainedOnly, domainFilter, count, idsOve
 
 function currentQuestion(){
   const id = state.ids[state.index];
-  return DATA.questionsById.get(id) || null;
+  return DATA.questions.find(q => q.id === id);
 }
 
 // ---------- flagging ----------
@@ -268,13 +267,6 @@ function renderQuiz(){
 
   const answeredCount = Object.keys(state.answers).length;
   ui.progressLabel.textContent = `Question ${state.index+1} of ${state.ids.length} • Answered ${answeredCount}`;
-
-  // Exam-mode message: do not show answers/explanations during the exam.
-  if (ui.examNotice){
-    const saved = state.answers && state.answers[q.id] ? state.answers[q.id].selected : null;
-    const show = (state.mode === "exam") && !!saved;
-    ui.examNotice.classList.toggle("hidden", !show);
-  }
 
   const d = getDomainForId(q.id);
   ui.domainLabel.textContent = d ? DOMAIN_NAMES[d] : "Domain: Unassigned";
@@ -350,8 +342,6 @@ function onSelect(questionId, letter){
 }
 
 function renderExplanation(qid){
-  // Exam mode: do not reveal explanations/feedback during the test.
-  if (state && state.mode === "exam") return;
   const selected = state.answers[qid]?.selected;
   if (!selected) return;
 
@@ -502,11 +492,10 @@ async function loadData(){
   setStatus("Loading data…", "warn");
 
   const questions = await safeJson("data/questions.json", []);
-  const answers   = await safeJson("data/answers_1_25.json", []);
+  const answers   = await safeJson("data/answers.json", []);
   const domains   = await safeJson("data/domains.json", {});
 
   DATA.questions = questions;
-  DATA.questionsById = new Map(questions.map(q => [q.id, q]));
   DATA.answersById = new Map(answers.map(x => [x.id, x]));
   DATA.domainsById = new Map(Object.entries(domains));
 

@@ -9,31 +9,33 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="spaceBg" aria-hidden="true"></div>
-  <div class="neonWaves" aria-hidden="true"></div>
-  <div class="floorGrid" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">S+</div>
+      <div>
+        <div class="title">Security+ Practice</div>
+        <div class="subtitle">Study + Exam • Flags • Domains • Weak-mode</div>
+      </div>
+    </div>
+    <div id="statusPill" class="pill hidden"></div>
+  </header>
 
   <main class="container">
 
-    
-  <section id="viewHome" class="card landingCard">
-    <div class="neonHero">
-      <div class="neonHero__topLine" aria-hidden="true"></div>
-      <div class="neonHero__content">
-        <h1 class="neonHero__title">Security+ Practice</h1>
-        <div class="neonHero__sub">Study + Exam • Flags • Domains • Weak‑mode</div>
+    <section id="viewHome" class="card">
 
-        <div class="neonHero__chips">
-          <span class="neoChip neoChip--study">✓ Study</span>
-          <span class="neoChip neoChip--exam">✓ Exam</span>
-          <span class="neoChip neoChip--flags">⚑ Flags</span>
-          <span class="neoChip neoChip--domains">◈ Domains</span>
+      <div class="brandStrip">
+        <div class="brandIcon" aria-hidden="true">S+</div>
+        <div class="brandText">
+          <div class="brandTitle">Security+ Practice</div>
+          <div class="brandSub">Study + Exam • Flags • Domains • Weak‑mode</div>
         </div>
       </div>
-      <div class="neonHero__glow" aria-hidden="true"></div>
-    </div>
+</div>
+        <div class="heroArt" aria-hidden="true"></div>
+      </div>
 
-<div class="grid2">
+      <div class="grid2">
         <div class="panel">
           <h2>Study mode</h2>
           <p class="muted">Immediate explanation after you answer.</p>
@@ -140,7 +142,6 @@
           <div id="modeLabel" class="pill"></div>
           <div id="progressLabel" class="muted small"></div>
           <div id="domainLabel" class="muted small"></div>
-          <div id="examNotice" class="examNotice hidden">Answer recorded. Feedback will be shown after you quit or finish the exam.</div>
         </div>
         <div class="row wrap">
           <button id="btnFlag" class="btn">Flag</button>
