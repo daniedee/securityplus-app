@@ -44,6 +44,7 @@ const ui = {
   btnRetestMissedExam: el("btnRetestMissedExam"),
   btnHome: el("btnHome"),
   btnStartOver: el("btnStartOver"),
+  examNotice: el("examNotice"),
 };
 
 const DOMAIN_NAMES = {
@@ -268,6 +269,13 @@ function renderQuiz(){
   const answeredCount = Object.keys(state.answers).length;
   ui.progressLabel.textContent = `Question ${state.index+1} of ${state.ids.length} • Answered ${answeredCount}`;
 
+  // Exam-mode message: do not show answers/explanations during the exam.
+  if (ui.examNotice){
+    const saved = state.answers && state.answers[q.id] ? state.answers[q.id].selected : null;
+    const show = (state.mode === "exam") && !!saved;
+    ui.examNotice.classList.toggle("hidden", !show);
+  }
+
   const d = getDomainForId(q.id);
   ui.domainLabel.textContent = d ? DOMAIN_NAMES[d] : "Domain: Unassigned";
 
@@ -342,6 +350,8 @@ function onSelect(questionId, letter){
 }
 
 function renderExplanation(qid){
+  // Exam mode: do not reveal explanations/feedback during the test.
+  if (state && state.mode === "exam") return;
   const selected = state.answers[qid]?.selected;
   if (!selected) return;
 
