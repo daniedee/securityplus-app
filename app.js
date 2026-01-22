@@ -1,5 +1,5 @@
 // Security+ Practice: Flags + Incorrect review + Domains + Weak-area training
-const DATA = { questions: [], answersById: new Map(), domainsById: new Map() };
+const DATA = { questions: [], questionsById: new Map(), answersById: new Map(), domainsById: new Map() };
 
 const STORAGE_SESSION = "secplus_session_v2";
 const STORAGE_FLAGS = "secplus_flags_v1";
@@ -207,7 +207,7 @@ function startSession({mode, setType, explainedOnly, domainFilter, count, idsOve
     } else if (domainFilter !== "all"){
       alert("No questions match this Domain filter yet. Try 'All domains' or 'Unassigned' until domains.json is filled.");
     } else {
-      alert("No questions available. Check that data/questions.json and data/answers.json are loading.");
+      alert("No questions available. Check that data/questions.json and data/answers_1_25.json are loading.");
     }
     return;
   }
@@ -232,7 +232,7 @@ function startSession({mode, setType, explainedOnly, domainFilter, count, idsOve
 
 function currentQuestion(){
   const id = state.ids[state.index];
-  return DATA.questions.find(q => q.id === id);
+  return DATA.questionsById.get(id) || null;
 }
 
 // ---------- flagging ----------
@@ -427,11 +427,12 @@ function renderResultsReview(){
   ui.resultsReview.innerHTML = "";
   const incorrectOnly = ui.chkIncorrectOnly.checked;
 
-  const answeredIds = Object.keys(state.answers).map(Number).sort((a,b)=>a-b);
+  const answeredIds = Object.keys(state.answers || {}).map(Number).sort((a,b)=>a-b);
   const filteredIds = answeredIds.filter(id => {
     const pack = DATA.answersById.get(id);
     const correct = pack?.correctAnswer || null;
     const ans = state.answers[id];
+    if (!ans || !ans.selected) return false;
     if (!incorrectOnly) return true;
     if (!correct) return false;
     return ans.selected !== correct;
@@ -443,25 +444,56 @@ function renderResultsReview(){
   }
 
   filteredIds.forEach(id => {
-    const q = DATA.questions.find(x => x.id === id);
+    const q = (DATA.questionsById && DATA.questionsById.get(id)) || DATA.questions.find(x => x.id === id) || null;
     const pack = DATA.answersById.get(id);
-    const ans = state.answers[id];
-    const correct = pack?.correctAnswer;
+    const ans = state.answers[id] || { selected: null };
+    const correct = pack?.correctAnswer || null;
     const isCorrect = correct ? ans.selected === correct : false;
 
     const d = getDomainForId(id);
     const domainText = d ? DOMAIN_NAMES[d] : "Domain: Unassigned";
 
+    const choices = q?.choices || {};
+    const choiceHtml = ["A","B","C","D"].map(letter => {
+      const txt = choices[letter] ?? "";
+      const cls = ["review-choice"];
+      if (correct === letter) cls.push("correct");
+      if (ans.selected === letter) cls.push("selected");
+      if (correct && ans.selected === letter && letter !== correct) cls.push("wrong");
+      return `
+        <div class="${cls.join(" ")}">
+          <span class="choice-letter">${letter}.</span>
+          <span class="choice-text">${escapeHtml(txt)}</span>
+        </div>
+      `;
+    }).join("");
+
+    const statusText = correct ? (isCorrect ? "Correct" : "Incorrect") : "Answered";
+    const statusClass = correct ? (isCorrect ? "ok" : "bad") : "";
+
     const card = document.createElement("div");
     card.className = "panel";
     card.innerHTML = `
       <div class="row space">
-        <div><b>Q${id}</b> ${FLAGS.has(id) ? `<span class="pill warn">Flagged</span>` : ""}</div>
-        <div class="pill ${correct ? (isCorrect ? "ok" : "bad") : "warn"}">${correct ? (isCorrect ? "Correct" : "Incorrect") : "Answered"}</div>
+        <div>
+          <b>Q${id}</b>
+          ${FLAGS.has(id) ? `<span class="pill warn" style="margin-left:8px">Flagged</span>` : ""}
+        </div>
+        <div class="pill ${statusClass}">${statusText}</div>
       </div>
+
       <div class="muted small" style="margin-top:6px">${escapeHtml(domainText)}</div>
-      <div style="margin-top:8px">${escapeHtml(q?.question || "")}</div>
-      <div class="muted" style="margin-top:8px"><b>Your answer:</b> ${ans.selected}${correct ? ` • <b>Correct:</b> ${correct}` : ""}</div>
+
+      <div class="review-q" style="margin-top:8px">${escapeHtml(q?.question || "")}</div>
+
+      <div class="review-choices">
+        ${choiceHtml}
+      </div>
+
+      <div class="muted" style="margin-top:10px">
+        <b>Your answer:</b> ${escapeHtml(ans.selected || "—")}
+        ${correct ? ` • <b>Correct:</b> ${correct}` : ""}
+      </div>
     `;
     ui.resultsReview.appendChild(card);
   });
@@ -492,10 +524,11 @@ async function loadData(){
   setStatus("Loading data…", "warn");
 
   const questions = await safeJson("data/questions.json", []);
-  const answers   = await safeJson("data/answers.json", []);
+  const answers   = await safeJson("data/answers_1_25.json", []);
   const domains   = await safeJson("data/domains.json", {});
 
   DATA.questions = questions;
+  DATA.questionsById = new Map(questions.map(q => [q.id, q]));
   DATA.answersById = new Map(answers.map(x => [x.id, x]));
   DATA.domainsById = new Map(Object.entries(domains));
 
