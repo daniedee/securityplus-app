@@ -1,4 +1,4 @@
-const CACHE = "secplus-mvp-v1";
+const CACHE = "secplus-mvp-v2";
 const ASSETS = [
   "./",
   "./index.html",
@@ -6,7 +6,8 @@ const ASSETS = [
   "./app.js",
   "./manifest.json",
   "./data/questions.json",
-  "./data/answers_1_25.json"
+  "./data/domains.json",
+  ./data/answers_1_25.json"
 ];
 
 self.addEventListener("install", (event) => {

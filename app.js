@@ -342,6 +342,8 @@ function onSelect(questionId, letter){
 }
 
 function renderExplanation(qid){
+  // Exam mode: do not reveal explanations/feedback during the test.
+  if (state && state.mode === "exam") return;
   const selected = state.answers[qid]?.selected;
   if (!selected) return;
 
@@ -524,10 +526,9 @@ async function loadData(){
   setStatus("Loading data…", "warn");
 
   const questions = await safeJson("data/questions.json", []);
-  const answers   = await safeJson("data/answers_1_25.json", []);
-  const domains   = await safeJson("data/domains.json", {});
-
-  DATA.questions = questions;
+const answers   = await safeJson("data/answers_1_25.json", []);
+const domains   = await safeJson("data/domains.json", {});
+DATA.questions = questions;
   DATA.questionsById = new Map(questions.map(q => [q.id, q]));
   DATA.answersById = new Map(answers.map(x => [x.id, x]));
   DATA.domainsById = new Map(Object.entries(domains));
